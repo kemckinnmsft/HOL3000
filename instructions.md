@@ -43,21 +43,25 @@ This exercise demonstrates using the Azure Information Protection blade in the A
 
 In this task…Internal label/Partner DNF
 
-1. [] Switch to the Client1 virtual machine and use the provided login credentials if necessary.
+- [] Switch to the Client1 virtual machine and use the provided login credentials if necessary.
+
 > [!NOTE] Check the bar in the top center of the lab environment to identify which machine you are logged into and to switch machines.
-1. [] Open a web browser in private mode and navigate to https://portal.azure.com/
-1. [] Log in using the provided Microsoft 365 Credentials
+
+- [] Open a web browser in private mode and navigate to https://portal.azure.com/
+- [] Log in using the provided Microsoft 365 Credentials
+
 > [!NOTE] If you do not have credentials, you may follow the instructions in Appendix A – Tenant Setup to create your own demo tenant.
-1. [] After logging into the portal, type the word info into the search bar and then click on Azure Information Protection. This will display the Azure Information Protection - Labels blade
-1. [] Under CLASSIFICATIONS in the left pane, click on Labels to load the Azure Information Protection – Labels blade.
-1. [] In the Azure Information Protection – Labels blade, right-click on Confidential and click Add a sub-label.
-1. [] In the Sub-label blade, enter Contoso Internal for the Label display name and for Description enter text similar to “Confidential data that requires protection, which allows Contoso Internal employees full permissions. Data owners can track and revoke content.”
-1. [] Then, under Set permissions for documents and emails containing this label, click Protect, and under Protection, click on Azure (cloud key).
-1. [] In the Protection blade, click + Add Permissions.
-1. [] In the Add permissions blade, click on + Add contoso – All members and click OK.
-1. [] In the Protection blade, click OK.
-1. [] In the Sub-label blade, scroll down to the Set visual marking (such as header or footer) section and under Documents with this label have a header, click On.
-1. [] Use the values in the table below to configure the Header.
+
+- [] After logging into the portal, type the word info into the search bar and then click on Azure Information Protection. This will display the Azure Information Protection - Labels blade
+- [] Under CLASSIFICATIONS in the left pane, click on Labels to load the Azure Information Protection – Labels blade.
+- [] In the Azure Information Protection – Labels blade, right-click on Confidential and click Add a sub-label.
+- [] In the Sub-label blade, enter Contoso Internal for the Label display name and for Description enter text similar to “Confidential data that requires protection, which allows Contoso Internal employees full permissions. Data owners can track and revoke content.”
+- [] Then, under Set permissions for documents and emails containing this label, click Protect, and under Protection, click on Azure (cloud key).
+- [] In the Protection blade, click + Add Permissions.
+- [] In the Add permissions blade, click on + Add contoso – All members and click OK.
+- [] In the Protection blade, click OK.
+- [] In the Sub-label blade, scroll down to the Set visual marking (such as header or footer) section and under Documents with this label have a header, click On.
+- [] Use the values in the table below to configure the Header.
 
 | Setting          | Value            |
 |:-----------------|:-----------------|
@@ -67,24 +71,28 @@ In this task…Internal label/Partner DNF
 | Header alignment | Center           |
 
 > [!NOTE] These are sample values to demonstrate marking possibilities and NOT a best practice.
-1. [] To complete creation of the new sub-label, click the Save button and then click OK in the Save settings dialog.
-1. [] In the Azure Information Protection - Labels blade, (if necessary) expand Confidential and then click on Recipients Only.
-1. [] In the Label: Recipients Only blade, change the Label display name from “Recipients Only” to “Do Not Forward”.
-1. [] Next, under Set permissions for documents and emails containing this label, under Protection, click Azure (cloud key): User defined.
-1. [] In the Protection blade, under Set user-defined permissions (Preview), verify that only the box next to In Outlook apply Do Not Forward is checked, then click OK.
+
+- [] To complete creation of the new sub-label, click the Save button and then click OK in the Save settings dialog.
+- [] In the Azure Information Protection - Labels blade, (if necessary) expand Confidential and then click on Recipients Only.
+- [] In the Label: Recipients Only blade, change the Label display name from “Recipients Only” to “Do Not Forward”.
+- [] Next, under Set permissions for documents and emails containing this label, under Protection, click Azure (cloud key): User defined.
+- [] In the Protection blade, under Set user-defined permissions (Preview), verify that only the box next to In Outlook apply Do Not Forward is checked, then click OK.
+
 > [!NOTE] Although there is no action added during this step, it is included for users that may not have access to the demos.microsoft.com or event tenants.
-1. [] Click Save in the Label: Recipients Only blade and OK to the Save settings prompt. 
-1. []  Click the X in the upper right corner of the blade to close.
+
+- [] Click Save in the Label: Recipients Only blade and OK to the Save settings prompt. 
+- []  Click the X in the upper right corner of the blade to close.
+
 > [!NOTE] This is necessary as it gives you the ability to make multiple changes before leaving the blade.
 
 ### Configuring Global Policy
 
 In this task, we will assign the new sub-label to the Global policy and configure several global policy settings that will increase Azure Information Protection adoption among your users and reduce ambiguity in the user interface.
 
-1. [] In the Azure Information Protection blade, under CLASSIFICATIONS on the left, click Policies then click the Global policy.
-1. [] In the Policy: Global blade, below the labels, click Add or remove labels.
-1. [] In the Policy: Add or remove labels blade, check the box next to Contoso Internal and click OK.
-1. [] In the Policy: Global blade, under the Configure settings to display and apply on Information Protection end users section, configure the policy to match the settings shown in the table and image below.
+- [] In the Azure Information Protection blade, under CLASSIFICATIONS on the left, click Policies then click the Global policy.
+- [] In the Policy: Global blade, below the labels, click Add or remove labels.
+- [] In the Policy: Add or remove labels blade, check the box next to Contoso Internal and click OK.
+- [] In the Policy: Global blade, under the Configure settings to display and apply on Information Protection end users section, configure the policy to match the settings shown in the table and image below.
 
 | Setting | Value |
 |:--------|:------|
@@ -94,67 +102,76 @@ Users must provide justification to set a lower…|On
 For email messages with attachments, apply a label…|Automatic
 Add the Do Not Forward button to the Outlook ribbon|Off
 
-1. [] Click Save, then OK to complete configuration of the Global policy.
-1. [] Click the X in the upper right corner to close the Policy: Global blade.
+- [] Click Save, then OK to complete configuration of the Global policy.
+- [] Click the X in the upper right corner to close the Policy: Global blade.
 
 ### Creating a Scoped Label and Policy
 
 Now that you have learned how to work with global labels and policies, we will create a new scoped label and policy for the Legal team at Contoso.  (If you are using your own demo tenant you may need to create the users and described.)
 
-1. [] Under CLASSIFICATIONS on the left, click Labels.
-1. [] In the Azure Information Protection – Labels blade, right-click on Highly-Confidential and click Add a sub-label.
-1. [] In the Sub-label blade, enter Legal Only for the Label display name and for Description enter “Data is classified and protected. Legal department staff can edit, forward and unprotect.”.
-1. [] Then, under Set permissions for documents and emails containing this label, click Protect and under Protection, click Azure (cloud key)
-1. [] In the Protection blade, under Protection settings, click the +Add permissions link.
-1. [] In the Add permissions blade, click +Browse directory
-1. [] In the AAD Users and Groups blade, wait for the names to load, then check the boxes next to Adele Vance and Alex Wilber, and click the Select button.
-1. [] In the Add permissions blade, click OK.
+- [] Under CLASSIFICATIONS on the left, click Labels.
+- [] In the Azure Information Protection – Labels blade, right-click on Highly-Confidential and click Add a sub-label.
+- [] In the Sub-label blade, enter Legal Only for the Label display name and for Description enter “Data is classified and protected. Legal department staff can edit, forward and unprotect.”.
+- [] Then, under Set permissions for documents and emails containing this label, click Protect and under Protection, click Azure (cloud key)
+- [] In the Protection blade, under Protection settings, click the +Add permissions link.
+- [] In the Add permissions blade, click +Browse directory
+- [] In the AAD Users and Groups blade, wait for the names to load, then check the boxes next to Adele Vance and Alex Wilber, and click the Select button.
+- [] In the Add permissions blade, click OK.
+
 > [!NOTE] In a production environment, you will typically use a synced or Azure AD Group rather than choosing individuals.
-1. [] In the Protection blade, under Allow offline access, reduce the Number of days the content is available without an Internet connection value to 3 and press OK.
+
+- [] In the Protection blade, under Allow offline access, reduce the Number of days the content is available without an Internet connection value to 3 and press OK.
+
 > [!NOTE] This value determines how many days a user will have offline access from the time a document is opened, and an initial Use License is acquired.  While this provides convenience for users, it is recommended that this value be set appropriately based on the sensitivity of the content.
-1. [] Click Save in the Sub-label blade and OK to the Save settings prompt to complete the creation of the Legal Only sub-label.
-1. [] In the Azure Information Protection blade, under Classifications on the left, click Policies then click the +Add a new policy link.
-1. [] In the Policy blade, for Policy name, type Legal Scoped Policy and click on Select which users or groups get this policy. Groups must be email-enabled.
-1. [] In the AAD Users and Groups blade, click on Users/Groups.  
-1. [] Then in the second AAD Users and Groups blade, wait for the names to load and check the boxes next to Adele Vance and Alex Wilber
-1. [] Click the Select button.
-1. [] Finally, click OK.
-1. [] In the Policy blade, under the labels, click on Add or remove labels to add the scoped label.
-1. [] In the Policy: Add or remove labels blade, check the box next to Legal Only and click OK.
-1. [] In the Policy blade, under Configure settings to display and apply on Information Protection end users section, under Select the default label, select Highly Confidential \ Legal Only as the default label for this scoped policy.
-1. [] Click Save, then OK to complete creation of the Legal Scoped Policy.
-1. [] Click on the X in the upper right-hand corner to close the policy.
+
+- [] Click Save in the Sub-label blade and OK to the Save settings prompt to complete the creation of the Legal Only sub-label.
+- [] In the Azure Information Protection blade, under Classifications on the left, click Policies then click the +Add a new policy link.
+- [] In the Policy blade, for Policy name, type Legal Scoped Policy and click on Select which users or groups get this policy. Groups must be email-enabled.
+- [] In the AAD Users and Groups blade, click on Users/Groups.  
+- [] Then in the second AAD Users and Groups blade, wait for the names to load and check the boxes next to Adele Vance and Alex Wilber
+- [] Click the Select button.
+- [] Finally, click OK.
+- [] In the Policy blade, under the labels, click on Add or remove labels to add the scoped label.
+- [] In the Policy: Add or remove labels blade, check the box next to Legal Only and click OK.
+- [] In the Policy blade, under Configure settings to display and apply on Information Protection end users section, under Select the default label, select Highly Confidential \ Legal Only as the default label for this scoped policy.
+- [] Click Save, then OK to complete creation of the Legal Scoped Policy.
+- [] Click on the X in the upper right-hand corner to close the policy.
 
 ### Configuring Advanced Policy Settings
 
 There are many advanced policy settings that are useful to tailor your Azure Information Protection deployment to the needs of your environment.  In this task, we will cover one of the settings that is very complimentary when using scoped policies that have a protected default label.  Because the Legal Scoped Policy we created in the previous task uses a protected default label, we will be adding an alternate default label for Outlook to provide a more palatable user experience for those users.
 
-1. [] In the Azure Information Protection blade, under CLASSIFICATIONS on the left, click on Labels and then click on the General abel.
-1. [] In the Label: General blade, scroll to the bottom and copy the Label ID and close the blade using the X in the upper right-hand corner.
-1. [] In the AIP Portal, under CLASSIFICATIONS on the left, click on Policies. Right-click on the Legal Scoped Policy and click on Advanced settings.
-1. [] In the Advanced settings blade, in the textbox under NAME, type OutlookDefaultLabel.  In the textbox under VALUE, paste the Label ID for the General label you copied previously, then click Save and close.
+- [] In the Azure Information Protection blade, under CLASSIFICATIONS on the left, click on Labels and then click on the General abel.
+- [] In the Label: General blade, scroll to the bottom and copy the Label ID and close the blade using the X in the upper right-hand corner.
+- [] In the AIP Portal, under CLASSIFICATIONS on the left, click on Policies. Right-click on the Legal Scoped Policy and click on Advanced settings.
+- [] In the Advanced settings blade, in the textbox under NAME, type OutlookDefaultLabel.  In the textbox under VALUE, paste the Label ID for the General label you copied previously, then click Save and close.
+
 > [!NOTE] This and additional Advanced Policy Settings can be found at https://docs.microsoft.com/en-us/azure/information-protection/rms-client/client-admin-guide-customizations 
 
 ### Defining Recommended and Automatic Conditions
 
 One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. However, helping your users to properly classify and protect sensitive data at the time of creation is a more organic user experience that will achieve better results long term.  In this task, we will define some basic recommended and automatic conditions that will trigger based on certain types of sensitive data.
 
-1. [] Under CLASSIFICATIONS on the left, click Labels.
-1. [] In the Azure Information Protection - Labels blade, expand Confidential and click on Contoso Internal.
-1. [] In the Label: Contoso Internal blade, scroll down to the Configure conditions for automatically applying this label section, and click on +Add a new condition.
-1. [] In the Condition blade, click on Custom and enter Password for the Name and in the textbox below Match exact phrase or pattern, enter the word password.
-1. [] Click Save in the Condition blade and OK to the Save settings prompt.
+- [] Under CLASSIFICATIONS on the left, click Labels.
+- [] In the Azure Information Protection - Labels blade, expand Confidential and click on Contoso Internal.
+- [] In the Label: Contoso Internal blade, scroll down to the Configure conditions for automatically applying this label section, and click on +Add a new condition.
+- [] In the Condition blade, click on Custom and enter Password for the Name and in the textbox below Match exact phrase or pattern, enter the word password.
+- [] Click Save in the Condition blade and OK to the Save settings prompt.
+
 > [!NOTE] By default, the condition is set to Recommended and a standard policy tip is provided.
-1. [] Click Save in the Label: Contoso Internal blade and OK to the Save settings prompt.
-1. [] Press the X in the upper right-hand corner to close the Label: Contoso Internal blade.
-1. [] Next, expand Highly Confidential and click on the All Employees sub-label.
-1. [] In the Label: All Employees blade, scroll down to the Configure conditions for automatically applying this label section, and click on +Add a new condition.
-1. [] In the Condition blade, in the Select information types search box, type credit and check the box next to Credit Card Number.
-1. [] Click Save in the Condition blade and OK to the Save settings prompt.
-1. [] Under the Configure conditions for automatically applying this label section, under Select how this label is applied: automatically or recommended to user, click Automatic.  
+
+- [] Click Save in the Label: Contoso Internal blade and OK to the Save settings prompt.
+- [] Press the X in the upper right-hand corner to close the Label: Contoso Internal blade.
+- [] Next, expand Highly Confidential and click on the All Employees sub-label.
+- [] In the Label: All Employees blade, scroll down to the Configure conditions for automatically applying this label section, and click on +Add a new condition.
+- [] In the Condition blade, in the Select information types search box, type credit and check the box next to Credit Card Number.
+- [] Click Save in the Condition blade and OK to the Save settings prompt.
+- [] Under the Configure conditions for automatically applying this label section, under Select how this label is applied: automatically or recommended to user, click Automatic.  
+
 > [!NOTE] The policy tip is updated with default messaging.
-1. [] Click Save in the Label: All Employees blade and OK to the Save settings prompt.
-1. [] Press the X in the upper right-hand corner to close the Label: All Employees blade.
+
+- [] Click Save in the Label: All Employees blade and OK to the Save settings prompt.
+- [] Press the X in the upper right-hand corner to close the Label: All Employees blade.
 
 ## Exercise 2: Client Configuration
 
@@ -164,18 +181,20 @@ Now that we have defined some basic AIP Policies, we need to configure some clie
 
 In this task, we will configure Word and Outlook for 3 test users.  These users are Alex Wilber (AlexW) and Adele Vance (AdeleV) who we have defined as members of the Legal group, and Ben Walters (BenW).  This will allow us to demonstrate the differences between the global and scoped policy and demonstrate some of the protection features of Azure Information Protection in the next exercise.
 
-1. [] On Client1, start Microsoft Word by clicking on the icon in the taskbar.
-1. [] When Word opens, you may see a prompt to log into Azure Information Protection.  You can close this and you will receive a prompt to sign in to set up Office. Click the Sign in button and enter AlexW@LODSEMS######.onmicrosoft.com (substituting the provided tenant name for LODSEMS#######) and provide the password pass@word1.
-1. [] Click Yes to the prompt to allow the device to be registered with Azure AD.
-1. [] Finally, click Accept and start Word to complete the setup.
-1. [] Close Microsoft Word
-1. [] Next, start Microsoft Outlook by clicking on the icon in the taskbar.
-1. [] This should automatically populate the ID based on the previous login.
-1. [] Click Connect and let Outlook configure.  If you are prompted to choose an account type, click Office 365 to continue.
-1. [] Uncheck the box to Set up Outlook Mobile on my phone, too and click OK.
-1. [] Switch to Client2 and go through the same steps for AdeleV.
+- [] On Client1, start Microsoft Word by clicking on the icon in the taskbar.
+- [] When Word opens, you may see a prompt to log into Azure Information Protection.  You can close this and you will receive a prompt to sign in to set up Office. Click the Sign in button and enter AlexW@LODSEMS######.onmicrosoft.com (substituting the provided tenant name for LODSEMS#######) and provide the password pass@word1.
+- [] Click Yes to the prompt to allow the device to be registered with Azure AD.
+- [] Finally, click Accept and start Word to complete the setup.
+- [] Close Microsoft Word
+- [] Next, start Microsoft Outlook by clicking on the icon in the taskbar.
+- [] This should automatically populate the ID based on the previous login.
+- [] Click Connect and let Outlook configure.  If you are prompted to choose an account type, click Office 365 to continue.
+- [] Uncheck the box to Set up Outlook Mobile on my phone, too and click OK.
+- [] Switch to Client2 and go through the same steps for AdeleV.
+
 > [!NOTE] The password for the Install account is Somepass1 if the client is not logged on
-1. [] Switch to Client3 and go through the same steps for BenW.
+
+- [] Switch to Client3 and go through the same steps for BenW.
 
 ## Exercise 3: Testing AIP Policies
 
@@ -185,56 +204,58 @@ Now that you have 3 test systems with users being affected by different policies
 
 One of the most common use cases for AIP is the ability to send emails and protect documents using User Defined Permissions (Do Not Forward and Custom Permissions). In this task, we will send emails and create protected documents using these labels to test their functionality.  We will also send an email to an external Social Email Provider to demonstrate the user experience available for Office 365 Message Encryption.
 
-1. [] Switch to Client3 and make sure you are logged into Office as the user BenW.
-1. [] In Microsoft Outlook, create a new email.
-1. [] Note that the Sensitivity is set to General by default.
-1. [] Send an email to AlexW, AdeleV, and your personal email address (preferably at a major social email provider such as Outlook.com, Gmail, or Yahoo).
-1. [] In the Sensitivity Toolbar, click on the Confidential \ Recipients Only sub-label (note that the Do Not Forward user defined permission was added to the email) and send it.
-1. [] Switch over to Client1 or Client2 and review the email in Alex or Adele’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
-1. [] Open the browser and log into your email and review the OME based experience.
-1. [] Next, on Client3, open Word and create a new document.  Enter some text and use the Confidential \ Recipients Only sub-label to display the Custom Permissions dialog and add AlexW (only) with Co-Author permissions. Save the document.
-1. [] Email the document to AlexW and AdeleV.
-1. [] On Client1, open the document as AlexW and verify that you have all rights except the ability to remove permissions.
-1. [] On Client2, attempt to open the document as AdeleV and observe that you are unable to view the document (this is the expected behavior). 
+- [] Switch to Client3 and make sure you are logged into Office as the user BenW.
+- [] In Microsoft Outlook, create a new email.
+- [] Note that the Sensitivity is set to General by default.
+- [] Send an email to AlexW, AdeleV, and your personal email address (preferably at a major social email provider such as Outlook.com, Gmail, or Yahoo).
+- [] In the Sensitivity Toolbar, click on the Confidential \ Recipients Only sub-label (note that the Do Not Forward user defined permission was added to the email) and send it.
+- [] Switch over to Client1 or Client2 and review the email in Alex or Adele’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
+- [] Open the browser and log into your email and review the OME based experience.
+- [] Next, on Client3, open Word and create a new document.  Enter some text and use the Confidential \ Recipients Only sub-label to display the Custom Permissions dialog and add AlexW (only) with Co-Author permissions. Save the document.
+- [] Email the document to AlexW and AdeleV.
+- [] On Client1, open the document as AlexW and verify that you have all rights except the ability to remove permissions.
+- [] On Client2, attempt to open the document as AdeleV and observe that you are unable to view the document (this is the expected behavior). 
 
 ### Testing Global Policy
 
 In this task, we will create a document and send an email to demonstrate the functionality defined in the first exercise.
 
-1. [] Switch to Client3 and make sure you are logged into Office as the user BenW.
-1. [] In Microsoft Outlook, create a new email.
-1. [] Send an email to AlexW, AdeleV, and your personal email address.
-1. [] In the Sensitivity Toolbar, click on the Confidential \ All Employees sub-label and send the email.
-1. [] On Client1 and Client2 observe that you are able to open the email natively in the client.
-1. [] In your personal email note that you will be unable to open this email (we will show you how to prevent this poor user experience using Exchange Mail Flow Rules in Exercise 4).
+- [] Switch to Client3 and make sure you are logged into Office as the user BenW.
+- [] In Microsoft Outlook, create a new email.
+- [] Send an email to AlexW, AdeleV, and your personal email address.
+- [] In the Sensitivity Toolbar, click on the Confidential \ All Employees sub-label and send the email.
+- [] On Client1 and Client2 observe that you are able to open the email natively in the client.
+- [] In your personal email note that you will be unable to open this email (we will show you how to prevent this poor user experience using Exchange Mail Flow Rules in Exercise 4).
 
 ### Testing Scoped Policy
 
 In this task, we will create a document and send an email from one of the users in the Legal group to demonstrate the functionality defined in the first exercise. We will also show the behavior of the No Default Label policy on documents.
 
-1. [] Switch to Client1 and make sure you are logged into Office as the user AlexW.
-1. [] In Microsoft Outlook, create a new email.
-1. [] Send an email to BenW and AdeleV.
-1. [] In the Sensitivity Toolbar, click on the Highly Confidential \ Legal Only sub-label and send the email.
-1. [] On Client2 observe that you are able to open the email natively in the client as AdeleV.
-1. [] On Client3, observe that you are unable to open the email as BenW.
+- [] Switch to Client1 and make sure you are logged into Office as the user AlexW.
+- [] In Microsoft Outlook, create a new email.
+- [] Send an email to BenW and AdeleV.
+- [] In the Sensitivity Toolbar, click on the Highly Confidential \ Legal Only sub-label and send the email.
+- [] On Client2 observe that you are able to open the email natively in the client as AdeleV.
+- [] On Client3, observe that you are unable to open the email as BenW.
 
 ### Testing Recommended Classification
 
 In this task, we will test the configured Recommended Condition we defined in Exercise 1.
 
-1. [] Switch to Client3 and make sure you are logged into Office as the user BenW.
-1. [] In Microsoft Word, create a new document and enter the phrase “my password is pass@word1” and save the document.
-1. [] Notice that you are prompted with a recommendation to change the classification to Confidential \ Contoso Internal.
+- [] Switch to Client3 and make sure you are logged into Office as the user BenW.
+- [] In Microsoft Word, create a new document and enter the phrase “my password is pass@word1” and save the document.
+- [] Notice that you are prompted with a recommendation to change the classification to Confidential \ Contoso Internal.
 
 ### Testing Automatic Classification
 
 In this task, we will test the configured Recommended Condition we defined in Exercise 1.
 
-1. [] Switch to Client3 and make sure you are logged into Office as the user BenW.
-1. [] In Microsoft Word, create a new document and enter the phrase “My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368” and save the document.
+- [] Switch to Client3 and make sure you are logged into Office as the user BenW.
+- [] In Microsoft Word, create a new document and enter the phrase “My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368” and save the document.
+
 > [!NOTE] This card number is a fake number that was generated using the Credit Card Generator for Testing at https://developer.paypal.com/developer/creditCardGenerator/.  The Microsoft Classification Engine uses the Luhn Algorithm to prevent false positives so when testing, please make sure to use valid numbers.
-1. [] Notice that the document is automatically classified as Confidential \ All Employees.
+
+- [] Notice that the document is automatically classified as Confidential \ All Employees.
 
 ## Exercise 4: Exchange Online IRM Capabilities
 
@@ -243,126 +264,136 @@ Exchange Online can work in conjunction with Azure Information Protection (via A
 ## Exercise 5: Azure Information Protection Scanner
 
 The Azure Information Protection Scanner allows you to discover and optionally classify and protect sensitive information store in on-premises file shares and SharePoint repositories.  In this exercise, you will install, configure and test the AIP Scanner.
+
 > [!NOTE] This exercise is based on the preview version of the AIP scanner (1.36.18.0) because some of the PowerShell commands have been updated and will be in the next GA version. The AIP client has been installed on SQL1 to save time but is available at https://aka.ms/AIPClient.
 
 ### Azure AD Connect Configuration
 
 To authenticate to the AIP Service, the AIP Scanner service account must exist in on-premises Active Directory and in Azure Active Directory.  To accomplish this, you must install Azure AD Connect and configure it using the express settings.
 
-1. [] Log into SQL1 using the username Contoso\AIPScanner and the password Somepass1
-1. [] On the desktop, double-click on AzureADConnect.msi
-1. [] When prompted, click Run to continue
-1. [] On the Welcome page, check the box next to I agree and click the Continue button
-1. [] On the Express Settings page, click Use express settings
-1. [] On the Connect to Azure AD page, enter the username and password provided by the lab environment and press the Next button
-1. [] > [!NOTE] The username should be something like admin@LODSEMS######.onmicrosoft.com
-1. [] > [!NOTE] The wizard will connect to the Microsoft Online tenant to verify the credentials
-1. [] On the Connect to AD DS page, enter Contoso\Install in the username field and Somepass1 in the password field, then click the Next button
-1. [] On the Azure AD sign-in page, check the box next to Continue without any verified domains and click the Next button
-1. [] > [!NOTE] Verified domains are primarily for SSO purposes and are not needed for this lab
-1. [] On the Configure page, click the Install button
-1. [] > [!ALERT] Do not uncheck the box for initial synchronization
-1. [] Continue to the next task leaving the Azure AD Connect sync process running
+- [] Log into SQL1 using the username Contoso\AIPScanner and the password Somepass1
+- [] On the desktop, double-click on AzureADConnect.msi
+- [] When prompted, click Run to continue
+- [] On the Welcome page, check the box next to I agree and click the Continue button
+- [] On the Express Settings page, click Use express settings
+- [] On the Connect to Azure AD page, enter the username and password provided by the lab environment and press the Next button
+
+> [!NOTE] The username should be something like admin@LODSEMS######.onmicrosoft.com
+
+> [!NOTE] The wizard will connect to the Microsoft Online tenant to verify the credentials
+
+- [] On the Connect to AD DS page, enter Contoso\Install in the username field and Somepass1 in the password field, then click the Next button
+- [] On the Azure AD sign-in page, check the box next to Continue without any verified domains and click the Next button
+
+> [!NOTE] Verified domains are primarily for SSO purposes and are not needed for this lab
+
+- [] On the Configure page, click the Install button
+
+> [!ALERT] WARNING: Do not uncheck the box for initial synchronization
+
+- [] Continue to the next task leaving the Azure AD Connect sync process running
 
 ### Installing the AIP Scanner Service
 
 The first step in configuring the AIP Scanner is to install the service and connect the database.  This is done with the Install-AIPScanner cmdlet that is provided by the AIP Client software.  The AIPScanner service account has been pre-staged in Active Directory for convenience.
 
-1. [] Click on the Machines tab in the lab interface and select SQL1
-1. [] Log into SQL1 using the username **Contoso\Install** and the password **Somepass1**
-1. [] Right-click on the Windows   button in the lower left-hand corner and click on Command Prompt (Admin)
-1. [] Type PowerShell and hit Enter
-1. [] At the PowerShell prompt, type the following command and press ENTER:
->- Install-AIPScanner
+- [] Click on the Machines tab in the lab interface and select SQL1
+- [] Log into SQL1 using the username **Contoso\Install** and the password **Somepass1**
+- [] Right-click on the Windows   button in the lower left-hand corner and click on Command Prompt (Admin)
+- [] Type PowerShell and hit Enter
+- [] At the PowerShell prompt, type the following command and press ENTER:
+
+```Install-AIPScanner```
+
 When prompted, provide the credentials for the AIP scanner service account (Contoso\AIPScanner) and password (Somepass1)
 When prompted for SqlServerInstance, enter SQL1 and press Enter
- 
-1. [] You should see a success message like the one below
- 
-Right-click on the Windows   button in the lower left-hand corner and click on Run
- 
-In the Run dialog, type Services.msc and click OK
- 
-In the Services console, double-click on the Azure Information Protection Scanner service
-On the Log On tab of the Azure Information Protection Scanner Service Properties, verify that Log on as: is set to the Contoso\AIPScanner service account
- 
-Creating Azure AD Applications for the AIP Scanner
+
+- [] You should see a success message like the one below
+- [] Right-click on the Windows button in the lower left-hand corner and click on Run
+- [] In the Run dialog, type Services.msc and click OK
+- [] In the Services console, double-click on the Azure Information Protection Scanner service
+- [] On the Log On tab of the Azure Information Protection Scanner Service Properties, verify that Log on as: is set to the Contoso\AIPScanner service account
+
+### Creating Azure AD Applications for the AIP Scanner
+
 Now that you have installed the scanner, you need to get an Azure AD token for the scanner service account to authenticate so that it can run unattended.
-1. [] Open Internet Explorer and browse to https://portal.azure.com 
-1. [] At the Sign in to Microsoft Azure page, enter the provided tenant credentials
-1. [] In the Microsoft Azure portal, click on Azure Active Directory in the left-hand pane
- 
-1. [] Under Manage, click on App registrations
- 
-1. [] In the App registrations blade, click the + New application registration button
- 
-1. [] In the Create blade, use the values in the table below to create the registration
-Name	AIPOnBehalfOf
-Application type	Web app / API
-Sign-on URL	http://localhost
- 
-1. [] Click the Create button to complete the app registration
-1. [] Select the AIPOnBehalfOf application
-1. [] In the AIPOnBehalfOf blade, hover the mouse over the Application ID and click on the Click to copy icon when it appears
- 
-1. [] Minimize (DO NOT CLOSE) Internet Explorer and other windows to show the desktop
-1. [] On the desktop, open the Scripts directory and open Set-AIPAuthentication.txt
-1. [] Replace <ID of the "Web app / API" application> with the copied Application ID value
- 
->- WARNING: Ensure there is only a single space after the Application ID before -webAppKey
-1. [] Return to the browser and click on the Settings button
- 
-1. []  In the Settings blade, under API ACCESS, click on Keys
- 
-1. [] In the Keys blade, add a new key by typing AIPClient in the Key description field and your choice of duration (1 year, 2 years, or never expires)
- 
-1. [] Select Save and copy the Value that is displayed
- 
->- WARNING: Do not dismiss this screen until you have saved the value as you cannot retrieve it later
-1. [] Go back to the txt document and replace <key value generated in the "Web app / API" application> with the copied key value.
- 
->- WARNING: Ensure there is only a single space after the Application Key before -nativeAppId
-1. [] Repeat steps 5-9 to create a Native Application using the values in the table below
-Name	AIPClient
-Application type	Native Application
-Sign-on URL	http://localhost
- 
-1. [] Replace <ID of the "Native" application > in the txt document with the copied Application ID value
-1. []  
-1. [] Return to the browser and in the AIPClient blade, click on Settings
-1. []  In the Settings blade, under API ACCESS, select Required permissions
- 
-1. []  On the Required permissions blade, click Add, and then click Select an API
-   
-1. []  In the search box, type AIPO and click on AIPOnBehalfOf, and then click the Select button
- 
-1. []  On the Enable Access blade, check the box next to AIPOnBehalfOf, click the Select button 
- 
-1. []  Click Done
- 
-1. []  Return to the PowerShell window and paste the completed command from Set-AIPAuthentication.txt 
- 
->- WARNING: While this does not affect this lab because we are logged into the system as the AIP Scanner service account, if you are installing this in production and you are logged in with a different account, you must make sure to run this command using the credentials of the AIP Scanner service account or the policy will be placed in the local store rather than the AIP Scanner’s policy store.
-1. []  When prompted, enter the user AIPScanner@tenantname.onmicrosoft.com and a password of Somepass1
+
+- [] Open Internet Explorer and browse to https://portal.azure.com 
+- [] At the Sign in to Microsoft Azure page, enter the provided tenant credentials
+- [] In the Microsoft Azure portal, click on Azure Active Directory in the left-hand pane
+- [] Under Manage, click on App registrations
+- [] In the App registrations blade, click the + New application registration button
+- [] In the Create blade, use the values in the table below to create the registration
+
+Name|AIPOnBehalfOf
+Application type|Web app / API
+Sign-on URL|http://localhost
+
+- [] Click the Create button to complete the app registration
+- [] Select the AIPOnBehalfOf application
+- [] In the AIPOnBehalfOf blade, hover the mouse over the Application ID and click on the Click to copy icon when it appears
+- [] Minimize (DO NOT CLOSE) Internet Explorer and other windows to show the desktop
+- [] On the desktop, open the Scripts directory and open Set-AIPAuthentication.txt
+- [] Replace <ID of the "Web app / API" application> with the copied Application ID value
+
+> [!ALERT] WARNING: Ensure there is only a single space after the Application ID before -webAppKey
+
+- [] Return to the browser and click on the Settings button
+- []  In the Settings blade, under API ACCESS, click on Keys
+- [] In the Keys blade, add a new key by typing AIPClient in the Key description field and your choice of duration (1 year, 2 years, or never expires)
+- [] Select Save and copy the Value that is displayed
+
+> [!ALERT] WARNING: Do not dismiss this screen until you have saved the value as you cannot retrieve it later
+
+- [] Go back to the txt document and replace <key value generated in the "Web app / API" application> with the copied key value.
+
+> [!ALERT] WARNING: Ensure there is only a single space after the Application Key before -nativeAppId
+
+- [] Repeat steps 5-9 to create a Native Application using the values in the table below
+
+Name|AIPClient
+Application type|Native Application
+Sign-on URL|http://localhost
+
+- [] Replace <ID of the "Native" application > in the txt document with the copied Application ID value
+- [] Return to the browser and in the AIPClient blade, click on Settings
+- [] In the Settings blade, under API ACCESS, select Required permissions
+- [] On the Required permissions blade, click Add, and then click Select an API
+- [] In the search box, type AIPO and click on AIPOnBehalfOf, and then click the Select button
+- [] On the Enable Access blade, check the box next to AIPOnBehalfOf, click the Select button 
+- [] Click Done
+- [] Return to the PowerShell window and paste the completed command from Set-AIPAuthentication.txt 
+
+> [!ALERT] WARNING: While this does not affect this lab because we are logged into the system as the AIP Scanner service account, if you are installing this in production and you are logged in with a different account, you must make sure to run this command using the credentials of the AIP Scanner service account or the policy will be placed in the local store rather than the AIP Scanner’s policy store.
+
+- [] When prompted, enter the user AIPScanner@tenantname.onmicrosoft.com and a password of Somepass1
+
 > [!NOTE] Replace tenantname with the provided tenant
  
-1. []  You should see a prompt like the one below. Click Accept
- 
-1. [] You will see the message below in the PowerShell window once complete   
-Configuring Repositories
-Configuring AIP Scanner Policy
+- [] You should see a prompt like the one below. Click Accept
+- [] You will see the message below in the PowerShell window once complete
+
+###Configuring Repositories
+
+###Configuring AIP Scanner Policy
+
 Because we have configured a default label for our Global policy, we will need to create a scoped policy for the AIP scanner to prevent all of the scanned files that do not match a rule from being labeled as General.  Since we already covered creation of a scoped policy in Exercise 1, this will be a brief section without screenshots.
-Running Full Discovery Scan
-Configuring Automatic Conditions
-Enforcing Configured Rules 
-(Optional) Exercise 6: SharePoint IRM Configuration
+
+### Running Full Discovery Scan
+
+### Configuring Automatic Conditions
+
+### Enforcing Configured Rules
+
+## Exercise 6: SharePoint IRM Configuration
+
 In this exercise, you will configure SharePoint Online Information Rights Management (IRM) and configure a document library with an IRM policy to protect documents that are downloaded from that library.
-1. [] 
- 
-Appendix A: Tenant Setup
-Task 1
-1. [] Login to your VM or workstation.
-1. [] Create Microsoft Online Services Tenant - which includes Azure Information Protection services, the easiest way to do this is by subscribing to an EMS E5 trial.
+
+## Appendix A: Tenant Setup
+
+### Task 1
+- [] Login to your VM or workstation.
+- [] Create Microsoft Online Services Tenant - which includes Azure Information Protection services, the easiest way to do this is by subscribing to an EMS E5 trial.
 o	Open IE in InPrivate mode (right click on IE and choose InPrivate) and Browse to https://www.microsoft.com/en-us/cloud-platform/enterprise-mobility-security-trial 
  
 o	Fill the information below < This does not have to be Valid as we are not going to use any of this information in the course of this lab > and click “Just one more step”. 
