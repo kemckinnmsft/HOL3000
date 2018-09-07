@@ -261,7 +261,11 @@ In this task, we will test the configured Recommended Condition we defined in Ex
 
 Exchange Online can work in conjunction with Azure Information Protection (via Azure RMS protection) to provide advanced capabilities for protecting sensitive data flowing out of your network over email.  In this exercise, we will configure a mail flow rule to detect credit card information leaving the network in the clear.  Blocking Internal only labels.
 
-## Exercise 5: Azure Information Protection Scanner
+## Exercise 5: SharePoint IRM Configuration
+
+In this exercise, you will configure SharePoint Online Information Rights Management (IRM) and configure a document library with an IRM policy to protect documents that are downloaded from that library.
+
+## Exercise 6: Azure Information Protection Scanner
 
 The Azure Information Protection Scanner allows you to discover and optionally classify and protect sensitive information store in on-premises file shares and SharePoint repositories.  In this exercise, you will install, configure and test the AIP Scanner.
 
@@ -326,6 +330,8 @@ Now that you have installed the scanner, you need to get an Azure AD token for t
 - [] In the App registrations blade, click the + New application registration button
 - [] In the Create blade, use the values in the table below to create the registration
 
+| Setting | Value |
+|:--------|:------|
 | Name | AIPOnBehalfOf |
 |Application type | Web app / API |
 |Sign-on URL | http://localhost |
@@ -352,6 +358,8 @@ Now that you have installed the scanner, you need to get an Azure AD token for t
 
 - [] Repeat steps 5-9 to create a Native Application using the values in the table below
 
+| Setting | Value |
+|:--------|:------|
 Name|AIPClient
 Application type|Native Application
 Sign-on URL|http://localhost
@@ -374,9 +382,9 @@ Sign-on URL|http://localhost
 - [] You should see a prompt like the one below. Click Accept
 - [] You will see the message below in the PowerShell window once complete
 
-###Configuring Repositories
+### Configuring Repositories
 
-###Configuring AIP Scanner Policy
+### Configuring AIP Scanner Policy
 
 Because we have configured a default label for our Global policy, we will need to create a scoped policy for the AIP scanner to prevent all of the scanned files that do not match a rule from being labeled as General.  Since we already covered creation of a scoped policy in Exercise 1, this will be a brief section without screenshots.
 
@@ -386,13 +394,12 @@ Because we have configured a default label for our Global policy, we will need t
 
 ### Enforcing Configured Rules
 
-## Exercise 6: SharePoint IRM Configuration
 
-In this exercise, you will configure SharePoint Online Information Rights Management (IRM) and configure a document library with an IRM policy to protect documents that are downloaded from that library.
 
 ## Appendix A: Tenant Setup
 
 ### Task 1
+
 - [] Login to your VM or workstation.
 - [] Create Microsoft Online Services Tenant - which includes Azure Information Protection services, the easiest way to do this is by subscribing to an EMS E5 trial.
 o	Open IE in InPrivate mode (right click on IE and choose InPrivate) and Browse to https://www.microsoft.com/en-us/cloud-platform/enterprise-mobility-security-trial 
