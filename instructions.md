@@ -47,11 +47,11 @@ In this task…Internal label/Partner DNF
 
 > [!NOTE] Check the bar in the top center of the lab environment to identify which machine you are logged into and to switch machines.
 
-!IMAGE[01.png](01.png)
+![](01.png)
 
 - [] Open a web browser in private mode and navigate to https://portal.azure.com/
 
-!IMAGE[02.png](02.png)
+![](02.png)
 
 - [] Log in using the provided Microsoft 365 Credentials
 
@@ -59,17 +59,17 @@ In this task…Internal label/Partner DNF
 
 - [] After logging into the portal, type the word info into the search bar and then click on Azure Information Protection. This will display the Azure Information Protection - Labels blade
 
-!IMAGE[03.png](03.png)
+![](03.png)
 
 - [] Under CLASSIFICATIONS in the left pane, click on Labels to load the Azure Information Protection – Labels blade.
 
-!IMAGE[05.png](05.png)
-!IMAGE[04.png](04.png)
+![](05.png)
+![](04.png)
 
 
 - [] In the Azure Information Protection – Labels blade, right-click on Confidential and click Add a sub-label.
 
-!IMAGE[06.png](06.png)
+![](06.png)
 
 - [] In the Sub-label blade, enter Contoso Internal for the Label display name and for Description enter text similar to “Confidential data that requires protection, which allows Contoso Internal employees full permissions. Data owners can track and revoke content.”
 
