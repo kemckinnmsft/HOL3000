@@ -44,10 +44,10 @@ This exercise demonstrates using the Azure Information Protection blade in the A
 In this task…Internal label/Partner DNF
 
 1. [] Switch to the Client1 virtual machine and use the provided login credentials if necessary.
-1. [!NOTE] Check the bar in the top center of the lab environment to identify which machine you are logged into and to switch machines.
+> [!NOTE] Check the bar in the top center of the lab environment to identify which machine you are logged into and to switch machines.
 1. [] Open a web browser in private mode and navigate to https://portal.azure.com/
 1. [] Log in using the provided Microsoft 365 Credentials
-1. [!NOTE] If you do not have credentials, you may follow the instructions in Appendix A – Tenant Setup to create your own demo tenant.
+> [!NOTE] If you do not have credentials, you may follow the instructions in Appendix A – Tenant Setup to create your own demo tenant.
 1. [] After logging into the portal, type the word info into the search bar and then click on Azure Information Protection. This will display the Azure Information Protection - Labels blade
 1. [] Under CLASSIFICATIONS in the left pane, click on Labels to load the Azure Information Protection – Labels blade.
 1. [] In the Azure Information Protection – Labels blade, right-click on Confidential and click Add a sub-label.
@@ -66,16 +66,16 @@ In this task…Internal label/Partner DNF
 | Header color     | Purple           |
 | Header alignment | Center           |
 
-1. [!NOTE] These are sample values to demonstrate marking possibilities and NOT a best practice.
+> [!NOTE] These are sample values to demonstrate marking possibilities and NOT a best practice.
 1. [] To complete creation of the new sub-label, click the Save button and then click OK in the Save settings dialog.
 1. [] In the Azure Information Protection - Labels blade, (if necessary) expand Confidential and then click on Recipients Only.
 1. [] In the Label: Recipients Only blade, change the Label display name from “Recipients Only” to “Do Not Forward”.
 1. [] Next, under Set permissions for documents and emails containing this label, under Protection, click Azure (cloud key): User defined.
 1. [] In the Protection blade, under Set user-defined permissions (Preview), verify that only the box next to In Outlook apply Do Not Forward is checked, then click OK.
-1. > [!NOTE] Although there is no action added during this step, it is included for users that may not have access to the demos.microsoft.com or event tenants.
+> [!NOTE] Although there is no action added during this step, it is included for users that may not have access to the demos.microsoft.com or event tenants.
 1. [] Click Save in the Label: Recipients Only blade and OK to the Save settings prompt. 
 1. []  Click the X in the upper right corner of the blade to close.
-1. > [!NOTE] This is necessary as it gives you the ability to make multiple changes before leaving the blade.
+> [!NOTE] This is necessary as it gives you the ability to make multiple changes before leaving the blade.
 
 ### Configuring Global Policy
 
@@ -109,9 +109,9 @@ Now that you have learned how to work with global labels and policies, we will c
 1. [] In the Add permissions blade, click +Browse directory
 1. [] In the AAD Users and Groups blade, wait for the names to load, then check the boxes next to Adele Vance and Alex Wilber, and click the Select button.
 1. [] In the Add permissions blade, click OK.
-1. > [!NOTE] In a production environment, you will typically use a synced or Azure AD Group rather than choosing individuals.
+> [!NOTE] In a production environment, you will typically use a synced or Azure AD Group rather than choosing individuals.
 1. [] In the Protection blade, under Allow offline access, reduce the Number of days the content is available without an Internet connection value to 3 and press OK.
-1. > [!NOTE] This value determines how many days a user will have offline access from the time a document is opened, and an initial Use License is acquired.  While this provides convenience for users, it is recommended that this value be set appropriately based on the sensitivity of the content.
+> [!NOTE] This value determines how many days a user will have offline access from the time a document is opened, and an initial Use License is acquired.  While this provides convenience for users, it is recommended that this value be set appropriately based on the sensitivity of the content.
 1. [] Click Save in the Sub-label blade and OK to the Save settings prompt to complete the creation of the Legal Only sub-label.
 1. [] In the Azure Information Protection blade, under Classifications on the left, click Policies then click the +Add a new policy link.
 1. [] In the Policy blade, for Policy name, type Legal Scoped Policy and click on Select which users or groups get this policy. Groups must be email-enabled.
@@ -133,7 +133,7 @@ There are many advanced policy settings that are useful to tailor your Azure Inf
 1. [] In the Label: General blade, scroll to the bottom and copy the Label ID and close the blade using the X in the upper right-hand corner.
 1. [] In the AIP Portal, under CLASSIFICATIONS on the left, click on Policies. Right-click on the Legal Scoped Policy and click on Advanced settings.
 1. [] In the Advanced settings blade, in the textbox under NAME, type OutlookDefaultLabel.  In the textbox under VALUE, paste the Label ID for the General label you copied previously, then click Save and close.
-1. > [!NOTE] This and additional Advanced Policy Settings can be found at https://docs.microsoft.com/en-us/azure/information-protection/rms-client/client-admin-guide-customizations 
+> [!NOTE] This and additional Advanced Policy Settings can be found at https://docs.microsoft.com/en-us/azure/information-protection/rms-client/client-admin-guide-customizations 
 
 ### Defining Recommended and Automatic Conditions
 
@@ -144,7 +144,7 @@ One of the most powerful features of Azure Information Protection is the ability
 1. [] In the Label: Contoso Internal blade, scroll down to the Configure conditions for automatically applying this label section, and click on +Add a new condition.
 1. [] In the Condition blade, click on Custom and enter Password for the Name and in the textbox below Match exact phrase or pattern, enter the word password.
 1. [] Click Save in the Condition blade and OK to the Save settings prompt.
-1. > [!NOTE] By default, the condition is set to Recommended and a standard policy tip is provided.
+> [!NOTE] By default, the condition is set to Recommended and a standard policy tip is provided.
 1. [] Click Save in the Label: Contoso Internal blade and OK to the Save settings prompt.
 1. [] Press the X in the upper right-hand corner to close the Label: Contoso Internal blade.
 1. [] Next, expand Highly Confidential and click on the All Employees sub-label.
@@ -152,7 +152,7 @@ One of the most powerful features of Azure Information Protection is the ability
 1. [] In the Condition blade, in the Select information types search box, type credit and check the box next to Credit Card Number.
 1. [] Click Save in the Condition blade and OK to the Save settings prompt.
 1. [] Under the Configure conditions for automatically applying this label section, under Select how this label is applied: automatically or recommended to user, click Automatic.  
-1. > [!NOTE] The policy tip is updated with default messaging.
+> [!NOTE] The policy tip is updated with default messaging.
 1. [] Click Save in the Label: All Employees blade and OK to the Save settings prompt.
 1. [] Press the X in the upper right-hand corner to close the Label: All Employees blade.
 
@@ -174,7 +174,7 @@ In this task, we will configure Word and Outlook for 3 test users.  These users 
 1. [] Click Connect and let Outlook configure.  If you are prompted to choose an account type, click Office 365 to continue.
 1. [] Uncheck the box to Set up Outlook Mobile on my phone, too and click OK.
 1. [] Switch to Client2 and go through the same steps for AdeleV.
-1. > [!NOTE] The password for the Install account is Somepass1 if the client is not logged on
+> [!NOTE] The password for the Install account is Somepass1 if the client is not logged on
 1. [] Switch to Client3 and go through the same steps for BenW.
 
 ## Exercise 3: Testing AIP Policies
@@ -233,7 +233,7 @@ In this task, we will test the configured Recommended Condition we defined in Ex
 
 1. [] Switch to Client3 and make sure you are logged into Office as the user BenW.
 1. [] In Microsoft Word, create a new document and enter the phrase “My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368” and save the document.
-1. > [!NOTE] This card number is a fake number that was generated using the Credit Card Generator for Testing at https://developer.paypal.com/developer/creditCardGenerator/.  The Microsoft Classification Engine uses the Luhn Algorithm to prevent false positives so when testing, please make sure to use valid numbers.
+> [!NOTE] This card number is a fake number that was generated using the Credit Card Generator for Testing at https://developer.paypal.com/developer/creditCardGenerator/.  The Microsoft Classification Engine uses the Luhn Algorithm to prevent false positives so when testing, please make sure to use valid numbers.
 1. [] Notice that the document is automatically classified as Confidential \ All Employees.
 
 ## Exercise 4: Exchange Online IRM Capabilities
