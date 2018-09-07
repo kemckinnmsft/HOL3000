@@ -47,11 +47,11 @@ In this task…Internal label/Partner DNF
 
 > [!NOTE] Check the bar in the top center of the lab environment to identify which machine you are logged into and to switch machines.
 
-![](01.png)
+![image](01.png)
 
 - [] Open a web browser in private mode and navigate to https://portal.azure.com/
 
-![](02.png)
+![image](02.png)
 
 - [] Log in using the provided Microsoft 365 Credentials
 
@@ -59,33 +59,33 @@ In this task…Internal label/Partner DNF
 
 - [] After logging into the portal, type the word info into the search bar and then click on Azure Information Protection. This will display the Azure Information Protection - Labels blade
 
-![](03.png)
+![image](03.png)
 
 - [] Under CLASSIFICATIONS in the left pane, click on Labels to load the Azure Information Protection – Labels blade.
 
-![](05.png)
-![](04.png)
+![image](05.png)
+![image](04.png)
 
 
 - [] In the Azure Information Protection – Labels blade, right-click on Confidential and click Add a sub-label.
 
-![](06.png)
+![image](06.png)
 
 - [] In the Sub-label blade, enter Contoso Internal for the Label display name and for Description enter text similar to “Confidential data that requires protection, which allows Contoso Internal employees full permissions. Data owners can track and revoke content.”
 
-!IMAGE[07.png](07.png)
+![image](07.png)
 
 - [] Then, under Set permissions for documents and emails containing this label, click Protect, and under Protection, click on Azure (cloud key).
 
-!IMAGE[08.png](08.png)
+![image](08.png)
 
 - [] In the Protection blade, click + Add Permissions.
 
-!IMAGE[09.png](09.png)
+![image](09.png)
 
 - [] In the Add permissions blade, click on + Add contoso – All members and click OK.
 
-!IMAGE[10.png](10.png)
+![image](10.png)
 
 - [] In the Protection blade, click OK.
 - [] In the Sub-label blade, scroll down to the Set visual marking (such as header or footer) section and under Documents with this label have a header, click On.
@@ -100,37 +100,37 @@ In this task…Internal label/Partner DNF
 
 > [!NOTE] These are sample values to demonstrate marking possibilities and NOT a best practice.
 
-!IMAGE[11.png](11.png)
+![image](11.png)
 
 - [] To complete creation of the new sub-label, click the Save button and then click OK in the Save settings dialog.
 
-!IMAGE[12.png](12.png)
+![image](12.png)
 
 - [] In the Azure Information Protection - Labels blade, expand Confidential (if necessary) and then click on Recipients Only.
 
-!IMAGE[13.png](13.png)
+![image](13.png)
 
 - [] In the Label: Recipients Only blade, change the Label display name from “Recipients Only” to “Do Not Forward”.
 
-!IMAGE[14.png](14.png)
+![image](14.png)
 
 - [] Next, under Set permissions for documents and emails containing this label, under Protection, click Azure (cloud key): User defined.
 
-!IMAGE[15.png](15.png)
+![image](15.png)
 
 - [] In the Protection blade, under Set user-defined permissions (Preview), verify that only the box next to In Outlook apply Do Not Forward is checked, then click OK.
 
-!IMAGE[16.png](16.png)
+![image](16.png)
 
 > [!NOTE] Although there is no action added during this step, it is included to demonstrate that this label will only display in Outlook and not in Word, Excel, PowerPoint or File Explorer.
 
 - [] Click Save in the Label: Recipients Only blade and OK to the Save settings prompt. 
 
-!IMAGE[17.png](17.png)
+![image](17.png)
 
 - []  Click the X in the upper right corner of the blade to close.
 
-!IMAGE[18.png](18.png)
+![image](18.png)
 
 > [!NOTE] This is necessary as it gives you the ability to make multiple changes before leaving the blade.
 
@@ -139,8 +139,17 @@ In this task…Internal label/Partner DNF
 In this task, we will assign the new sub-label to the Global policy and configure several global policy settings that will increase Azure Information Protection adoption among your users and reduce ambiguity in the user interface.
 
 - [] In the Azure Information Protection blade, under CLASSIFICATIONS on the left, click Policies then click the Global policy.
+
+![image](19.png)
+
 - [] In the Policy: Global blade, below the labels, click Add or remove labels.
+
+![image](20.png)
+
 - [] In the Policy: Add or remove labels blade, check the box next to Contoso Internal and click OK.
+
+![image](21.png)
+
 - [] In the Policy: Global blade, under the Configure settings to display and apply on Information Protection end users section, configure the policy to match the settings shown in the table and image below.
 
 | Setting | Value |
@@ -151,8 +160,15 @@ Users must provide justification to set a lower…|On
 For email messages with attachments, apply a label…|Automatic
 Add the Do Not Forward button to the Outlook ribbon|Off
 
+![image](22.png)
+
 - [] Click Save, then OK to complete configuration of the Global policy.
+
+![image](23.png)
+
 - [] Click the X in the upper right corner to close the Policy: Global blade.
+
+![image](24.png)
 
 ### Creating a Scoped Label and Policy
 
