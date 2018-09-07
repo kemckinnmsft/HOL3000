@@ -47,18 +47,46 @@ In this task…Internal label/Partner DNF
 
 > [!NOTE] Check the bar in the top center of the lab environment to identify which machine you are logged into and to switch machines.
 
+!IMAGE[01.png](01.png)
+
 - [] Open a web browser in private mode and navigate to https://portal.azure.com/
+
+!IMAGE[02.png](02.png)
+
 - [] Log in using the provided Microsoft 365 Credentials
 
 > [!NOTE] If you do not have credentials, you may follow the instructions in Appendix A – Tenant Setup to create your own demo tenant.
 
 - [] After logging into the portal, type the word info into the search bar and then click on Azure Information Protection. This will display the Azure Information Protection - Labels blade
+
+!IMAGE[03.png](03.png)
+
 - [] Under CLASSIFICATIONS in the left pane, click on Labels to load the Azure Information Protection – Labels blade.
+
+!IMAGE[05.png](05.png)
+!IMAGE[04.png](04.png)
+
+
 - [] In the Azure Information Protection – Labels blade, right-click on Confidential and click Add a sub-label.
+
+!IMAGE[06.png](06.png)
+
 - [] In the Sub-label blade, enter Contoso Internal for the Label display name and for Description enter text similar to “Confidential data that requires protection, which allows Contoso Internal employees full permissions. Data owners can track and revoke content.”
+
+!IMAGE[07.png](07.png)
+
 - [] Then, under Set permissions for documents and emails containing this label, click Protect, and under Protection, click on Azure (cloud key).
+
+!IMAGE[08.png](08.png)
+
 - [] In the Protection blade, click + Add Permissions.
+
+!IMAGE[09.png](09.png)
+
 - [] In the Add permissions blade, click on + Add contoso – All members and click OK.
+
+!IMAGE[10.png](10.png)
+
 - [] In the Protection blade, click OK.
 - [] In the Sub-label blade, scroll down to the Set visual marking (such as header or footer) section and under Documents with this label have a header, click On.
 - [] Use the values in the table below to configure the Header.
@@ -72,16 +100,37 @@ In this task…Internal label/Partner DNF
 
 > [!NOTE] These are sample values to demonstrate marking possibilities and NOT a best practice.
 
+!IMAGE[11.png](11.png)
+
 - [] To complete creation of the new sub-label, click the Save button and then click OK in the Save settings dialog.
-- [] In the Azure Information Protection - Labels blade, (if necessary) expand Confidential and then click on Recipients Only.
+
+!IMAGE[12.png](12.png)
+
+- [] In the Azure Information Protection - Labels blade, expand Confidential (if necessary) and then click on Recipients Only.
+
+!IMAGE[13.png](13.png)
+
 - [] In the Label: Recipients Only blade, change the Label display name from “Recipients Only” to “Do Not Forward”.
+
+!IMAGE[14.png](14.png)
+
 - [] Next, under Set permissions for documents and emails containing this label, under Protection, click Azure (cloud key): User defined.
+
+!IMAGE[15.png](15.png)
+
 - [] In the Protection blade, under Set user-defined permissions (Preview), verify that only the box next to In Outlook apply Do Not Forward is checked, then click OK.
 
-> [!NOTE] Although there is no action added during this step, it is included for users that may not have access to the demos.microsoft.com or event tenants.
+!IMAGE[16.png](16.png)
+
+> [!NOTE] Although there is no action added during this step, it is included to demonstrate that this label will only display in Outlook and not in Word, Excel, PowerPoint or File Explorer.
 
 - [] Click Save in the Label: Recipients Only blade and OK to the Save settings prompt. 
+
+!IMAGE[17.png](17.png)
+
 - []  Click the X in the upper right corner of the blade to close.
+
+!IMAGE[18.png](18.png)
 
 > [!NOTE] This is necessary as it gives you the ability to make multiple changes before leaving the blade.
 
@@ -261,11 +310,7 @@ In this task, we will test the configured Recommended Condition we defined in Ex
 
 Exchange Online can work in conjunction with Azure Information Protection (via Azure RMS protection) to provide advanced capabilities for protecting sensitive data flowing out of your network over email.  In this exercise, we will configure a mail flow rule to detect credit card information leaving the network in the clear.  Blocking Internal only labels.
 
-## Exercise 5: SharePoint IRM Configuration
-
-In this exercise, you will configure SharePoint Online Information Rights Management (IRM) and configure a document library with an IRM policy to protect documents that are downloaded from that library.
-
-## Exercise 6: Azure Information Protection Scanner
+## Exercise 5: Azure Information Protection Scanner
 
 The Azure Information Protection Scanner allows you to discover and optionally classify and protect sensitive information store in on-premises file shares and SharePoint repositories.  In this exercise, you will install, configure and test the AIP Scanner.
 
@@ -330,8 +375,6 @@ Now that you have installed the scanner, you need to get an Azure AD token for t
 - [] In the App registrations blade, click the + New application registration button
 - [] In the Create blade, use the values in the table below to create the registration
 
-| Setting | Value |
-|:--------|:------|
 | Name | AIPOnBehalfOf |
 |Application type | Web app / API |
 |Sign-on URL | http://localhost |
@@ -358,8 +401,6 @@ Now that you have installed the scanner, you need to get an Azure AD token for t
 
 - [] Repeat steps 5-9 to create a Native Application using the values in the table below
 
-| Setting | Value |
-|:--------|:------|
 Name|AIPClient
 Application type|Native Application
 Sign-on URL|http://localhost
@@ -382,9 +423,9 @@ Sign-on URL|http://localhost
 - [] You should see a prompt like the one below. Click Accept
 - [] You will see the message below in the PowerShell window once complete
 
-### Configuring Repositories
+###Configuring Repositories
 
-### Configuring AIP Scanner Policy
+###Configuring AIP Scanner Policy
 
 Because we have configured a default label for our Global policy, we will need to create a scoped policy for the AIP scanner to prevent all of the scanned files that do not match a rule from being labeled as General.  Since we already covered creation of a scoped policy in Exercise 1, this will be a brief section without screenshots.
 
@@ -394,12 +435,13 @@ Because we have configured a default label for our Global policy, we will need t
 
 ### Enforcing Configured Rules
 
+## Exercise 6: SharePoint IRM Configuration
 
+In this exercise, you will configure SharePoint Online Information Rights Management (IRM) and configure a document library with an IRM policy to protect documents that are downloaded from that library.
 
 ## Appendix A: Tenant Setup
 
 ### Task 1
-
 - [] Login to your VM or workstation.
 - [] Create Microsoft Online Services Tenant - which includes Azure Information Protection services, the easiest way to do this is by subscribing to an EMS E5 trial.
 o	Open IE in InPrivate mode (right click on IE and choose InPrivate) and Browse to https://www.microsoft.com/en-us/cloud-platform/enterprise-mobility-security-trial 
