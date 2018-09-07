@@ -305,10 +305,11 @@ The first step in configuring the AIP Scanner is to install the service and conn
 
 ```Install-AIPScanner```
 
-When prompted, provide the credentials for the AIP scanner service account (Contoso\AIPScanner) and password (Somepass1)
-When prompted for SqlServerInstance, enter SQL1 and press Enter
+- [] When prompted, provide the credentials for the AIP scanner service account (Contoso\AIPScanner) and password (Somepass1)
+- [] When prompted for SqlServerInstance, enter SQL1 and press Enter
 
-- [] You should see a success message like the one below
+> [!NOTE] You should see a success message like the one below
+
 - [] Right-click on the Windows button in the lower left-hand corner and click on Run
 - [] In the Run dialog, type Services.msc and click OK
 - [] In the Services console, double-click on the Azure Information Protection Scanner service
@@ -325,9 +326,9 @@ Now that you have installed the scanner, you need to get an Azure AD token for t
 - [] In the App registrations blade, click the + New application registration button
 - [] In the Create blade, use the values in the table below to create the registration
 
-Name|AIPOnBehalfOf
-Application type|Web app / API
-Sign-on URL|http://localhost
+| Name | AIPOnBehalfOf |
+|Application type | Web app / API |
+|Sign-on URL | http://localhost |
 
 - [] Click the Create button to complete the app registration
 - [] Select the AIPOnBehalfOf application
