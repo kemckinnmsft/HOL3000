@@ -564,7 +564,7 @@ In this exercise, you will configure SharePoint Online Information Rights Manage
 
 The Azure Information Protection Scanner allows you to discover and optionally classify and protect sensitive information store in on-premises file shares and SharePoint repositories.  In this exercise, you will install, configure and test the AIP Scanner.
 
-    > [!NOTE] This exercise is based on the preview version of the AIP scanner (1.36.18.0) because some of the PowerShell commands have been updated and will be in the next GA version. The AIP client has been installed on SQL1 to save time but is available at https://aka.ms/AIPClient.
+> [!NOTE] This exercise is based on the preview version of the AIP scanner (1.36.18.0) because some of the PowerShell commands have been updated and will be in the next GA version. The AIP client has been installed on SQL1 to save time but is available at https://aka.ms/AIPClient.
 
 ## Azure AD Connect Configuration
 
