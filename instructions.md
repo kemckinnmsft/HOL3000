@@ -685,6 +685,8 @@ Because we have configured a default label for our Global policy, we will need t
 
 ## Running Full Discovery Scan
 
+Full Discovery
+
 ## Configuring Automatic Conditions
 
 ## Enforcing Configured Rules
