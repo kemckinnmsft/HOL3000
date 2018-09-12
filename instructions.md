@@ -1,4 +1,4 @@
-![MSIgnite_MVP Speaker_TW.png](\Content\MSIgnite_MVP Speaker_TW.png)
+![MSIgnite_MVP Speaker_TW.png](/Content/MSIgnite_MVP Speaker_TW.png)
 
 # Configuring Microsoft Information Protection Solutions to Protect Your Sensitive Data
 
