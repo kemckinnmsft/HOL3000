@@ -1158,7 +1158,9 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>
 	>-HeaderContainsMessageHeader "msip_labels" 
 	>
-	>-HeaderContainsWord $labeltext -RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
+	>-HeaderContainsWord $labeltext 
+	>
+	>-RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
 
 ===
 
