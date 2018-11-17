@@ -972,8 +972,114 @@ In this task, we will test the configured recommended and automatic conditions w
 
 1. [] In the email, click **Send**.
 ===
+===
+# Exercise 6: Classification, Labeling, and Protection with the Azure Information Protection Scanner
+[🔙](#azure-information-protection)
 
-# Exercise 5: Exchange Online IRM Capabilities
+The Azure Information Protection scanner allows you to  classify and protect sensitive information stored in on-premises CIFS file shares and SharePoint sites.  
+
+In this exercise, you will use the information gathered in Exercise 1 to map sensitive data types discovered to automatic classification rules.  After that, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data.
+
+===
+
+# Configuring Automatic Conditions
+[🔙](#azure-information-protection)
+ 
+Now that we know what types of sensitive data we need to protect, we will configure some automatic conditions (rules) that the scanner can use to classify and protect content.
+
+1. [] Switch back to @lab.VirtualMachine(Client01).SelectLink and open the browser that is logged into the Azure Portal.
+
+1. [] Under **Dashboards** on the left, click on **Data discovery (Preview)** to view the data collected by the AIP scanner discovery mode run.
+
+	>[!ALERT] Due to lab environment infrastructure constraints, it is possible that the data will not fully populate by the time you reach this point in the lab. Please continue through the steps using the provided information.  If you set this up in an external lab environment, these steps will work as described.
+
+1. [] In the Information Types panel, you will see the types of sensitive data that was found during the initial discovery run. We will use a few of these to create Automatic Conditions.
+
+	!IMAGE[x4w16p5g.jpg](\Media\x4w16p5g.jpg)
+
+1. [] Under **Classifications** on the left, click **Labels** then expand **Confidential**, and click on **Contoso Internal**.
+
+	^IMAGE[Open Screenshot](\Media\jyw5vrit.jpg)
+1. [] In the Label: Contoso Internal blade, scroll down to the **Configure conditions for automatically applying this label** section, and click on **+ Add a new condition**.
+
+	!IMAGE[cws1ptfd.jpg](\Media\cws1ptfd.jpg)
+1. [] In the Condition blade, in the **Select information types** search box, type +++International+++ and check the box next to the **International Classification of Diseases (ICD-10-CM)** entry.
+
+	^IMAGE[Open Screenshot](\Media\j163rbh7.jpg)
+1. [] Next, before saving, replace International in the search bar with +++EU+++ and check the boxes next to the **items shown below**.
+
+	!IMAGE[xaj5hupc.jpg](\Media\xaj5hupc.jpg)
+1. [] Click **Save** in the Condition blade and **OK** to the Save settings prompt.
+
+	^IMAGE[Open Screenshot](\Media\41o5ql2y.jpg)
+1. [] In the Label : Contoso Internal blade, under **Select how this label is applied: automatically or recommended to user**, click **Automatic**.
+
+	^IMAGE[Open Screenshot](\Media\1ifaer4l.jpg)
+
+1. [] Click **Save** in the Label: Contoso Internal blade and **OK** to the Save settings prompt.
+
+	^IMAGE[Open Screenshot](\Media\rimezmh1.jpg)
+
+1. [] Press the **X** in the upper right-hand corner to close the Label: Contoso Internal blade.
+
+===
+
+# Enforcing Configured Rules
+[🔙](#azure-information-protection)
+ 
+In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
+
+1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink
+1. [] Run the commands below to run an enforced scan using defined policy.
+
+    ```
+	Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
+	```
+	```
+	Start-AIPScan
+    ```
+
+	> [!HINT] Note that this time we used the DiscoverInformationTypes -PolicyOnly switch before starting the scan. This will have the scanner only evaluate the conditions we have explicitly defined in conditions.  This increases the effeciency of the scanner and thus is much faster.  After reviewing the event log we will see the result of the enforced scan.
+	>
+	>!IMAGE[k3rox8ew.jpg](\Media\k3rox8ew.jpg)
+	>
+	>If we switch back to @lab.VirtualMachine(Client03).SelectLink and look in the reports directory we opened previously at +++\\\Scanner01\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports+++, you will notice that the old scan reports are zipped in the directory and only the most recent results aare showing.  
+	>
+	>!IMAGE[s8mn092f.jpg](\Media\s8mn092f.jpg)
+	>
+	>Also, the DetailedReport.csv now shows the files that were protected.
+	>
+	>
+	>!IMAGE[6waou5x3.jpg](\Media\6waou5x3.jpg)
+	>
+	>^IMAGE[Open Fullscreen](6waou5x3.jpg)
+
+===
+
+# Reviewing Protected Documents
+[🔙](#azure-information-protection)
+
+Now that we have Classified and Protected documents using the scanner, we can review the documents we looked at previously to see their change in status.
+
+1. [] Switch to @lab.VirtualMachine(Client01).SelectLink.
+ 
+2. [] Navigate to +++\\\Scanner01\documents+++. Provide the credentials +++Contoso\LabUser+++ and +++Pa$$w0rd+++ if prompted.
+ 
+	^IMAGE[Open Screenshot](\Media\hipavcx6.jpg)
+3. [] Open one of the Contoso Purchasing Permissions documents or Run For The Cure spreadsheets.
+ 
+ 	
+	
+	> [!NOTE] Observe that the same document is now classified as Confidential \ Contoso Internal. 
+	>
+	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
+
+===
+# Completion of Core Lab
+
+This completes the Core Scenarios of this Lab.  There are two additional exercises for Exchange Online and SharePoint Online that are included for completeness and for additional activities in self-paced hands on labs.  Please continue to these labs by clicking below.
+===
+# Exercise 6: Exchange Online IRM Capabilities
 [🔙](#azure-information-protection)
 
 Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients.  
@@ -1103,110 +1209,6 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 	!IMAGE[kgjvy7ul.jpg](\Media\kgjvy7ul.jpg)
 
 > [!HINT] There are many other use cases for Exchange Online mail flow rules but this should give you a quick view into what is possible and how easy it is to improve the security of your sensitive data through the use of Exchange Online mail flow rules and Azure Information Protection.
-
-===
-
-
-# Exercise 6: Classification, Labeling, and Protection with the Azure Information Protection Scanner
-[🔙](#azure-information-protection)
-
-The Azure Information Protection scanner allows you to  classify and protect sensitive information stored in on-premises CIFS file shares and SharePoint sites.  
-
-In this exercise, you will use the information gathered in Exercise 1 to map sensitive data types discovered to automatic classification rules.  After that, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data.
-
-===
-
-# Configuring Automatic Conditions
-[🔙](#azure-information-protection)
- 
-Now that we know what types of sensitive data we need to protect, we will configure some automatic conditions (rules) that the scanner can use to classify and protect content.
-
-1. [] Switch back to @lab.VirtualMachine(Client01).SelectLink and open the browser that is logged into the Azure Portal.
-
-1. [] Under **Dashboards** on the left, click on **Data discovery (Preview)** to view the data collected by the AIP scanner discovery mode run.
-
-	>[!ALERT] Due to lab environment infrastructure constraints, it is possible that the data will not fully populate by the time you reach this point in the lab. Please continue through the steps using the provided information.  If you set this up in an external lab environment, these steps will work as described.
-
-1. [] In the Information Types panel, you will see the types of sensitive data that was found during the initial discovery run. We will use a few of these to create Automatic Conditions.
-
-	!IMAGE[x4w16p5g.jpg](\Media\x4w16p5g.jpg)
-
-1. [] Under **Classifications** on the left, click **Labels** then expand **Confidential**, and click on **Contoso Internal**.
-
-	^IMAGE[Open Screenshot](\Media\jyw5vrit.jpg)
-1. [] In the Label: Contoso Internal blade, scroll down to the **Configure conditions for automatically applying this label** section, and click on **+ Add a new condition**.
-
-	!IMAGE[cws1ptfd.jpg](\Media\cws1ptfd.jpg)
-1. [] In the Condition blade, in the **Select information types** search box, type +++International+++ and check the box next to the **International Classification of Diseases (ICD-10-CM)** entry.
-
-	^IMAGE[Open Screenshot](\Media\j163rbh7.jpg)
-1. [] Next, before saving, replace International in the search bar with +++EU+++ and check the boxes next to the **items shown below**.
-
-	!IMAGE[xaj5hupc.jpg](\Media\xaj5hupc.jpg)
-1. [] Click **Save** in the Condition blade and **OK** to the Save settings prompt.
-
-	^IMAGE[Open Screenshot](\Media\41o5ql2y.jpg)
-1. [] In the Label : Contoso Internal blade, under **Select how this label is applied: automatically or recommended to user**, click **Automatic**.
-
-	^IMAGE[Open Screenshot](\Media\1ifaer4l.jpg)
-
-1. [] Click **Save** in the Label: Contoso Internal blade and **OK** to the Save settings prompt.
-
-	^IMAGE[Open Screenshot](\Media\rimezmh1.jpg)
-
-1. [] Press the **X** in the upper right-hand corner to close the Label: Contoso Internal blade.
-
-===
-
-# Enforcing Configured Rules
-[🔙](#azure-information-protection)
- 
-In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
-
-1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink
-1. [] Run the commands below to run an enforced scan using defined policy.
-
-    ```
-	Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
-	```
-	```
-	Start-AIPScan
-    ```
-
-	> [!HINT] Note that this time we used the DiscoverInformationTypes -PolicyOnly switch before starting the scan. This will have the scanner only evaluate the conditions we have explicitly defined in conditions.  This increases the effeciency of the scanner and thus is much faster.  After reviewing the event log we will see the result of the enforced scan.
-	>
-	>!IMAGE[k3rox8ew.jpg](\Media\k3rox8ew.jpg)
-	>
-	>If we switch back to @lab.VirtualMachine(Client03).SelectLink and look in the reports directory we opened previously at +++\\\Scanner01\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports+++, you will notice that the old scan reports are zipped in the directory and only the most recent results aare showing.  
-	>
-	>!IMAGE[s8mn092f.jpg](\Media\s8mn092f.jpg)
-	>
-	>Also, the DetailedReport.csv now shows the files that were protected.
-	>
-	>
-	>!IMAGE[6waou5x3.jpg](\Media\6waou5x3.jpg)
-	>
-	>^IMAGE[Open Fullscreen](6waou5x3.jpg)
-
-===
-
-# Reviewing Protected Documents
-[🔙](#azure-information-protection)
-
-Now that we have Classified and Protected documents using the scanner, we can review the documents we looked at previously to see their change in status.
-
-1. [] Switch to @lab.VirtualMachine(Client01).SelectLink.
- 
-2. [] Navigate to +++\\\Scanner01\documents+++. Provide the credentials +++Contoso\LabUser+++ and +++Pa$$w0rd+++ if prompted.
- 
-	^IMAGE[Open Screenshot](\Media\hipavcx6.jpg)
-3. [] Open one of the Contoso Purchasing Permissions documents or Run For The Cure spreadsheets.
- 
- 	
-	
-	> [!NOTE] Observe that the same document is now classified as Confidential \ Contoso Internal. 
-	>
-	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
 ===
 # Exercise 7: SharePoint IRM Configuration
@@ -1394,6 +1396,6 @@ Files that are uploaded to a SharePoint IRM protected document library are prote
 
 # CONGRATULATIONS!
 
-!IMAGE[kt7yaogd.jpg](kt7yaogd.jpg)
+That concludes this hands on lab.  If you discovered any errors or have any feedback about the lab, you may send an email to the lab developers by clickin on [https://aka.ms/aiplabfeedback](https://aka.ms/aiplabfeedback).
 
 
