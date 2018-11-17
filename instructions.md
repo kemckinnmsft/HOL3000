@@ -785,7 +785,10 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 1. [] Click **Activate** and **Yes**.
 
 	!IMAGE[o0ahpimw.jpg](\Media\o0ahpimw.jpg)
-	>[!NOTE] If Activation fails it is likely because of network latency in the lab environment. Browse to +++https://protection.office.com/#/tagslibrary+++ to check if the migration succeeded. In a full demo tenant this should complete successfully.  More detail is available at [https://aka.ms/aipmigration](https://aka.ms/aipmigration).
+	>[!NOTE] You should see a message similar to the one below.
+	> !IMAGE[SCCMigration.png](\Media\SCCMigration.png) 
+
+1. [] Browse to +++https://protection.office.com/#/tagslibrary+++ to review the migrated labels. 
 
 ===
 
