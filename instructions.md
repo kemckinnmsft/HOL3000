@@ -309,6 +309,7 @@ The first step in configuring the AIP Scanner is to install the service and conn
 	>
 
 ## Creating Azure AD Applications for the AIP Scanner
+
 [🔙](#azure-information-protection)
 
 Now that you have installed the scanner bits, you need to get an Azure AD token for the scanner service account to authenticate so that it can run unattended. This requires registering both a Web app and a Native app in Azure Active Directory.  The commands below will do this in an automated fashion rather than needing to go into the Azure portal directly.
@@ -320,9 +321,9 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	+++@lab.CloudCredential(17).Password+++
 1. [] Next, click the **T** to **type the commands below** in the PowerShell window. 
 
-	>![ALERT] Press Enter only after you see **-CustomKeyIdentifier "AIPClient"**.
+	> ![ALERT] Press Enter only after you see **-CustomKeyIdentifier "AIPClient"**.
 
-	>![NOTE] This will create a new Web App Registration and Service Principal in Azure AD.
+	> ![NOTE] This will create a new Web App Registration and Service Principal in Azure AD.
 
    ```
    New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
@@ -332,10 +333,10 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    $Date = Get-Date
    New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
 	```
-	
+
 1. [] Next, we must build the permissions object for the Native App Registration.  This is done using the commands below.
    
-   	>![ALERT] Press Enter only after you see **$Access.ResourceAccess = $Scope**.
+   	> ![ALERT] Press Enter only after you see **$Access.ResourceAccess = $Scope**.
 
    ```
    $AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
@@ -347,7 +348,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	```
 1. [] Next, we will use the object created above to create the Native App Registration.
    
-  	>![ALERT] Press Enter only after you see **-AppId $NativeApp.AppId**.
+  	> ![ALERT] Press Enter only after you see **-AppId $NativeApp.AppId**.
 
    ```
    New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
@@ -357,7 +358,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    
 1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
    
-  	>![ALERT] Press Enter only after you see **Start ~\Desktop\Set-AIPAuthentication.txt**.
+  	> ![ALERT] Press Enter only after you see **Start ~\Desktop\Set-AIPAuthentication.txt**.
    
    ```
    "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
@@ -390,7 +391,8 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	>[!knowledge] You will a message like the one below in the PowerShell window once complete.
 	>
 	>!IMAGE[y2bgsabe.jpg](\Media\y2bgsabe.jpg)
-1. [] **Return to the admin PowerShell window** and type the command below and press **Enter**.
+1. [] **Close the current PowerShell window**.
+1. [] **In the admin PowerShell window** and type the command below and press **Enter**.
 
 	+++Restart-Service AIPScanner+++
    
