@@ -155,7 +155,7 @@ For several of the exercises in this lab series, you will require an active subs
 In this task, we will join 3 systems to the Azure AD tenant to provide SSO capabilities in Office.
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, right-click on the start menu and click **Run**.
-1. [] In the Run dialog, type +++ms-settings:workplace+++
+1. [] In the Run dialog, type +++ms-settings:workplace+++ and click **OK**.
 
 	>!IMAGE[mssettings.png](\Media\mssettings.png)
 
@@ -171,7 +171,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	+++Pa$$w0rd+++
 1. [] Right-click on the start menu and click **Run**.
-1. [] In the Run dialog, type +++ms-settings:workplace+++
+1. [] In the Run dialog, type +++ms-settings:workplace+++ and click **OK**.
 
 	>!IMAGE[mssettings.png](\Media\mssettings.png)
 
@@ -187,7 +187,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	+++Pa$$w0rd+++
 1. [] Right-click on the start menu and click **Run**.
-1. [] In the Run dialog, type +++ms-settings:workplace+++
+1. [] In the Run dialog, type +++ms-settings:workplace+++ and click **OK**.
 
 	>!IMAGE[mssettings.png](\Media\mssettings.png)
 
@@ -275,11 +275,11 @@ In order to collect log data from Azure Information Protection clients and servi
 
 	!IMAGE[zgvmm4el.jpg](\Media\zgvmm4el.jpg)
 ===
-
-
-
-# Installing the AIP Scanner Service
+# AIP Scanner Setup
+In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
 [🔙](#azure-information-protection)
+
+## Installing the AIP Scanner Service
 
 The first step in configuring the AIP Scanner is to install the service and connect the database.  This is done with the Install-AIPScanner cmdlet that is provided by the AIP Client software.  The AIPScanner service account has been pre-staged in Active Directory for convenience.
 
@@ -308,18 +308,7 @@ The first step in configuring the AIP Scanner is to install the service and conn
 	>!IMAGE[w7goqgop.jpg](\Media\w7goqgop.jpg)
 	>
 
-1. [] Right-click on the **Windows** button in the lower left-hand corner and click on **Run**.
-1. [] In the Run dialog, type +++Services.msc+++ and click **OK**.
-
-	^IMAGE[Open Screenshot](\Media\h0ys0h4u.jpg)
-1. [] In the Services console, double-click on the **Azure Information Protection Scanner** service.
-1. [] On the **Log On** tab of the Azure Information Protection Scanner Service Properties, verify that **Log on as:** is set to the **Contoso\AIPScanner** service account.
-
-	^IMAGE[Open Screenshot](\Media\ek9jsd0a.jpg)
-
-===
-
-# Creating Azure AD Applications for the AIP Scanner
+## Creating Azure AD Applications for the AIP Scanner
 [🔙](#azure-information-protection)
 
 Now that you have installed the scanner bits, you need to get an Azure AD token for the scanner service account to authenticate so that it can run unattended. This requires registering both a Web app and a Native app in Azure Active Directory.  The commands below will do this in an automated fashion rather than needing to go into the Azure portal directly.
@@ -329,7 +318,11 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	+++@lab.CloudCredential(17).Username+++
 	
 	+++@lab.CloudCredential(17).Password+++
-1. [] Next, **type the commands below** and press **Enter** to create a new Web App Registration and Service Principal in Azure AD.
+1. [] Next, click the **T** to **type the commands below** in the PowerShell window. 
+
+	>![ALERT] Press Enter only after you see **-CustomKeyIdentifier "AIPClient"**.
+
+	>![NOTE] This will create a new Web App Registration and Service Principal in Azure AD.
 
    ```
    New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
@@ -339,8 +332,11 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    $Date = Get-Date
    New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
 	```
+	
 1. [] Next, we must build the permissions object for the Native App Registration.  This is done using the commands below.
    
+   	>![ALERT] Press Enter only after you see **$Access.ResourceAccess = $Scope**.
+
    ```
    $AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
    $AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
@@ -351,19 +347,23 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	```
 1. [] Next, we will use the object created above to create the Native App Registration.
    
+  	>![ALERT] Press Enter only after you see **-AppId $NativeApp.AppId**.
+
    ```
    New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
    $NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
    New-AzureADServicePrincipal -AppId $NativeApp.AppId
 	```
    
-1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below.
+1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
+   
+  	>![ALERT] Press Enter only after you see **Start ~\Desktop\Set-AIPAuthentication.txt**.
    
    ```
    "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
 	Start ~\Desktop\Set-AIPAuthentication.txt
 	```
-1. [] Copy the command to the clipboard.
+1. [] In the new notepad window, copy the command to the clipboard.
 1. [] Click on the Start menu and type +++PowerShell+++, right-click on the PowerShell program, and click **Run as a different user**.
 
 	!IMAGE[zgt5ikxl.jpg](\Media\zgt5ikxl.jpg)
