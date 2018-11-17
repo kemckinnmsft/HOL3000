@@ -792,7 +792,7 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 
 1. [] In a new tab, browse to +++https://protection.office.com/#/tagslibrary+++ to review the migrated labels. 
 
-	> ![NOTE] Keep in mind that now that the SCC Sensitivity Labels have been activated, any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
+![NOTE] Keep in mind that now that the SCC Sensitivity Labels have been activated, any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
 
 ===
 
