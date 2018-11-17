@@ -108,9 +108,9 @@ In this task, we will install Azure AD Connect and configure it using the expres
 5. [] On the Express Settings page, click **Use express settings**.
 6. [] On the Connect to Azure AD page, enter the credentials below and press the **Next** button.
 
-	+++@lab.CloudCredential(134).Username+++
+	+++@lab.CloudCredential(17).Username+++
 
-	+++@lab.CloudCredential(134).Password+++
+	+++@lab.CloudCredential(17).Password+++
 
 > [!NOTE] The wizard will connect to the Microsoft Online tenant to verify the credentials.
 
@@ -155,9 +155,9 @@ For several of the exercises in this lab series, you will require an active subs
 	!IMAGE[wdir7lb3.jpg](\Media\wdir7lb3.jpg)
 1. [] Enter the credentials below and select **Sign In**.
 
-	+++@lab.CloudCredential(134).Username+++
+	+++@lab.CloudCredential(17).Username+++
 
-	+++@lab.CloudCredential(134).Password+++ 
+	+++@lab.CloudCredential(17).Password+++ 
 
 	!IMAGE[gtg8pvp1.jpg](\Media\gtg8pvp1.jpg)
 1. [] Click **Confirm** if the correct email address is listed.
@@ -179,7 +179,7 @@ For several of the exercises in this lab series, you will require an active subs
 1. [] Enter your account information and click **Next**.
 
 	!IMAGE[ihrjazqi.jpg](\Media\ihrjazqi.jpg)
-	
+
 	> [!NOTE] You can keep the pre-populated information.
 
 1. [] Check the box to agree to the terms and click **Sign up**.
@@ -199,9 +199,9 @@ In this task, we will assign licenses to users that have been synced to the Offi
 
 	> [!KNOWLEDGE] If needed, log in using the credentials below:
 	>
-	>+++@lab.CloudCredential(134).Username+++
+	>+++@lab.CloudCredential(17).Username+++
 	>
-	>+++@lab.CloudCredential(134).Password+++
+	>+++@lab.CloudCredential(17).Password+++
 
 1. [] In the middle of the homepage, click onn **Active users >**.
 1. [] Check the box to select all users and click **Edit product licenses**.
@@ -260,9 +260,9 @@ In order to collect log data from Azure Information Protection clients and servi
 
 	> [!KNOWLEDGE] If necessary, log in using the username and password below:
 	>
-	>+++@lab.CloudCredential(134).Username+++ 
+	>+++@lab.CloudCredential(17).Username+++ 
 	>
-	>+++@lab.CloudCredential(134).Password+++
+	>+++@lab.CloudCredential(17).Password+++
 	
 1. [] After logging into the portal, type the word +++info+++ into the **search bar** and press **Enter**, then click on **Azure Information Protection**. 
 
@@ -344,9 +344,9 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 1. [] In PowerShell, run +++Connect-AzureAD+++ and use the username and password below. 
 	
-	+++@lab.CloudCredential(134).Username+++
+	+++@lab.CloudCredential(17).Username+++
 	
-	+++@lab.CloudCredential(134).Password+++
+	+++@lab.CloudCredential(17).Password+++
 1. [] Next, **type the commands below** and press **Enter** to create a new Web App Registration and Service Principal in Azure AD.
 
    ```
@@ -395,7 +395,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 1. [] Paste the copied **Set-AIPAuthentication** command into this window and run it.
 1. [] When prompted, enter the username and password below:
 
-	+++AIPScanner@@lab.CloudCredential(134).TenantName+++
+	+++AIPScanner@@lab.CloudCredential(17).TenantName+++
 
 	+++Somepass1+++
 
@@ -809,7 +809,7 @@ This will allow us to demonstrate the differences between the global and scoped 
 1. [] In the upper right, click on **Sign in to get the most out of Office**.
 	
 	^IMAGE[Open Screenshot](\Media\elavdbu1.jpg)
-1. [] In the Sign in dialog, enter +++Alan@@lab.CloudCredential(134).TenantName+++ and press **Next**. 
+1. [] In the Sign in dialog, enter +++Alan@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
 
 1. [] In the Enter password dialog, enter +++pass@word1+++ and click **Sign in**.
 
@@ -824,7 +824,7 @@ This will allow us to demonstrate the differences between the global and scoped 
 	!IMAGE[vlu3sb64.jpg](\Media\vlu3sb64.jpg)
 1. [] Click **Connect** and let Outlook configure.  
 
-	> [!KNOWLEDGE] Login details for **Alan@@lab.CloudCredential(134).TenantName** should be automatically populated. If you still see **LabUser@Contoso.com**, close Microsoft Outlook and reopen.
+	> [!KNOWLEDGE] Login details for **Alan@@lab.CloudCredential(17).TenantName** should be automatically populated. If you still see **LabUser@Contoso.com**, close Microsoft Outlook and reopen.
 	>
 	> If you receive a prompt to choose an account type, click Office 365.
 	>
@@ -848,7 +848,7 @@ This will allow us to demonstrate the differences between the global and scoped 
 1. [] In the upper right, click on **Sign in to get the most out of Office**.
 	
 	^IMAGE[Open Screenshot](\Media\elavdbu1.jpg)
-1. [] In the Sign in dialog, enter +++Amy@@lab.CloudCredential(134).TenantName+++ and press **Next**. 
+1. [] In the Sign in dialog, enter +++Amy@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
 
 1. [] In the Enter password dialog, enter +++pass@word1+++ and click **Sign in**.
 
@@ -863,7 +863,7 @@ This will allow us to demonstrate the differences between the global and scoped 
 	!IMAGE[vlu3sb64.jpg](\Media\vlu3sb64.jpg)
 1. [] Click **Connect** and let Outlook configure.  
 
-	> [!KNOWLEDGE] Login details for **Amy@@lab.CloudCredential(134).TenantName** should be automatically populated. If you still see **Install@Contoso.com**, close Microsoft Outlook and reopen.
+	> [!KNOWLEDGE] Login details for **Amy@@lab.CloudCredential(17).TenantName** should be automatically populated. If you still see **Install@Contoso.com**, close Microsoft Outlook and reopen.
 	>
 	> If you receive a prompt to choose an account type, click Office 365.
 	>
@@ -887,7 +887,7 @@ This will allow us to demonstrate the differences between the global and scoped 
 1. [] In the upper right, click on **Sign in to get the most out of Office**.
 	
 	^IMAGE[Open Screenshot](\Media\elavdbu1.jpg)
-1. [] In the Sign in dialog, enter +++Eric@@lab.CloudCredential(134).TenantName+++ and press **Next**. 
+1. [] In the Sign in dialog, enter +++Eric@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
 
 1. [] In the Enter password dialog, enter +++pass@word1+++ and click **Sign in**.
 
@@ -902,7 +902,7 @@ This will allow us to demonstrate the differences between the global and scoped 
 	!IMAGE[vlu3sb64.jpg](\Media\vlu3sb64.jpg)
 1. [] Click **Connect** and let Outlook configure.  
 
-	> [!KNOWLEDGE] Login details for **Eric@@lab.CloudCredential(134).TenantName** should be automatically populated. If you still see **Install@Contoso.com**, close Microsoft Outlook and reopen.
+	> [!KNOWLEDGE] Login details for **Eric@@lab.CloudCredential(17).TenantName** should be automatically populated. If you still see **Install@Contoso.com**, close Microsoft Outlook and reopen.
 	>
 	> If you receive a prompt to choose an account type, click Office 365.
 	>
@@ -1109,9 +1109,9 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	$UserCredential = Get-Credential
 	```
 
-	+++@lab.CloudCredential(134).Username+++
+	+++@lab.CloudCredential(17).Username+++
 
-	+++@lab.CloudCredential(134).Password+++
+	+++@lab.CloudCredential(17).Password+++
 
 	```
 	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
@@ -1368,9 +1368,9 @@ In this task, we will enable Information Rights Management in SharePoint Online.
  
 1. [] If needed, log in using the credentials below:
 
-	 +++@lab.CloudCredential(134).Username+++
+	 +++@lab.CloudCredential(17).Username+++
 	 
-	 +++@lab.CloudCredential(134).Password+++
+	 +++@lab.CloudCredential(17).Password+++
  
 1. [] Hover over the **Admin centers** section of the bar on the left and choose **SharePoint**.
 
@@ -1408,7 +1408,7 @@ In this task, we will create a new SharePoint site and enable Information Rights
 1. [] Launch a new Edge InPrivate session to +++https://portal.office.com+++.
 1. [] Log in using the credentials below:
 
-	+++NuckC@@lab.CloudCredential(134).TenantName+++
+	+++NuckC@@lab.CloudCredential(17).TenantName+++
 
 	+++NinjaCat123+++
 1. [] Click on **SharePoint** in the list.
