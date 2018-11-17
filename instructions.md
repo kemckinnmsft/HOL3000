@@ -5,6 +5,7 @@
 Estimated time to complete this lab
 
 75 minutes (Core Scenarios)
+
 120 minutes (Full Lab)
 
 ### Objectives
@@ -166,6 +167,7 @@ For several of the exercises in this lab series, you will require an active subs
 
 	!IMAGE[w7cijc7e.jpg](\Media\w7cijc7e.jpg)
 	!IMAGE[e1l35ko2.jpg](\Media\e1l35ko2.jpg)
+
 	> [!NOTE] It may take up to 5 minutes to process the redemption.
 
 1. [] Click on **Activate** to start setting up your Azure subscription.
@@ -177,11 +179,13 @@ For several of the exercises in this lab series, you will require an active subs
 1. [] Enter your account information and click **Next**.
 
 	!IMAGE[ihrjazqi.jpg](\Media\ihrjazqi.jpg)
+	
 	> [!NOTE] You can keep the pre-populated information.
 
 1. [] Check the box to agree to the terms and click **Sign up**.
 
 	!IMAGE[k2a97g8e.jpg](\Media\k2a97g8e.jpg)
+
 	> [!NOTE] It may take a few minutes to process the request.
 
 1. [] When you are redirected to the Azure Portal, the process is complete.
