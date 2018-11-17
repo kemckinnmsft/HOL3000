@@ -84,50 +84,10 @@ There are also Knowledge Items, Notes, and Hints throughout the lab.
 
 There are a few prerequisites that need to be set up to complete all the sections in this lab.  This Exercise will walk you through the items below.
 
-- [Configure Azure AD Connect](#azure-ad-connect-configuration)
-
 - [Redeem Azure Pass](#redeem-azure-pass)
 
-- [Assign User Licenses](#assign-user-licenses)
+- [Workplace Join Clients](#workplace-join-clients)
 
-===
-# Azure AD Connect Configuration
-[🔙](#lab-environment-configuration)
-
-In this task, we will install Azure AD Connect and configure it using the express settings.
-
-1. [] Log into @lab.VirtualMachine(Scanner01).SelectLink by clicking @lab.CtrlAltDelete and using the credentials below:
-
-	+++LabUser+++
-
-	+++Pa$$w0rd+++
-
-2. [] On the desktop, **double-click** on **AzureADConnect.msi**.
-3. [] When prompted, click **Run** to continue.
-4. [] On the Welcome page, **check the box** next to **I agree** and click the **Continue** button.
-5. [] On the Express Settings page, click **Use express settings**.
-6. [] On the Connect to Azure AD page, enter the credentials below and press the **Next** button.
-
-	+++@lab.CloudCredential(17).Username+++
-
-	+++@lab.CloudCredential(17).Password+++
-
-> [!NOTE] The wizard will connect to the Microsoft Online tenant to verify the credentials.
-
-7. [] On the Connect to AD DS page, enter the credentials below then click the **Next** button.
-
-	+++Contoso.Azure\LabUser+++
-
-	+++Pa$$w0rd+++
-8. [] On the Azure AD sign-in page, **check the box** next to **Continue without any verified domains** and click the **Next** button.
-
-> [!NOTE] Verified domains are primarily for SSO purposes and are not needed for this lab
-
-9. [] On the Configure page, click the **Install** button.
-
-> [!ALERT] **Do not** uncheck the box for initial synchronization
-
-10. [] Continue to next task while initial sync is running.
 ===
 # Redeem Azure Pass
 [🔙](#lab-environment-configuration)
@@ -190,31 +150,53 @@ For several of the exercises in this lab series, you will require an active subs
 
 1. [] When you are redirected to the Azure Portal, the process is complete.
 ===
-# Assign User Licenses
-[🔙](#lab-environment-configuration)
+# Workplace Join Clients
 
-In this task, we will assign licenses to users that have been synced to the Office 365 portal.
+In this task, we will join 3 systems to the Azure AD tenant to provide SSO capabilities in Office.
 
-1. [] In the InPrivate window, navigate to +++https://admin.microsoft.com/AdminPortal/Home#/homepage+++.
+1. [] On @lab.VirtualMachine(Client01).SelectLink, right-click on the start menu and click **Run**.
+1. [] In the Run dialog, type +++ms-settings:workplace+++
 
-	> [!KNOWLEDGE] If needed, log in using the credentials below:
-	>
-	>+++@lab.CloudCredential(17).Username+++
-	>
-	>+++@lab.CloudCredential(17).Password+++
+	>!IMAGE[mssettings.png](\Media\mssettings.png)
 
-1. [] In the middle of the homepage, click onn **Active users >**.
-1. [] Check the box to select all users and click **Edit product licenses**.
+1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
 
-	!IMAGE[tpq0eb7f.jpg](\Media\tpq0eb7f.jpg)
-1. [] On the Assign products page, click **Next**.
+	+++AlanS@@lab.CloudCredential(17).TenantName+++
 
-	!IMAGE[nzzweacz.jpg](\Media\nzzweacz.jpg)
-1. [] On the Replace existing products page, turn on licenses for **Enterprise Mobility + Security E5** and **Office 365 Enterprise E5** and click **Replace**.
+	+++@lab.CloudCredential(17).Password+++
+1. [] Click **Done**.
+1. [] Log into @lab.VirtualMachine(Client02).SelectLink by pressing @lab.CtrlAltDelete and using the credentials below:
 
-	^IMAGE[Open Screenshot](\Media\9xomkr35.jpg)
-	> [!NOTE] If there are any failures, repeat the process for users that did not get licenses.
+	+++LabUser+++
 
+	+++Pa$$w0rd+++
+1. [] Right-click on the start menu and click **Run**.
+1. [] In the Run dialog, type +++ms-settings:workplace+++
+
+	>!IMAGE[mssettings.png](\Media\mssettings.png)
+
+1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
+
+	+++AmyA@@lab.CloudCredential(17).TenantName+++
+
+	+++@lab.CloudCredential(17).Password+++
+1. [] Click **Done**.
+1. [] Log into @lab.VirtualMachine(Client03).SelectLink by pressing @lab.CtrlAltDelete and using the credentials below:
+
+	+++LabUser+++
+
+	+++Pa$$w0rd+++
+1. [] Right-click on the start menu and click **Run**.
+1. [] In the Run dialog, type +++ms-settings:workplace+++
+
+	>!IMAGE[mssettings.png](\Media\mssettings.png)
+
+1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
+
+	+++EricG@@lab.CloudCredential(17).TenantName+++
+
+	+++@lab.CloudCredential(17).Password+++
+1. [] Click **Done**.
 ===
 
 # Azure Information Protection
@@ -643,7 +625,7 @@ Now that you have learned how to work with global labels and policies, we will c
 
 	^IMAGE[Open Screenshot](\Media\2lvwim24.jpg)
 
-1. [] In the AAD Users and Groups blade, **wait for the names to load**, then check the boxes next to **Alan Steiner** and **Amy Albers**, and click the **Select** button.
+1. [] In the AAD Users and Groups blade, **wait for the names to load**, then check the boxes next to **Alan Steiner** and **Amy Alberts**, and click the **Select** button.
 
 	^IMAGE[Open Screenshot](\Media\uishk9yh.jpg)
 
@@ -672,7 +654,7 @@ Now that you have learned how to work with global labels and policies, we will c
 	!IMAGE[1sjw3mc7.jpg](\Media\1sjw3mc7.jpg)
 
 1. [] In the AAD Users and Groups blade, click on **Users/Groups**.  
-1. [] Then in the second AAD Users and Groups blade, **wait for the names to load** and check the boxes next to **Alan Steiner**, **Amy Albers**, and **AIPScanner**.
+1. [] Then in the second AAD Users and Groups blade, **wait for the names to load** and check the boxes next to **Alan Steiner**, **Amy Alberts**, and **AIPScanner**.
 
 	>[!NOTE] The **AIPScanner** account is added here to prevent all scanned documents from being labeled with a default label.
 1. [] Click the **Select** button.
@@ -794,7 +776,7 @@ We will also be disabling a mail flow rule in the Exchange Admin Center to allow
 # Configuring Applications
 [🔙](#azure-information-protection)
  
-In this task, we will configure Word and Outlook for 3 test users.  These users are Alan Steiner (Alan) and Amy Alberts (Amy) who we have defined as members of the Legal group, and Eric Grimes (Eric).  
+In this task, we will configure Word and Outlook for 3 test users.  These users are Alan Steiner (AlanS) and Amy Alberts (AmyA) who we have defined as members of the Legal group, and Eric Gruber (EricG).  
 
 This will allow us to demonstrate the differences between the global and scoped policy and demonstrate some of the protection features of Azure Information Protection in the next exercise.
 
@@ -809,9 +791,9 @@ This will allow us to demonstrate the differences between the global and scoped 
 1. [] In the upper right, click on **Sign in to get the most out of Office**.
 	
 	^IMAGE[Open Screenshot](\Media\elavdbu1.jpg)
-1. [] In the Sign in dialog, enter +++Alan@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
+1. [] In the Sign in dialog, enter +++AlanS@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
 
-1. [] In the Enter password dialog, enter +++pass@word1+++ and click **Sign in**.
+1. [] In the Enter password dialog, enter +++@lab.CloudCredential(17).Password+++ and click **Sign in**.
 
 1. [] In the Use this account everywhere on your device dialog, click **Yes**.
 
@@ -824,7 +806,7 @@ This will allow us to demonstrate the differences between the global and scoped 
 	!IMAGE[vlu3sb64.jpg](\Media\vlu3sb64.jpg)
 1. [] Click **Connect** and let Outlook configure.  
 
-	> [!KNOWLEDGE] Login details for **Alan@@lab.CloudCredential(17).TenantName** should be automatically populated. If you still see **LabUser@Contoso.com**, close Microsoft Outlook and reopen.
+	> [!KNOWLEDGE] Login details for **AlanS@@lab.CloudCredential(17).TenantName** should be automatically populated. If you still see **LabUser@Contoso.com**, close Microsoft Outlook and reopen.
 	>
 	> If you receive a prompt to choose an account type, click Office 365.
 	>
@@ -848,9 +830,9 @@ This will allow us to demonstrate the differences between the global and scoped 
 1. [] In the upper right, click on **Sign in to get the most out of Office**.
 	
 	^IMAGE[Open Screenshot](\Media\elavdbu1.jpg)
-1. [] In the Sign in dialog, enter +++Amy@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
+1. [] In the Sign in dialog, enter +++AmyA@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
 
-1. [] In the Enter password dialog, enter +++pass@word1+++ and click **Sign in**.
+1. [] In the Enter password dialog, enter +++@lab.CloudCredential(17).Password+++ and click **Sign in**.
 
 1. [] In the Use this account everywhere on your device dialog, click **Yes**.
 
@@ -887,9 +869,9 @@ This will allow us to demonstrate the differences between the global and scoped 
 1. [] In the upper right, click on **Sign in to get the most out of Office**.
 	
 	^IMAGE[Open Screenshot](\Media\elavdbu1.jpg)
-1. [] In the Sign in dialog, enter +++Eric@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
+1. [] In the Sign in dialog, enter +++EricG@@lab.CloudCredential(17).TenantName+++ and press **Next**. 
 
-1. [] In the Enter password dialog, enter +++pass@word1+++ and click **Sign in**.
+1. [] In the Enter password dialog, enter +++@lab.CloudCredential(17).Password+++ and click **Sign in**.
 
 1. [] In the Use this account everywhere on your device dialog, click **Yes**.
 
@@ -902,7 +884,7 @@ This will allow us to demonstrate the differences between the global and scoped 
 	!IMAGE[vlu3sb64.jpg](\Media\vlu3sb64.jpg)
 1. [] Click **Connect** and let Outlook configure.  
 
-	> [!KNOWLEDGE] Login details for **Eric@@lab.CloudCredential(17).TenantName** should be automatically populated. If you still see **Install@Contoso.com**, close Microsoft Outlook and reopen.
+	> [!KNOWLEDGE] Login details for **EricG@@lab.CloudCredential(17).TenantName** should be automatically populated. If you still see **Install@Contoso.com**, close Microsoft Outlook and reopen.
 	>
 	> If you receive a prompt to choose an account type, click Office 365.
 	>
@@ -930,7 +912,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 	>
 	> !IMAGE[5esnhwkw.jpg](\Media\5esnhwkw.jpg)
 
-1. [] Send an email to **Alan** and **Amy** (+++Alan;Amy+++). You may **optionally add an external email address** (preferably from a major social provider like gmail, yahoo, or outlook.com) to test the external recipient experience. For the **Subject** and **Body** type +++Test Do Not Forward Email+++.
+1. [] Send an email to **Alan** and **Amy** (+++AlanS;AmyA+++). You may **optionally add an external email address** (preferably from a major social provider like gmail, yahoo, or outlook.com) to test the external recipient experience. For the **Subject** and **Body** type +++Test Do Not Forward Email+++.
 
 	^IMAGE[Open Screenshot](\Media\h0eh40nk.jpg)
 
@@ -960,7 +942,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 	>
 	> !IMAGE[tzj04wi9.jpg](\Media\tzj04wi9.jpg)
 	> 
-	> Here the user has received an email from Eric Grimes and they can click on the **Read the message** button.
+	> Here the user has received an email from Eric Gruber and they can click on the **Read the message** button.
 	>
 	>!IMAGE[wiefwcho.jpg](\Media\wiefwcho.jpg)
 	>
@@ -991,7 +973,7 @@ In this task, we will create a document and send an email to demonstrate the fun
 
 	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
 
-1. [] Send an email to Alan, Amy, and yourself (+++Alan;Amy;@lab.User.Email+++).  For the **Subject** and **Body** type +++Test Contoso Internal Email+++.
+1. [] Send an email to Alan, Amy, and yourself (+++AlanS;AmyA;@lab.User.Email+++).  For the **Subject** and **Body** type +++Test Contoso Internal Email+++.
 
 	^IMAGE[Open Screenshot](\Media\9gkqc9uy.jpg)
 
@@ -1022,7 +1004,7 @@ In this task, we will create a document and send an email from one of the users 
 	
 	^IMAGE[Open Screenshot](\Media\ldjugk24.jpg)
 	
-1. [] Send an email to Amy and Eric (+++Amy Albers;Eric Gruber+++).  For the **Subject** and **Body** type +++Test Highly Confidential Legal Email+++.
+1. [] Send an email to Amy and Eric (+++Amy Alberts;Eric Gruber+++).  For the **Subject** and **Body** type +++Test Highly Confidential Legal Email+++.
 1. [] In the Sensitivity Toolbar, click on **Highly Confidential** and the **Legal Only** sub-label, then click **Send**.
 
 	^IMAGE[Open Screenshot](\Media\ny1lwv0h.jpg)
@@ -1074,7 +1056,7 @@ In this task, we will test the configured recommended and automatic conditions w
 	
 	^IMAGE[Open Screenshot](\Media\ldjugk24.jpg)
 	
-1. [] Draft an email to Amy and Alan (+++Amy;Alan+++).  For the **Subject** and **Body** type +++Test Highly Confidential All Employees Automation+++.
+1. [] Draft an email to Amy and Alan (+++AmyA;AlanS+++).  For the **Subject** and **Body** type +++Test Highly Confidential All Employees Automation+++.
 
 	^IMAGE[Open Screenshot](\Media\4v3wrrop.jpg)
 1. [] Attach the **second document you created** to the email.
@@ -1162,7 +1144,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 
 	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
 
-1. [] Send an email to Alan, Amy, and yourself (+++Alan;Amy;@lab.User.Email+++).  For the **Subject**, type +++Test Credit Card Email+++ and for the **Body**, type +++My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368+++, then click **Send**.
+1. [] Send an email to Alan, Amy, and yourself (+++AlanS;AmyA;@lab.User.Email+++).  For the **Subject**, type +++Test Credit Card Email+++ and for the **Body**, type +++My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368+++, then click **Send**.
 
 	> [!KNOWLEDGE] Notice that there is a policy tip that has popped up to inform you that there is a credit card number in the email and it is being shared outside the organization.  This type of policy tip can be defined with the Office 365 Security and Compliance center and was pre-staged in the demo tenants we are using.  
 
@@ -1195,14 +1177,14 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 
 	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
 
-1. [] Send an new email to Alan, Amy, and yourself (+++Alan;Amy;@lab.User.Email+++).  For the **Subject**, type +++Test Credit Card Email 2+++ and for the **Body**, type +++My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368+++, then click **Send**.
+1. [] Send an new email to Alan, Amy, and yourself (+++AlanS;AmyA;@lab.User.Email+++).  For the **Subject**, type +++Test Credit Card Email 2+++ and for the **Body**, type +++My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368+++, then click **Send**.
 	>[!NOTE] If you still receive a rejection, please wait a few minutes and try again.
 
 	>[!Knowledge] Notice that you do not receive the error messag this time.  Log into your personal email and you will see that the email has been encrypted in transit by the Exchange Online Mail Flow Rule defined in the previous exercise.
 1. [] Next, in Microsoft Outlook, click on the **New email** button.
 
 	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
-1. [] Send an email to Alan, Amy, and yourself (+++Alan;Amy;@lab.User.Email+++).  For the **Subject** and **Body** type +++Another Test Contoso Internal Email+++.
+1. [] Send an email to Alan, Amy, and yourself (+++AlanS;AmyA;@lab.User.Email+++).  For the **Subject** and **Body** type +++Another Test Contoso Internal Email+++.
 
 	^IMAGE[Open Screenshot](\Media\d476fmpg.jpg)
 
@@ -1513,7 +1495,7 @@ Files that are uploaded to a SharePoint IRM protected document library are prote
 1. [] Select the uploaded document and click **Share** in the action bar.
 
 	!IMAGE[1u2jsod7.jpg](\Media\1u2jsod7.jpg)
-1. [] In the Send Link dialog, type +++Amy+++ and click on **Amy Alberts** then **Send**.
+1. [] In the Send Link dialog, type +++AmyA+++ and click on **Amy Alberts** then **Send**.
 
 	!IMAGE[j6w1v4z9.jpg](\Media\j6w1v4z9.jpg)
 1. [] Switch to @lab.VirtualMachine(Client02).SelectLink.
