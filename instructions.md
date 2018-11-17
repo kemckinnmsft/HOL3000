@@ -321,9 +321,9 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	+++@lab.CloudCredential(17).Password+++
 1. [] Next, click the **T** to **type the commands below** in the PowerShell window. 
 
-	> ![ALERT] Press Enter only after you see **-CustomKeyIdentifier "AIPClient"**.
+	> [!ALERT] Press Enter only after you see **-CustomKeyIdentifier "AIPClient"**.
 
-	> ![NOTE] This will create a new Web App Registration and Service Principal in Azure AD.
+	> [!NOTE] This will create a new Web App Registration and Service Principal in Azure AD.
 
    ```
    New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
@@ -336,7 +336,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 1. [] Next, we must build the permissions object for the Native App Registration.  This is done using the commands below.
    
-   	> ![ALERT] Press Enter only after you see **$Access.ResourceAccess = $Scope**.
+   	> [!ALERT] Press Enter only after you see **$Access.ResourceAccess = $Scope**.
 
    ```
    $AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
@@ -348,7 +348,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	```
 1. [] Next, we will use the object created above to create the Native App Registration.
    
-  	> ![ALERT] Press Enter only after you see **-AppId $NativeApp.AppId**.
+  	> [!ALERT] Press Enter only after you see **-AppId $NativeApp.AppId**.
 
    ```
    New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
@@ -358,7 +358,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    
 1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
    
-  	> ![ALERT] Press Enter only after you see **Start ~\Desktop\Set-AIPAuthentication.txt**.
+  	> [!ALERT] Press Enter only after you see **Start ~\Desktop\Set-AIPAuthentication.txt**.
    
    ```
    "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
@@ -792,7 +792,7 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 
 1. [] In a new tab, browse to +++https://protection.office.com/#/tagslibrary+++ to review the migrated labels. 
 
-![NOTE] Keep in mind that now that the SCC Sensitivity Labels have been activated, any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
+	>[!NOTE] Keep in mind that now that the SCC Sensitivity Labels have been activated, any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
 
 ===
 
