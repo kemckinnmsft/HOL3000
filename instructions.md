@@ -525,7 +525,13 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	>
 	>!IMAGE[agnx2gws.jpg](\Media\agnx2gws.jpg)
  
-1. [] Next, switch to @lab.VirtualMachine(AdminPC).SelectLink, open a **File Explorer** window, and browse to +++\\\Scanner01\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports+++.
+1. [] Next, switch to @lab.VirtualMachine(Client01).SelectLink, open a **File Explorer** window, and browse to +++\\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports+++.
+
+	> If needed, use the credentials below:
+	>
+	>+++Contoso\LabUser+++
+	>
+	>+++Pa$$w0rd+++
 
 1. [] Review the summary txt and detailed csv files available there.  
 
@@ -1126,7 +1132,13 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 	>
 	>!IMAGE[k3rox8ew.jpg](\Media\k3rox8ew.jpg)
 	>
-	>If we switch back to @lab.VirtualMachine(Client01).SelectLink and look in the reports directory we opened previously at +++\\\Scanner01\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports+++, you will notice that the old scan reports are zipped in the directory and only the most recent results aare showing.  
+	>If we switch back to @lab.VirtualMachine(Client01).SelectLink and look in the reports directory we opened previously at +++\\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports+++, you will notice that the old scan reports are zipped in the directory and only the most recent results aare showing.  
+	>
+	> If needed, use the credentials below:
+	>
+	>+++Contoso\LabUser+++
+	>
+	>+++Pa$$w0rd+++
 	>
 	>!IMAGE[s8mn092f.jpg](\Media\s8mn092f.jpg)
 	>
@@ -1146,7 +1158,13 @@ Now that we have Classified and Protected documents using the scanner, we can re
 
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink.
  
-2. [] Navigate to +++\\\Scanner01\documents+++. Provide the credentials +++Contoso\LabUser+++ and +++Pa$$w0rd+++ if prompted.
+2. [] Navigate to +++\\\Scanner01.contoso.azure\documents+++. 
+
+	> If needed, use the credentials below:
+	>
+	>+++Contoso\LabUser+++
+	>
+	>+++Pa$$w0rd+++
  
 	^IMAGE[Open Screenshot](\Media\hipavcx6.jpg)
 3. [] Open one of the Contoso Purchasing Permissions documents or Run For The Cure spreadsheets.
