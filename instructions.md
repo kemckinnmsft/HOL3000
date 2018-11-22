@@ -107,9 +107,9 @@ In this task, we will install Azure AD Connect and configure it using the expres
 5. [] On the Express Settings page, click **Use express settings**.
 6. [] On the Connect to Azure AD page, enter the credentials below and press the **Next** button.
 
-	+++@lab.CloudCredential(134).Username+++
+	+++@lab.CloudCredential(17).Username+++
 
-	+++@lab.CloudCredential(134).Password+++
+	+++@lab.CloudCredential(17).Password+++
 
 > [!NOTE] The wizard will connect to the Microsoft Online tenant to verify the credentials.
 
@@ -154,9 +154,9 @@ For several of the exercises in this lab series, you will require an active subs
 	!IMAGE[wdir7lb3.jpg](\Media\wdir7lb3.jpg)
 1. [] Enter the credentials below and select **Sign In**.
 
-	+++@lab.CloudCredential(134).Username+++
+	+++@lab.CloudCredential(17).Username+++
 
-	+++@lab.CloudCredential(134).Password+++ 
+	+++@lab.CloudCredential(17).Password+++ 
 
 	!IMAGE[gtg8pvp1.jpg](\Media\gtg8pvp1.jpg)
 1. [] Click **Confirm** if the correct email address is listed.
@@ -194,9 +194,9 @@ In this task, we will assign licenses to users that have been synced to the Offi
 
 	> [!KNOWLEDGE] If needed, log in using the credentials below:
 	>
-	>+++@lab.CloudCredential(134).Username+++
+	>+++@lab.CloudCredential(17).Username+++
 	>
-	>+++@lab.CloudCredential(134).Password+++
+	>+++@lab.CloudCredential(17).Password+++
 
 1. [] In the middle of the homepage, click on **Active users >**.
 
@@ -234,7 +234,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
 
-	+++AdamS@@lab.CloudCredential(134).TenantName+++
+	+++AdamS@@lab.CloudCredential(17).TenantName+++
 
 	+++pass@word1+++
 
@@ -253,7 +253,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
 
-	+++AliceA@@lab.CloudCredential(134).TenantName+++
+	+++AliceA@@lab.CloudCredential(17).TenantName+++
 
 	+++pass@word1+++
 1. [] Click **Done**.
@@ -269,7 +269,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
 
-	+++EvanG@@lab.CloudCredential(134).TenantName+++
+	+++EvanG@@lab.CloudCredential(17).TenantName+++
 
 	+++pass@word1+++
 1. [] Click **Done**.
@@ -317,9 +317,9 @@ In order to collect log data from Azure Information Protection clients and servi
 
 	> [!KNOWLEDGE] If necessary, log in using the username and password below:
 	>
-	>+++@lab.CloudCredential(134).Username+++ 
+	>+++@lab.CloudCredential(17).Username+++ 
 	>
-	>+++@lab.CloudCredential(134).Password+++
+	>+++@lab.CloudCredential(17).Password+++
 	
 1. [] After logging into the portal, type the word +++info+++ into the **search bar** and press **Enter**, then click on **Azure Information Protection**. 
 
@@ -389,9 +389,9 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 1. [] In PowerShell, run +++Connect-AzureAD+++ and use the username and password below. 
 	
-	+++@lab.CloudCredential(134).Username+++
+	+++@lab.CloudCredential(17).Username+++
 	
-	+++@lab.CloudCredential(134).Password+++
+	+++@lab.CloudCredential(17).Password+++
 1. [] Next, click the **T** to **type the commands below** in the PowerShell window. 
 
 	> [!ALERT] Press Enter only after you see **-CustomKeyIdentifier "AIPClient"**.
@@ -451,7 +451,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 1. [] Paste the copied **Set-AIPAuthentication** command into this window and run it.
 1. [] When prompted, enter the username and password below:
 
-	+++AIPScanner@@lab.CloudCredential(134).TenantName+++
+	+++AIPScanner@@lab.CloudCredential(17).TenantName+++
 
 	+++Somepass1+++
 
@@ -1073,7 +1073,7 @@ In this task, we will perform bulk classification using the built-in functionali
    !IMAGE[CandP.png](\Media\CandP.png)
 1. [] When prompted, click use another user and use the credentials below to authenticate:
 
-	+++AIPScanner@@lab.CloudCredential(134).TenantName+++
+	+++AIPScanner@@lab.CloudCredential(17).TenantName+++
 
 	+++Somepass1+++
 
@@ -1218,9 +1218,9 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	$UserCredential = Get-Credential
 	```
 
-	+++@lab.CloudCredential(134).Username+++
+	+++@lab.CloudCredential(17).Username+++
 
-	+++@lab.CloudCredential(134).Password+++
+	+++@lab.CloudCredential(17).Password+++
 
 	```
 	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
@@ -1350,9 +1350,9 @@ In this task, we will enable Information Rights Management in SharePoint Online.
  
 1. [] If needed, log in using the credentials below:
 
-	 +++@lab.CloudCredential(134).Username+++
+	 +++@lab.CloudCredential(17).Username+++
 	 
-	 +++@lab.CloudCredential(134).Password+++
+	 +++@lab.CloudCredential(17).Password+++
  
 1. [] Hover over the **Admin centers** section of the bar on the left and choose **SharePoint**.
 
@@ -1390,7 +1390,7 @@ In this task, we will create a new SharePoint site and enable Information Rights
 1. [] Launch a new Edge InPrivate session to +++https://portal.office.com+++.
 1. [] Log in using the credentials below:
 
-	+++NuckC@@lab.CloudCredential(134).TenantName+++
+	+++NuckC@@lab.CloudCredential(17).TenantName+++
 
 	+++NinjaCat123+++
 1. [] Click on **SharePoint** in the list.
