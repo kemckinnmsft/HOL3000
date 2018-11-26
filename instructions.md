@@ -1435,6 +1435,8 @@ In this task, we will create a new SharePoint site and enable Information Rights
 
 	!IMAGE[ie2rmsk2.jpg](\Media\ie2rmsk2.jpg)
  
+	>[!ALERT] It may take up to 10 minutes for the global IRM settings to apply to document libraries.  If this has not appeared after a few minutes, try creating a new document library to see if the link is available. 
+ 
 1. [] On the Settings > Information Rights Management Settings page, check the box next to Restrict permissions on this library on download and under **Create a permission policy title** type +++Contoso IRM Policy+++, and under **Add a permission policy description** type +++This content contained within this file is for use by Contoso Corporation employees only.+++
  
 	^IMAGE[Open Screenshot](\Media\m9v7v7ln.jpg)
@@ -2199,6 +2201,8 @@ In this task, we will create a new SharePoint site and enable Information Rights
 1. [] On the Documents > Settings page, under **Permissions and Management**, click **Information Rights Management**.
 
 	!IMAGE[ie2rmsk2.jpg](\Media\ie2rmsk2.jpg)
+ 
+	>[!ALERT] It may take up to 10 minutes for the global IRM settings to apply to document libraries.  If this has not appeared after a few minutes, try creating a new document library to see if the link is available. 
  
 1. [] On the Settings > Information Rights Management Settings page, check the box next to Restrict permissions on this library on download and under **Create a permission policy title** type +++Contoso IRM Policy+++, and under **Add a permission policy description** type +++This content contained within this file is for use by Contoso Corporation employees only.+++
  
