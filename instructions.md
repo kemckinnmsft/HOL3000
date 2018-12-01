@@ -58,7 +58,7 @@ There are a few extras throughout this lab that are designed to make your lab ex
 - Throughout the lab, you will see text with a letter **T** in a square to the left.  This indicates that you can **click on the text** and it will **type it for you** in the VM.  **This will save you lots of time**.
 
 	!IMAGE[cnyu1tdi.jpg](\Media\cnyu1tdi.jpg)
--Additionally you will a @lab.CtrlAltDelete button that will press **Ctrl-Alt-Delete** in the active VM.
+- Additionally you will a @lab.CtrlAltDelete button that will press **Ctrl-Alt-Delete** in the active VM.
 
 - The last interactive element you will see throughout the lab is the **Open Screenshot** text below many steps.  To reduce clutter, most screenshots have been configured to launch in a popup window.  The only ones left visible are ones that could cause issues if they are missed or if there are multiple elements that are easier to understand with visual representation.
 
