@@ -163,9 +163,8 @@ For several of the exercises in this lab series, you will require an active subs
 1. [] Click **Confirm** if the correct email address is listed.
 
 	!IMAGE[teyx280d.jpg](\Media\teyx280d.jpg)
-1. [] Enter your promo code in the Promo code box using the Type Text functionality of the lab environment and click **Claim Promo Code**.
+1. [] In the Promo code box type +++@lab.CloudCredential(215).PromoCode+++ and click the **Claim Promo Code** button.
 
-	!IMAGE[w7cijc7e.jpg](\Media\w7cijc7e.jpg)
 	!IMAGE[e1l35ko2.jpg](\Media\e1l35ko2.jpg)
 	> [!NOTE] It may take up to 5 minutes to process the redemption.
 
