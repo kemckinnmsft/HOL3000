@@ -57,9 +57,8 @@ There are a few extras throughout this lab that are designed to make your lab ex
 	!IMAGE[12i85vgl.jpg](\Media\12i85vgl.jpg)
 - Throughout the lab, you will see text with a letter **T** in a square to the left.  This indicates that you can **click on the text** and it will **type it for you** in the VM.  **This will save you lots of time**.
 
--Additionally you will a @lab.CtrlAltDelete button that will press **Ctrl-Alt-Delete** in the active VM.
-
 	!IMAGE[cnyu1tdi.jpg](\Media\cnyu1tdi.jpg)
+- Additionally you will a @lab.CtrlAltDelete button that will press **Ctrl-Alt-Delete** in the active VM.
 
 - The last interactive element you will see throughout the lab is the **Open Screenshot** text below many steps.  To reduce clutter, most screenshots have been configured to launch in a popup window.  The only ones left visible are ones that could cause issues if they are missed or if there are multiple elements that are easier to understand with visual representation.
 
@@ -236,9 +235,9 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
 
-	+++AlanS@@lab.CloudCredential(17).TenantName+++
+	+++AdamS@@lab.CloudCredential(17).TenantName+++
 
-	+++@lab.CloudCredential(17).Password+++
+	+++pass@word1+++
 1. [] Click **Done**.
 1. [] Log into @lab.VirtualMachine(Client02).SelectLink by pressing @lab.CtrlAltDelete and using the credentials below:
 
@@ -252,9 +251,9 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
 
-	+++AmyA@@lab.CloudCredential(17).TenantName+++
+	+++AliceA@@lab.CloudCredential(17).TenantName+++
 
-	+++@lab.CloudCredential(17).Password+++
+	+++pass@word1+++
 1. [] Click **Done**.
 1. [] Log into @lab.VirtualMachine(Client03).SelectLink by pressing @lab.CtrlAltDelete and using the credentials below:
 
@@ -268,9 +267,9 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 1. [] In the Access Work or School settings menu, click on **+ Connect** and enter the credentials below to workplace join the client.
 
-	+++EricG@@lab.CloudCredential(17).TenantName+++
+	+++EvanG@@lab.CloudCredential(17).TenantName+++
 
-	+++@lab.CloudCredential(17).Password+++
+	+++pass@word1+++
 1. [] Click **Done**.
 ===
 # Azure Information Protection
@@ -822,7 +821,7 @@ However, helping your users to properly classify and protect sensitive data at t
 1. [] In the Condition blade, in the **Select information types** search box, type +++EU+++ and check the boxes next to the **items shown below**.
 
 	!IMAGE[xaj5hupc.jpg](\Media\xaj5hupc.jpg)
-1. [] Next, before saving, replace Credit in the search bar with +++credit+++ and check the box next to **Credit Card Number**.
+1. [] Next, before saving, replace EU in the search bar with +++credit+++ and check the box next to **Credit Card Number**.
 
 	^IMAGE[Open Screenshot](\Media\9rozp61b.jpg)
 1. [] Click **Save** in the Condition blade and **OK** to the Save settings prompt.
