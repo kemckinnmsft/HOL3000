@@ -222,6 +222,7 @@ In this task, we will assign licenses to users that have been synced to the Offi
 	> |Alice Anderson|
 	> |Evan Green|
     > |MOD Administrator|
+    > |Nuck Chorris|
 
 ===
 # Workplace Join Clients
