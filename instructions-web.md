@@ -30,14 +30,59 @@ Before working on this lab, you must have:
 
 ### Lab machine technology
 
-This lab is designed to be completed on either a native Windows 10 machine or a VM with the following characteristics:
+This lab was developed for use in a structured VM environment with the following characteristics:
 
-- Windows 10 Enterprise
-- Office 365 ProPlus
-- Azure Information Protection client (1.38.7.0)
+- Windows Server 2016 Domain Controller (ContosoDC) (Deployed with contoso.azure root domain)
+	- Provisioned On-Premises domain admin account named **Contoso\LabUser** with the password **Pa$$w0rd**
+	- Provisioned On-Premises users per the table below
+  
+	> |User Name|Name|Password|
+	> |-----|-----|-----|
+	> |AdamS|Adam Smith|pass@word1|
+	> |AIPScanner||Somepass1|
+	> |AliceA|Alice Anderson|pass@word1|
+	> |EvanG|Evan Green|pass@word1|
+    > |NuckC|Nuck Chorris|NinjaCat123|
 
-Microsoft 365 E5 Tenant credentials will be provided during the event.  If you want to run through this lab after the event, you may use a tenant created through https://demos.microsoft.com or your own Microsoft 365 Tenant. This Lab Guide will be publicly available after the event at https://aka.ms/AIPHOL.
+- Member Server (Scanner01) with the software below pre-installed
+	- Azure AD Connect (Installed, not configured. Available at https://aka.ms/AADConnect)
+	- Azure Information Protection client (1.41.51.0) (Available at https://aka.ms/AIPClient)
+	- SQL Server 2016+ (Any version will work for AIP Scanner, but full SQL Enterprise was used for this lab setup due to coexistence of SharePoint Server.  If using SQL Express, make sure to use Scanner01\SQLExpress as the SQL Server name in the Scanner Install PowerShell Script)
+	- SharePoint Server 2016 Single Server install
+	- Demo PII content deployed to a document library at http://Scanner01/documents and in a fileshare shared as \\Scanner01\documents
+	- Test PII content is available at https://github.com/kemckinnmsft/AIPLAB/blob/master/Content/PII.zip
+	- Contoso\AIPScanner account should be **local admin** of this server
+	- Contoso\AIPScanner should have **sysadmin** rights on the SQL server
 
+- 3 Windows 10 Enterprise Clients (CLIENT01-03)
+	- Office 365 ProPlus
+	- Azure Information Protection client (1.41.51.0) (Available at https://aka.ms/AIPClient)
+
+Microsoft 365 E5 Tenant credentials will be necessary to run through all of the exercises included in this lab.  If you have access to https://demos.microsoft.com, you may use a tenant provisioned there, or your own trial/POC Microsoft 365 Tenant. Global Admin credentials are required to complete most of these exercises.
+
+In the Demos.Microsoft.com Tenants, AIP is pre-populated with labels matching the structure below.  If you are using your own tenant, you may need to create some of these labels to follow along with all of the steps.
+
+> |Label Name|Description|Sub-Label|Protected|User Rights|
+> |-----|-----|-----|-----|-----|
+> |Personal|Non-business data, for personal use only.|No|No|N/A|
+> |Public|Business data that is specifically prepared and approved for public consumption.|No|No|N/A|
+> |General|Business data that is not intended for public consumption. However, this can be shared with external partners, as required. Examples include a company internal telephone directory, organizational charts, internal standards, and most internal communication.|No|No|N/A|
+> |Confidential|Sensitive business data that could cause damage to the business if shared with unauthorized people. Examples include contracts, security reports, forecast summaries, and sales account data.|No|No|N/A|
+> |Recipients Only|Confidential data that requires protection and that can be viewed by the recipients only.|Yes, of Confidential|Yes|User defined, In Outlook apply Do Not Forward|
+> |All Employees|Confidential data that requires protection, which allows all employees full permissions. Data owners can track and revoke content.|Yes, of Confidential|Yes|All members, Co-Owner|
+> |Anyone (not protected)|Data that does not require protection. Use this option with care and with appropriate business justification.|Yes, of Confidential|No|N/A|
+> |Highly Confidential|Very sensitive business data that would cause damage to the business if it was shared with unauthorized people. Examples include employee and customer information, passwords, source code, and pre-announced financial reports.|No|No|N/A|
+> |Recipients Only|Highly Confidential data that requires protection and that can be viewed by the recipients only.|Yes, of Highly Confidential|Yes|User defined, In Outlook apply Do Not Forward|
+> |All Employees|Highly Confidential data that requires protection, which allows all employees full permissions. Data owners can track and revoke content.|Yes, of Highly Confidential|Yes|All members, Co-Author|
+> |Anyone (not protected)|Data that does not require protection. Use this option with care and with appropriate business justification.|Yes, of Highly Confidential|No|N/A|
+
+### Reporting Errors
+
+This is a living document and was developed from lab content so it is possible that some of the screenshots or references are not perfectly translated.  **Additionally, the steps in this lab are designed around specific lab tenants so may not be applicable or may need to be altered in other test environments.  Please modify as necessary for your environment**.  
+
+If you run into any issues in this document or the instructions do not work because of changes in the Azure interface or client software, please reach out to me by clicking on the link below. I will make every effort to ensure that the instructions contained in this document are up-to-date and relevant but constructive criticism is always appreciated.
+
+https://aka.ms/AIPLabFeedback
 -----
 # Lab Environment Configuration
 [🔙](#introduction)
