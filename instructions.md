@@ -4,7 +4,7 @@
 
 Estimated time to complete this lab
 
-75 minutes (Core Scenarios)
+60 minutes (Core Scenarios)
 
 120 minutes (Full Lab)
 
@@ -282,13 +282,13 @@ There are 2 options for this Lab.  These options contain similar content except 
 
 - The **New to AIP** option will walk through the label and policy creation including scoped policies and demonstrating recommended and automatic labeling in Office applications. This option takes significantly longer and so there is a chance that all sections may not be completed.
 
-- The **Experienced with AIP** option assumes that you are familiar with label and policy creation and that you have seen the operation of conditions in Office applications as these will not be demonstrated.  This option will use the predefined labels and global policy populated in the demo tenants.
+- The **Familiar with AIP** option assumes that you are familiar with label and policy creation and that you have seen the operation of conditions in Office applications as these will not be demonstrated.  This option will use the predefined labels and global policy populated in the demo tenants.
 
 Click on one of the options below to begin.
 
 ## [New to AIP](#exercise-1-configuring-aip-scanner-for-discovery)
 
-## [Experienced with AIP](#exercise-1a-configuring-aip-scanner-for-discovery)
+## [Familiar with AIP](#exercise-1a-configuring-aip-scanner-for-discovery)
 
 After completing this lab, you will be able to:
 
