@@ -183,7 +183,7 @@ In this task, we will assign licenses to users that have been synced to the Offi
 	> |AIPScanner|
 	> |Alice Anderson|
 	> |Evan Green|
-    > |MOD Administrator|
+    > |Tenant Global Administrator|
     > |Nuck Chorris|
 
 -----
