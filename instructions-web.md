@@ -90,7 +90,7 @@ There are a few prerequisites that need to be set up to complete all the section
 
 - [Configure Azure AD Connect](#azure-ad-connect-configuration)
 
-- [Redeem Azure Pass](#redeem-azure-pass)
+- [Sign up for Azure Subscription](#sign-up-for-azure-subscription)
 
 - [Assign User Licenses](#assign-user-licenses)
 
@@ -134,62 +134,20 @@ In this task, we will install Azure AD Connect and configure it using the expres
 10. Continue to next task while initial sync is running.
 
 -----
-# Redeem Azure Pass
+# Sign up for Azure Subscription
 
-For several of the exercises in this lab series, you will require an active subscription.  We are providing an Azure Pass for this purpose.  You will be provided with an Azure Pass code to use with the instructions below.
+For several of the exercises in this lab series, you will require an active subscription.  You can sign up for a free subscription by following the instructions below.  If you have already used your free trial, you can sign up for a pay-as-you-go subscription as nothing in this lab will incur any charges.  Be aware that if you use the scanner to discover a large amount of data, you may incur Azure charges.
 
-### Creating an Azure Pass subscription is a two step process
+### Creating an Azure free subscription
 
-- Redeem your Azure Pass Promo Code
-- Activate your subscription
+1. Browse to **https://azure.microsoft.com/en-us/free**
+2. Click the **Start Free** button in the middle of the screen.
 
-##Step 1: Redeeming a Microsoft Azure Pass Promo Code:
+	![Start Free](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/free.png)
+1. Sign in using your **Global Admin credentials** for your test tenant.
+1. Fill out the information to sign up for a free Azure subscription.
 
-1. Log into Client01 by pressing Ctrl+Alt+Delete and using the credentials below:
-
-	**LabUser**
-
-	**Pa$$w0rd**
-1. Right-click on **Edge** in the taskbar and click on **New InPrivate window**.
-
-1. In the InPrivate window, navigate to **https://www.microsoftazurepass.com**
-
-1. Click the **Start** button to get started.
-
-	![wdir7lb3.jpg](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/wdir7lb3.jpg)
-1. Enter the credentials below and select **Sign In**.
-
-	**Global Admin Username**
-
-	**Global Admin Password** 
-
-	![gtg8pvp1.jpg](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/gtg8pvp1.jpg)
-1. Click **Confirm** if the correct email address is listed.
-
-	![teyx280d.jpg](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/teyx280d.jpg)
-1. Enter your promo code in the Promo code box using the Type Text functionality of the lab environment and click **Claim Promo Code**.
-
-	![w7cijc7e.jpg](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/w7cijc7e.jpg)
-	![e1l35ko2.jpg](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/e1l35ko2.jpg)
-	> NOTE: It may take up to 5 minutes to process the redemption.
-
-1. Click on **Activate** to start setting up your Azure subscription.
-
-	![hsa6yyy7.jpg](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/hsa6yyy7.jpg)
-
-## Step 2: Activate your subscription:
-
-1. Scroll to the bottom of the page and click **Next**.
-
-	![ihrjazqi.jpg](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/ihrjazqi.jpg)
-	> NOTE: You can keep the pre-populated information.
-
-1. Check the box to agree to the terms and click **Sign up**.
-
-	![k2a97g8e.jpg](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/k2a97g8e.jpg)
-	> NOTE: It may take a few minutes to process the request.
-
-1. When you are redirected to the Azure Portal, the process is complete.
+	![Sign UP](https://github.com/kemckinnmsft/HOL3000/blob/master/Media/signup.png)
 -----
 # Assign User Licenses
 
