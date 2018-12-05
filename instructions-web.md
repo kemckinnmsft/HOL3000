@@ -51,8 +51,7 @@ This lab was developed for use in a structured VM environment with the following
 	- SharePoint Server 2016 Single Server install
 	- Demo PII content deployed to a document library at http://Scanner01/documents and in a fileshare shared as \\Scanner01\documents
 	- Test PII content is available at https://github.com/kemckinnmsft/AIPLAB/blob/master/Content/PII.zip
-	- Contoso\AIPScanner account should be **local admin** of this server
-	- Contoso\AIPScanner should have **sysadmin** rights on the SQL server
+
 
 - 3 Windows 10 Enterprise Clients (CLIENT01-03)
 	- Office 365 ProPlus
