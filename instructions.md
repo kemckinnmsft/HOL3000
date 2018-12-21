@@ -100,7 +100,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 ```
 # Store Tenant FQDN and Short name
-$tenantfqdn = "@lab.CloudCredential(134).TenantName"
+$tenantfqdn = "@lab.CloudCredential(17).TenantName"
 $tenant = $tenantfqdn.Split('.')[0]
 
 # Build Licensing SKUs
@@ -135,12 +135,14 @@ $upn = $user.username+"@"+$tenantfqdn
 New-AzureADUser -AccountEnabled $True -DisplayName $user.displayname -PasswordProfile $PasswordProfile -MailNickName $user.username -UserPrincipalName $upn
 
 # Assign Office and EMS licenses to users
+Set-MsolUser -UserPrincipalName $upn -UsageLocation US
 Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
 }
 
 # Assign Office, EMS, and WDATP licenses to Admin user
 $upn = "admin@"+$tenantfqdn
 Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
+
 ```
 
 ===
@@ -148,12 +150,7 @@ Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
 
 For several of the exercises in this lab series, you will require an active subscription.  We are providing an Azure Pass for this purpose.  You will be provided with an Azure Pass code to use with the instructions below.
 
-### Creating an Azure Pass subscription is a two step process
-
-- Redeem your Azure Pass Promo Code
-- Activate your subscription
-
-##Step 1: Redeeming a Microsoft Azure Pass Promo Code:
+## Redeeming a Microsoft Azure Pass Promo Code:
 
 1. [] Log into @lab.VirtualMachine(Client01).SelectLink using the password +++Pa$$w0rd+++
 1. [] Right-click on **Edge** in the taskbar and click on **New InPrivate window**.
@@ -177,12 +174,6 @@ For several of the exercises in this lab series, you will require an active subs
 
 	!IMAGE[e1l35ko2.jpg](\Media\e1l35ko2.jpg)
 	> [!NOTE] It may take up to 5 minutes to process the redemption.
-
-1. [] Click on **Activate** to start setting up your Azure subscription.
-
-	!IMAGE[hsa6yyy7.jpg](\Media\hsa6yyy7.jpg)
-
-## Step 2: Activate your subscription:
 
 1. [] Scroll to the bottom of the page and click **Next**.
 
