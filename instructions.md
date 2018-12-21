@@ -205,8 +205,7 @@ For several of the exercises in this lab series, you will require an active subs
 
 In this task, we will join 3 systems to the Azure AD tenant to provide SSO capabilities in Office.
 
-1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-1. [] Right-click on the start menu and click **Run**.
+1. [] On @lab.VirtualMachine(Client01).SelectLink, right-click on the start menu and click **Run**.
 1. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
 
 	>!IMAGE[mssettings.png](\Media\mssettings.png)
