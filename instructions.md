@@ -96,7 +96,7 @@ There are a few prerequisites that need to be set up to complete all the section
 In this task, we will create new Azure AD users and assign licenses via PowerShell.  In a procduction evironment this would be done using Azure AD Connect or a similar tool to maintain a single source of authority, but for lab purposes we are doing it via script to reduce setup time.
 
 1. [] Log into @lab.VirtualMachine(Scanner01).SelectLink using the password +++@lab.VirtualMachine(Scanner01).Password+++
-2. [] Open a new Administrative PowerShell window and click below to type the code.
+2. [] Open a new Administrative PowerShell window and click below to type the code. When prompted
 
 ```
 # Store Tenant FQDN and Short name
@@ -122,17 +122,25 @@ Connect-AzureAD -Credential $cred
 
 # Import Users from local csv file
 $users = Import-csv C:\users.csv
+
 foreach ($user in $users){
+	
+# Store UPN created from csv and tenant
+$upn = $user.username+"@"+$tenantfqdn
+
 # Create password profile preventing automatic password change and storing password from csv
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile 
 $PasswordProfile.ForceChangePasswordNextLogin = $false 
 $PasswordProfile.Password = $user.password
 
-# Store UPN created from csv and tenant
-$upn = $user.username+"@"+$tenantfqdn
-
 # Create new Azure AD user
 New-AzureADUser -AccountEnabled $True -DisplayName $user.displayname -PasswordProfile $PasswordProfile -MailNickName $user.username -UserPrincipalName $upn
+}
+
+foreach ($user in $users){
+
+# Store UPN created from csv and tenant
+$upn = $user.username+"@"+$tenantfqdn
 
 # Assign Office and EMS licenses to users
 Set-MsolUser -UserPrincipalName $upn -UsageLocation US
@@ -144,6 +152,7 @@ $upn = "admin@"+$tenantfqdn
 Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
 
 ```
+
 
 ===
 # Redeem Azure Pass
