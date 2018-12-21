@@ -84,64 +84,12 @@ There are also Knowledge Items, Notes, and Hints throughout the lab.
 
 There are a few prerequisites that need to be set up to complete all the sections in this lab.  This Exercise will walk you through the items below.
 
-- [Redeem Azure Pass](#redeem-azure-pass)
-
 - [Azure AD User Configuration](#azure-ad-user-configuration)
+
+- [Redeem Azure Pass](#redeem-azure-pass)
 
 - [Workplace Join Clients](#workplace-join-clients)
 
-===
-# Redeem Azure Pass
-
-For several of the exercises in this lab series, you will require an active subscription.  We are providing an Azure Pass for this purpose.  You will be provided with an Azure Pass code to use with the instructions below.
-
-### Creating an Azure Pass subscription is a two step process
-
-- Redeem your Azure Pass Promo Code
-- Activate your subscription
-
-##Step 1: Redeeming a Microsoft Azure Pass Promo Code:
-
-1. [] Log into @lab.VirtualMachine(Client01).SelectLink using the password +++Pa$$w0rd+++
-1. [] Right-click on **Edge** in the taskbar and click on **New InPrivate window**.
-
-2. [] In the InPrivate window, navigate to ```https://www.microsoftazurepass.com```
-
-3. [] Click the **Start** button to get started.
-
-	!IMAGE[wdir7lb3.jpg](\Media\wdir7lb3.jpg)
-1. [] Enter the credentials below and select **Sign In**.
-
-	```@lab.CloudCredential(17).Username```
-
-	```@lab.CloudCredential(17).Password``` 
-
-	!IMAGE[gtg8pvp1.jpg](\Media\gtg8pvp1.jpg)
-1. [] Click **Confirm** if the correct email address is listed.
-
-	!IMAGE[teyx280d.jpg](\Media\teyx280d.jpg)
-1. [] In the Promo code box type ```@lab.CloudCredential(215).PromoCode``` and click the **Claim Promo Code** button.
-
-	!IMAGE[e1l35ko2.jpg](\Media\e1l35ko2.jpg)
-	> [!NOTE] It may take up to 5 minutes to process the redemption.
-
-1. [] Click on **Activate** to start setting up your Azure subscription.
-
-	!IMAGE[hsa6yyy7.jpg](\Media\hsa6yyy7.jpg)
-
-## Step 2: Activate your subscription:
-
-1. [] Scroll to the bottom of the page and click **Next**.
-
-	!IMAGE[ihrjazqi.jpg](\Media\ihrjazqi.jpg)
-	> [!NOTE] You can keep the pre-populated information.
-
-1. [] Check the box to agree to the terms and click **Sign up**.
-
-	!IMAGE[k2a97g8e.jpg](\Media\k2a97g8e.jpg)
-	> [!NOTE] It may take a few minutes to process the request.
-
-1. [] When you are redirected to the Azure Portal, the process is complete.
 ===
 # Azure AD User Configuration
 
@@ -195,6 +143,58 @@ $upn = "admin@"+$tenantfqdn
 Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
 ```
 
+===
+# Redeem Azure Pass
+
+For several of the exercises in this lab series, you will require an active subscription.  We are providing an Azure Pass for this purpose.  You will be provided with an Azure Pass code to use with the instructions below.
+
+### Creating an Azure Pass subscription is a two step process
+
+- Redeem your Azure Pass Promo Code
+- Activate your subscription
+
+##Step 1: Redeeming a Microsoft Azure Pass Promo Code:
+
+1. [] Log into @lab.VirtualMachine(Client01).SelectLink using the password +++Pa$$w0rd+++
+1. [] Right-click on **Edge** in the taskbar and click on **New InPrivate window**.
+
+2. [] In the InPrivate window, navigate to ```https://www.microsoftazurepass.com```
+
+3. [] Click the **Start** button to get started.
+
+	!IMAGE[wdir7lb3.jpg](\Media\wdir7lb3.jpg)
+1. [] Enter the credentials below and select **Sign In**.
+
+	```@lab.CloudCredential(17).Username```
+
+	```@lab.CloudCredential(17).Password``` 
+
+	!IMAGE[gtg8pvp1.jpg](\Media\gtg8pvp1.jpg)
+1. [] Click **Confirm** if the correct email address is listed.
+
+	!IMAGE[teyx280d.jpg](\Media\teyx280d.jpg)
+1. [] In the Promo code box type ```@lab.CloudCredential(215).PromoCode``` and click the **Claim Promo Code** button.
+
+	!IMAGE[e1l35ko2.jpg](\Media\e1l35ko2.jpg)
+	> [!NOTE] It may take up to 5 minutes to process the redemption.
+
+1. [] Click on **Activate** to start setting up your Azure subscription.
+
+	!IMAGE[hsa6yyy7.jpg](\Media\hsa6yyy7.jpg)
+
+## Step 2: Activate your subscription:
+
+1. [] Scroll to the bottom of the page and click **Next**.
+
+	!IMAGE[ihrjazqi.jpg](\Media\ihrjazqi.jpg)
+	> [!NOTE] You can keep the pre-populated information.
+
+1. [] Check the box to agree to the terms and click **Sign up**.
+
+	!IMAGE[k2a97g8e.jpg](\Media\k2a97g8e.jpg)
+	> [!NOTE] It may take a few minutes to process the request.
+
+1. [] When you are redirected to the Azure Portal, the process is complete.
 ===
 # Workplace Join Clients
 
