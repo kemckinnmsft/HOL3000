@@ -153,6 +153,7 @@ Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
 
 # Assign Office and EMS licenses to Admin user
 $upn = "admin@"+$tenantfqdn
+Set-MsolUser -UserPrincipalName $upn -UsageLocation US
 Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
 
 ```
