@@ -216,7 +216,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	```pass@word1```
 1. [] Click **Done**.
-1. [] Log into @lab.VirtualMachine(Client02).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Switch to @lab.VirtualMachine(Client02).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] Right-click on the start menu and click **Run**.
 1. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
 
@@ -228,7 +228,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	```pass@word1```
 1. [] Click **Done**.
-1. [] Log into @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] Right-click on the start menu and click **Run**.
 1. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
 
@@ -289,7 +289,7 @@ In this exercise, we will install the AIP scanner and run it against repositorie
 
 In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
 
-1. [] Switch to @lab.VirtualMachine(Client01).SelectLink.
+1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] In the InPrivate window, navigate to ```https://portal.azure.com/```
 	>
 	>^IMAGE[Open Screenshot](\Media\cznh7i2b.jpg)
