@@ -84,50 +84,11 @@ There are also Knowledge Items, Notes, and Hints throughout the lab.
 
 There are a few prerequisites that need to be set up to complete all the sections in this lab.  This Exercise will walk you through the items below.
 
-- [Configure Azure AD Connect](#azure-ad-connect-configuration)
-
 - [Redeem Azure Pass](#redeem-azure-pass)
 
-- [Assign User Licenses](#assign-user-licenses)
+- [Azure AD User Configuration](#azure-ad-user-configuration)
 
 - [Workplace Join Clients](#workplace-join-clients)
-
-===
-# Azure AD Connect Configuration
-
-In this task, we will install Azure AD Connect and configure it using the express settings.
-
-1. [] Log into @lab.VirtualMachine(Scanner01).SelectLink by clicking @lab.CtrlAltDelete and using the credentials below:
-
-	+++LabUser+++
-
-	+++Pa$$w0rd+++
-
-2. [] On the desktop, **double-click** on **Azure AD Connect**.
-3. [] When prompted, click **Yes** to continue.
-5. [] On the Express Settings page, click **Use express settings**.
-6. [] On the Connect to Azure AD page, enter the credentials below and press the **Next** button.
-
-	+++@lab.CloudCredential(17).Username+++
-
-	+++@lab.CloudCredential(17).Password+++
-
-> [!NOTE] The wizard will connect to the Microsoft Online tenant to verify the credentials.
-
-7. [] On the Connect to AD DS page, enter the credentials below then click the **Next** button.
-
-	+++Contoso.Azure\LabUser+++
-
-	+++Pa$$w0rd+++
-8. [] On the Azure AD sign-in page, **check the box** next to **Continue without any verified domains** and click the **Next** button.
-
-> [!NOTE] Verified domains are primarily for SSO purposes and are not needed for this lab
-
-9. [] On the Configure page, click the **Install** button.
-
-> [!ALERT] **Do not** uncheck the box for initial synchronization
-
-10. [] Continue to next task while initial sync is running.
 
 ===
 # Redeem Azure Pass
@@ -141,11 +102,7 @@ For several of the exercises in this lab series, you will require an active subs
 
 ##Step 1: Redeeming a Microsoft Azure Pass Promo Code:
 
-1. [] Log into @lab.VirtualMachine(Client01).SelectLink by pressing @lab.CtrlAltDelete and using the credentials below:
-
-	+++LabUser+++
-
-	+++Pa$$w0rd+++
+1. [] Log into @lab.VirtualMachine(Client01).SelectLink using the password +++Pa$$w0rd+++
 1. [] Right-click on **Edge** in the taskbar and click on **New InPrivate window**.
 
 1. [] In the InPrivate window, navigate to +++https://www.microsoftazurepass.com+++
@@ -186,49 +143,65 @@ For several of the exercises in this lab series, you will require an active subs
 
 1. [] When you are redirected to the Azure Portal, the process is complete.
 ===
-# Assign User Licenses
+# Azure AD User Configuration
 
-In this task, we will assign licenses to users that have been synced to the Office 365 portal.
+In this task, we will create new Azure AD users and assign licenses via PowerShell.  In a procduction evironment this would be done using Azure AD Connect or a similar tool to maintain a single source of authority, but for lab purposes we are doing it via script to reduce setup time.
 
-1. [] In a new tab, navigate to +++https://admin.microsoft.com/AdminPortal/Home#/homepage+++.
+1. [] Log into @lab.VirtualMachine(Scanner01).SelectLink using the password +++@lab.VirtualMachine(Scanner01).Password+++
+2. [] Open a new Administrative PowerShell window and click below to type the code.
 
-	> [!KNOWLEDGE] If needed, log in using the credentials below:
-	>
-	>+++@lab.CloudCredential(17).Username+++
-	>
-	>+++@lab.CloudCredential(17).Password+++
+```
+# Store Tenant FQDN and Short name
+$tenantfqdn = "@lab.CloudCredential(134).TenantName"
+$tenant = $tenantfqdn.Split('.')[0]
 
-1. [] In the middle of the homepage, click on **Active users >**.
+# Build Licensing SKUs
+$office = $tenant+":ENTERPRISEPREMIUM"
+$ems = $tenant+":EMSPREMIUM"
 
-	> [!NOTE] If there are only 2 users in the portal, the sync has not completed.  Switch to @lab.VirtualMachine(Scanner01).SelectLink to verify the progress. Once it shows complete, return to @lab.VirtualMachine(Client01).SelectLink and refresh the page to verify the users are now present.
+# Get Global Admin Credentials
+$cred = Get-Credential
 
-2. [] Check the box to select all users and click **Edit product licenses**.
+# Connect to MSOLService for licensing Operations
+Connect-MSOLService -Credential $cred
 
-	!IMAGE[tpq0eb7f.jpg](\Media\tpq0eb7f.jpg)
-1. [] On the Assign products page, click **Next**.
+# Remove existing licenses to ensure enough licenses exist for our users
+$LicensedUsers = Get-MsolUser -All  | where {$_.isLicensed -eq $true}
+$LicensedUsers | foreach {Set-MsolUserLicense -UserPrincipalName $_.UserPrincipalName -RemoveLicenses $office, $ems}
 
-	!IMAGE[nzzweacz.jpg](\Media\nzzweacz.jpg)
-1. [] On the Replace existing products page, turn on licenses for **Enterprise Mobility + Security E5** and **Office 365 Enterprise E5** and click **Replace**.
+# Connect to Azure AD using stored credentials to create users
+Connect-AzureAD -Credential $cred
 
-	^IMAGE[Open Screenshot](\Media\9xomkr35.jpg)
-	
-	> [!KNOWLEDGE] If there are no licenses available for Office 365 Enterprise E5, check the box next to Remove all product licenses... and click Replace. Wait for that to complete, then check the boxes next to only the accounts listed in the table below and repeat the steps above to assign the licenses.
-	>
-	> |Users|
-	> |-----|
-	> |Adam Smith|
-	> |AIPScanner|
-	> |Alice Anderson|
-	> |Evan Green|
-    > |MOD Administrator|
-    > |Nuck Chorris|
+# Import Users from local csv file
+$users = Import-csv C:\users.csv
+foreach ($user in $users){
+# Create password profile preventing automatic password change and storing password from csv
+$PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile 
+$PasswordProfile.ForceChangePasswordNextLogin = $false 
+$PasswordProfile.Password = $user.password
+
+# Store UPN created from csv and tenant
+$upn = $user.username+"@"+$tenantfqdn
+
+# Create new Azure AD user
+New-AzureADUser -AccountEnabled $True -DisplayName $user.displayname -PasswordProfile $PasswordProfile -MailNickName $user.username -UserPrincipalName $upn
+
+# Assign Office and EMS licenses to users
+Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
+}
+
+# Assign Office, EMS, and WDATP licenses to Admin user
+$upn = "admin@"+$tenantfqdn
+Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
+```
 
 ===
 # Workplace Join Clients
 
 In this task, we will join 3 systems to the Azure AD tenant to provide SSO capabilities in Office.
 
-1. [] On @lab.VirtualMachine(Client01).SelectLink, right-click on the start menu and click **Run**.
+1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Right-click on the start menu and click **Run**.
 1. [] In the Run dialog, type +++ms-settings:workplace+++ and click **OK**.
 
 	>!IMAGE[mssettings.png](\Media\mssettings.png)
@@ -239,11 +212,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	+++pass@word1+++
 1. [] Click **Done**.
-1. [] Log into @lab.VirtualMachine(Client02).SelectLink by pressing @lab.CtrlAltDelete and using the credentials below:
-
-	+++LabUser+++
-
-	+++Pa$$w0rd+++
+1. [] Log into @lab.VirtualMachine(Client02).SelectLinkand log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] Right-click on the start menu and click **Run**.
 1. [] In the Run dialog, type +++ms-settings:workplace+++ and click **OK**.
 
@@ -255,11 +224,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	+++pass@word1+++
 1. [] Click **Done**.
-1. [] Log into @lab.VirtualMachine(Client03).SelectLink by pressing @lab.CtrlAltDelete and using the credentials below:
-
-	+++LabUser+++
-
-	+++Pa$$w0rd+++
+1. [] Log into @lab.VirtualMachine(Client03).SelectLinkand log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] Right-click on the start menu and click **Run**.
 1. [] In the Run dialog, type +++ms-settings:workplace+++ and click **OK**.
 
