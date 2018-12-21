@@ -96,7 +96,11 @@ There are a few prerequisites that need to be set up to complete all the section
 In this task, we will create new Azure AD users and assign licenses via PowerShell.  In a procduction evironment this would be done using Azure AD Connect or a similar tool to maintain a single source of authority, but for lab purposes we are doing it via script to reduce setup time.
 
 1. [] Log into @lab.VirtualMachine(Scanner01).SelectLink using the password +++@lab.VirtualMachine(Scanner01).Password+++
-2. [] Open a new Administrative PowerShell window and click below to type the code. When prompted
+2. [] Open a new Administrative PowerShell window and click below to type the code. When prompted provide the credentials below:
+
+	```@lab.CloudCredential(17).Username```
+
+	```@lab.CloudCredential(17).Password``` 
 
 ```
 # Store Tenant FQDN and Short name
@@ -162,11 +166,11 @@ For several of the exercises in this lab series, you will require an active subs
 ## Redeeming a Microsoft Azure Pass Promo Code:
 
 1. [] Log into @lab.VirtualMachine(Client01).SelectLink using the password +++Pa$$w0rd+++
-1. [] Right-click on **Edge** in the taskbar and click on **New InPrivate window**.
+2. [] Right-click on **Edge** in the taskbar and click on **New InPrivate window**.
 
-2. [] In the InPrivate window, navigate to ```https://www.microsoftazurepass.com```
+3. [] In the InPrivate window, navigate to ```https://www.microsoftazurepass.com```
 
-3. [] Click the **Start** button to get started.
+4. [] Click the **Start** button to get started.
 
 	!IMAGE[wdir7lb3.jpg](\Media\wdir7lb3.jpg)
 1. [] Enter the credentials below and select **Sign In**.
