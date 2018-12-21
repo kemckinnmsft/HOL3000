@@ -216,7 +216,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	```pass@word1```
 1. [] Click **Done**.
-1. [] Log into @lab.VirtualMachine(Client02).SelectLinkand log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Log into @lab.VirtualMachine(Client02).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] Right-click on the start menu and click **Run**.
 1. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
 
@@ -228,7 +228,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	```pass@word1```
 1. [] Click **Done**.
-1. [] Log into @lab.VirtualMachine(Client03).SelectLinkand log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Log into @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] Right-click on the start menu and click **Run**.
 1. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
 
