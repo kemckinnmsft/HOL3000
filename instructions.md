@@ -92,7 +92,7 @@ There are a few prerequisites that need to be set up to complete all the section
 
 In this task, we will create new Azure AD users and assign licenses via PowerShell.  In a procduction evironment this would be done using Azure AD Connect or a similar tool to maintain a single source of authority, but for lab purposes we are doing it via script to reduce setup time.
 
-1. [] Log into @lab.VirtualMachine(Scanner01).SelectLink using the password +++@lab.VirtualMachine(Scanner01).Password+++
+1. [] Log into @lab.VirtualMachine(Scanner01).SelectLink using the password +++@lab.VirtualMachine(Client01).Password+++
 2. [] Open a new Administrative PowerShell window and click below to type the code. When prompted provide the credentials below:
 
 	```@lab.CloudCredential(17).Username```
@@ -265,7 +265,6 @@ After completing this lab, you will be able to:
 - [Classify and protect content with Azure Information Protection in Office applications](#exercise-4-testing-aip-policies)
 - [Classify and protect sensitive data discovered by the AIP Scanner](#configuring-automatic-conditions)
 - [Configure Exchange Online Mail Flow Rules for AIP](#configuring-exchange-online-mail-flow-rules)
-- [Configure SharePoint IRM Libraries (Optional)](#exercise-7-sharepoint-irm-configuration)
 
 ===
 
