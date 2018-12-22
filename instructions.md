@@ -106,7 +106,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 	```@lab.CloudCredential(17).Password``` 
     
-1. [] In the PowerShell window, click on the code below to create users and assign Office and EMS licenses.
+1. [] In the PowerShell window, click on the code below to create users.
 
     ```
     # Store Tenant FQDN and Short name
@@ -144,7 +144,12 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
     New-AzureADUser -AccountEnabled $True -DisplayName $user.displayname -PasswordProfile $PasswordProfile -MailNickName $user.username -UserPrincipalName $upn
     }
 
-    foreach ($user in $users){
+    ```
+
+1. [] In the PowerShell window, click the code below to assign Office and EMS licenses.
+	
+	```
+	foreach ($user in $users){
 
     # Store UPN created from csv and tenant
     $upn = $user.username+"@"+$tenantfqdn
@@ -159,8 +164,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
     Set-MsolUser -UserPrincipalName $upn -UsageLocation US
     Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
 
-    ```
-
+	```
 
 ===
 # Redeem Azure Pass
