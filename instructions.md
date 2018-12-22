@@ -4,9 +4,7 @@
 
 Estimated time to complete this lab
 
-60 minutes (Core Scenarios)
-
-120 minutes (Full Lab)
+60 minutes
 
 ### Objectives
 
@@ -18,7 +16,6 @@ After completing this lab, you will be able to:
 - Classify and protect content with Azure Information Protection in Office applications
 - Classify and Protect sensitive data discovered by the AIP Scanner
 - Configure Exchange Online Mail Flow Rules for AIP (Optional)
-- Configure SharePoint IRM Libraries (Optional)
 
 ### Prerequisites
 
@@ -34,7 +31,7 @@ This lab is designed to be completed on either a native Windows 10 machine or a 
 
 - Windows 10 Enterprise
 - Office 365 ProPlus
-- Azure Information Protection client (1.38.7.0)
+- Azure Information Protection client (1.41.51.0)
 
 Microsoft 365 E5 Tenant credentials will be provided during the event.  If you want to run through this lab after the event, you may use a tenant created through https://demos.microsoft.com or your own Microsoft 365 Tenant. This Lab Guide will be publicly available after the event at https://aka.ms/AIPHOL.
 
@@ -371,11 +368,8 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	
 	```@lab.CloudCredential(17).Username```
 	
-	```
-	@lab.CloudCredential(17).Password
-	
-	```
-1. [] Next, click the **T** to **type the commands below** in the PowerShell window. 
+	```@lab.CloudCredential(17).Password```
+1. [] Next, click the **T** to **type the commands below** in the PowerShell window and press **Enter**. 
 
 	> [!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
 
@@ -398,17 +392,15 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
    $NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
    New-AzureADServicePrincipal -AppId $NativeApp.AppId
-
    ```
    
 1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
    
-	> [!ALERT] Press Enter only after you see **Start ~\Desktop\Set-AIPAuthentication.txt**.
-   
+	 
    ```
    "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
-	Start ~\Desktop\Set-AIPAuthentication.txt
 
+	Start ~\Desktop\Set-AIPAuthentication.txt
 	```
 1. [] In the new notepad window, copy the command to the clipboard.
 1. [] Click on the Start menu and type ```PowerShell```, right-click on the PowerShell program, and click **Run as a different user**.
@@ -419,23 +411,14 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 	```Contoso\AIPScanner``` 
 
-	```
-	Somepass1
-	
-	```
+	```Somepass1```
 
 1. [] Paste the copied **Set-AIPAuthentication** command into this window and run it.
 1. [] When prompted, enter the username and password below:
 
-	```
-	AIPScanner@@lab.CloudCredential(17).TenantName
-	
-	```
+	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
-	```
-	Somepass1
-	
-	```
+	```Somepass1```
 
 	^IMAGE[Open Screenshot](\Media\qfxn64vb.jpg)
 
@@ -449,10 +432,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 1. [] **Close the current PowerShell window**.
 1. [] **In the admin PowerShell window** and type the command below.
 
-	```
-	Restart-Service AIPScanner
-	
-	```
+	```Restart-Service AIPScanner```
    
 ===
 
@@ -510,7 +490,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	>
 	>!IMAGE[agnx2gws.jpg](\Media\agnx2gws.jpg)
  
-1. [] Next, switch to @lab.VirtualMachine(Client01).SelectLink, open a **File Explorer** window, and browse to ```\\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports```.
+1. [] Next, switch to @lab.VirtualMachine(Client01).SelectLink, open a **File Explorer** window, and browse to ```\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports```.
 
 	> If needed, use the credentials below:
 	>
