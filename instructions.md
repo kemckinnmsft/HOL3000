@@ -98,7 +98,6 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
     ```
     # Get Global Admin Credentials
     $cred = Get-Credential
-    
     ```
 
 1. [] When prompted, provide the credentials below:
