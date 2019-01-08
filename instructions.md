@@ -337,8 +337,9 @@ In order to collect log data from Azure Information Protection clients and servi
 	!IMAGE[zgvmm4el.jpg](\Media\zgvmm4el.jpg)
 ===
 # AIP Scanner Setup
-In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
 [:arrow_left: Home](#azure-information-protection)
+
+In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
 
 ## Installing the AIP Scanner Service
 
@@ -1052,6 +1053,7 @@ In this task, we will test the configured recommended and automatic conditions w
 1. [] In the email, click **Send**.
 ===
 # Bulk Classification with the AIP Client
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will perform bulk classification using the built-in functionality of the AIP Client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Because this is done manually, it is an AIP P1 feature.
 
@@ -1333,6 +1335,8 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 
 ===
 # Lab Complete
+[:arrow_left: Home](#azure-information-protection)
+
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
 ===
 # Familiar with AIP
@@ -1395,8 +1399,9 @@ In order to collect log data from Azure Information Protection clients and servi
 	!IMAGE[zgvmm4el.jpg](\Media\zgvmm4el.jpg)
 ===
 # AIP Scanner Setup
-In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
 [:arrow_left: Home](#azure-information-protection)
+
+In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
 
 ## Installing the AIP Scanner Service
 
@@ -1672,6 +1677,7 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 	>[!NOTE] Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
 ===
 # Exercise 4A: Bulk Classification with the AIP Client
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will perform bulk classification using the built-in functionality of the AIP Client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Because this is done manually, it is an AIP P1 feature.
 
@@ -1765,6 +1771,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 ===
 # Reviewing the Dashboards
+[:arrow_left: Home](#azure-information-protection)
 
 We can now go back and look at the dashboards and observe how they have changed.
 
@@ -1934,4 +1941,5 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 ===
 # Lab Complete
 [:arrow_left: Home](#azure-information-protection)
+
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
