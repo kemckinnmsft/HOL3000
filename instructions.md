@@ -212,8 +212,9 @@ For several of the exercises in this lab series, you will require an active subs
 
 In this task, we will join 3 systems to the Azure AD tenant to provide SSO capabilities in Office.
 
-1. [] On @lab.VirtualMachine(Client01).SelectLink, right-click on the start menu and click **Run**.
-2. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
+1. [] Switch to @lab.VirtualMachine(Client02).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+2. [] Right-click on the start menu and click **Run**.
+3. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
 
 	>!IMAGE[mssettings.png](\Media\mssettings.png)
 
@@ -328,7 +329,7 @@ In order to collect log data from Azure Information Protection clients and servi
 	|Location|**East US**|
 
 	^IMAGE[Open Screenshot](\Media\5butui15.jpg)
-1. [] Next, back in the Configure analytics (preview) blade, **check the box** next to the workspace and click **OK**.
+1. [] Next, back in the Configure analytics (preview) blade, **check the boxes** next to the workspace and to **Enable Content Matches** and click **OK**.
 
 	!IMAGE[gste52sy.jpg](\Media\gste52sy.jpg)
 1. [] Click **Yes**, in the confirmation dialog.
@@ -499,7 +500,8 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	>
 	>!IMAGE[agnx2gws.jpg](\Media\agnx2gws.jpg)
  
-1. [] Next, switch to @lab.VirtualMachine(Client01).SelectLink, open a **File Explorer** window, and browse to ```\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports```.
+1. [] Next, switch to @lab.VirtualMachine(Client01).SelectLink and log in using the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Open a **File Explorer** window, and browse to ```\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports```.
 
 	> If needed, use the credentials below:
 	>
@@ -519,6 +521,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 	>[!NOTE] We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
 
+	>[!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
 ===
 
 # Exercise 2: Configuring Azure Information Protection Policy
