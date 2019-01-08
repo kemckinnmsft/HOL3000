@@ -206,13 +206,14 @@ For several of the exercises in this lab series, you will require an active subs
 	> [!NOTE] It may take a few minutes to process the request.
 
 1. [] When you are redirected to the Azure Portal, the process is complete.
+
 ===
 # Workplace Join Clients
 
 In this task, we will join 3 systems to the Azure AD tenant to provide SSO capabilities in Office.
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, right-click on the start menu and click **Run**.
-1. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
+2. [] In the Run dialog, type ```ms-settings:workplace``` and click **OK**.
 
 	>!IMAGE[mssettings.png](\Media\mssettings.png)
 
