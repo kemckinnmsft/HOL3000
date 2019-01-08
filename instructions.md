@@ -1055,11 +1055,12 @@ In this task, we will test the configured recommended and automatic conditions w
 
 In this task, we will perform bulk classification using the built-in functionality of the AIP Client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Because this is done manually, it is an AIP P1 feature.
 
-1. [] On @lab.VirtualMachine(Scanner01).SelectLink, browse to the **C:\\**.
-2. [] Right-click on the PII folder and select **Classify and Protect**.
+1. [] On @lab.VirtualMachine(Scanner01).SelectLink, log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
+2. [] Browse to the **C:\\**.
+3. [] Right-click on the PII folder and select **Classify and Protect**.
    
    !IMAGE[CandP.png](\Media\CandP.png)
-1. [] When prompted, click use another user and use the credentials below to authenticate:
+4. [] When prompted, click use another user and use the credentials below to authenticate:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
@@ -1085,11 +1086,12 @@ In this exercise, you will change the condition we created previously from a rec
  
 Now that we know what types of sensitive data we need to protect, we will configure some automatic conditions (rules) that the scanner can use to classify and protect content.
 
-1. [] Switch back to @lab.VirtualMachine(Client01).SelectLink and open the browser that is logged into the Azure Portal.
+1. [] Switch back to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+2. [] Open the browser that is logged into the Azure Portal.
 
-2. [] Under **Classifications** on the left, click **Labels** then expand **Confidential**, and click on **Contoso Internal**.
+3. [] Under **Classifications** on the left, click **Labels** then expand **Confidential**, and click on **Contoso Internal**.
 
-3. [] In the Label : Contoso Internal blade, under **Select how this label is applied: automatically or recommended to user**, click **Automatic**.
+4. [] In the Label : Contoso Internal blade, under **Select how this label is applied: automatically or recommended to user**, click **Automatic**.
 
 	^IMAGE[Open Screenshot](\Media\1ifaer4l.jpg)
 
@@ -1106,7 +1108,7 @@ Now that we know what types of sensitive data we need to protect, we will config
  
 In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
 
-1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink
+1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
 1. [] Run the commands below to run an enforced scan using defined policy.
 
     ```
@@ -1144,7 +1146,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 
 Now that we have Classified and Protected documents using the scanner, we can review the documents we looked at previously to see their change in status.
 
-1. [] Switch to @lab.VirtualMachine(Client01).SelectLink.
+1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
  
 2. [] Navigate to ```\\Scanner01.contoso.azure\documents```. 
 
@@ -1159,7 +1161,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
  
  	
 	
-	> [!NOTE] Observe that the same document is now classified as Confidential \ Contoso Internal. 
+	> [!NOTE] Observe that the document is classified as Confidential \ Contoso Internal. 
 	>
 	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 ===
@@ -1171,17 +1173,28 @@ We can now go back and look at the dashboards and observe how they have changed.
 
 1. [] Under **Dashboards**, click on **Usage report (Preview)**.
 
-	> [!NOTE] Observe that there are now entries from the AIP scanner, File Explorer, Microsoft Outlook, and Microsoft Word based on our activities in this lab. You may not see details of label data right away as this takes longer to process.  I have included a screenshot of the results below, but you may check back later in the lab to see the full results.
+	> [!NOTE] Observe that there are now entries from the AIP scanner, File Explorer, Microsoft Outlook, and Microsoft Word based on our activities in this lab. 
 	>
-	> !IMAGE[Usage.png](\Media\Usage.png)
-	>
-	> !IMAGE[Usage2.png](\Media\Usage2.png)
-2. [] Next, under dashboards, click on **Data discovery (Preview)**.
+	> !IMAGE[Usage.png](\Media\newusage.png)
 
-	> [!NOTE] As mentioned above, label data may not show up initially but you should start seeing protection data in the portal.  I have included a screenshot of the final result so please check back throughout the lab to see the label data from the AIP scanner.
+2. [] Next, under dashboards, click on **Activity logs (preview)**.
+   
+    > [!NOTE] We can now see activity from various users and clients including the AIP Scanner and specific users. 
+	>
+	> !IMAGE[activity.png](\Media\activity.png)
+	>
+	> You can also very quickly filter to just the **Highly Confidential** documents and identify the repositories and devices that contain this sensitive information.
+	>
+	> !IMAGE[activity2.png](\Media\activity2.png)
+
+3. [] Finally, click on **Data discovery (Preview)**.
+
+	> [!NOTE] In the Data discovery dashboard, you can see a breakdown of how files are being protected and locations that have sensitive content.
 	>
 	> !IMAGE[Discovery.png](\Media\Discovery.png)
 	> 
+	> If you click on one of the devices, you can drill down and see the content that has been protected on that specific device or repository.
+	>
 	> !IMAGE[discovery2.png](\Media\discovery2.png)
 	
 ===
