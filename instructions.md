@@ -1166,6 +1166,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 ===
 # Reviewing the Dashboards
+[🔙](#azure-information-protection)
 
 We can now go back and look at the dashboards and observe how they have changed.
 
@@ -1260,7 +1261,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 
 	> [!ALERT] Make sure that there are no spaces before or after the Label ID as this will cause the mail flow rule to be ineffective.
 
-1. [] Next, return to the PowerShell window and type ```$labelid = "``` then paste the **LabelID** for the **Contoso Internal** label, type ```"```, and press **Enter**.
+1. [] Next, return to the PowerShell window and type +++$labelid = "+++ then paste the **LabelID** for the **Contoso Internal** label, type +++"+++, and press **Enter**.
 1. [] Now, create another Exchange Online Mail Flow Rule using the code below:
 
 	```
