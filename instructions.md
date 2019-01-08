@@ -618,17 +618,22 @@ However, there are times when external collaboration is required, so we will con
 
 In this task, we will assign the new sub-label to the Global policy and configure several global policy settings that will increase Azure Information Protection adoption among your users and reduce ambiguity in the user interface.
 
-1. [] In the Azure Information Protection blade, under **Classifications** on the left, click **Policies** then click the **Global** policy.
+1. [] In the Azure Information Protection blade, under **Classifications** on the left, click **Policies**. 
+2. [] Click the **Global** policy.
 
 	^IMAGE[Open Screenshot](\Media\24qjajs5.jpg)
 
 1. [] In the Policy: Global blade, **wait for the labels to load**.
 
-1. [] Below the labels, click **Add or remove labels**.
+	>[!knowledge] The policies should look like the image below.  If they show as loading, refresh the full browser on this page and go back into the **Global** policy and they should load.
+	>
+	>!IMAGE[labels.png](\Media\labels.png)
 
-1. [] In the Policy: Add or remove labels blade, ensure that the boxes next to all Labels are checked and click **OK**.
+2. [] Below the labels, click **Add or remove labels**.
 
-1. [] In the Policy: Global blade, under the **Configure settings to display and apply on Information Protection end users** section, configure the policy to match the settings shown in the table and image below.
+3. [] In the Policy: Add or remove labels blade, ensure that the boxes next to all Labels are checked and click **OK**.
+
+4. [] In the Policy: Global blade, under the **Configure settings to display and apply on Information Protection end users** section, configure the policy to match the settings shown in the table and image below.
 
 	| Setting | Value |
 	|:--------|:------|
