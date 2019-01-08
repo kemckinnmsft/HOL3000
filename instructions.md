@@ -37,7 +37,7 @@ Microsoft 365 E5 Tenant credentials will be provided during the event.  If you w
 
 ===
 # Tips and Tricks
-[🔙](#introduction)
+[:arrow_left: Home](#introduction)
 
 There are a few extras throughout this lab that are designed to make your lab experience a smooth and simple process.  Below are some icons you should watch out for that will save you time during each task.
 
@@ -77,7 +77,7 @@ There are also Knowledge Items, Notes, and Hints throughout the lab.
 
 ===
 # Lab Environment Configuration
-[🔙](#introduction)
+[:arrow_left: Home](#introduction)
 
 There are a few prerequisites that need to be set up to complete all the sections in this lab.  This Exercise will walk you through the items below.
 
@@ -250,7 +250,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 1. [] Click **Done**.
 ===
 # Azure Information Protection
-[🔙](#introduction)
+[:arrow_left: Home](#introduction)
 ### Objectives
 
 > [!ALERT] Please ensure you have completed the steps in the [Lab Environment Configuration](#lab-environment-configuration) before continuing.
@@ -280,7 +280,7 @@ After completing this lab, you will be able to:
 ===
 
 # Exercise 1: Configuring AIP Scanner for Discovery
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 Even before configuring an AIP classification taxonomy, customers can scan and identify files containing sensitive information based on the built-in sensitive information types included in the Microsoft Classification Engine.  
 
@@ -292,7 +292,7 @@ In this exercise, we will install the AIP scanner and run it against repositorie
 
 ===
 # Configuring Azure Log Analytics
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
 
@@ -338,7 +338,7 @@ In order to collect log data from Azure Information Protection clients and servi
 ===
 # AIP Scanner Setup
 In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 ## Installing the AIP Scanner Service
 
@@ -447,7 +447,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 ===
 
 # Configuring Repositories
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will configure repositories to be scanned by the AIP scanner.  As previously mentioned, these can be any type of CIFS file shares including NAS devices sharing over the CIFS protocol.  Additionally, On premises SharePoint 2010, 2013, and 2016 document libraries and lists (attachements) can be scanned.  You can even scan entire SharePoint sites by providing the root URL of the site.  There are several optional 
 
@@ -476,7 +476,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 ===
 
 # Running Sensitive Data Discovery
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 1. [] Run the commands below to run a discovery cycle.
 
@@ -525,14 +525,14 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 ===
 
 # Exercise 2: Configuring Azure Information Protection Policy
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 This exercise demonstrates using the Azure Information Protection blade in the Azure portal to configure policies and sub-labels.  We will create a new sub-label and configure protection and then modify an existing sub-label.  We will also create a label that will be scoped to a specific group.  
 
 Next, we will configure AIP Global Policy to use the General sub-label as default, and finally, we will configure a scoped policy to use the new scoped label by default for Word, Excel, and PowerPoint while still using General as default for Outlook.
 ===
 # Creating, Configuring, and Modifying Sub-Labels
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will configure a label protected for internal audiences that can be used to help secure sensitive data within your company.  By limiting the audience of a specific label to only internal employees, you can dramatically reduce the risk of unintentional disclosure of sensitive data and help reduce the risk of successful data exfiltration by bad actors.  
 
@@ -614,7 +614,7 @@ However, there are times when external collaboration is required, so we will con
 ===
 
 # Configuring Global Policy
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will assign the new sub-label to the Global policy and configure several global policy settings that will increase Azure Information Protection adoption among your users and reduce ambiguity in the user interface.
 
@@ -656,7 +656,7 @@ In this task, we will assign the new sub-label to the Global policy and configur
 ===
 
 # Creating a Scoped Label and Policy
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 Now that you have learned how to work with global labels and policies, we will create a new scoped label and policy for the Legal team at Contoso.  
 
@@ -742,7 +742,7 @@ Now that you have learned how to work with global labels and policies, we will c
 ===
 
 # Configuring Advanced Policy Settings
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 There are many advanced policy settings that are useful to tailor your Azure Information Protection deployment to the needs of your environment.  In this task, we will cover one of the settings that is very complimentary when using scoped policies that have no default label or a protected default label.  Because the No Default Label Scoped Policy we created in the previous task uses a protected default label, we will be adding an alternate default label for Outlook to provide a more palatable user experience for those users.
 
@@ -770,7 +770,7 @@ There are many advanced policy settings that are useful to tailor your Azure Inf
 ===
 
 # Defining Recommended and Automatic Conditions
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
 
@@ -836,7 +836,7 @@ However, helping your users to properly classify and protect sensitive data at t
 ===
 
 # Exercise 3: Security and Compliance Center
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this exercise, we will migrate your AIP Labels and activate them in the Security and Compliance Center.  This will allow you to see the labels in Microsoft Information Protection based clients such as Office 365 for Mac and Mobile Devices.
 
@@ -845,7 +845,7 @@ Although we will not be demonstrating these capabilities in this lab, you can us
 
 ===
 # Activating Unified Labeling
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
  
 In this task, we will activate the labels from the Azure Portal for use in the Security and Compliance Center.
 
@@ -866,12 +866,12 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 ===
 
 # Exercise 4: Testing AIP Policies
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 Now that you have 3 test systems with users being affected by different policies configured, we can start testing these policies.  This exercise will run through various scenarios to demonstrate the use of AIP global and scoped policies and show the functionality of recommended and automatic labeling.
 ===
 # Testing User Defined Permissions
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 One of the most common use cases for AIP is the ability to send emails using User Defined Permissions (Do Not Forward). In this task, we will send an email using the Do Not Forward label to test that functionality.
 
@@ -942,7 +942,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 ===
 
 # Testing Global Policy
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will create a document and send an email to demonstrate the functionality defined in the Global Policy.
 
@@ -973,7 +973,7 @@ In this task, we will create a document and send an email to demonstrate the fun
 ===
 
 # Testing Scoped Policy
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will create a document and send an email from one of the users in the Legal group to demonstrate the functionality defined in the first exercise. We will also show the behavior of the No Default Label policy on documents.
 
@@ -1013,7 +1013,7 @@ In this task, we will create a document and send an email from one of the users 
 ===
 
 # Testing Recommended and Automatic Classification
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will test the configured recommended and automatic conditions we defined in Exercise 1.  Recommended conditions can be used to help organically train your users to classify sensitive data appropriately and provides a method for testing the accuracy of your dectections prior to switching to automatic classification.  Automatic conditions should be used after thorough testing or with items you are certain need to be protected. Although the examples used here are fairly simple, in production these could be based on complex regex statements or only trigger when a specific quantity of sensitive data is present.
 
@@ -1073,7 +1073,7 @@ In this task, we will perform bulk classification using the built-in functionali
 > [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
 ===
 # Exercise 5: Classification, Labeling, and Protection with the Azure Information Protection Scanner
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 The Azure Information Protection scanner allows you to  classify and protect sensitive information stored in on-premises CIFS file shares and SharePoint sites.  
 
@@ -1082,7 +1082,7 @@ In this exercise, you will change the condition we created previously from a rec
 ===
 
 # Configuring Automatic Conditions
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
  
 Now that we know what types of sensitive data we need to protect, we will configure some automatic conditions (rules) that the scanner can use to classify and protect content.
 
@@ -1104,7 +1104,7 @@ Now that we know what types of sensitive data we need to protect, we will config
 ===
 
 # Enforcing Configured Rules
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
  
 In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
 
@@ -1142,7 +1142,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 ===
 
 # Reviewing Protected Documents
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 Now that we have Classified and Protected documents using the scanner, we can review the documents to see their change in status.
 
@@ -1166,7 +1166,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 ===
 # Reviewing the Dashboards
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 We can now go back and look at the dashboards and observe how they have changed.
 
@@ -1200,7 +1200,7 @@ We can now go back and look at the dashboards and observe how they have changed.
 	
 ===
 # Exercise 6: Exchange Online IRM Capabilities
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients.  
 
@@ -1287,7 +1287,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 ===
 
 # Demonstrating Exchange Online Mail Flow Rules
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
 
@@ -1336,7 +1336,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
 ===
 # Familiar with AIP
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 ## Exercise 1A: Configuring AIP Scanner for Discovery
 
@@ -1350,7 +1350,7 @@ In this exercise, we will install the AIP scanner and run it against repositorie
 
 ===
 # Configuring Azure Log Analytics
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
 
@@ -1396,7 +1396,7 @@ In order to collect log data from Azure Information Protection clients and servi
 ===
 # AIP Scanner Setup
 In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 ## Installing the AIP Scanner Service
 
@@ -1505,7 +1505,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 ===
 
 # Configuring Repositories
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will configure repositories to be scanned by the AIP scanner.  As previously mentioned, these can be any type of CIFS file shares including NAS devices sharing over the CIFS protocol.  Additionally, On premises SharePoint 2010, 2013, and 2016 document libraries and lists (attachements) can be scanned.  You can even scan entire SharePoint sites by providing the root URL of the site.  There are several optional 
 
@@ -1534,7 +1534,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 ===
 
 # Running Sensitive Data Discovery
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 1. [] Run the commands below to run a discovery cycle.
 
@@ -1583,7 +1583,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 ===
 
 # Defining Recommended and Automatic Conditions
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
 
@@ -1644,7 +1644,7 @@ However, helping your users to properly classify and protect sensitive data at t
 ===
 
 # Exercise 3A: Security and Compliance Center
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this exercise, we will migrate your AIP Labels and activate them in the Security and Compliance Center.  This will allow you to see the labels in Microsoft Information Protection based clients such as Office 365 for Mac and Mobile Devices.
 
@@ -1653,7 +1653,7 @@ Although we will not be demonstrating these capabilities in this lab, you can us
 
 ===
 # Activating Unified Labeling
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
  
 In this task, we will activate the labels from the Azure Portal for use in the Security and Compliance Center.
 
@@ -1694,7 +1694,7 @@ In this task, we will perform bulk classification using the built-in functionali
 ===
 
 # Exercise 5A: Classification, Labeling, and Protection with the Azure Information Protection Scanner
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 The Azure Information Protection scanner allows you to  classify and protect sensitive information stored in on-premises CIFS file shares and SharePoint sites.  
 
@@ -1703,7 +1703,7 @@ In this exercise, you will change the condition we created previously from a rec
 ===
 
 # Enforcing Configured Rules
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
  
 In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it run on all files using the Start-AIPScan command.
 
@@ -1741,7 +1741,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 ===
 
 # Reviewing Protected Documents
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 Now that we have Classified and Protected documents using the scanner, we can review the documents to see their change in status.
 
@@ -1799,7 +1799,7 @@ We can now go back and look at the dashboards and observe how they have changed.
 	
 ===
 # Exercise 6A: Exchange Online IRM Capabilities
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients.  
 
@@ -1888,7 +1888,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 ===
 
 # Demonstrating Exchange Online Mail Flow Rules
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
 
@@ -1933,5 +1933,5 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 
 ===
 # Lab Complete
-[🔙](#azure-information-protection)
+[:arrow_left: Home](#azure-information-protection)
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
