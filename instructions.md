@@ -977,7 +977,7 @@ In this task, we will create a document and send an email to demonstrate the fun
 
 In this task, we will create a document and send an email from one of the users in the Legal group to demonstrate the functionality defined in the first exercise. We will also show the behavior of the No Default Label policy on documents.
 
-1. [] Switch to @lab.VirtualMachine(Client01).SelectLink.
+1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] In Microsoft Outlook, click on the **New email** button.
 	
 	^IMAGE[Open Screenshot](\Media\ldjugk24.jpg)
@@ -986,10 +986,12 @@ In this task, we will create a document and send an email from one of the users 
 1. [] In the Sensitivity Toolbar, click on **Highly Confidential** and the **Legal Only** sub-label, then click **Send**.
 
 	^IMAGE[Open Screenshot](\Media\ny1lwv0h.jpg)
-1. [] Switch to @lab.VirtualMachine(Client02).SelectLink and click on the email.  You should be able to open the message natively in the client as Alice.
+1. [] Switch to @lab.VirtualMachine(Client02).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+2. [] Click on the email.  You should be able to open the message natively in the client as Alice.
 
 	!IMAGE[qeqtd2yr.jpg](\Media\qeqtd2yr.jpg)
-1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and click on the email. You should be unable to open the message as Evan.
+1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+2. [] Click on the email. You should be unable to open the message as Evan.
 
 	!IMAGE[6y99u8cl.jpg](\Media\6y99u8cl.jpg)
 
@@ -1001,7 +1003,8 @@ In this task, we will create a document and send an email from one of the users 
 	>
 	>!IMAGE[htjesqwe.jpg](\Media\htjesqwe.jpg)
 
-1. [] On @lab.VirtualMachine(Client01).SelectLink, open **Microsoft Word**.
+1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Open **Microsoft Word**.
 1. [] Create a new **Blank document** and type ```This is a test document``` and **save the document**.
 
 	> [!ALERT] When you click **Save**, you will be prompted to choose a classification.  This is a result of having **None** set as the default label in the scoped policy while requiring all documents to be labeled.  This is a useful for driving **active classification decisions** by specific groups within your organization.  Notice that Outlook still has a default of **General** because of the Advanced setting we added to the scoped policy.  **This is recommended** because user send many more emails each day than they create documents. Actively forcing users to classify each email would be an unpleasant user experience whereas they are typically more understanding of having to classify each document if they are in a sensitive department or role.
@@ -1014,7 +1017,8 @@ In this task, we will create a document and send an email from one of the users 
 
 In this task, we will test the configured recommended and automatic conditions we defined in Exercise 1.  Recommended conditions can be used to help organically train your users to classify sensitive data appropriately and provides a method for testing the accuracy of your dectections prior to switching to automatic classification.  Automatic conditions should be used after thorough testing or with items you are certain need to be protected. Although the examples used here are fairly simple, in production these could be based on complex regex statements or only trigger when a specific quantity of sensitive data is present.
 
-1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and launch **Microsoft Word**.
+1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Launch **Microsoft Word**.
 1. [] In Microsoft Word, create a new **Blank document** and type ```My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368``` and **save** the document.
 
 	> [!NOTE] This card number is a fake number that was generated using the Credit Card Generator for Testing at [https://developer.paypal.com/developer/creditCardGenerator/](https://developer.paypal.com/developer/creditCardGenerator/).  The Microsoft Classification Engine uses the Luhn Algorithm to prevent false positives so when testing, please make sure to use valid numbers.
