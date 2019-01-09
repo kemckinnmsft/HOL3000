@@ -421,7 +421,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 	Start ~\Desktop\Set-AIPAuthentication.txt
 	```
-1. [] In the new notepad window, copy the command to the clipboard.
+1. [] Leave the notepad window open in the background.
 1. [] Click on the Start menu and type ```PowerShell```, right-click on the PowerShell program, and click **Run as a different user**.
 
 	!IMAGE[zgt5ikxl.jpg](\Media\zgt5ikxl.jpg)
@@ -432,7 +432,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 	```Somepass1```
 
-1. [] Paste the copied **Set-AIPAuthentication** command into this window and run it.
+1. [] Copy the **Set-AIPAuthentication** command into this window from the notepad and run it.
 1. [] When prompted, enter the username and password below:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
@@ -575,7 +575,8 @@ In this task, we will configure a label protected for internal audiences that ca
 
 However, there are times when external collaboration is required, so we will configure a label to match the name and functionality of the Do Not Forward button in Outlook.  This will allow users to more securely share sensitive information outside the company to any recipient.  By using the name Do Not Forward, the functionality will also be familiar to what previous users of AD RMS or Azure RMS may have used in the past.
 
-1. [] On @lab.VirtualMachine(Client01).SelectLink, in the Azure Information Protection blade, under **Classifications** in the left pane, click on **Labels** to load the Azure Information Protection – Labels blade.
+1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+2. [] In the Azure Information Protection blade, under **Classifications** in the left pane, click on **Labels** to load the Azure Information Protection – Labels blade.
 
 	^IMAGE[Open Screenshot](\Media\mhocvtih.jpg)
 
@@ -1514,7 +1515,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 	Start ~\Desktop\Set-AIPAuthentication.txt
 	```
-1. [] In the new notepad window, copy the command to the clipboard.
+1. [] Leave the notepad window open in the background.
 1. [] Click on the Start menu and type ```PowerShell```, right-click on the PowerShell program, and click **Run as a different user**.
 
 	!IMAGE[zgt5ikxl.jpg](\Media\zgt5ikxl.jpg)
@@ -1525,7 +1526,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 	```Somepass1```
 
-1. [] Paste the copied **Set-AIPAuthentication** command into this window and run it.
+1. [] Copy the **Set-AIPAuthentication** command into this window from the notepad and run it.
 1. [] When prompted, enter the username and password below:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
