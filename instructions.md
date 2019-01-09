@@ -1964,7 +1964,9 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 	>
 	>!IMAGE[599ljwfy.jpg](\Media\599ljwfy.jpg)
 
-1. [] Next, in Microsoft Outlook, click on the **New email** button.
+1. [] Next, open and configure Microsoft Outlook. 
+1. [] Close and reopen Outlook to activate and if you receive a metered connection warning, click **Connect anyway**.
+1. [] Click on the **New email** button.
 
 	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
 1. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject** and **Body** type ```Another Test All Employees Email```.
