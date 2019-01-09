@@ -295,7 +295,6 @@ In this exercise, we will install the AIP scanner and run it against repositorie
 
 ---
 # Configuring Azure Log Analytics
-[:arrow_left: Home](#azure-information-protection)
 
 In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
 
@@ -527,7 +526,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 	>[!NOTE] We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
 
-	>[!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
+	> [!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
 
 ===
 
@@ -1594,6 +1593,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	>[!NOTE] We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
 
 	>[!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
+	
 ---
 
 # Defining Recommended and Automatic Conditions
