@@ -335,7 +335,7 @@ In order to collect log data from Azure Information Protection clients and servi
 	|Location|**East US**|
 
 	^IMAGE[Open Screenshot](\Media\5butui15.jpg)
-1. [] Next, back in the Configure analytics (preview) blade, **check the boxes** next to the workspace and to **Enable Content Matches** and click **OK**.
+1. [] Next, back in the Configure analytics (preview) blade, **check the boxes** next to the **workspace** and to **Enable Content Matches** and click **OK**.
 
 	!IMAGE[gste52sy.jpg](\Media\gste52sy.jpg)
 1. [] Click **Yes**, in the confirmation dialog.
@@ -1385,7 +1385,7 @@ In this exercise, we will install the AIP scanner and run it against repositorie
 - [Configuring Azure Log Analytics](#configuring-azure-log-analytics-f)
 - [AIP Scanner Setup](#aip-scanner-setup-f)
 - [Running Sensitive Data Discovery](#running-sensitive-data-discovery-f)
-- [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions-f)
+- [Defining Recommended and Automatic Conditions🐱‍👤](#defining-recommended-and-automatic-conditions-🐱‍👤)
 
 ---
 # Configuring Azure Log Analytics F
@@ -1425,7 +1425,7 @@ In order to collect log data from Azure Information Protection clients and servi
 	|Location|**East US**|
 
 	^IMAGE[Open Screenshot](\Media\5butui15.jpg)
-1. [] Next, back in the Configure analytics (preview) blade, **check the boxes** next to the workspace and to **Enable Content Matches** and click **OK**.
+1. [] Next, back in the Configure analytics (preview) blade, **check the boxes** next to the **workspace** and to **Enable Content Matches** and click **OK**.
 
 	!IMAGE[gste52sy.jpg](\Media\gste52sy.jpg)
 1. [] Click **Yes**, in the confirmation dialog.
@@ -1623,7 +1623,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	
 ---
 
-# Defining Recommended and Automatic Conditions F
+# Defining Recommended and Automatic Conditions 🐱‍👤
 [:arrow_up: Top](#familiar-with-aip)
 
 One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
@@ -1637,6 +1637,8 @@ However, helping your users to properly classify and protect sensitive data at t
 	> [!KNOWLEDGE] Notice that there are no labeled or protected files shown at this time.  This uses the AIP P1 discovery functionality available with the AIP Scanner. Only the predefined Office 365 Sensitive Information Types are available with AIP P1 as Custom Sensitive Information Types require automatic conditions to be defined, which is an AIP P2 feature.
 
 	> [!NOTE] Now that we know the sensitive information types that are most common in this environment, we can use that information to create **Recommended** conditions that will help guide user behavior when they encounter this type of data.
+
+	> [!ALERT] If no data is shown, it may still be processing. Continue with the lab and come back to see the results later.
 
 1. [] Under **Classifications** on the left, click **Labels** then expand **Confidential**, and click on **All Employees**.
 
