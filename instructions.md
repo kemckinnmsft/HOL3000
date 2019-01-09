@@ -912,7 +912,8 @@ Now that you have 3 test systems with users being affected by different policies
 - [Testing Scoped Policy](#testing-scoped-policy)
 - [Testing Recommended and Automatic Classification](#testing-recommended-and-automatic-classification)
 
-> [!ALERT] If you see a warning about a metered connection in Office, click **Connect anyway** to allow Office to connect.  If you do not do this you will get errors when connecting to the AIP service. The VMs are set to metered to increase etwork speed.
+> [!ALERT] If you see a warning about a metered connection in Office, click **Connect anyway** to allow Office to connect.  If you do not do this you will get errors when connecting to the AIP service. The VMs are set to metered to increase network speed.
+
 ---
 # Testing User Defined Permissions
 
