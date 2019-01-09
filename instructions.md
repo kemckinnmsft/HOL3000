@@ -1434,7 +1434,7 @@ In order to collect log data from Azure Information Protection clients and servi
 
 ---
 # AIP Scanner Setup*
-[:arrow_up: Top](#configuring-aip-scanner-for-discovery)
+[:arrow_up: Top](#familiar-with-aip)
 
 In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
 
@@ -1545,7 +1545,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 ---
 
 # Configuring Repositories
-[:arrow_up: Top](#configuring-aip-scanner-for-discovery)
+[:arrow_up: Top](#familiar-with-aip)
 
 In this task, we will configure repositories to be scanned by the AIP scanner.  As previously mentioned, these can be any type of CIFS file shares including NAS devices sharing over the CIFS protocol.  Additionally, On premises SharePoint 2010, 2013, and 2016 document libraries and lists (attachements) can be scanned.  You can even scan entire SharePoint sites by providing the root URL of the site.  There are several optional 
 
@@ -1574,7 +1574,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 ---
 
 # Running Sensitive Data Discovery*
-[:arrow_up: Top](#configuring-aip-scanner-for-discovery)
+[:arrow_up: Top](#familiar-with-aip)
 
 1. [] Run the commands below to run a discovery cycle.
 
@@ -1624,7 +1624,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 ---
 
 # Defining Recommended and Automatic Conditions*
-[:arrow_up: Top](#configuring-aip-scanner-for-discovery)
+[:arrow_up: Top](#familiar-with-aip)
 
 One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
 
