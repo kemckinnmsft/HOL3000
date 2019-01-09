@@ -1902,7 +1902,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 
 1. [] Switch to the Azure Portal and under **Classifications** click on Labels, then expand **Confidential** and click on **All Employees**.
 
-	!IMAGE[w2w5c7xc.jpg](\Media\w2w5c7xc.jpg)
+	!IMAGE[w2w5c7xc.jpg](\Media\Allemp.png)
 
 	> [!HINT] If you closed the azure portal, open an Edge InPrivate window and navigate to ```https://portal.azure.com```.
 
