@@ -291,7 +291,11 @@ Even before configuring an AIP classification taxonomy, customers can scan and i
 
 Often, this can help drive an appropriate level of urgency and attention to the risk customers face if they delay rolling out AIP classification and protection.  
 
-In this exercise, we will install the AIP scanner and run it against repositories in discovery mode.  Later in this lab (after configuring labels and conditions) we will revisit the scanner to perform automated classification, labeling, and protection of sensitive documents.
+In this exercise, we will install the AIP scanner and run it against repositories in discovery mode.  Later in this lab (after configuring labels and conditions) we will revisit the scanner to perform automated classification, labeling, and protection of sensitive documents. This Exercise will walk you through the items below.
+
+- [Configuring Azure Log Analytics](#configuring-azure-log-analytics)
+- [AIP Scanner Setup](#aip-scanner-setup)
+- [Running Sensitive Data Discovery](#running-sensitive-data-discovery)
 
 ---
 # Configuring Azure Log Analytics
@@ -529,13 +533,40 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	> [!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
 
 ===
+# Bulk Classification with the AIP Client
+[:arrow_left: Home](#azure-information-protection)
 
+In this task, we will perform bulk classification using the built-in functionality of the AIP client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Because this is done manually, it is an AIP P1 feature.
+
+1. [] On @lab.VirtualMachine(Scanner01).SelectLink, log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
+2. [] Browse to the **C:\\**.
+3. [] Right-click on the PII folder and select **Classify and Protect**.
+   
+   !IMAGE[CandP.png](\Media\CandP.png)
+4. [] When prompted, click use another user and use the credentials below to authenticate:
+
+	```AIPScanner@@lab.CloudCredential(17).TenantName```
+
+	```Somepass1```
+
+1. [] In the AIP client Classify and protect interface, select **Highly Confidential\\All Employees** and press **Apply**. 
+
+	!IMAGE[CandP2.png](\Media\CandP2.png)
+
+> [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
+===
 # Exercise 2: Configuring Azure Information Protection Policy
 [:arrow_left: Home](#azure-information-protection)
 
 This exercise demonstrates using the Azure Information Protection blade in the Azure portal to configure policies and sub-labels.  We will create a new sub-label and configure protection and then modify an existing sub-label.  We will also create a label that will be scoped to a specific group.  
 
-Next, we will configure AIP Global Policy to use the General sub-label as default, and finally, we will configure a scoped policy to use the new scoped label by default for Word, Excel, and PowerPoint while still using General as default for Outlook.
+Next, we will configure AIP Global Policy to use the General sub-label as default, and finally, we will configure a scoped policy to use the new scoped label by default for Word, Excel, and PowerPoint while still using General as default for Outlook. This Exercise will walk you through the items below.
+
+- [Creating, Configuring, and Modifying Sub-Labels](#creating-configuring-and-modifying-sub-labels)
+- [Configuring Global Policy](#configuring-global-policy)
+- [Creating a Scoped Label and Policy](#creating-a-scoped-label-and-policy)
+- [Configuring Advanced Policy Settings](#configuring-advanced-policy-settings)
+- [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions)
 
 ---
 # Creating, Configuring, and Modifying Sub-Labels
@@ -873,7 +904,12 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 # Exercise 4: Testing AIP Policies
 [:arrow_left: Home](#azure-information-protection)
 
-Now that you have 3 test systems with users being affected by different policies configured, we can start testing these policies.  This exercise will run through various scenarios to demonstrate the use of AIP global and scoped policies and show the functionality of recommended and automatic labeling.
+Now that you have 3 test systems with users being affected by different policies configured, we can start testing these policies.  This exercise will run through various scenarios to demonstrate the use of AIP global and scoped policies and show the functionality of recommended and automatic labeling. This Exercise will walk you through the items below.
+
+- [Testing User Defined Permissions](#testing-user-defined-permissions)
+- [Testing Global Policy](#testing-global-policy)
+- [Testing Scoped Policy](#testing-scoped-policy)
+- [Testing Recommended and Automatic Classification](#testing-recommended-and-automatic-classification)
 
 ---
 # Testing User Defined Permissions
@@ -1058,35 +1094,18 @@ In this task, we will test the configured recommended and automatic conditions w
 
 1. [] In the email, click **Send**.
    
----
-# Bulk Classification with the AIP Client
-[:arrow_up: Top](#exercise-4-testing-aip-policies)
-
-In this task, we will perform bulk classification using the built-in functionality of the AIP Client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Because this is done manually, it is an AIP P1 feature.
-
-1. [] On @lab.VirtualMachine(Scanner01).SelectLink, log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
-2. [] Browse to the **C:\\**.
-3. [] Right-click on the PII folder and select **Classify and Protect**.
-   
-   !IMAGE[CandP.png](\Media\CandP.png)
-4. [] When prompted, click use another user and use the credentials below to authenticate:
-
-	```AIPScanner@@lab.CloudCredential(17).TenantName```
-
-	```Somepass1```
-
-1. [] In the AIP client Classify and protect interface, select **Highly Confidential\\All Employees** and press **Apply**. 
-
-	!IMAGE[CandP2.png](\Media\CandP2.png)
-
-> [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
 ===
 # Exercise 5: Classification, Labeling, and Protection with the Azure Information Protection Scanner
 [:arrow_left: Home](#azure-information-protection)
 
 The Azure Information Protection scanner allows you to  classify and protect sensitive information stored in on-premises CIFS file shares and SharePoint sites.  
 
-In this exercise, you will change the condition we created previously from a recommended to an automatic classification rule.  After that, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data.
+In this exercise, you will change the condition we created previously from a recommended to an automatic classification rule.  After that, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data. This Exercise will walk you through the items below.
+
+- [Configuring Automatic Conditions](#configuring-automatic-conditions)
+- [Enforcing Configured Rules](#enforcing-configured-rules)
+- [Reviewing Protected Documents](#reviewing-protected-documents)
+- [Reviewing the Dashboards](#reviewing-the-dashboards)
 
 ---
 
@@ -1211,7 +1230,10 @@ We can now go back and look at the dashboards and observe how they have changed.
 # Exercise 6: Exchange Online IRM Capabilities
 [:arrow_left: Home](#azure-information-protection)
 
-Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients.  
+Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients. This Exercise will walk you through the items below.
+
+- [Configuring Exchange Online Mail Flow Rules](#configuring-exchange-online-mail-flow-rules) 
+- [Demonstrating Exchange Online Mail Flow Rules](#demonstrating-exchange-online-mail-flow-rules)
 
 ## Configuring Exchange Online Mail Flow Rules
 
@@ -1342,7 +1364,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 > [!HINT] There are many other use cases for Exchange Online mail flow rules but this should give you a quick view into what is possible and how easy it is to improve the security of your sensitive data through the use of Exchange Online mail flow rules and Azure Information Protection.
 
 ===
-# Lab Complete
+# AIP Lab Complete
 [:arrow_left: Home](#azure-information-protection)
 
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
@@ -1358,10 +1380,15 @@ Even before configuring an AIP classification taxonomy, customers can scan and i
 
 Often, this can help drive an appropriate level of urgency and attention to the risk customers face if they delay rolling out AIP classification and protection.  
 
-In this exercise, we will install the AIP scanner and run it against repositories in discovery mode.  Later in this lab (after configuring labels and conditions) we will revisit the scanner to perform automated classification, labeling, and protection of sensitive documents.
+In this exercise, we will install the AIP scanner and run it against repositories in discovery mode.  Later in this lab (after configuring labels and conditions) we will revisit the scanner to perform automated classification, labeling, and protection of sensitive documents. This Exercise will walk you through the items below.
+
+- [Configuring Azure Log Analytics](#configuring-azure-log-analytics*)
+- [AIP Scanner Setup](#aip-scanner-setup*)
+- [Running Sensitive Data Discovery](#running-sensitive-data-discovery*)
+- [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions*)
 
 ---
-# Configuring Azure Log Analytics
+# Configuring Azure Log Analytics*
 
 In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
 
@@ -1406,7 +1433,7 @@ In order to collect log data from Azure Information Protection clients and servi
 	!IMAGE[zgvmm4el.jpg](\Media\zgvmm4el.jpg)
 
 ---
-# AIP Scanner Setup
+# AIP Scanner Setup*
 [:arrow_up: Top](#configuring-aip-scanner-for-discovery)
 
 In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
@@ -1546,7 +1573,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 ---
 
-# Running Sensitive Data Discovery
+# Running Sensitive Data Discovery*
 [:arrow_up: Top](#configuring-aip-scanner-for-discovery)
 
 1. [] Run the commands below to run a discovery cycle.
@@ -1596,7 +1623,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	
 ---
 
-# Defining Recommended and Automatic Conditions
+# Defining Recommended and Automatic Conditions*
 [:arrow_up: Top](#configuring-aip-scanner-for-discovery)
 
 One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
@@ -1656,7 +1683,28 @@ However, helping your users to properly classify and protect sensitive data at t
 	^IMAGE[Open Screenshot](\Media\wzwfc1l4.jpg)
 
 ===
+# Bulk Classification with the AIP Client
+[:arrow_left: Home](#azure-information-protection)
 
+In this task, we will perform bulk classification using the built-in functionality of the AIP Client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Because this is done manually, it is an AIP P1 feature.
+
+1. [] On @lab.VirtualMachine(Scanner01).SelectLink, log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
+2. [] Browse to the **C:\\**.
+2. [] Right-click on the PII folder and select **Classify and Protect**.
+   
+   !IMAGE[CandP.png](\Media\CandP.png)
+1. [] When prompted, click use another user and use the credentials below to authenticate:
+
+	```AIPScanner@@lab.CloudCredential(17).TenantName```
+
+	```Somepass1```
+
+1. [] In the AIP client Classify and protect interface, select **Highly Confidential\\All Employees** and press **Apply**. 
+
+	!IMAGE[CandP2.png](\Media\CandP2.png)
+
+> [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
+===
 # Security and Compliance Center
 [:arrow_left: Home](#azure-information-protection)
 
@@ -1684,41 +1732,23 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 
 	>[!NOTE] Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
 ===
-# Bulk Classification with the AIP Client
-[:arrow_left: Home](#azure-information-protection)
-
-In this task, we will perform bulk classification using the built-in functionality of the AIP Client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Because this is done manually, it is an AIP P1 feature.
-
-1. [] On @lab.VirtualMachine(Scanner01).SelectLink, log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
-2. [] Browse to the **C:\\**.
-2. [] Right-click on the PII folder and select **Classify and Protect**.
-   
-   !IMAGE[CandP.png](\Media\CandP.png)
-1. [] When prompted, click use another user and use the credentials below to authenticate:
-
-	```AIPScanner@@lab.CloudCredential(17).TenantName```
-
-	```Somepass1```
-
-1. [] In the AIP client Classify and protect interface, select **Highly Confidential\\All Employees** and press **Apply**. 
-
-	!IMAGE[CandP2.png](\Media\CandP2.png)
-
-> [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
-===
 
 # Classification, Labeling, and Protection with the Azure Information Protection Scanner
 [:arrow_left: Home](#azure-information-protection)
 
 The Azure Information Protection scanner allows you to  classify and protect sensitive information stored in on-premises CIFS file shares and SharePoint sites.  
 
-In this exercise, you will change the condition we created previously from a recommended to an automatic classification rule.  After that, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data.
+In this exercise, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data. This Exercise will walk you through the items below.
+
+- [Enforcing Configured Rules](#enforcing-configured-rules*)
+- [Reviewing Protected Documents](#reviewing-protected-documents*)
+- [Reviewing the Dashboards](#reviewing-the-dashboards*)
 
 ---
 
-# Enforcing Configured Rules
+# Enforcing Configured Rules*
  
-In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it run on all files using the Start-AIPScan command.
+In this task, we will set the AIP scanner to enforce the conditions we set up and have it run on all files using the Start-AIPScan command.
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
 1. [] Run the commands below to run an enforced scan using defined policy.
@@ -1753,7 +1783,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 
 ---
 
-# Reviewing Protected Documents
+# Reviewing Protected Documents*
 [:arrow_up: Top](#classification-labeling-and-protection-with-the-azure-information-protection-scanner)
 
 Now that we have Classified and Protected documents using the scanner, we can review the documents to see their change in status.
@@ -1778,7 +1808,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
 ---
-# Reviewing the Dashboards
+# Reviewing the Dashboards*
 [:arrow_up: Top](#classification-labeling-and-protection-with-the-azure-information-protection-scanner)
 
 We can now go back and look at the dashboards and observe how they have changed.
@@ -1816,9 +1846,12 @@ We can now go back and look at the dashboards and observe how they have changed.
 # Exchange Online IRM Capabilities
 [:arrow_left: Home](#azure-information-protection)
 
-Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients.  
+Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients. This Exercise will walk you through the items below.
 
-## Configuring Exchange Online Mail Flow Rules
+- [Configuring Exchange Online Mail Flow Rules](#configuring-exchange-online-mail-flow-rules*) 
+- [Demonstrating Exchange Online Mail Flow Rules](#demonstrating-exchange-online-mail-flow-rules*)  
+
+## Configuring Exchange Online Mail Flow Rules*
 
 In this task, we will configure a mail flow rule to detect sensitive information traversing the network in the clear and encrypt it using the Encrypt Only RMS Template.  We will also create a mail flow rule to prevent messages classified as Confidential \ All Employees from being sent to external recipients.
 
@@ -1903,7 +1936,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 
 ---
 
-# Demonstrating Exchange Online Mail Flow Rules
+# Demonstrating Exchange Online Mail Flow Rules*
 [:arrow_up: Top](#exchange-online-irm-capabilities)
 
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
@@ -1948,7 +1981,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 > [!HINT] There are many other use cases for Exchange Online mail flow rules but this should give you a quick view into what is possible and how easy it is to improve the security of your sensitive data through the use of Exchange Online mail flow rules and Azure Information Protection.
 
 ===
-# Lab Complete
+# AIP Lab Complete
 [:arrow_left: Home](#azure-information-protection)
 
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
