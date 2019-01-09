@@ -912,6 +912,7 @@ Now that you have 3 test systems with users being affected by different policies
 - [Testing Scoped Policy](#testing-scoped-policy)
 - [Testing Recommended and Automatic Classification](#testing-recommended-and-automatic-classification)
 
+	> [!ALERT] If you see a warning about a metered connection in Office, click **Connect anyway** to allow Office to connect.  If you do not do this you will get errors when connecting to the AIP service. The VMs are set to metered to increase etwork speed.
 ---
 # Testing User Defined Permissions
 
@@ -923,7 +924,8 @@ One of the most common use cases for AIP is the ability to send emails using Use
 1. [] The username should auto-populate based on the workplace join we performed earlier.  Click **Connect**.
 1. [] Once configuration completes, **uncheck the box** to **Set up Outlook Mobile** and click **OK**.
 1. [] **Close Outlook** and **reopen** to complete activation.
-1. [] Once Outlook opens, click on the **New email** button.
+1. [] Once Outlook opens, if you receive a metered connection warning, click **Connect anyway**.
+1. [] Click on the **New email** button.
 
 	!IMAGE[6wan9me1.jpg](\Media\6wan9me1.jpg)
 
@@ -1946,7 +1948,9 @@ In this task, we will configure a mail flow rule to detect sensitive information
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
 
 1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-1. [] In Microsoft Outlook, click on the **New email** button.
+1. [] Open and configure Microsoft Outlook. 
+1. [] Close and reopen Outlook to activate and if you receive a metered connection warning, click **Connect anyway**.
+2. [] Click on the **New email** button.
 
 	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
 
@@ -1964,8 +1968,6 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 	>
 	>!IMAGE[599ljwfy.jpg](\Media\599ljwfy.jpg)
 
-1. [] Next, open and configure Microsoft Outlook. 
-1. [] Close and reopen Outlook to activate and if you receive a metered connection warning, click **Connect anyway**.
 1. [] Click on the **New email** button.
 
 	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
