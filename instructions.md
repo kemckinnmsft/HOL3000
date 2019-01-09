@@ -1994,3 +1994,8 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 [:arrow_left: Home](#azure-information-protection)
 
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
+>[ninja-cat]: ![](\Media\ninjacat.png)
+
+!INSTRUCTIONS[https://blogs.msdn.microsoft.com/oldnewthing/20160804-00/?p=94025][ninja-cat]
+https://blogs.msdn.microsoft.com/oldnewthing/20160804-00/?p=94025
+
