@@ -1382,13 +1382,13 @@ Often, this can help drive an appropriate level of urgency and attention to the 
 
 In this exercise, we will install the AIP scanner and run it against repositories in discovery mode.  Later in this lab (after configuring labels and conditions) we will revisit the scanner to perform automated classification, labeling, and protection of sensitive documents. This Exercise will walk you through the items below.
 
-- [Configuring Azure Log Analytics](#configuring-azure-log-analytics-f)
-- [AIP Scanner Setup](#aip-scanner-setup-f)
-- [Running Sensitive Data Discovery](#running-sensitive-data-discovery-f)
-- [Defining Recommended and Automatic Conditions🐱‍👤](#defining-recommended-and-automatic-conditions-🐱‍👤)
+- [Configuring Azure Log Analytics](#configuring-azure-log-analytics-🐱‍👤)
+- [AIP Scanner Setup](#aip-scanner-setup-🐱‍👤)
+- [Running Sensitive Data Discovery](#running-sensitive-data-discovery-🐱‍👤)
+- [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions-🐱‍👤)
 
 ---
-# Configuring Azure Log Analytics F
+# Configuring Azure Log Analytics 🐱‍👤
 
 In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
 
@@ -1433,7 +1433,7 @@ In order to collect log data from Azure Information Protection clients and servi
 	!IMAGE[zgvmm4el.jpg](\Media\zgvmm4el.jpg)
 
 ---
-# AIP Scanner Setup F
+# AIP Scanner Setup 🐱‍👤
 [:arrow_up: Top](#familiar-with-aip)
 
 In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
@@ -1544,7 +1544,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    
 ---
 
-# Configuring Repositories F
+# Configuring Repositories 🐱‍👤
 [:arrow_up: Top](#familiar-with-aip)
 
 In this task, we will configure repositories to be scanned by the AIP scanner.  As previously mentioned, these can be any type of CIFS file shares including NAS devices sharing over the CIFS protocol.  Additionally, On premises SharePoint 2010, 2013, and 2016 document libraries and lists (attachements) can be scanned.  You can even scan entire SharePoint sites by providing the root URL of the site.  There are several optional 
@@ -1573,7 +1573,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 ---
 
-# Running Sensitive Data Discovery F
+# Running Sensitive Data Discovery 🐱‍👤
 [:arrow_up: Top](#familiar-with-aip)
 
 1. [] Run the commands below to run a discovery cycle.
@@ -1685,7 +1685,7 @@ However, helping your users to properly classify and protect sensitive data at t
 	^IMAGE[Open Screenshot](\Media\wzwfc1l4.jpg)
 
 ===
-# Bulk Classification with the AIP Client F
+# Bulk Classification with the AIP Client 🐱‍👤
 [:arrow_left: Home](#azure-information-protection)
 
 In this task, we will perform bulk classification using the built-in functionality of the AIP Client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Because this is done manually, it is an AIP P1 feature.
@@ -1707,7 +1707,7 @@ In this task, we will perform bulk classification using the built-in functionali
 
 > [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
 ===
-# Security and Compliance Center F
+# Security and Compliance Center 🐱‍👤
 [:arrow_left: Home](#azure-information-protection)
 
 In this exercise, we will migrate your AIP Labels and activate them in the Security and Compliance Center.  This will allow you to see the labels in Microsoft Information Protection based clients such as Office 365 for Mac and Mobile Devices.
@@ -1735,25 +1735,25 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 	>[!NOTE] Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
 ===
 
-# Classification, Labeling, and Protection with the Azure Information Protection Scanner F
+# Classification, Labeling, and Protection with the Azure Information Protection Scanner 🐱‍👤
 [:arrow_left: Home](#azure-information-protection)
 
 The Azure Information Protection scanner allows you to  classify and protect sensitive information stored in on-premises CIFS file shares and SharePoint sites.  
 
 In this exercise, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data. This Exercise will walk you through the items below.
 
-- [Enforcing Configured Rules](#enforcing-configured-rules-f)
-- [Reviewing Protected Documents](#reviewing-protected-documents-f)
-- [Reviewing the Dashboards](#reviewing-the-dashboards-f)
+- [Enforcing Configured Rules](#enforcing-configured-rules-🐱‍👤)
+- [Reviewing Protected Documents](#reviewing-protected-documents-🐱‍👤)
+- [Reviewing the Dashboards](#reviewing-the-dashboards-🐱‍👤)
 
 ---
 
-# Enforcing Configured Rules F
+# Enforcing Configured Rules 🐱‍👤
  
 In this task, we will set the AIP scanner to enforce the conditions we set up and have it run on all files using the Start-AIPScan command.
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
-1. [] Run the commands below to run an enforced scan using defined policy.
+2. [] Run the commands below to run an enforced scan using defined policy.
 
     ```
 	Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
@@ -1785,8 +1785,8 @@ In this task, we will set the AIP scanner to enforce the conditions we set up an
 
 ---
 
-# Reviewing Protected Documents F
-[:arrow_up: Top](#classification-labeling-and-protection-with-the-azure-information-protection-scanner-f)
+# Reviewing Protected Documents 🐱‍👤
+[:arrow_up: Top](#classification-labeling-and-protection-with-the-azure-information-protection-scanner-🐱‍👤)
 
 Now that we have Classified and Protected documents using the scanner, we can review the documents to see their change in status.
 
@@ -1810,8 +1810,8 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
 ---
-# Reviewing the Dashboards F
-[:arrow_up: Top](#classification-labeling-and-protection-with-the-azure-information-protection-scanner-f)
+# Reviewing the Dashboards 🐱‍👤
+[:arrow_up: Top](#classification-labeling-and-protection-with-the-azure-information-protection-scanner-🐱‍👤)
 
 We can now go back and look at the dashboards and observe how they have changed.
 
@@ -1845,15 +1845,15 @@ We can now go back and look at the dashboards and observe how they have changed.
 	> !IMAGE[discovery2.png](\Media\discovery2.png)
 	
 ===
-# Exchange Online IRM Capabilities F
+# Exchange Online IRM Capabilities 🐱‍👤
 [:arrow_left: Home](#azure-information-protection)
 
 Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients. This Exercise will walk you through the items below.
 
-- [Configuring Exchange Online Mail Flow Rules](#configuring-exchange-online-mail-flow-rules-f) 
-- [Demonstrating Exchange Online Mail Flow Rules](#demonstrating-exchange-online-mail-flow-rules-f)  
+- [Configuring Exchange Online Mail Flow Rules](#configuring-exchange-online-mail-flow-rules-🐱‍👤) 
+- [Demonstrating Exchange Online Mail Flow Rules](#demonstrating-exchange-online-mail-flow-rules-🐱‍👤)  
 
-## Configuring Exchange Online Mail Flow Rules F
+## Configuring Exchange Online Mail Flow Rules 🐱‍👤
 
 In this task, we will configure a mail flow rule to detect sensitive information traversing the network in the clear and encrypt it using the Encrypt Only RMS Template.  We will also create a mail flow rule to prevent messages classified as Confidential \ All Employees from being sent to external recipients.
 
@@ -1938,8 +1938,8 @@ In this task, we will configure a mail flow rule to detect sensitive information
 
 ---
 
-# Demonstrating Exchange Online Mail Flow Rules F
-[:arrow_up: Top](#exchange-online-irm-capabilities-f)
+# Demonstrating Exchange Online Mail Flow Rules 🐱‍👤
+[:arrow_up: Top](#exchange-online-irm-capabilities-🐱‍👤)
 
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
 
@@ -1983,7 +1983,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 > [!HINT] There are many other use cases for Exchange Online mail flow rules but this should give you a quick view into what is possible and how easy it is to improve the security of your sensitive data through the use of Exchange Online mail flow rules and Azure Information Protection.
 
 ===
-# AIP Lab Complete
+# AIP Lab Complete 🐱‍👤
 [:arrow_left: Home](#azure-information-protection)
 
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
