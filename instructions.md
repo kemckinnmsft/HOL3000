@@ -1223,7 +1223,7 @@ We can now go back and look at the dashboards and observe how they have changed.
 	>
 	> !IMAGE[Discovery.png](\Media\Discovery.png)
 	> 
-	> If you click on one of the devices, you can drill down and see the content that has been protected on that specific device or repository.
+	> If you click on one of the locations, you can drill down and see the content that has been protected on that specific device or repository.
 	>
 	> !IMAGE[discovery2.png](\Media\discovery2.png)
 	
@@ -1842,7 +1842,7 @@ We can now go back and look at the dashboards and observe how they have changed.
 	>
 	> !IMAGE[Discovery.png](\Media\Discovery.png)
 	> 
-	> If you click on one of the devices, you can drill down and see the content that has been protected on that specific device or repository.
+	> If you click on one of the locations, you can drill down and see the content that has been protected on that specific device or repository.
 	>
 	> !IMAGE[discovery2.png](\Media\discovery2.png)
 	
