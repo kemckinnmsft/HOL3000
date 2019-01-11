@@ -859,6 +859,8 @@ However, helping your users to properly classify and protect sensitive data at t
 
 	> [!NOTE] Now that we know the sensitive information types that are most common in this environment, we can use that information to create **Recommended** conditions that will help guide user behavior when they encounter this type of data.
 
+	> [!ALERT] If no data is shown, it may still be processing. Continue with the lab and come back to see the results later.
+
 1. [] Under **Classifications** on the left, click **Labels** then expand **Confidential**, and click on **Contoso Internal**.
 
 	^IMAGE[Open Screenshot](\Media\jyw5vrit.jpg)

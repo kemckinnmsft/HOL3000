@@ -60,19 +60,20 @@ This lab was developed for use in a structured VM environment with the following
 	- SharePoint Server 2016 Single Server install
 	- Demo PII content deployed to a document library at http://Scanner01/documents and in a fileshare shared as \\Scanner01\documents
 	- Test PII content is available at https://github.com/kemckinnmsft/AIPLAB/blob/master/Content/PII.zip
-	- A users.csv file located at c:\ containing the text below.
+	- A users.csv file located at c:\ containing the text below. Remove any spaces between or after lines.
 
-	> username,displayname,password
-	>
-	> AdamS,Adam Smith,pass@word1
-	>
-	> AIPScanner,AIPScanner,Somepass1
-	> 
-	> alicea,Alice Anderson,pass@word1
-	> 
-	> evang,Evan Green,pass@word1
-	> 
-	> nuckc,Nuck Chorris,NinjaCat123
+
+		> username,displayname,password
+		>
+		> AdamS,Adam Smith,pass@word1
+		>
+		> AIPScanner,AIPScanner,Somepass1
+		> 
+		> alicea,Alice Anderson,pass@word1
+		> 
+		> evang,Evan Green,pass@word1
+		> 
+		> nuckc,Nuck Chorris,NinjaCat123
 
 
 - 3 Windows 10 Enterprise Clients (CLIENT01-03)
@@ -543,7 +544,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 	![Open Screenshot](/Media/dy6mnnpv.jpg)
  
-	>[!NOTE] You will see an event like the one below when the scanner completes the cycle. If you see a .NET exception, press OK. This is due to SharePoint startup in the VM environment.
+	>:memo: You will see an event like the one below when the scanner completes the cycle. If you see a .NET exception, press OK. This is due to SharePoint startup in the VM environment.
 	>
 	>![agnx2gws.jpg](/Media/agnx2gws.jpg)
  
@@ -566,7 +567,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	>
 	>![9y52ab7u.jpg](/Media/9y52ab7u.jpg)
 
-	>[!NOTE] We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
+	>:memo: We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
 
 	> :warning: If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
 
@@ -793,7 +794,7 @@ Now that you have learned how to work with global labels and policies, we will c
 1. In the AAD Users and Groups blade, click on **Users/Groups**.  
 1. Then in the second AAD Users and Groups blade, **wait for the names to load** and check the boxes next to **AIPScanner**, **Adam Smith**, and **Alice Anderson**.
 
-	>[!NOTE] The **AIPScanner** account is added here to prevent all scanned documents from being labeled with a default label.
+	>:memo: The **AIPScanner** account is added here to prevent all scanned documents from being labeled with a default label.
 1. Click the **Select** button.
 1. Finally, click **OK**.
 
@@ -933,13 +934,13 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 
 	![o0ahpimw.jpg](/Media/o0ahpimw.jpg)
 
-	>[!NOTE] You should see a message similar to the one below.
+	>:memo: You should see a message similar to the one below.
 	>
 	> ![SCCMigration.png](/Media/SCCMigration.png) 
 
 1. In a new tab, browse to ```https://protection.office.com/``` and click on **Classifications** and **Labels** to review the migrated labels. 
 
-	>[!NOTE] Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
+	>:memo: Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
 
 ---
 
@@ -1359,7 +1360,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>
 	>-RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
 
-	>[!NOTE] In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
+	>:memo: In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
 
 ---
 
@@ -1639,7 +1640,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 	![Open Screenshot](/Media/dy6mnnpv.jpg)
  
-	>[!NOTE] You will see an event like the one below when the scanner completes the cycle. If you see a .NET exception, press OK. This is due to SharePoint startup in the VM environment.
+	>:memo: You will see an event like the one below when the scanner completes the cycle. If you see a .NET exception, press OK. This is due to SharePoint startup in the VM environment.
 	>
 	>![agnx2gws.jpg](/Media/agnx2gws.jpg)
  
@@ -1662,7 +1663,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	>
 	>![9y52ab7u.jpg](/Media/9y52ab7u.jpg)
 
-	>[!NOTE] We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
+	>:memo: We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
 
 	>[!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
 	
@@ -1776,13 +1777,13 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 
 	![o0ahpimw.jpg](/Media/o0ahpimw.jpg)
 
-	>[!NOTE] You should see a message similar to the one below.
+	>:memo: You should see a message similar to the one below.
 	>
 	> ![SCCMigration.png](/Media/SCCMigration.png) 
 
 1. In a new tab, browse to ```https://protection.office.com/``` and click on **Classifications** and **Labels** to review the migrated labels. 
 
-	>[!NOTE] Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
+	>:memo: Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
 ---
 
 # Classification, Labeling, and Protection with the Azure Information Protection Scanner 🐱‍👤
@@ -1958,7 +1959,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 
 1. Next, return to the PowerShell window and type **$labelid = "** then paste the **LabelID** for the **All Employees** label, type **"**, and press **Enter**.
 
-    >[!NOTE] The full command should look like **$labelid = "Label ID GUID"**
+    >:memo: The full command should look like **$labelid = "Label ID GUID"**
 1. Now, create another Exchange Online Mail Flow Rule using the code below:
 
 	```
@@ -1980,7 +1981,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>
 	>-RejectMessageReasonText “All Employees messages cannot be sent to external recipients.”
 
-	>[!NOTE] In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
+	>:memo: In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
 
 ---
 
