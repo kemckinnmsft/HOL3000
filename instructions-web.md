@@ -60,6 +60,14 @@ This lab was developed for use in a structured VM environment with the following
 	- SharePoint Server 2016 Single Server install
 	- Demo PII content deployed to a document library at http://Scanner01/documents and in a fileshare shared as \\Scanner01\documents
 	- Test PII content is available at https://github.com/kemckinnmsft/AIPLAB/blob/master/Content/PII.zip
+	- A users.csv file located at c:\ containing the text below.
+
+	> username,displayname,password
+	> AdamS,Adam Smith,pass@word1
+	> AIPScanner,AIPScanner,Somepass1
+	> alicea,Alice Anderson,pass@word1
+	> evang,Evan Green,pass@word1
+	> nuckc,Nuck Chorris,NinjaCat123
 
 
 - 3 Windows 10 Enterprise Clients (CLIENT01-03)
@@ -124,7 +132,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 	```Global Admin Password``` 
     
-1. In the PowerShell window, click on the code below to create users.
+1. In the PowerShell window, type the code below to create users.
 
     ```
     # Store Tenant FQDN and Short name
@@ -383,7 +391,7 @@ The first step in configuring the AIP Scanner is to install the service and conn
 
 	![7to6p334.jpg](/Media/7to6p334.jpg)
 
-1. At the PowerShell prompt, click to type the code below 
+1. At the PowerShell prompt, type the code below 
    
    ```
    $SQL = "Scanner01"
@@ -413,7 +421,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	```Global Admin Username```
 	
 	```Global Admin Password```
-1. Next, click the **T** to **type the commands below** in the PowerShell window and press **Enter**. 
+1. Next, **type the commands below** in the PowerShell window and press **Enter**. 
 
 	> :memo: This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
 
@@ -1480,7 +1488,7 @@ The first step in configuring the AIP Scanner is to install the service and conn
 
 	![7to6p334.jpg](/Media/7to6p334.jpg)
 
-1. At the PowerShell prompt, click to type the code below 
+1. At the PowerShell prompt, type the code below 
    
    ```
    $SQL = "Scanner01"
