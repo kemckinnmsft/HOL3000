@@ -82,6 +82,8 @@ There are also Knowledge Items, Notes, and Hints throughout the lab.
 There are a few prerequisites that need to be set up to complete all the sections in this lab.  This Exercise will walk you through the items below.
 
 - [Azure AD User Configuration](#azure-ad-user-configuration)
+  
+- [Exchange Mail Flow Rule Removal](#exchange-mail-flow-rule-removal)
 
 - [Redeem Azure Pass](#redeem-azure-pass)
 
@@ -99,7 +101,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
     $cred = Get-Credential
     ```
 
-1. [] When prompted, provide the credentials below:
+3. [] When prompted, provide the credentials below:
 
 	```@lab.CloudCredential(17).Username```
 
@@ -166,6 +168,38 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 	```
 
+---
+# Exchange Mail Flow Rule Removal
+
+By default, many of the demo tenants provided block external communications via mail flow rule.  As this will hinder many tests in this lab, we will verify if such a rule exists and remove it if necesary.
+
+2. [] Type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
+
+	```
+	$UserCredential = Get-Credential
+	```
+
+	```@lab.CloudCredential(17).Username```
+
+	```@lab.CloudCredential(17).Password```
+
+	```
+	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
+	Import-PSSession $Session
+	```
+
+1. [] Get the active Mail Flow Rules by typing the command below:
+
+	```
+	Get-TransportRule
+	```
+
+1. [] If a rule exists named something similar to **"Delete if sent outside the organization"**, run the code below to remove this rule.
+
+	```
+	Remove-TransportRule *Delete*
+	```
+	
 ---
 # Redeem Azure Pass
 [:arrow_up: Top](#lab-environment-configuration)
@@ -505,7 +539,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 	^IMAGE[Open Screenshot](\Media\dy6mnnpv.jpg)
  
-	>[!NOTE] You will see an event like the one below when the scanner completes the cycle.
+	>[!NOTE] You will see an event like the one below when the scanner completes the cycle. If you see a .NET exception, press OK. This is due to SharePoint startup in the VM environment.
 	>
 	>!IMAGE[agnx2gws.jpg](\Media\agnx2gws.jpg)
  
@@ -543,7 +577,7 @@ In this task, we will perform bulk classification using the built-in functionali
 3. [] Right-click on the PII folder and select **Classify and Protect**.
    
    !IMAGE[CandP.png](\Media\CandP.png)
-4. [] When prompted, click use another user and use the credentials below to authenticate:
+4. [] When prompted, click use another account and use the credentials below to authenticate:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
@@ -1599,7 +1633,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 	^IMAGE[Open Screenshot](\Media\dy6mnnpv.jpg)
  
-	>[!NOTE] You will see an event like the one below when the scanner completes the cycle.
+	>[!NOTE] You will see an event like the one below when the scanner completes the cycle. If you see a .NET exception, press OK. This is due to SharePoint startup in the VM environment.
 	>
 	>!IMAGE[agnx2gws.jpg](\Media\agnx2gws.jpg)
  
@@ -1700,7 +1734,7 @@ In this task, we will perform bulk classification using the built-in functionali
 2. [] Right-click on the PII folder and select **Classify and Protect**.
    
    !IMAGE[CandP.png](\Media\CandP.png)
-1. [] When prompted, click use another user and use the credentials below to authenticate:
+1. [] When prompted, click use another account and use the credentials below to authenticate:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
@@ -1866,10 +1900,6 @@ In this task, we will configure a mail flow rule to detect sensitive information
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and open an **Admin PowerShell Prompt**.
 
 2. [] Type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
-
-	```
-	Set-ExecutionPolicy RemoteSigned
-	```
 
 	```
 	$UserCredential = Get-Credential
