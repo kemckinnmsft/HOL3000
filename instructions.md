@@ -170,6 +170,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 ---
 # Exchange Mail Flow Rule Removal
+[:arrow_up: Top](#lab-environment-configuration)
 
 By default, many of the demo tenants provided block external communications via mail flow rule.  As this will hinder many tests in this lab, we will verify if such a rule exists and remove it if necesary.
 
