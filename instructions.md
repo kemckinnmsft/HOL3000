@@ -1178,7 +1178,7 @@ Now that we know what types of sensitive data we need to protect, we will config
 In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
-1. [] Run the commands below to run an enforced scan using defined policy.
+1. [] In an **Administrative PowerShell** window, run the commands below to run an enforced scan using defined policy.
 
     ```
 	Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
@@ -1800,7 +1800,7 @@ In this exercise, we will run the AIP Scanner in enforce mode to classify and pr
 In this task, we will set the AIP scanner to enforce the conditions we set up and have it run on all files using the Start-AIPScan command.
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
-2. [] Run the commands below to run an enforced scan using defined policy.
+2. [] In an **Administrative PowerShell** window, run the commands below to run an enforced scan using defined policy.
 
     ```
 	Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
