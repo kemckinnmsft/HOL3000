@@ -587,6 +587,8 @@ In this task, we will perform bulk classification using the built-in functionali
 
 	!IMAGE[CandP2.png](\Media\CandP2.png)
 
+> [!Alert] If you are unable to see the **Apply** button bue to screen resolution, click **Ctrl+A** and **Enter** to apply the label to the content.
+
 > [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
 ===
 # Exercise 2: Configuring Azure Information Protection Policy
@@ -1743,6 +1745,8 @@ In this task, we will perform bulk classification using the built-in functionali
 1. [] In the AIP client Classify and protect interface, select **Highly Confidential\\All Employees** and press **Apply**. 
 
 	!IMAGE[CandP2.png](\Media\CandP2.png)
+
+> [!Alert] If you are unable to see the **Apply** button bue to screen resolution, click **Ctrl+A** and **Enter** to apply the label to the content.
 
 > [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
 ===
