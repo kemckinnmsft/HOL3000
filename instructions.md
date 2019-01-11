@@ -442,7 +442,6 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    $Access.ResourceAppId = $WebApp.AppId
    $Access.ResourceAccess = $Scope
 
-
    New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
    $NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
    New-AzureADServicePrincipal -AppId $NativeApp.AppId
