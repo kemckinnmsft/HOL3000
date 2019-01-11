@@ -63,10 +63,15 @@ This lab was developed for use in a structured VM environment with the following
 	- A users.csv file located at c:\ containing the text below.
 
 	> username,displayname,password
+	>
 	> AdamS,Adam Smith,pass@word1
+	>
 	> AIPScanner,AIPScanner,Somepass1
+	> 
 	> alicea,Alice Anderson,pass@word1
+	> 
 	> evang,Evan Green,pass@word1
+	> 
 	> nuckc,Nuck Chorris,NinjaCat123
 
 
