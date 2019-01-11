@@ -1672,7 +1672,9 @@ One of the most powerful features of Azure Information Protection is the ability
 
 However, helping your users to properly classify and protect sensitive data at the time of creation is a more organic user experience that will achieve better results long term.  In this task, we will define some basic recommended and automatic conditions that will trigger based on certain types of sensitive data.
 
-1. [] Under **Dashboards** on the left, click on **Data discovery (Preview)** to view the results of the discovery scan we performed previously.
+1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+2. [] Open the browser window with the Azure Portal (AIP Blade).
+3. [] Under **Dashboards** on the left, click on **Data discovery (Preview)** to view the results of the discovery scan we performed previously.
 
 	!IMAGE[Dashboard.png](\Media\Dashboard.png)
 
