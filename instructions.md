@@ -1979,10 +1979,15 @@ In this task, we will configure a mail flow rule to detect sensitive information
 
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
 
-1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-1. [] Open and configure Microsoft Outlook. 
-1. [] Close and reopen Outlook to activate and if you receive a metered connection warning, click **Connect anyway**.
-2. [] Click on the **New email** button.
+1. [] On @lab.VirtualMachine(Client01).SelectLink, in the Azure Portal, under **Classifications**, click on **Labels**.
+2. [] Expand **Highly Confidential** and click on **All Employees**.
+3. [] Scroll down to the conditions and click on **Credit Card Number**.
+4. [] In the Condition: Credit Card Number blade, click **Delete** and **OK**.
+5. [] Save and close the **Label: All Employees** blade.
+6. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+7. [] Open and configure Microsoft Outlook. 
+8. [] Close and reopen Outlook to activate and if you receive a metered connection warning, click **Connect anyway**.
+9. [] Click on the **New email** button.
 
 	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
 
