@@ -96,7 +96,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 1. [] Log into @lab.VirtualMachine(Scanner01).SelectLink using the password +++@lab.VirtualMachine(Client01).Password+++
 2. [] Open a new Administrative PowerShell window and click below to type the code. 
-    
+   
     ```
     $cred = Get-Credential
     ```
@@ -106,7 +106,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 	```@lab.CloudCredential(17).Username```
 
 	```@lab.CloudCredential(17).Password``` 
-    
+   
 1. [] In the PowerShell window, click on the code below to create users.
 
     ```
@@ -174,33 +174,25 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 By default, many of the demo tenants provided block external communications via mail flow rule.  As this will hinder many tests in this lab, we will verify if such a rule exists and remove it if necesary.
 
-2. [] Type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
+1. [] In the Admin PowerShell window, type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
 
-	```
-	$UserCredential = Get-Credential
-	```
+  ```
+  $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $cred -Authentication Basic -AllowRedirection
+  Import-PSSession $Session
+  ```
 
-	```@lab.CloudCredential(17).Username```
+3. [] Get the active Mail Flow Rules by typing the command below:
 
-	```@lab.CloudCredential(17).Password```
+  ```
+  Get-TransportRule
+  ```
 
-	```
-	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
-	Import-PSSession $Session
-	```
+4. [] If a rule exists named something similar to **"Delete if sent outside the organization"**, run the code below to remove this rule.
 
-1. [] Get the active Mail Flow Rules by typing the command below:
+  ```
+  Remove-TransportRule *Delete*
+  ```
 
-	```
-	Get-TransportRule
-	```
-
-1. [] If a rule exists named something similar to **"Delete if sent outside the organization"**, run the code below to remove this rule.
-
-	```
-	Remove-TransportRule *Delete*
-	```
-	
 ---
 # Redeem Azure Pass
 [:arrow_up: Top](#lab-environment-configuration)
@@ -227,22 +219,25 @@ For several of the exercises in this lab series, you will require an active subs
 1. [] Click **Confirm** if the correct email address is listed.
 
 	!IMAGE[teyx280d.jpg](\Media\teyx280d.jpg)
-1. [] In the Promo code box type ```@lab.CloudCredential(215).PromoCode``` and click the **Claim Promo Code** button.
+7. [] Click in the Promo code box and type ```@lab.CloudCredential(215).PromoCode``` and click the **Claim Promo Code** button.
 
-	!IMAGE[e1l35ko2.jpg](\Media\e1l35ko2.jpg)
-	> [!NOTE] It may take up to 5 minutes to process the redemption.
+  !IMAGE[e1l35ko2.jpg](\Media\e1l35ko2.jpg)
 
-1. [] Scroll to the bottom of the page and click **Next**.
+  > [!NOTE] It may take up to 5 minutes to process the redemption.
 
-	!IMAGE[ihrjazqi.jpg](\Media\ihrjazqi.jpg)
-	> [!NOTE] You can keep the pre-populated information.
+8. [] Scroll to the bottom of the page and click **Next**.
 
-1. [] Check the box to agree to the terms and click **Sign up**.
+  !IMAGE[ihrjazqi.jpg](\Media\ihrjazqi.jpg)
 
-	!IMAGE[k2a97g8e.jpg](\Media\k2a97g8e.jpg)
-	> [!NOTE] It may take a few minutes to process the request.
+  > [!NOTE] You can keep the pre-populated information.
 
-1. [] When you are redirected to the Azure Portal, the process is complete.
+9. [] Check the box to agree to the terms and click **Sign up**.
+
+  !IMAGE[k2a97g8e.jpg](\Media\k2a97g8e.jpg)
+
+  > [!NOTE] It may take a few minutes to process the request.
+
+1. [] While this is processing, you may continue to the next task.
 
 ---
 # Workplace Join Clients
@@ -286,6 +281,7 @@ In this task, we will join 3 systems to the Azure AD tenant to provide SSO capab
 
 	```pass@word1```
 1. [] Click **Done**.
+
 ===
 # Azure Information Protection
 [:arrow_left: Home](#introduction)
@@ -449,7 +445,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    
 1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
    
-	 
+	
    ```
    "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
 
@@ -466,7 +462,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 	```Somepass1```
 
-1. [] Copy the **Set-AIPAuthentication** command into this window from the notepad and run it.
+1. [] Restore the **Notepad** window and copy the **full Set-AIPAuthentication** command into this window from and run it.
 1. [] When prompted, enter the username and password below:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
@@ -498,7 +494,7 @@ In this task, we will configure repositories to be scanned by the AIP scanner.  
 
 The next task is to configure repositories to scan.  These can be on-premises SharePoint 2010, 2013, or 2016 document libraries and any accessible CIFS based share.
 
-1. [] In the PowerShell window on Scanner01 run the commands below
+1. [] In the Administrative PowerShell window on Scanner01 run the commands below
 
     ```
     Add-AIPScannerRepository -Path http://Scanner01/documents -SetDefaultLabel Off
@@ -531,18 +527,18 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
     ```
 
 	> [!Knowledge] Note that we used the DiscoverInformationTypes -All switch before starting the scan.  This causes the scanner to use any custom conditions that you have specified for labels in the Azure Information Protection policy, and the list of information types that are available to specify for labels in the Azure Information Protection policy.  Although the scanner will discover documents to classify, it will not do so because the default configuration for the scanner is Discover only mode.
- 	
+	
 1. [] Right-click on the **Windows** button in the lower left-hand corner and click on **Event Viewer**.
- 
+
 	^IMAGE[Open Screenshot](\Media\cjvmhaf0.jpg)
 1. [] Expand **Application and Services Logs** and click on **Azure Information Protection**.
 
 	^IMAGE[Open Screenshot](\Media\dy6mnnpv.jpg)
- 
+
 	>[!NOTE] You will see an event like the one below when the scanner completes the cycle. If you see a .NET exception, press OK. This is due to SharePoint startup in the VM environment.
 	>
 	>!IMAGE[agnx2gws.jpg](\Media\agnx2gws.jpg)
- 
+
 1. [] Next, switch to @lab.VirtualMachine(Client01).SelectLink and log in using the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] Open a **File Explorer** window, and browse to ```\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports```.
 
@@ -705,7 +701,7 @@ In this task, we will assign the new sub-label to the Global policy and configur
 
 2. [] Below the labels, click **Add or remove labels**.
 
-3. [] In the Policy: Add or remove labels blade, ensure that the boxes next to all Labels are checked and click **OK**.
+3. [] In the Policy: Add or remove labels blade, ensure that the **boxes** next to **all labels including the new Contoso Internal label** are **checked** and click **OK**.
 
 4. [] In the Policy: Global blade, under the **Configure settings to display and apply on Information Protection end users** section, configure the policy to match the settings shown in the table and image below.
 
@@ -900,8 +896,9 @@ However, helping your users to properly classify and protect sensitive data at t
 	^IMAGE[Open Screenshot](\Media\ie6g5kta.jpg)
 1. [] In the Labels: All Employees blade, in the **Configure conditions for automatically applying this label** section, click **Automatic**.
 
-	!IMAGE[245lpjvk.jpg](\Media\245lpjvk.jpg)
-	> [!HINT] The policy tip is automatically updated when you switch the condition to Automatic.
+   !IMAGE[245lpjvk.jpg](\Media\245lpjvk.jpg)
+
+   > [!HINT] The policy tip is automatically updated when you switch the condition to Automatic.
 1. [] Click **Save** in the Label: All Employees blade and **OK** to the Save settings prompt.
 
 	^IMAGE[Open Screenshot](\Media\gek63ks8.jpg)
@@ -917,11 +914,10 @@ However, helping your users to properly classify and protect sensitive data at t
 In this exercise, we will migrate your AIP Labels and activate them in the Security and Compliance Center.  This will allow you to see the labels in Microsoft Information Protection based clients such as Office 365 for Mac and Mobile Devices.
 
 Although we will not be demonstrating these capabilities in this lab, you can use the tenant information provided to test on your own devices.
- 
 
 ---
 # Activating Unified Labeling
- 
+
 In this task, we will activate the labels from the Azure Portal for use in the Security and Compliance Center.
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
@@ -991,7 +987,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 	>
 	> !IMAGE[6v6duzbd.jpg](\Media\6v6duzbd.jpg)
 
-1. [] Switch over to @lab.VirtualMachine(Client01).SelectLink or @lab.VirtualMachine(Client02).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and open Outlook. 
+1. [] Switch over to @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and open Outlook. 
 2. [] Run through setup, and review the email in Adam Smith or Alice Anderson’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
 
 	!IMAGE[0xby56qt.jpg](\Media\0xby56qt.jpg)
@@ -1047,7 +1043,7 @@ In this task, we will create a document and send an email to demonstrate the fun
 1. [] Click on **Confidential** and then **Contoso Internal** and click **Send**.
 
 	^IMAGE[Open Screenshot](\Media\yhokhtkv.jpg)
-1. [] On @lab.VirtualMachine(Client01).SelectLink or @lab.VirtualMachine(Client02).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and observe that you are able to open the email natively in the Outlook client. Also observe the **header text** that was defined in the label settings.
+1. [] On @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and observe that you are able to open the email natively in the Outlook client. Also observe the **header text** that was defined in the label settings.
 
 	!IMAGE[bxz190x2.jpg](\Media\bxz190x2.jpg)
 	
@@ -1137,6 +1133,7 @@ In this task, we will test the configured recommended and automatic conditions w
 
 1. [] In the email, click **Send**.
    
+
 ===
 # Exercise 5: Classification, Labeling, and Protection with the Azure Information Protection Scanner
 [:arrow_left: Home](#azure-information-protection)
@@ -1153,7 +1150,7 @@ In this exercise, you will change the condition we created previously from a rec
 ---
 
 # Configuring Automatic Conditions
- 
+
 Now that we know what types of sensitive data we need to protect, we will configure some automatic conditions (rules) that the scanner can use to classify and protect content.
 
 1. [] Switch back to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
@@ -1175,7 +1172,7 @@ Now that we know what types of sensitive data we need to protect, we will config
 
 # Enforcing Configured Rules
 [:arrow_up: Top](#exercise-5-classification-labeling-and-protection-with-the-azure-information-protection-scanner)
- 
+
 In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
@@ -1217,7 +1214,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 Now that we have Classified and Protected documents using the scanner, we can review the documents to see their change in status.
 
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
- 
+
 2. [] Navigate to ```\\Scanner01.contoso.azure\documents```. 
 
 	> If needed, use the credentials below:
@@ -1225,15 +1222,15 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	>```Contoso\LabUser```
 	>
 	>```Pa$$w0rd```
- 
+
 	^IMAGE[Open Screenshot](\Media\hipavcx6.jpg)
-3. [] Open one of the Contoso Purchasing Permissions documents or Run For The Cure spreadsheets.
- 
- 	
-	
-	> [!NOTE] Observe that the document is classified as Confidential \ Contoso Internal. 
-	>
-	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
+3. [] Open one of the Contoso Purchasing Permissions documents.
+
+
+​	
+​	> [!NOTE] Observe that the document is classified as Confidential \ Contoso Internal. 
+​	>
+​	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
 ---
 # Reviewing the Dashboards
@@ -1269,6 +1266,7 @@ We can now go back and look at the dashboards and observe how they have changed.
 	>
 	> !IMAGE[discovery2.png](\Media\discovery2.png)
 	
+
 ===
 # Exercise 6: Exchange Online IRM Capabilities
 [:arrow_left: Home](#azure-information-protection)
@@ -1516,13 +1514,14 @@ The first step in configuring the AIP Scanner is to install the service and conn
 Now that you have installed the scanner bits, you need to get an Azure AD token for the scanner service account to authenticate so that it can run unattended. This requires registering both a Web app and a Native app in Azure Active Directory.  The commands below will do this in an automated fashion rather than needing to go into the Azure portal directly.
 
 1. [] In PowerShell, run ```Connect-AzureAD``` and use the username and password below. 
-	
-	```@lab.CloudCredential(17).Username```
-	
-	```@lab.CloudCredential(17).Password```
+
+  ```@lab.CloudCredential(17).Username```
+
+  ```@lab.CloudCredential(17).Password```
+
 1. [] Next, click the **T** to **type the commands below** in the PowerShell window and press **Enter**. 
 
-	> [!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
+   > [!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
 
    ```
    New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
@@ -1531,41 +1530,42 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    $WebAppKey = New-Guid
    $Date = Get-Date
    New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
-	
+   
    $AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
    $AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
    $Scope = New-Object -TypeName "Microsoft.Open.AzureAD.Model.ResourceAccess" -ArgumentList $AIPPermissions.Id,"Scope"
    $Access = New-Object -TypeName "Microsoft.Open.AzureAD.Model.RequiredResourceAccess"
    $Access.ResourceAppId = $WebApp.AppId
    $Access.ResourceAccess = $Scope
-
-
+   
    New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
    $NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
    New-AzureADServicePrincipal -AppId $NativeApp.AppId
    ```
-   
+
 1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
-   
-	 
+
    ```
    "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
+   
+   Start ~\Desktop\Set-AIPAuthentication.txt
+   ```
 
-	Start ~\Desktop\Set-AIPAuthentication.txt
-	```
 1. [] Leave the notepad window open in the background.
+
 1. [] Click on the Start menu and type ```PowerShell```, right-click on the PowerShell program, and click **Run as a different user**.
 
-	!IMAGE[zgt5ikxl.jpg](\Media\zgt5ikxl.jpg)
+   !IMAGE[zgt5ikxl.jpg](\Media\zgt5ikxl.jpg)
 
 1. [] When prompted, enter the username and password below and click **OK**.
 
-	```Contoso\AIPScanner``` 
+   ```Contoso\AIPScanner``` 
 
-	```Somepass1```
+   ```Somepass1```
 
-1. [] Copy the **Set-AIPAuthentication** command into this window from the notepad and run it.
-1. [] When prompted, enter the username and password below:
+1. [] Restore the **Notepad** window and copy the **full Set-AIPAuthentication** command into this window from and run it.
+
+8. [] When prompted, enter the username and password below:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
@@ -1581,10 +1581,9 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	>
 	>!IMAGE[y2bgsabe.jpg](\Media\y2bgsabe.jpg)
 1. [] **Close the current PowerShell window**.
-1. [] **In the admin PowerShell window** and type the command below.
+10. [] **In the admin PowerShell window** and type the command below.
 
-	```Restart-Service AIPScanner```
-   
+  ```Restart-Service AIPScanner```
 ---
 
 # Configuring Repositories 🐱‍👤
@@ -1596,7 +1595,7 @@ In this task, we will configure repositories to be scanned by the AIP scanner.  
 
 The next task is to configure repositories to scan.  These can be on-premises SharePoint 2010, 2013, or 2016 document libraries and any accessible CIFS based share.
 
-1. [] In the PowerShell window on Scanner01 run the commands below
+1. [] In the Administrative PowerShell window on Scanner01 run the commands below
 
     ```
     Add-AIPScannerRepository -Path http://Scanner01/documents -SetDefaultLabel Off
@@ -1629,18 +1628,18 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
     ```
 
 	> [!Knowledge] Note that we used the DiscoverInformationTypes -All switch before starting the scan.  This causes the scanner to use any custom conditions that you have specified for labels in the Azure Information Protection policy, and the list of information types that are available to specify for labels in the Azure Information Protection policy.  Although the scanner will discover documents to classify, it will not do so because the default configuration for the scanner is Discover only mode.
- 	
+	
 1. [] Right-click on the **Windows** button in the lower left-hand corner and click on **Event Viewer**.
- 
+
 	^IMAGE[Open Screenshot](\Media\cjvmhaf0.jpg)
 1. [] Expand **Application and Services Logs** and click on **Azure Information Protection**.
 
 	^IMAGE[Open Screenshot](\Media\dy6mnnpv.jpg)
- 
+
 	>[!NOTE] You will see an event like the one below when the scanner completes the cycle. If you see a .NET exception, press OK. This is due to SharePoint startup in the VM environment.
 	>
 	>!IMAGE[agnx2gws.jpg](\Media\agnx2gws.jpg)
- 
+
 1. [] Next, switch to @lab.VirtualMachine(Client01).SelectLink and log in using the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] Open a **File Explorer** window, and browse to ```\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports```.
 
@@ -1718,10 +1717,11 @@ However, helping your users to properly classify and protect sensitive data at t
 1. [] Click **Save** in the Condition blade and **OK** to the Save settings prompt.
 
 	^IMAGE[Open Screenshot](\Media\ie6g5kta.jpg)
-1. [] In the Labels: All Employees blade, in the **Configure conditions for automatically applying this label** section, click **Automatic**.
+15. [] In the Labels: All Employees blade, in the **Configure conditions for automatically applying this label** section, click **Automatic**.
 
-	!IMAGE[245lpjvk.jpg](\Media\245lpjvk.jpg)
-	> [!HINT] The policy tip is automatically updated when you switch the condition to Automatic.
+   !IMAGE[245lpjvk.jpg](\Media\245lpjvk.jpg)
+
+   > [!HINT] The policy tip is automatically updated when you switch the condition to Automatic.
 1. [] Click **Save** in the Label: All Employees blade and **OK** to the Save settings prompt.
 
 	^IMAGE[Open Screenshot](\Media\gek63ks8.jpg)
@@ -1760,11 +1760,10 @@ In this task, we will perform bulk classification using the built-in functionali
 In this exercise, we will migrate your AIP Labels and activate them in the Security and Compliance Center.  This will allow you to see the labels in Microsoft Information Protection based clients such as Office 365 for Mac and Mobile Devices.
 
 Although we will not be demonstrating these capabilities in this lab, you can use the tenant information provided to test on your own devices.
- 
 
 ---
 # Activating Unified Labeling
- 
+
 In this task, we will activate the labels from the Azure Portal for use in the Security and Compliance Center.
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
@@ -1797,7 +1796,7 @@ In this exercise, we will run the AIP Scanner in enforce mode to classify and pr
 ---
 
 # Enforcing Configured Rules 🐱‍👤
- 
+
 In this task, we will set the AIP scanner to enforce the conditions we set up and have it run on all files using the Start-AIPScan command.
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
@@ -1839,7 +1838,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up an
 Now that we have Classified and Protected documents using the scanner, we can review the documents to see their change in status.
 
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
- 
+
 2. [] Navigate to ```\\Scanner01.contoso.azure\documents```. 
 
 	> If needed, use the credentials below:
@@ -1847,15 +1846,15 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	>```Contoso\LabUser```
 	>
 	>```Pa$$w0rd```
- 
+
 	^IMAGE[Open Screenshot](\Media\hipavcx6.jpg)
-3. [] Open one of the Contoso Purchasing Permissions documents or Run For The Cure spreadsheets.
- 
- 	
-	
-	> [!NOTE] Observe that the document is classified as Confidential \ Contoso Internal. 
-	>
-	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
+3. [] Open one of the Contoso Purchasing Permissions documents.
+
+
+​	
+	> [!NOTE] Observe that the document is classified as Confidential \ All Employees. 
+​	>
+​	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
 ---
 # Reviewing the Dashboards 🐱‍👤
@@ -1864,7 +1863,8 @@ Now that we have Classified and Protected documents using the scanner, we can re
 We can now go back and look at the dashboards and observe how they have changed.
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, open the browser that is logged into the Azure Portal.
-	> [!ALERT] Some of the content shown in this dashboard will not be present because we skipped the manual labeling sections.  This content has been left in to show the capabilities of the reports.
+
+  > [!ALERT] Some of the content shown in this dashboard will not be present because we skipped the manual labeling sections.  This content has been left in to show the capabilities of the reports.
 
 1. [] Under **Dashboards**, click on **Usage report (Preview)**.
 
@@ -1892,6 +1892,7 @@ We can now go back and look at the dashboards and observe how they have changed.
 	>
 	> !IMAGE[discovery2.png](\Media\discovery2.png)
 	
+
 ===
 # Exchange Online IRM Capabilities 🐱‍👤
 [:arrow_left: Home](#azure-information-protection)
@@ -2038,7 +2039,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 [:arrow_left: Home](#azure-information-protection)
 
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
->[ninja-cat]: ![](\Media\ninjacat.png)
+>[ninja-cat]: !(\Media\ninjacat.png)
 
 !INSTRUCTIONS[https://blogs.msdn.microsoft.com/oldnewthing/20160804-00/?p=94025][ninja-cat]
 https://blogs.msdn.microsoft.com/oldnewthing/20160804-00/?p=94025
