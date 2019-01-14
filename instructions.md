@@ -948,33 +948,33 @@ One of the most common use cases for AIP is the ability to send emails using Use
 
    !IMAGE[0xby56qt.jpg](\Media\0xby56qt.jpg)
 
-   > [!Hint] The **Do Not Forward** protection template will normally prevent the sharing of the screen and taking screenshots when protected documents or emails are loaded.  However, since this screenshot was taken within a VM, the operating system was unaware of the protected content and could not prevent the capture.  
-   >
-   >It is important to understand that although we put controls in place to reduce risk, if a user has view access to a document or email they can take a picture with their smartphone or even retype the message. That said, if the user is not authorized to read the message then it will not even render and we will demonstrate that next.
+	> [!Hint] The **Do Not Forward** protection template will normally prevent the sharing of the screen and taking screenshots when protected documents or emails are loaded.  However, since this screenshot was taken within a VM, the operating system was unaware of the protected content and could not prevent the capture.  
+	>
+	>It is important to understand that although we put controls in place to reduce risk, if a user has view access to a document or email they can take a picture with their smartphone or even retype the message. That said, if the user is not authorized to read the message then it will not even render and we will demonstrate that next.
 
-   > [!KNOWLEDGE] If you elected to send a Do Not Forward message to an external email, you will have an experience similar to the images below.  These captures are included to demonstrate the functionality for those that chose not to send an external message.
-   >
-   > !IMAGE[tzj04wi9.jpg](\Media\tzj04wi9.jpg)
-   > 
-   > Here the user has received an email from Evan Green and they can click on the **Read the message** button.
-   >
-   >!IMAGE[wiefwcho.jpg](\Media\wiefwcho.jpg)
-   >
-   >Next, the user is given the option to either log in using the social identity provider (**Sign in with Google**, Yahoo, Microsoft Account), or to **sign in with a one-time passcode**.
-   >
-   >If they choose the social identity provider login, it should use the token previously cached by their browser and display the message directly.
-   >
-   >If they choose one-time passcode, they will receive an email like the one below with the one-time passcode.
-   >
-   >!IMAGE[m6voa9xi.jpg](\Media\m6voa9xi.jpg)
-   >
-   >They can then use this code to authenticate to the Office 365 Message Encryption portal.
-   >
-   >!IMAGE[8pllxint.jpg](\Media\8pllxint.jpg)
-   >
-   >After using either of these authentication methods, the user will see a portal experience like the one shown below.
-   >
-   >!IMAGE[3zi4dlk9.jpg](\Media\3zi4dlk9.jpg)
+	> [!KNOWLEDGE] If you elected to send a Do Not Forward message to an external email, you will have an experience similar to the images below.  These captures are included to demonstrate the functionality for those that chose not to send an external message.
+	>
+	> !IMAGE[tzj04wi9.jpg](\Media\tzj04wi9.jpg)
+	> 
+	> Here the user has received an email from Evan Green and they can click on the **Read the message** button.
+	>
+	>!IMAGE[wiefwcho.jpg](\Media\wiefwcho.jpg)
+	>
+	>Next, the user is given the option to either log in using the social identity provider (**Sign in with Google**, Yahoo, Microsoft Account), or to **sign in with a one-time passcode**.
+	>
+	>If they choose the social identity provider login, it should use the token previously cached by their browser and display the message directly.
+	>
+	>If they choose one-time passcode, they will receive an email like the one below with the one-time passcode.
+	>
+	>!IMAGE[m6voa9xi.jpg](\Media\m6voa9xi.jpg)
+	>
+	>They can then use this code to authenticate to the Office 365 Message Encryption portal.
+	>
+	>!IMAGE[8pllxint.jpg](\Media\8pllxint.jpg)
+	>
+	>After using either of these authentication methods, the user will see a portal experience like the one shown below.
+	>
+	>!IMAGE[3zi4dlk9.jpg](\Media\3zi4dlk9.jpg)
 
 ---
 
@@ -1324,13 +1324,13 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 
   !IMAGE[pidqfaa1.jpg](\Media\pidqfaa1.jpg)
 
-  > [!Knowledge] Note that there is no encryption applied to the message.  That is because we set up the rule to only apply to external recipients.  If you were to leave that condition out of the mail flow rule, internal recipients would also receive an encrypted copy of the message.  The image below shows the encrypted message that was received externally.
-  >
-  >!IMAGE[c5foyeji.jpg](\Media\c5foyeji.jpg)
-  >
-  >Below is another view of the same message received in Outlook Mobile on an iOS device.
-  >
-  >!IMAGE[599ljwfy.jpg](\Media\599ljwfy.jpg)
+	> [!Knowledge] Note that there is no encryption applied to the message.  That is because we set up the rule to only apply to external recipients.  If you were to leave that condition out of the mail flow rule, internal recipients would also receive an encrypted copy of the message.  The image below shows the encrypted message that was received externally.
+	>
+	>!IMAGE[c5foyeji.jpg](\Media\c5foyeji.jpg)
+	>
+	>Below is another view of the same message received in Outlook Mobile on an iOS device.
+	>
+	>!IMAGE[599ljwfy.jpg](\Media\599ljwfy.jpg)
 
 6. [] Next, in Microsoft Outlook, click on the **New email** button.
 
@@ -1346,9 +1346,10 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 9. [] In about a minute, you should receive an **Undeliverable** message from Exchange with the users that the message did not reach and the message you defined in the previous task.
 
   !IMAGE[kgjvy7ul.jpg](\Media\kgjvy7ul.jpg)
-> [!NOTE] This rule may take a few minutes to take effect, so if you do not get the undeliverable message, try again in a few minutes.
 
-> [!HINT] There are many other use cases for Exchange Online mail flow rules but this should give you a quick view into what is possible and how easy it is to improve the security of your sensitive data through the use of Exchange Online mail flow rules and Azure Information Protection.
+	> [!NOTE] This rule may take a few minutes to take effect, so if you do not get the undeliverable message, try again in a few minutes.
+
+	> [!HINT] There are many other use cases for Exchange Online mail flow rules but this should give you a quick view into what is possible and how easy it is to improve the security of your sensitive data through the use of Exchange Online mail flow rules and Azure Information Protection.
 
 ===
 # AIP Lab Complete
@@ -1381,7 +1382,7 @@ In order to collect log data from Azure Information Protection clients and servi
 
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] In the InPrivate window, navigate to ```https://portal.azure.com/```
-	>
+	
 	>^IMAGE[Open Screenshot](\Media\cznh7i2b.jpg)
 
 	> [!KNOWLEDGE] If necessary, log in using the username and password below:
