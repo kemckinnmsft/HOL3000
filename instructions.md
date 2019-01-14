@@ -927,9 +927,9 @@ One of the most common use cases for AIP is the ability to send emails using Use
 
   !IMAGE[6wan9me1.jpg](\Media\6wan9me1.jpg)
 
-  > [!KNOWLEDGE] Note that the **Sensitivity** is set to **General** by default.
-  >
-  > !IMAGE[5esnhwkw.jpg](\Media\5esnhwkw.jpg)
+	> [!KNOWLEDGE] Note that the **Sensitivity** is set to **General** by default.
+	>
+	> !IMAGE[5esnhwkw.jpg](\Media\5esnhwkw.jpg)
 
 8. [] Send an email to **Adam Smith** and **Alice Anderson** (```Adam Smith;Alice Anderson```). You may **optionally add an external email address** (preferably from a major social provider like gmail, yahoo, or outlook.com) to test the external recipient experience. For the **Subject** and **Body** type ```Test Do Not Forward Email```.
 
@@ -939,9 +939,9 @@ One of the most common use cases for AIP is the ability to send emails using Use
 
   !IMAGE[w8j1w1lm.jpg](\Media\w8j1w1lm.jpg)
 
-  > [!Knowledge] If you receive the error message below, click on the Confidential \ Contoso Internal sub-label to force the download of your AIP identity certificates, then follow the steps above to change the label to Confidential \ Do Not Forward.
-  >
-  > !IMAGE[6v6duzbd.jpg](\Media\6v6duzbd.jpg)
+	> [!Knowledge] If you receive the error message below, click on the Confidential \ Contoso Internal sub-label to force the download of your AIP identity certificates, then follow the steps above to change the label to Confidential \ Do Not Forward.
+	>
+	> !IMAGE[6v6duzbd.jpg](\Media\6v6duzbd.jpg)
 
 10. [] Switch over to @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and open Outlook. 
 11. [] Run through setup, and review the email in Adam Smith or Alice Anderson’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
