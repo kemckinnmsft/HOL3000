@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\MicrosoftAIP]
+"bShowDMB"=dword:00000001
+
