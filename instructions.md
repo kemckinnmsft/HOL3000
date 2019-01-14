@@ -181,19 +181,19 @@ For several of the exercises in this lab series, you will require an active subs
 
   !IMAGE[e1l35ko2.jpg](\Media\e1l35ko2.jpg)
 
-  > [!NOTE] It may take up to 5 minutes to process the redemption.
+    > [!NOTE] It may take up to 5 minutes to process the redemption.
 
 8. [] Scroll to the bottom of the page and click **Next**.
 
   !IMAGE[ihrjazqi.jpg](\Media\ihrjazqi.jpg)
 
-  > [!NOTE] You can keep the pre-populated information.
+    > [!NOTE] You can keep the pre-populated information.
 
 9. [] Check the box to agree to the terms and click **Sign up**.
 
   !IMAGE[k2a97g8e.jpg](\Media\k2a97g8e.jpg)
 
-  > [!NOTE] It may take a few minutes to process the request.
+    > [!NOTE] It may take a few minutes to process the request.
 
 1. [] While this is processing, you may continue to the next task.
 
@@ -251,7 +251,7 @@ In order to collect log data from Azure Information Protection clients and servi
 
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 1. [] In the InPrivate window, navigate to ```https://portal.azure.com/```
-	>
+	
 	>^IMAGE[Open Screenshot](\Media\cznh7i2b.jpg)
 
 	> [!KNOWLEDGE] If necessary, log in using the username and password below:
@@ -301,11 +301,7 @@ The first step in configuring the AIP Scanner is to install the service and conn
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and use the password +++@lab.VirtualMachine(Client01).Password+++.
 
-1. [] Right-click on the **PowerShell** icon in the taskbar and click on **Run as Administrator**.
-
-	!IMAGE[7to6p334.jpg](\Media\7to6p334.jpg)
-
-1. [] At the PowerShell prompt, click to type the code below 
+1. [] At the Administrative PowerShell prompt, click to type the code below 
    
    ```
    $SQL = "Scanner01"
@@ -339,32 +335,31 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 	> [!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
 
-   ```
-   New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
-   $WebApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPOnBehalfOf'"
-   New-AzureADServicePrincipal -AppId $WebApp.AppId
-   $WebAppKey = New-Guid
-   $Date = Get-Date
-   New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
-	
-   $AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
-   $AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
-   $Scope = New-Object -TypeName "Microsoft.Open.AzureAD.Model.ResourceAccess" -ArgumentList $AIPPermissions.Id,"Scope"
-   $Access = New-Object -TypeName "Microsoft.Open.AzureAD.Model.RequiredResourceAccess"
-   $Access.ResourceAppId = $WebApp.AppId
-   $Access.ResourceAccess = $Scope
+    ```
+    New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
+	$WebApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPOnBehalfOf'"
+	New-AzureADServicePrincipal -AppId $WebApp.AppId
+	$WebAppKey = New-Guid
+	$Date = Get-Date
+	New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
+		
+	$AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
+	$AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
+	$Scope = New-Object -TypeName "Microsoft.Open.AzureAD.Model.ResourceAccess" -ArgumentList $AIPPermissions.Id,"Scope"
+	$Access = New-Object -TypeName "Microsoft.Open.AzureAD.Model.RequiredResourceAccess"
+	$Access.ResourceAppId = $WebApp.AppId
+	$Access.ResourceAccess = $Scope
 
-   New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
-   $NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
-   New-AzureADServicePrincipal -AppId $NativeApp.AppId
-   ```
+	New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
+	$NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
+	New-AzureADServicePrincipal -AppId $NativeApp.AppId
+	```
    
 1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
    
 	
-   ```
-   "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
-
+    ```
+    "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
 	Start ~\Desktop\Set-AIPAuthentication.txt
 	```
 1. [] Leave the notepad window open in the background.
