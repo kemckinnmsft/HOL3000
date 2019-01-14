@@ -919,11 +919,13 @@ One of the most common use cases for AIP is the ability to send emails using Use
 
 1. [] On @lab.VirtualMachine(Client03).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++.
 2. [] Launch Microsoft Outlook, and click **Accept and start Outlook**.
-3. [] The username should auto-populate based on the workplace join we performed earlier.  Click **Connect**.
-4. [] Once configuration completes, **uncheck the box** to **Set up Outlook Mobile** and click **OK**.
-5. [] **Close Outlook** and **reopen** to complete activation.
-6. [] Once Outlook opens, if you receive a metered connection warning, click **Connect anyway**.
-7. [] Click on the **New email** button.
+3. [] In the username box, type ```EvanG@@lab.cloudcredential(17).TenantName``` and click **Connect**.
+4. [] When prompted, type ```pass@word1``` and Sign in.
+5. [] On the Use this account everywhere page, click **Yes** then click **Done**.
+6. [] Once configuration completes, **uncheck the box** to **Set up Outlook Mobile** and click **OK**.
+7. [] **Close Outlook** and **reopen** to complete activation.
+8. [] Once Outlook opens, if you receive a metered connection warning, click **Connect anyway**.
+9. [] Click on the **New email** button.
 
   !IMAGE[6wan9me1.jpg](\Media\6wan9me1.jpg)
 
@@ -944,7 +946,8 @@ One of the most common use cases for AIP is the ability to send emails using Use
 	> !IMAGE[6v6duzbd.jpg](\Media\6v6duzbd.jpg)
 
 10. [] Switch over to @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and open Outlook. 
-11. [] Run through setup, and review the email in Adam Smith or Alice Anderson’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
+11. [] Run through setup, this time using the credentials ```AdamS@@lab.CloudCredential(17).TenantName``` and ```pass@word1```. 
+12. [] Review the email in Adam Smith’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
 
    !IMAGE[0xby56qt.jpg](\Media\0xby56qt.jpg)
 
@@ -1021,7 +1024,8 @@ In this task, we will create a document and send an email from one of the users 
 
 	^IMAGE[Open Screenshot](\Media\ny1lwv0h.jpg)
 1. [] Switch to @lab.VirtualMachine(Client02).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-2. [] Click on the email.  You should be able to open the message natively in the client as Alice.
+11. [] Run through setup, this time using the credentials ```AliceA@@lab.CloudCredential(17).TenantName``` and ```pass@word1```. 
+12. [] Review the email in Alice Anderson’s Outlook. You should be able to open the message natively in the client as Alice.
 
 	!IMAGE[qeqtd2yr.jpg](\Media\qeqtd2yr.jpg)
 1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
@@ -1174,16 +1178,14 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	>
 	>```Contoso\LabUser```
 	>
-	>```Pa$$w0rd```
+    >```Pa$$w0rd```
 
 	^IMAGE[Open Screenshot](\Media\hipavcx6.jpg)
 3. [] Open one of the Contoso Purchasing Permissions documents.
 
-
-​	
-​	> [!NOTE] Observe that the document is classified as Confidential \ Contoso Internal. 
-​	>
-​	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
+    > [!NOTE] Observe that the document is classified as Confidential \ Contoso Internal. 
+    >
+    >!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
 ---
 # Reviewing the Dashboards
