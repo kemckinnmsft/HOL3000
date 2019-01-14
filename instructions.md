@@ -353,7 +353,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    New-AzureADServicePrincipal -AppId $NativeApp.AppId
    ```
 
-   > [!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
+    >[!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
 
 1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
    
