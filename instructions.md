@@ -916,7 +916,7 @@ In this exercise, we will migrate your AIP Labels and activate them in the Secur
 Although we will not be demonstrating these capabilities in this lab, you can use the tenant information provided to test on your own devices.
 
 ---
-# Activating Unified Labeling
+## Activating Unified Labeling
 
 In this task, we will activate the labels from the Azure Portal for use in the Security and Compliance Center.
 
@@ -933,7 +933,56 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 
 1. [] In a new tab, browse to ```https://protection.office.com/``` and click on **Classifications** and **Labels** to review the migrated labels. 
 
-	>[!NOTE] Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
+  >[!NOTE] Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
+
+---
+## Deploying Policy in SCC
+
+The previous step enabled the AIP labels for use in the Security and Compliance Center.  However, this did not also recreate the policies from the AIP portal. In this step we will publish a Global policy like the one we used in the AIP portal for use with unified clients.
+
+1. [] In the Security and Compliance Center, under Classifications, click on **Label policies**.
+
+2. [] In the Label policies pane, click **Publish labels**.
+
+   ^IMAGE[Open Screenshot](\Media\SCC01.png)
+
+3. [] On the Choose labels to publish page, click the **Choose labels to publish** link.
+
+   ^IMAGE[Open Screenshot](\Media\SCC02.png)
+
+4. [] In the Choose labels pane, click the + Add button.
+
+   ^IMAGE[Open Screenshot](\Media\SCC03.png)
+
+5. [] Click the box next to Display name to select all labels, then click the Add button.
+
+   ^IMAGE[Open Screenshot](\Media\SCC04.png)
+
+6. [] Click the Done button.
+
+   ^IMAGE[Open Screenshot](\Media\SCC05.png)
+
+7. [] Back on the Choose labels to publish page, click the Next button.
+
+   ^IMAGE[Open Screenshot](\Media\SCC06.png)
+
+8. [] On the Publish to users and groups page, notice that All users are included by default. If you were creating a scoped policy, you would choose specific users or groups to publish to. Click Next.
+
+   ^IMAGE[Open Screenshot](\Media\SCC07.png)
+
+9. [] On the Policy settings page, select the General label from the drop-down next to Apply this label by default to documents and email.
+
+10. [] Check the box next to Users must provide justification to remove a label or lower classification label and click the Next button.
+
+    !IMAGE[Open Screenshot](\Media\SCC08.png)
+
+11. [] In the Name textbox, type ```Global Policy``` and for the Description type ```This is the default global policy for all users.``` and click the Next button.
+
+    ^IMAGE[Open Screenshot](\Media\SCC09.png)
+
+12. [] Finally, on the Review your settings page, click the Publish button.
+
+    !IMAGE[Open Screenshot](\Media\SCC10.png)
 
 ===
 
@@ -956,69 +1005,63 @@ One of the most common use cases for AIP is the ability to send emails using Use
 
 
 1. [] On @lab.VirtualMachine(Client03).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++.
-1. [] Launch Microsoft Outlook, and click **Accept and start Outlook**.
-1. [] The username should auto-populate based on the workplace join we performed earlier.  Click **Connect**.
-1. [] Once configuration completes, **uncheck the box** to **Set up Outlook Mobile** and click **OK**.
-1. [] **Close Outlook** and **reopen** to complete activation.
-1. [] Once Outlook opens, if you receive a metered connection warning, click **Connect anyway**.
-1. [] Click on the **New email** button.
+2. [] Launch Microsoft Outlook, and click **Accept and start Outlook**.
+3. [] The username should auto-populate based on the workplace join we performed earlier.  Click **Connect**.
+4. [] Once configuration completes, **uncheck the box** to **Set up Outlook Mobile** and click **OK**.
+5. [] **Close Outlook** and **reopen** to complete activation.
+6. [] Once Outlook opens, if you receive a metered connection warning, click **Connect anyway**.
+7. [] Click on the **New email** button.
 
-	!IMAGE[6wan9me1.jpg](\Media\6wan9me1.jpg)
+  !IMAGE[6wan9me1.jpg](\Media\6wan9me1.jpg)
 
-	> [!KNOWLEDGE] Note that the **Sensitivity** is set to **General** by default.
-	>
-	> !IMAGE[5esnhwkw.jpg](\Media\5esnhwkw.jpg)
+  > [!KNOWLEDGE] Note that the **Sensitivity** is set to **General** by default.
+  >
+  > !IMAGE[5esnhwkw.jpg](\Media\5esnhwkw.jpg)
 
-1. [] Send an email to **Adam Smith** and **Alice Anderson** (```Adam Smith;Alice Anderson```). You may **optionally add an external email address** (preferably from a major social provider like gmail, yahoo, or outlook.com) to test the external recipient experience. For the **Subject** and **Body** type ```Test Do Not Forward Email```.
+8. [] Send an email to **Adam Smith** and **Alice Anderson** (```Adam Smith;Alice Anderson```). You may **optionally add an external email address** (preferably from a major social provider like gmail, yahoo, or outlook.com) to test the external recipient experience. For the **Subject** and **Body** type ```Test Do Not Forward Email```.
 
-	^IMAGE[Open Screenshot](\Media\h0eh40nk.jpg)
+  ^IMAGE[Open Screenshot](\Media\h0eh40nk.jpg)
 
-1. [] In the Sensitivity Toolbar, click on the **pencil** icon to change the Sensitivity label.
+9. [] In the Sensitivity Toolbar, click on **Confidential** and then the **Do Not Forward** sub-label and click **Send**.
 
-	!IMAGE[901v6vpa.jpg](\Media\901v6vpa.jpg)
+  !IMAGE[w8j1w1lm.jpg](\Media\w8j1w1lm.jpg)
 
-	> [!NOTE] If the AIP toolbar is not signed in, click **Sign In** and wait for it to use SSO and download policies (about 30 seconds).
+  > [!Knowledge] If you receive the error message below, click on the Confidential \ Contoso Internal sub-label to force the download of your AIP identity certificates, then follow the steps above to change the label to Confidential \ Do Not Forward.
+  >
+  > !IMAGE[6v6duzbd.jpg](\Media\6v6duzbd.jpg)
 
-1. [] Click on **Confidential** and then the **Do Not Forward** sub-label and click **Send**.
+10. [] Switch over to @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and open Outlook. 
+11. [] Run through setup, and review the email in Adam Smith or Alice Anderson’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
 
-	!IMAGE[w8j1w1lm.jpg](\Media\w8j1w1lm.jpg)
+   !IMAGE[0xby56qt.jpg](\Media\0xby56qt.jpg)
 
-	> [!Knowledge] If you receive the error message below, click on the Confidential \ Contoso Internal sub-label to force the download of your AIP identity certificates, then follow the steps above to change the label to Confidential \ Do Not Forward.
-	>
-	> !IMAGE[6v6duzbd.jpg](\Media\6v6duzbd.jpg)
+   > [!Hint] The **Do Not Forward** protection template will normally prevent the sharing of the screen and taking screenshots when protected documents or emails are loaded.  However, since this screenshot was taken within a VM, the operating system was unaware of the protected content and could not prevent the capture.  
+   >
+   >It is important to understand that although we put controls in place to reduce risk, if a user has view access to a document or email they can take a picture with their smartphone or even retype the message. That said, if the user is not authorized to read the message then it will not even render and we will demonstrate that next.
 
-1. [] Switch over to @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and open Outlook. 
-2. [] Run through setup, and review the email in Adam Smith or Alice Anderson’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
-
-	!IMAGE[0xby56qt.jpg](\Media\0xby56qt.jpg)
-
-	> [!Hint] The **Do Not Forward** protection template will normally prevent the sharing of the screen and taking screenshots when protected documents or emails are loaded.  However, since this screenshot was taken within a VM, the operating system was unaware of the protected content and could not prevent the capture.  
-	>
-	>It is important to understand that although we put controls in place to reduce risk, if a user has view access to a document or email they can take a picture with their smartphone or even retype the message. That said, if the user is not authorized to read the message then it will not even render and we will demonstrate that next.
-
-	> [!KNOWLEDGE] If you elected to send a Do Not Forward message to an external email, you will have an experience similar to the images below.  These captures are included to demonstrate the functionality for those that chose not to send an external message.
-	>
-	> !IMAGE[tzj04wi9.jpg](\Media\tzj04wi9.jpg)
-	> 
-	> Here the user has received an email from Evan Green and they can click on the **Read the message** button.
-	>
-	>!IMAGE[wiefwcho.jpg](\Media\wiefwcho.jpg)
-	>
-	>Next, the user is given the option to either log in using the social identity provider (**Sign in with Google**, Yahoo, Microsoft Account), or to **sign in with a one-time passcode**.
-	>
-	>If they choose the social identity provider login, it should use the token previously cached by their browser and display the message directly.
-	>
-	>If they choose one-time passcode, they will receive an email like the one below with the one-time passcode.
-	>
-	>!IMAGE[m6voa9xi.jpg](\Media\m6voa9xi.jpg)
-	>
-	>They can then use this code to authenticate to the Office 365 Message Encryption portal.
-	>
-	>!IMAGE[8pllxint.jpg](\Media\8pllxint.jpg)
-	>
-	>After using either of these authentication methods, the user will see a portal experience like the one shown below.
-	>
-	>!IMAGE[3zi4dlk9.jpg](\Media\3zi4dlk9.jpg)
+   > [!KNOWLEDGE] If you elected to send a Do Not Forward message to an external email, you will have an experience similar to the images below.  These captures are included to demonstrate the functionality for those that chose not to send an external message.
+   >
+   > !IMAGE[tzj04wi9.jpg](\Media\tzj04wi9.jpg)
+   > 
+   > Here the user has received an email from Evan Green and they can click on the **Read the message** button.
+   >
+   >!IMAGE[wiefwcho.jpg](\Media\wiefwcho.jpg)
+   >
+   >Next, the user is given the option to either log in using the social identity provider (**Sign in with Google**, Yahoo, Microsoft Account), or to **sign in with a one-time passcode**.
+   >
+   >If they choose the social identity provider login, it should use the token previously cached by their browser and display the message directly.
+   >
+   >If they choose one-time passcode, they will receive an email like the one below with the one-time passcode.
+   >
+   >!IMAGE[m6voa9xi.jpg](\Media\m6voa9xi.jpg)
+   >
+   >They can then use this code to authenticate to the Office 365 Message Encryption portal.
+   >
+   >!IMAGE[8pllxint.jpg](\Media\8pllxint.jpg)
+   >
+   >After using either of these authentication methods, the user will see a portal experience like the one shown below.
+   >
+   >!IMAGE[3zi4dlk9.jpg](\Media\3zi4dlk9.jpg)
 
 ---
 
@@ -1036,13 +1079,10 @@ In this task, we will create a document and send an email to demonstrate the fun
 
 	^IMAGE[Open Screenshot](\Media\9gkqc9uy.jpg)
 
-1. [] In the Sensitivity Toolbar, click on the **pencil** icon to change the Sensitivity label.
+1. [] In the Sensitivity Toolbar, click on **Confidential** and then **Contoso Internal** and click **Send**.
 
-	^IMAGE[Open Screenshot](\Media\901v6vpa.jpg)
+  ^IMAGE[Open Screenshot](\Media\yhokhtkv.jpg)
 
-1. [] Click on **Confidential** and then **Contoso Internal** and click **Send**.
-
-	^IMAGE[Open Screenshot](\Media\yhokhtkv.jpg)
 1. [] On @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and observe that you are able to open the email natively in the Outlook client. Also observe the **header text** that was defined in the label settings.
 
 	!IMAGE[bxz190x2.jpg](\Media\bxz190x2.jpg)
@@ -1285,10 +1325,6 @@ In this task, we will configure a mail flow rule to detect sensitive information
 2. [] Type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
 
 	```
-	Set-ExecutionPolicy RemoteSigned
-	```
-
-	```
 	$UserCredential = Get-Credential
 	```
 
@@ -1358,49 +1394,46 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>[!NOTE] In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
 
 ---
-
-# Demonstrating Exchange Online Mail Flow Rules
+## Demonstrating Exchange Online Mail Flow Rules
 [:arrow_up: Top](#exercise-6-exchange-online-irm-capabilities)
 
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
 
 1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-1. [] In Microsoft Outlook, click on the **New email** button.
+2. [] In Microsoft Outlook, click on the **New email** button.
 
-	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
+  ^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
 
-1. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject**, type ```Test Credit Card Email``` and for the **Body**, type ```My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368```, then click **Send**.
+3. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject**, type ```Test Credit Card Email``` and for the **Body**, type ```My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368```, then click **Send**.
 
-1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-2. [] Review the received email.
+4. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+5. [] Review the received email.
 
-	!IMAGE[pidqfaa1.jpg](\Media\pidqfaa1.jpg)
+  !IMAGE[pidqfaa1.jpg](\Media\pidqfaa1.jpg)
 
-	> [!Knowledge] Note that there is no encryption applied to the message.  That is because we set up the rule to only apply to external recipients.  If you were to leave that condition out of the mail flow rule, internal recipients would also receive an encrypted copy of the message.  The image below shows the encrypted message that was received externally.
-	>
-	>!IMAGE[c5foyeji.jpg](\Media\c5foyeji.jpg)
-	>
-	>Below is another view of the same message received in Outlook Mobile on an iOS device.
-	>
-	>!IMAGE[599ljwfy.jpg](\Media\599ljwfy.jpg)
+  > [!Knowledge] Note that there is no encryption applied to the message.  That is because we set up the rule to only apply to external recipients.  If you were to leave that condition out of the mail flow rule, internal recipients would also receive an encrypted copy of the message.  The image below shows the encrypted message that was received externally.
+  >
+  >!IMAGE[c5foyeji.jpg](\Media\c5foyeji.jpg)
+  >
+  >Below is another view of the same message received in Outlook Mobile on an iOS device.
+  >
+  >!IMAGE[599ljwfy.jpg](\Media\599ljwfy.jpg)
 
-1. [] Next, in Microsoft Outlook, click on the **New email** button.
+6. [] Next, in Microsoft Outlook, click on the **New email** button.
 
-	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
-1. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject** and **Body** type ```Another Test Contoso Internal Email```.
+  ^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
+7. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject** and **Body** type ```Another Test Contoso Internal Email```.
 
-	^IMAGE[Open Screenshot](\Media\d476fmpg.jpg)
+  ^IMAGE[Open Screenshot](\Media\d476fmpg.jpg)
 
-1. [] In the Sensitivity Toolbar, click on the **pencil** icon to change the Sensitivity label.
+8. [] In the Sensitivity Toolbar, click on **Confidential** and then **Contoso Internal** and click **Send**.
 
-	^IMAGE[Open Screenshot](\Media\901v6vpa.jpg)
+  ^IMAGE[Open Screenshot](\Media\yhokhtkv.jpg)
 
-1. [] Click on **Confidential** and then **Contoso Internal** and click **Send**.
+9. [] In about a minute, you should receive an **Undeliverable** message from Exchange with the users that the message did not reach and the message you defined in the previous task.
 
-	^IMAGE[Open Screenshot](\Media\yhokhtkv.jpg)
-1. [] In about a minute, you should receive an **Undeliverable** message from Exchange with the users that the message did not reach and the message you defined in the previous task.
-
-	!IMAGE[kgjvy7ul.jpg](\Media\kgjvy7ul.jpg)
+  !IMAGE[kgjvy7ul.jpg](\Media\kgjvy7ul.jpg)
+> [!NOTE] This rule may take a few minutes to take effect, so if you do not get the undeliverable message, try again in a few minutes.
 
 > [!HINT] There are many other use cases for Exchange Online mail flow rules but this should give you a quick view into what is possible and how easy it is to improve the security of your sensitive data through the use of Exchange Online mail flow rules and Azure Information Protection.
 
@@ -1762,7 +1795,7 @@ In this exercise, we will migrate your AIP Labels and activate them in the Secur
 Although we will not be demonstrating these capabilities in this lab, you can use the tenant information provided to test on your own devices.
 
 ---
-# Activating Unified Labeling
+## Activating Unified Labeling
 
 In this task, we will activate the labels from the Azure Portal for use in the Security and Compliance Center.
 
@@ -1780,6 +1813,56 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 1. [] In a new tab, browse to ```https://protection.office.com/``` and click on **Classifications** and **Labels** to review the migrated labels. 
 
 	>[!NOTE] Keep in mind that now the SCC Sensitivity Labels have been activated, so any modifications, additions, or deletions will be syncronised to Azure Information Protection in the Azure Portal. There are some functional differences between the two sections (DLP in SCC, HYOK & Custom Permissions in AIP), so please be aware of this when modifying policies to ensure a consistent experience on clients. 
+
+---
+## Deploying Policy in SCC
+
+The previous step enabled the AIP labels for use in the Security and Compliance Center.  However, this did not also recreate the policies from the AIP portal. In this step we will publish a Global policy like the one we used in the AIP portal for use with unified clients.
+
+1. [] In the Security and Compliance Center, under Classifications, click on **Label policies**.
+
+2. [] In the Label policies pane, click **Publish labels**.
+
+   ^IMAGE[Open Screenshot](\Media\SCC01.png)
+
+3. [] On the Choose labels to publish page, click the **Choose labels to publish** link.
+
+   ^IMAGE[Open Screenshot](\Media\SCC02.png)
+
+4. [] In the Choose labels pane, click the + Add button.
+
+   ^IMAGE[Open Screenshot](\Media\SCC03.png)
+
+5. [] Click the box next to Display name to select all labels, then click the Add button.
+
+   ^IMAGE[Open Screenshot](\Media\SCC04.png)
+
+6. [] Click the Done button.
+
+   ^IMAGE[Open Screenshot](\Media\SCC05.png)
+
+7. [] Back on the Choose labels to publish page, click the Next button.
+
+   ^IMAGE[Open Screenshot](\Media\SCC06.png)
+
+8. [] On the Publish to users and groups page, notice that All users are included by default. If you were creating a scoped policy, you would choose specific users or groups to publish to. Click Next.
+
+   ^IMAGE[Open Screenshot](\Media\SCC07.png)
+
+9. [] On the Policy settings page, select the General label from the drop-down next to Apply this label by default to documents and email.
+
+10. [] Check the box next to Users must provide justification to remove a label or lower classification label and click the Next button.
+
+    !IMAGE[Open Screenshot](\Media\SCC08.png)
+
+11. [] In the Name textbox, type ```Global Policy``` and for the Description type ```This is the default global policy for all users.``` and click the Next button.
+
+    ^IMAGE[Open Screenshot](\Media\SCC09.png)
+
+12. [] Finally, on the Review your settings page, click the Publish button.
+
+    !IMAGE[Open Screenshot](\Media\SCC10.png)
+
 ===
 
 # Classification, Labeling, and Protection with the Azure Information Protection Scanner 🐱‍👤
@@ -1852,7 +1935,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
 
 
 ​	
-	> [!NOTE] Observe that the document is classified as Confidential \ All Employees. 
+​	> [!NOTE] Observe that the document is classified as Confidential \ All Employees. 
 ​	>
 ​	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
@@ -1982,8 +2065,7 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>[!NOTE] In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
 
 ---
-
-# Demonstrating Exchange Online Mail Flow Rules 🐱‍👤
+## Demonstrating Exchange Online Mail Flow Rules 🐱‍👤
 [:arrow_up: Top](#exchange-online-irm-capabilities-🐱‍👤)
 
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
@@ -1998,39 +2080,38 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 8. [] Close and reopen Outlook to activate and if you receive a metered connection warning, click **Connect anyway**.
 9. [] Click on the **New email** button.
 
-	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
+  ^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
 
-1. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject**, type ```Test Credit Card Email``` and for the **Body**, type ```My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368```, then click **Send**.
+10. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject**, type ```Test Credit Card Email``` and for the **Body**, type ```My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368```, then click **Send**.
 
-1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and review the received email.
+11. [] Switch to @lab.VirtualMachine(Client01).SelectLink and review the received email.
 
-	!IMAGE[pidqfaa1.jpg](\Media\pidqfaa1.jpg)
+   !IMAGE[pidqfaa1.jpg](\Media\pidqfaa1.jpg)
 
-	> [!Knowledge] Note that there is no encryption applied to the message.  That is because we set up the rule to only apply to external recipients.  If you were to leave that condition out of the mail flow rule, internal recipients would also receive an encrypted copy of the message.  The image below shows the encrypted message that was received externally.
-	>
-	>!IMAGE[c5foyeji.jpg](\Media\c5foyeji.jpg)
-	>
-	>Below is another view of the same message received in Outlook Mobile on an iOS device.
-	>
-	>!IMAGE[599ljwfy.jpg](\Media\599ljwfy.jpg)
+   > [!Knowledge] Note that there is no encryption applied to the message.  That is because we set up the rule to only apply to external recipients.  If you were to leave that condition out of the mail flow rule, internal recipients would also receive an encrypted copy of the message.  The image below shows the encrypted message that was received externally.
+   >
+   >!IMAGE[c5foyeji.jpg](\Media\c5foyeji.jpg)
+   >
+   >Below is another view of the same message received in Outlook Mobile on an iOS device.
+   >
+   >!IMAGE[599ljwfy.jpg](\Media\599ljwfy.jpg)
 
-1. [] Click on the **New email** button.
+12. [] Click on the **New email** button.
 
-	^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
-1. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject** and **Body** type ```Another Test All Employees Email```.
+   ^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
+13. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject** and **Body** type ```Another Test All Employees Email```.
 
-	^IMAGE[Open Screenshot](\Media\d476fmpg.jpg)
+   ^IMAGE[Open Screenshot](\Media\d476fmpg.jpg)
 
-1. [] In the Sensitivity Toolbar, click on the **pencil** icon to change the Sensitivity label.
+14. [] In the Sensitivity Toolbar, click on **Confidential** and then **All Employees** and click **Send**.
 
-	^IMAGE[Open Screenshot](\Media\901v6vpa.jpg)
+   ^IMAGE[Open Screenshot](\Media\yhokhtkv.jpg)
 
-1. [] Click on **Confidential** and then **All Employees** and click **Send**.
+15. [] In about a minute, you should receive an **Undeliverable** message from Exchange with the users that the message did not reach and the message you defined in the previous task.
 
-	^IMAGE[Open Screenshot](\Media\yhokhtkv.jpg)
-1. [] In about a minute, you should receive an **Undeliverable** message from Exchange with the users that the message did not reach and the message you defined in the previous task.
+   !IMAGE[kgjvy7ul.jpg](\Media\kgjvy7ul.jpg)
 
-	!IMAGE[kgjvy7ul.jpg](\Media\kgjvy7ul.jpg)
+> [!NOTE] This rule may take a few minutes to take effect, so if you do not get the undeliverable message, try again in a few minutes.
 
 > [!HINT] There are many other use cases for Exchange Online mail flow rules but this should give you a quick view into what is possible and how easy it is to improve the security of your sensitive data through the use of Exchange Online mail flow rules and Azure Information Protection.
 
