@@ -245,12 +245,20 @@ In this exercise, we will install the AIP scanner and run it against repositorie
 - [Running Sensitive Data Discovery](#running-sensitive-data-discovery)
 
 ---
-# Configuring Azure Log Analytics
+## Configuring Azure Log Analytics
 
 In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
 
-1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-1. [] In the InPrivate window, navigate to ```https://portal.azure.com/```
+1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] In the Azure portal, type the word ```info``` into the **search bar** and press **Enter**, then click on **Azure Information Protection**. 
+
+	!IMAGE[2598c48n.jpg](\Media\2598c48n.jpg)
+	
+	> [!HINT] If you do not see the search bar at the top of the portal, click on the **Magnifying Glass** icon to expand it.
+	>
+	> !IMAGE[ny3fd3da.jpg](\Media\ny3fd3da.jpg)
+
+	> If you are not already at the Azure portal, open an Edge InPrivate window and navigate to ```https://portal.azure.com/```
 	
 	>^IMAGE[Open Screenshot](\Media\cznh7i2b.jpg)
 
@@ -259,14 +267,6 @@ In order to collect log data from Azure Information Protection clients and servi
 	>```@lab.CloudCredential(17).Username``` 
 	>
 	>```@lab.CloudCredential(17).Password```
-	
-1. [] After logging into the portal, type the word ```info``` into the **search bar** and press **Enter**, then click on **Azure Information Protection**. 
-
-	!IMAGE[2598c48n.jpg](\Media\2598c48n.jpg)
-	
-	> [!HINT] If you do not see the search bar at the top of the portal, click on the **Magnifying Glass** icon to expand it.
-	>
-	> !IMAGE[ny3fd3da.jpg](\Media\ny3fd3da.jpg)
 
 1. [] In the Azure Information Protection blade, under **Manage**, click **Configure analytics (preview)**.
 
@@ -277,9 +277,9 @@ In order to collect log data from Azure Information Protection clients and servi
 
 	|||
 	|-----|-----|
-	|OMS Workspace|**Unique Workspace Name**|
+	|OMS Workspace|**Type a unique Workspace Name**|
 	|Resource Group|```AIP-RG```|
-	|Location|**East US**|
+	|Location|**East US** (Or a location near the event)|
 
 	^IMAGE[Open Screenshot](\Media\5butui15.jpg)
 1. [] Next, back in the Configure analytics (preview) blade, **check the boxes** next to the **workspace** and to **Enable Content Matches** and click **OK**.
@@ -290,16 +290,16 @@ In order to collect log data from Azure Information Protection clients and servi
 	!IMAGE[zgvmm4el.jpg](\Media\zgvmm4el.jpg)
 
 ---
-# AIP Scanner Setup
+## AIP Scanner Setup
 [:arrow_up: Top](#exercise-1-configuring-aip-scanner-for-discovery)
 
 In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
 
-## Installing the AIP Scanner Service
+### Installing the AIP Scanner Service
 
 The first step in configuring the AIP Scanner is to install the service and connect the database.  This is done with the Install-AIPScanner cmdlet that is provided by the AIP Client software.  The AIPScanner service account has been pre-staged in Active Directory for convenience.
 
-1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and use the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in using the password +++@lab.VirtualMachine(Client01).Password+++.
 
 1. [] At the Administrative PowerShell prompt, click to type the code below 
    
@@ -308,7 +308,7 @@ The first step in configuring the AIP Scanner is to install the service and conn
    Install-AIPScanner -SQLServerInstance $SQL
    
    ```
-3. [] When prompted, provide the credentials for the AIP scanner service account.
+3. [] When prompted, provide the credentials for the local AIP scanner service account.
 	
 	```Contoso\AIPScanner```
 
@@ -319,9 +319,8 @@ The first step in configuring the AIP Scanner is to install the service and conn
 	> [!knowledge] You should see a success message like the one below. 
 	>
 	>!IMAGE[w7goqgop.jpg](\Media\w7goqgop.jpg)
-	>
 
-## Creating Azure AD Applications for the AIP Scanner
+### Creating Azure AD Applications for the AIP Scanner
 [:arrow_up: Top](#exercise-1-configuring-aip-scanner-for-discovery)
 
 Now that you have installed the scanner bits, you need to get an Azure AD token for the scanner service account to authenticate so that it can run unattended. This requires registering both a Web app and a Native app in Azure Active Directory.  The commands below will do this in an automated fashion rather than needing to go into the Azure portal directly.
@@ -389,6 +388,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	>[!knowledge] You will a message like the one below in the PowerShell window once complete.
 	>
 	>!IMAGE[y2bgsabe.jpg](\Media\y2bgsabe.jpg)
+
 1. [] **Close the current PowerShell window**.
 1. [] **In the admin PowerShell window** and type the command below.
 
@@ -396,7 +396,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    
 ---
 
-# Configuring Repositories
+## Configuring Repositories
 [:arrow_up: Top](#exercise-1-configuring-aip-scanner-for-discovery)
 
 In this task, we will configure repositories to be scanned by the AIP scanner.  As previously mentioned, these can be any type of CIFS file shares including NAS devices sharing over the CIFS protocol.  Additionally, On premises SharePoint 2010, 2013, and 2016 document libraries and lists (attachements) can be scanned.  You can even scan entire SharePoint sites by providing the root URL of the site.  There are several optional 
@@ -425,7 +425,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 ---
 
-# Running Sensitive Data Discovery
+## Running Sensitive Data Discovery
 [:arrow_up: Top](#exercise-1-configuring-aip-scanner-for-discovery)
 
 1. [] Run the commands below to run a discovery cycle.
@@ -497,6 +497,7 @@ In this task, we will perform bulk classification using the built-in functionali
 > [!Alert] If you are unable to see the **Apply** button due to screen resolution, click **Alt+A** and **Enter** to apply the label to the content.
 
 > [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
+
 ===
 # Exercise 2: Configuring Azure Information Protection Policy
 [:arrow_left: Home](#azure-information-protection)
@@ -512,7 +513,7 @@ Next, we will configure AIP Global Policy to use the General sub-label as defaul
 - [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions)
 
 ---
-# Creating, Configuring, and Modifying Sub-Labels
+## Creating, Configuring, and Modifying Sub-Labels
 
 In this task, we will configure a label protected for internal audiences that can be used to help secure sensitive data within your company.  By limiting the audience of a specific label to only internal employees, you can dramatically reduce the risk of unintentional disclosure of sensitive data and help reduce the risk of successful data exfiltration by bad actors.  
 
@@ -594,7 +595,7 @@ However, there are times when external collaboration is required, so we will con
 
 ---
 
-# Configuring Global Policy
+## Configuring Global Policy
 [:arrow_up: Top](#exercise-2-configuring-azure-information-protection-policy)
 
 In this task, we will assign the new sub-label to the Global policy and configure several global policy settings that will increase Azure Information Protection adoption among your users and reduce ambiguity in the user interface.
@@ -636,7 +637,7 @@ In this task, we will assign the new sub-label to the Global policy and configur
 
 ---
 
-# Creating a Scoped Label and Policy
+## Creating a Scoped Label and Policy
 [:arrow_up: Top](#exercise-2-configuring-azure-information-protection-policy)
 
 Now that you have learned how to work with global labels and policies, we will create a new scoped label and policy for the Legal team at Contoso.  
@@ -722,7 +723,7 @@ Now that you have learned how to work with global labels and policies, we will c
 
 ---
 
-# Configuring Advanced Policy Settings
+## Configuring Advanced Policy Settings
 [:arrow_up: Top](#exercise-2-configuring-azure-information-protection-policy)
 
 There are many advanced policy settings that are useful to tailor your Azure Information Protection deployment to the needs of your environment.  In this task, we will cover one of the settings that is very complimentary when using scoped policies that have no default label or a protected default label.  Because the No Default Label Scoped Policy we created in the previous task uses a protected default label, we will be adding an alternate default label for Outlook to provide a more palatable user experience for those users.
@@ -750,7 +751,7 @@ There are many advanced policy settings that are useful to tailor your Azure Inf
 
 ---
 
-# Defining Recommended and Automatic Conditions
+## Defining Recommended and Automatic Conditions
 [:arrow_up: Top](#exercise-2-configuring-azure-information-protection-policy)
 
 One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
@@ -912,7 +913,7 @@ Now that you have 3 test systems with users being affected by different policies
 > [!ALERT] If you see a warning about a metered connection in Office, click **Connect anyway** to allow Office to connect.  If you do not do this you will get errors when connecting to the AIP service. The VMs are set to metered to increase network speed.
 
 ---
-# Testing User Defined Permissions
+## Testing User Defined Permissions
 
 One of the most common use cases for AIP is the ability to send emails using User Defined Permissions (Do Not Forward). In this task, we will send an email using the Do Not Forward label to test that functionality.
 
@@ -981,7 +982,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 
 ---
 
-# Testing Global Policy
+## Testing Global Policy
 [:arrow_up: Top](#exercise-4-testing-aip-policies)
 
 In this task, we will create a document and send an email to demonstrate the functionality defined in the Global Policy.
@@ -1009,7 +1010,7 @@ In this task, we will create a document and send an email to demonstrate the fun
 
 ---
 
-# Testing Scoped Policy
+## Testing Scoped Policy
 [:arrow_up: Top](#exercise-4-testing-aip-policies)
 
 In this task, we will create a document and send an email from one of the users in the Legal group to demonstrate the functionality defined in the first exercise. We will also show the behavior of the No Default Label policy on documents.
@@ -1051,7 +1052,7 @@ In this task, we will create a document and send an email from one of the users 
 
 ---
 
-# Testing Recommended and Automatic Classification
+## Testing Recommended and Automatic Classification
 [:arrow_up: Top](#exercise-4-testing-aip-policies)
 
 In this task, we will test the configured recommended and automatic conditions we defined in Exercise 1.  Recommended conditions can be used to help organically train your users to classify sensitive data appropriately and provides a method for testing the accuracy of your dectections prior to switching to automatic classification.  Automatic conditions should be used after thorough testing or with items you are certain need to be protected. Although the examples used here are fairly simple, in production these could be based on complex regex statements or only trigger when a specific quantity of sensitive data is present.
@@ -1106,7 +1107,7 @@ In this exercise, you will change the condition we created previously from a rec
 
 ---
 
-# Configuring Automatic Conditions
+## Configuring Automatic Conditions
 
 Now that we know what types of sensitive data we need to protect, we will configure some automatic conditions (rules) that the scanner can use to classify and protect content.
 
@@ -1127,7 +1128,7 @@ Now that we know what types of sensitive data we need to protect, we will config
 
 ---
 
-# Enforcing Configured Rules
+## Enforcing Configured Rules
 [:arrow_up: Top](#exercise-5-classification-labeling-and-protection-with-the-azure-information-protection-scanner)
 
 In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
@@ -1165,7 +1166,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 
 ---
 
-# Reviewing Protected Documents
+## Reviewing Protected Documents
 [:arrow_up: Top](#exercise-5-classification-labeling-and-protection-with-the-azure-information-protection-scanner)
 
 Now that we have Classified and Protected documents using the scanner, we can review the documents to see their change in status.
@@ -1200,7 +1201,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
   > !IMAGE[1547416250228](\Media\1547416250228.png)
 
 ---
-# Reviewing the Dashboards
+## Reviewing the Dashboards
 [:arrow_up: Top](#exercise-5-classification-labeling-and-protection-with-the-azure-information-protection-scanner)
 
 We can now go back and look at the dashboards and observe how they have changed.
@@ -1390,12 +1391,20 @@ In this exercise, we will install the AIP scanner and run it against repositorie
 - [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions-🐱‍👤)
 
 ---
-# Configuring Azure Log Analytics 🐱‍👤
+## Configuring Azure Log Analytics 🐱‍👤
 
 In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
 
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-1. [] In the InPrivate window, navigate to ```https://portal.azure.com/```
+1. [] In the Azure portal, type the word ```info``` into the **search bar** and press **Enter**, then click on **Azure Information Protection**. 
+
+	!IMAGE[2598c48n.jpg](\Media\2598c48n.jpg)
+	
+	> [!HINT] If you do not see the search bar at the top of the portal, click on the **Magnifying Glass** icon to expand it.
+	>
+	> !IMAGE[ny3fd3da.jpg](\Media\ny3fd3da.jpg)
+
+	> If you are not already at the Azure portal, open an Edge InPrivate window and navigate to ```https://portal.azure.com/```
 	
 	>^IMAGE[Open Screenshot](\Media\cznh7i2b.jpg)
 
@@ -1404,14 +1413,6 @@ In order to collect log data from Azure Information Protection clients and servi
 	>```@lab.CloudCredential(17).Username``` 
 	>
 	>```@lab.CloudCredential(17).Password```
-	
-1. [] After logging into the portal, type the word ```info``` into the **search bar** and press **Enter**, then click on **Azure Information Protection**. 
-
-	!IMAGE[2598c48n.jpg](\Media\2598c48n.jpg)
-	
-	> [!HINT] If you do not see the search bar at the top of the portal, click on the **Magnifying Glass** icon to expand it.
-	>
-	> !IMAGE[ny3fd3da.jpg](\Media\ny3fd3da.jpg)
 
 1. [] In the Azure Information Protection blade, under **Manage**, click **Configure analytics (preview)**.
 
@@ -1422,9 +1423,9 @@ In order to collect log data from Azure Information Protection clients and servi
 
 	|||
 	|-----|-----|
-	|OMS Workspace|**Unique Workspace Name**|
+	|OMS Workspace|**Type a unique Workspace Name**|
 	|Resource Group|```AIP-RG```|
-	|Location|**East US**|
+	|Location|**East US** (Or a location near the event)|
 
 	^IMAGE[Open Screenshot](\Media\5butui15.jpg)
 1. [] Next, back in the Configure analytics (preview) blade, **check the boxes** next to the **workspace** and to **Enable Content Matches** and click **OK**.
@@ -1435,29 +1436,25 @@ In order to collect log data from Azure Information Protection clients and servi
 	!IMAGE[zgvmm4el.jpg](\Media\zgvmm4el.jpg)
 
 ---
-# AIP Scanner Setup 🐱‍👤
+## AIP Scanner Setup 🐱‍👤
 [:arrow_up: Top](#familiar-with-aip)
 
 In this task we will install the AIP scanner binaries and create the Azure AD Applications necessary for authentication.
 
-## Installing the AIP Scanner Service
+### Installing the AIP Scanner Service
 
 The first step in configuring the AIP Scanner is to install the service and connect the database.  This is done with the Install-AIPScanner cmdlet that is provided by the AIP Client software.  The AIPScanner service account has been pre-staged in Active Directory for convenience.
 
-1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and use the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in using the password +++@lab.VirtualMachine(Client01).Password+++.
 
-1. [] Right-click on the **PowerShell** icon in the taskbar and click on **Run as Administrator**.
-
-	!IMAGE[7to6p334.jpg](\Media\7to6p334.jpg)
-
-1. [] At the PowerShell prompt, click to type the code below 
+1. [] At the Administrative PowerShell prompt, click to type the code below 
    
    ```
    $SQL = "Scanner01"
    Install-AIPScanner -SQLServerInstance $SQL
    
    ```
-3. [] When prompted, provide the credentials for the AIP scanner service account.
+3. [] When prompted, provide the credentials for the local AIP scanner service account.
 	
 	```Contoso\AIPScanner```
 
@@ -1468,21 +1465,17 @@ The first step in configuring the AIP Scanner is to install the service and conn
 	> [!knowledge] You should see a success message like the one below. 
 	>
 	>!IMAGE[w7goqgop.jpg](\Media\w7goqgop.jpg)
-	>
 
-## Creating Azure AD Applications for the AIP Scanner
+### Creating Azure AD Applications for the AIP Scanner
 
 Now that you have installed the scanner bits, you need to get an Azure AD token for the scanner service account to authenticate so that it can run unattended. This requires registering both a Web app and a Native app in Azure Active Directory.  The commands below will do this in an automated fashion rather than needing to go into the Azure portal directly.
 
 1. [] In PowerShell, run ```Connect-AzureAD``` and use the username and password below. 
-
-  ```@lab.CloudCredential(17).Username```
-
-  ```@lab.CloudCredential(17).Password```
-
+	
+	```@lab.CloudCredential(17).Username```
+	
+	```@lab.CloudCredential(17).Password```
 1. [] Next, click the **T** to **type the commands below** in the PowerShell window and press **Enter**. 
-
-   > [!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
 
    ```
    New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
@@ -1491,42 +1484,41 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
    $WebAppKey = New-Guid
    $Date = Get-Date
    New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
-   
+
    $AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
    $AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
    $Scope = New-Object -TypeName "Microsoft.Open.AzureAD.Model.ResourceAccess" -ArgumentList $AIPPermissions.Id,"Scope"
    $Access = New-Object -TypeName "Microsoft.Open.AzureAD.Model.RequiredResourceAccess"
    $Access.ResourceAppId = $WebApp.AppId
    $Access.ResourceAccess = $Scope
-   
+
    New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
    $NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
    New-AzureADServicePrincipal -AppId $NativeApp.AppId
    ```
 
+    >[!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
+
 1. [] Finally, we will output the Set-AIPAuthentication command by running the commands below and pressing **Enter**.
-
-   ```
-   "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
    
-   Start ~\Desktop\Set-AIPAuthentication.txt
-   ```
-
+	
+    ```
+    "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
+	Start ~\Desktop\Set-AIPAuthentication.txt
+	```
 1. [] Leave the notepad window open in the background.
-
 1. [] Click on the Start menu and type ```PowerShell```, right-click on the PowerShell program, and click **Run as a different user**.
 
-   !IMAGE[zgt5ikxl.jpg](\Media\zgt5ikxl.jpg)
+	!IMAGE[zgt5ikxl.jpg](\Media\zgt5ikxl.jpg)
 
 1. [] When prompted, enter the username and password below and click **OK**.
 
-   ```Contoso\AIPScanner``` 
+	```Contoso\AIPScanner``` 
 
-   ```Somepass1```
+	```Somepass1```
 
 1. [] Restore the **Notepad** window and copy the **full Set-AIPAuthentication** command into this window from and run it.
-
-8. [] When prompted, enter the username and password below:
+1. [] When prompted, enter the username and password below:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
@@ -1541,13 +1533,15 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 	>[!knowledge] You will a message like the one below in the PowerShell window once complete.
 	>
 	>!IMAGE[y2bgsabe.jpg](\Media\y2bgsabe.jpg)
-1. [] **Close the current PowerShell window**.
-10. [] **In the admin PowerShell window** and type the command below.
 
-  ```Restart-Service AIPScanner```
+1. [] **Close the current PowerShell window**.
+1. [] **In the admin PowerShell window** and type the command below.
+
+	```Restart-Service AIPScanner```
+   
 ---
 
-# Configuring Repositories 🐱‍👤
+## Configuring Repositories 🐱‍👤
 [:arrow_up: Top](#familiar-with-aip)
 
 In this task, we will configure repositories to be scanned by the AIP scanner.  As previously mentioned, these can be any type of CIFS file shares including NAS devices sharing over the CIFS protocol.  Additionally, On premises SharePoint 2010, 2013, and 2016 document libraries and lists (attachements) can be scanned.  You can even scan entire SharePoint sites by providing the root URL of the site.  There are several optional 
@@ -1576,7 +1570,7 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 ---
 
-# Running Sensitive Data Discovery 🐱‍👤
+## Running Sensitive Data Discovery 🐱‍👤
 [:arrow_up: Top](#familiar-with-aip)
 
 1. [] Run the commands below to run a discovery cycle.
@@ -1622,11 +1616,11 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 	>[!NOTE] We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
 
-	>[!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
-	
+	> [!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
+
 ---
 
-# Defining Recommended and Automatic Conditions 🐱‍👤
+## Defining Recommended and Automatic Conditions 🐱‍👤
 [:arrow_up: Top](#familiar-with-aip)
 
 One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
@@ -1698,10 +1692,10 @@ In this task, we will perform bulk classification using the built-in functionali
 
 1. [] On @lab.VirtualMachine(Scanner01).SelectLink, log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
 2. [] Browse to the **C:\\**.
-2. [] Right-click on the PII folder and select **Classify and Protect**.
+3. [] Right-click on the PII folder and select **Classify and Protect**.
    
    !IMAGE[CandP.png](\Media\CandP.png)
-1. [] When prompted, click use another account and use the credentials below to authenticate:
+4. [] When prompted, click use another account and use the credentials below to authenticate:
 
 	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
@@ -1714,6 +1708,7 @@ In this task, we will perform bulk classification using the built-in functionali
 > [!Alert] If you are unable to see the **Apply** button due to screen resolution, click **Alt+A** and **Enter** to apply the label to the content.
 
 > [!NOTE] You may review the results in a text file by clicking show results, or simply close the window.
+
 ===
 # Security and Compliance Center 🐱‍👤
 [:arrow_left: Home](#azure-information-protection)
@@ -1806,7 +1801,7 @@ In this exercise, we will run the AIP Scanner in enforce mode to classify and pr
 
 ---
 
-# Enforcing Configured Rules 🐱‍👤
+## Enforcing Configured Rules 🐱‍👤
 
 In this task, we will set the AIP scanner to enforce the conditions we set up and have it run on all files using the Start-AIPScan command.
 
@@ -1843,7 +1838,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up an
 
 ---
 
-# Reviewing Protected Documents 🐱‍👤
+## Reviewing Protected Documents 🐱‍👤
 [:arrow_up: Top](#classification-labeling-and-protection-with-the-azure-information-protection-scanner-🐱‍👤)
 
 Now that we have Classified and Protected documents using the scanner, we can review the documents to see their change in status.
@@ -1868,7 +1863,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
 ​	>!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
 ---
-# Reviewing the Dashboards 🐱‍👤
+## Reviewing the Dashboards 🐱‍👤
 [:arrow_up: Top](#classification-labeling-and-protection-with-the-azure-information-protection-scanner-🐱‍👤)
 
 We can now go back and look at the dashboards and observe how they have changed.
@@ -2052,4 +2047,3 @@ Congratulations! You have completed the Azure Information Protection Hands on La
 
 !INSTRUCTIONS[https://blogs.msdn.microsoft.com/oldnewthing/20160804-00/?p=94025][ninja-cat]
 https://blogs.msdn.microsoft.com/oldnewthing/20160804-00/?p=94025
-
