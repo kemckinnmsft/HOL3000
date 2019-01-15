@@ -1,6 +1,6 @@
 # Configuring Microsoft Information Protection Solutions to Protect Your Sensitive Data
 
-### Introduction
+## Introduction
 
 Estimated time to complete this lab
 
@@ -48,7 +48,7 @@ There are a few prerequisites that need to be set up to complete all the section
 - [Redeem Azure Pass](#redeem-azure-pass)
 
 ---
-# Azure AD User Configuration
+## Azure AD User Configuration
 
 In this task, we will create new Azure AD users and assign licenses via PowerShell.  In a procduction evironment this would be done using Azure AD Connect or a similar tool to maintain a single source of authority, but for lab purposes we are doing it via script to reduce setup time.
 
@@ -127,7 +127,7 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 	```
 
 ---
-# Exchange Mail Flow Rule Removal
+## Exchange Mail Flow Rule Removal
 [:arrow_up: Top](#lab-environment-configuration)
 
 By default, many of the demo tenants provided block external communications via mail flow rule.  As this will hinder many tests in this lab, we will verify if such a rule exists and remove it if necesary.
@@ -152,12 +152,12 @@ By default, many of the demo tenants provided block external communications via 
   ```
 
 ---
-# Redeem Azure Pass
+## Redeem Azure Pass
 [:arrow_up: Top](#lab-environment-configuration)
 
 For several of the exercises in this lab series, you will require an active subscription.  We are providing an Azure Pass for this purpose.  You will be provided with an Azure Pass code to use with the instructions below.
 
-## Redeeming a Microsoft Azure Pass Promo Code:
+### Redeeming a Microsoft Azure Pass Promo Code:
 
 1. [] Log into @lab.VirtualMachine(Client01).SelectLink using the password +++Pa$$w0rd+++
 2. [] Right-click on **Edge** in the taskbar and click on **New InPrivate window**.
@@ -1192,13 +1192,13 @@ Now that we have Classified and Protected documents using the scanner, we can re
 5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(17).TenantName``` and press OK.
 6. [] Check the box to save credentials and press OK.
 
-  > [!NOTE] The PDF will now open and display the sensitivity across the top of the document.
+	> [!NOTE] The PDF will now open and display the sensitivity across the top of the document.
 
-  > [!Knowledge] The latest version of Acrobat Reader DC and the MIP Plugin have been installed on this system prior to the lab. Additionally, the sensitivity does not display by default in Adobe Acrobat Reader DC.  You must make the modifications below to the registry to make this bar display.
-  >
-  > In **HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\MicrosoftAIP**, create a new **DWORD** value of **bShowDMB** and set the **Value** to **1**.
-  >
-  > !IMAGE[1547416250228](\Media\1547416250228.png)
+	> [!Knowledge] The latest version of Acrobat Reader DC and the MIP Plugin have been installed on this system prior to the lab. Additionally, the sensitivity does not display by default in Adobe Acrobat Reader DC.  You must make the modifications below to the registry to make this bar display.
+	>
+	> In **HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\MicrosoftAIP**, create a new **DWORD** value of **bShowDMB** and set the **Value** to **1**.
+	>
+	> !IMAGE[1547416250228](\Media\1547416250228.png)
 
 ---
 ## Reviewing the Dashboards
@@ -1388,7 +1388,6 @@ In this exercise, we will install the AIP scanner and run it against repositorie
 - [Configuring Azure Log Analytics](#configuring-azure-log-analytics-🐱‍👤)
 - [AIP Scanner Setup](#aip-scanner-setup-🐱‍👤)
 - [Running Sensitive Data Discovery](#running-sensitive-data-discovery-🐱‍👤)
-- [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions-🐱‍👤)
 
 ---
 ## Configuring Azure Log Analytics 🐱‍👤
@@ -1618,71 +1617,6 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 	> [!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
 
----
-
-## Defining Recommended and Automatic Conditions 🐱‍👤
-[:arrow_up: Top](#familiar-with-aip)
-
-One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
-
-However, helping your users to properly classify and protect sensitive data at the time of creation is a more organic user experience that will achieve better results long term.  In this task, we will define some basic recommended and automatic conditions that will trigger based on certain types of sensitive data.
-
-1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-2. [] Open the browser window with the Azure Portal (AIP Blade).
-3. [] Under **Dashboards** on the left, click on **Data discovery (Preview)** to view the results of the discovery scan we performed previously.
-
-	!IMAGE[Dashboard.png](\Media\Dashboard.png)
-
-	> [!KNOWLEDGE] Notice that there are no labeled or protected files shown at this time.  This uses the AIP P1 discovery functionality available with the AIP Scanner. Only the predefined Office 365 Sensitive Information Types are available with AIP P1 as Custom Sensitive Information Types require automatic conditions to be defined, which is an AIP P2 feature.
-
-	> [!NOTE] Now that we know the sensitive information types that are most common in this environment, we can use that information to create **Recommended** conditions that will help guide user behavior when they encounter this type of data.
-
-	> [!ALERT] If no data is shown, it may still be processing. Continue with the lab and come back to see the results later.
-
-1. [] Under **Classifications** on the left, click **Labels** then expand **Confidential**, and click on **All Employees**.
-
-	^IMAGE[Open Screenshot](\Media\jyw5vrit.jpg)
-1. [] In the Label: All Employees blade, scroll down to the **Configure conditions for automatically applying this label** section, and click on **+ Add a new condition**.
-
-	!IMAGE[cws1ptfd.jpg](\Media\cws1ptfd.jpg)
-1. [] In the Condition blade, in the **Select information types** search box, type ```EU``` and check the boxes next to the **items shown below**.
-
-	!IMAGE[xaj5hupc.jpg](\Media\xaj5hupc.jpg)
-
-1. [] Click **Save** in the Condition blade and **OK** to the Save settings prompt.
-
-	^IMAGE[Open Screenshot](\Media\41o5ql2y.jpg)
-1. [] In the Labels: All Employees blade, in the **Configure conditions for automatically applying this label** section, click **Automatic**.
-
-1. [] Click **Save** in the Label: All Employees blade and **OK** to the Save settings prompt.
-
-	^IMAGE[Open Screenshot](\Media\rimezmh1.jpg)
-1. [] Press the **X** in the upper right-hand corner to close the Label: All Employees blade.
-
-	^IMAGE[Open Screenshot](\Media\em124f66.jpg)
-1. [] Next, expand **Highly Confidential** and click on the **All Employees** sub-label.
-
-	^IMAGE[Open Screenshot](\Media\2eh6ifj5.jpg)
-1. [] In the Label: All Employees blade, scroll down to the **Configure conditions for automatically applying this label** section, and click on **+ Add a new condition**.
-
-	^IMAGE[Open Screenshot](\Media\8cdmltcj.jpg)
-1. [] In the Condition blade, in the search bar type ```credit``` and check the box next to **Credit Card Number**.
-
-	^IMAGE[Open Screenshot](\Media\9rozp61b.jpg)
-1. [] Click **Save** in the Condition blade and **OK** to the Save settings prompt.
-
-	^IMAGE[Open Screenshot](\Media\ie6g5kta.jpg)
-15. [] In the Labels: All Employees blade, in the **Configure conditions for automatically applying this label** section, click **Automatic**.
-
-   !IMAGE[245lpjvk.jpg](\Media\245lpjvk.jpg)
-
-   > [!HINT] The policy tip is automatically updated when you switch the condition to Automatic.
-1. [] Click **Save** in the Label: All Employees blade and **OK** to the Save settings prompt.
-
-	^IMAGE[Open Screenshot](\Media\gek63ks8.jpg)
-1. [] Press the **X** in the upper right-hand corner to close the Label: All Employees blade.
-
-	^IMAGE[Open Screenshot](\Media\wzwfc1l4.jpg)
 
 ===
 # Bulk Classification with the AIP Client 🐱‍👤
@@ -1795,9 +1729,75 @@ The Azure Information Protection scanner allows you to  classify and protect sen
 
 In this exercise, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data. This Exercise will walk you through the items below.
 
+- [Defining Automatic Conditions](#defining-automatic-conditions-🐱‍👤)
 - [Enforcing Configured Rules](#enforcing-configured-rules-🐱‍👤)
 - [Reviewing Protected Documents](#reviewing-protected-documents-🐱‍👤)
 - [Reviewing the Dashboards](#reviewing-the-dashboards-🐱‍👤)
+---
+
+## Defining Automatic Conditions 🐱‍👤
+[:arrow_up: Top](#familiar-with-aip)
+
+One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
+
+However, helping your users to properly classify and protect sensitive data at the time of creation is a more organic user experience that will achieve better results long term.  In this task, we will define some basic recommended and automatic conditions that will trigger based on certain types of sensitive data.
+
+1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
+2. [] Open the browser window with the Azure Portal (AIP Blade).
+3. [] Under **Dashboards** on the left, click on **Data discovery (Preview)** to view the results of the discovery scan we performed previously.
+
+	!IMAGE[Dashboard.png](\Media\Dashboard.png)
+
+	> [!KNOWLEDGE] Notice that there are no labeled or protected files shown at this time.  This uses the AIP P1 discovery functionality available with the AIP Scanner. Only the predefined Office 365 Sensitive Information Types are available with AIP P1 as Custom Sensitive Information Types require automatic conditions to be defined, which is an AIP P2 feature.
+
+	> [!NOTE] Now that we know the sensitive information types that are most common in this environment, we can use that information to create **Recommended** conditions that will help guide user behavior when they encounter this type of data.
+
+	> [!ALERT] If no data is shown, it may still be processing. Continue with the lab and come back to see the results later.
+
+1. [] Under **Classifications** on the left, click **Labels** then expand **Confidential**, and click on **All Employees**.
+
+	^IMAGE[Open Screenshot](\Media\jyw5vrit.jpg)
+1. [] In the Label: All Employees blade, scroll down to the **Configure conditions for automatically applying this label** section, and click on **+ Add a new condition**.
+
+	!IMAGE[cws1ptfd.jpg](\Media\cws1ptfd.jpg)
+1. [] In the Condition blade, in the **Select information types** search box, type ```EU``` and check the boxes next to the **items shown below**.
+
+	!IMAGE[xaj5hupc.jpg](\Media\xaj5hupc.jpg)
+
+1. [] Click **Save** in the Condition blade and **OK** to the Save settings prompt.
+
+	^IMAGE[Open Screenshot](\Media\41o5ql2y.jpg)
+1. [] In the Labels: All Employees blade, in the **Configure conditions for automatically applying this label** section, click **Automatic**.
+
+1. [] Click **Save** in the Label: All Employees blade and **OK** to the Save settings prompt.
+
+	^IMAGE[Open Screenshot](\Media\rimezmh1.jpg)
+1. [] Press the **X** in the upper right-hand corner to close the Label: All Employees blade.
+
+	^IMAGE[Open Screenshot](\Media\em124f66.jpg)
+1. [] Next, expand **Highly Confidential** and click on the **All Employees** sub-label.
+
+	^IMAGE[Open Screenshot](\Media\2eh6ifj5.jpg)
+1. [] In the Label: All Employees blade, scroll down to the **Configure conditions for automatically applying this label** section, and click on **+ Add a new condition**.
+
+	^IMAGE[Open Screenshot](\Media\8cdmltcj.jpg)
+1. [] In the Condition blade, in the search bar type ```credit``` and check the box next to **Credit Card Number**.
+
+	^IMAGE[Open Screenshot](\Media\9rozp61b.jpg)
+1. [] Click **Save** in the Condition blade and **OK** to the Save settings prompt.
+
+	^IMAGE[Open Screenshot](\Media\ie6g5kta.jpg)
+15. [] In the Labels: All Employees blade, in the **Configure conditions for automatically applying this label** section, click **Automatic**.
+
+   !IMAGE[245lpjvk.jpg](\Media\245lpjvk.jpg)
+
+   > [!HINT] The policy tip is automatically updated when you switch the condition to Automatic.
+1. [] Click **Save** in the Label: All Employees blade and **OK** to the Save settings prompt.
+
+	^IMAGE[Open Screenshot](\Media\gek63ks8.jpg)
+1. [] Press the **X** in the upper right-hand corner to close the Label: All Employees blade.
+
+	^IMAGE[Open Screenshot](\Media\wzwfc1l4.jpg)
 
 ---
 
