@@ -61,15 +61,15 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 3. [] When prompted, provide the credentials below:
 
-	```@lab.CloudCredential(17).Username```
+	```@lab.CloudCredential(82).Username```
 
-	```@lab.CloudCredential(17).Password``` 
+	```@lab.CloudCredential(82).Password``` 
    
 1. [] In the PowerShell window, click on the code below to create users.
 
     ```
     # Store Tenant FQDN and Short name
-    $tenantfqdn = "@lab.CloudCredential(17).TenantName"
+    $tenantfqdn = "@lab.CloudCredential(82).TenantName"
     $tenant = $tenantfqdn.Split('.')[0]
 
     # Build Licensing SKUs
@@ -134,22 +134,22 @@ By default, many of the demo tenants provided block external communications via 
 
 1. [] In the Admin PowerShell window, type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
 
-  ```
-  $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $cred -Authentication Basic -AllowRedirection
-  Import-PSSession $Session
-  ```
+	```
+	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $cred -Authentication Basic -AllowRedirection
+	Import-PSSession $Session
+	```
 
 3. [] Get the active Mail Flow Rules by typing the command below:
 
-  ```
-  Get-TransportRule
-  ```
+	```
+	Get-TransportRule
+	```
 
 4. [] If a rule exists named something similar to **"Delete if sent outside the organization"**, run the code below to remove this rule.
 
-  ```
-  Remove-TransportRule *Delete*
-  ```
+	```
+	Remove-TransportRule *Delete*
+	```
 
 ---
 ## Redeem Azure Pass
@@ -169,9 +169,9 @@ For several of the exercises in this lab series, you will require an active subs
 	!IMAGE[wdir7lb3.jpg](\Media\wdir7lb3.jpg)
 1. [] Enter the credentials below and select **Sign In**.
 
-	```@lab.CloudCredential(17).Username```
+	```@lab.CloudCredential(82).Username```
 
-	```@lab.CloudCredential(17).Password``` 
+	```@lab.CloudCredential(82).Password``` 
 
 	!IMAGE[gtg8pvp1.jpg](\Media\gtg8pvp1.jpg)
 1. [] Click **Confirm** if the correct email address is listed.
@@ -264,9 +264,9 @@ In order to collect log data from Azure Information Protection clients and servi
 
 	> [!KNOWLEDGE] If necessary, log in using the username and password below:
 	>
-	>```@lab.CloudCredential(17).Username``` 
+	>```@lab.CloudCredential(82).Username``` 
 	>
-	>```@lab.CloudCredential(17).Password```
+	>```@lab.CloudCredential(82).Password```
 
 1. [] In the Azure Information Protection blade, under **Manage**, click **Configure analytics (preview)**.
 
@@ -327,30 +327,30 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 1. [] In PowerShell, run ```Connect-AzureAD``` and use the username and password below. 
 	
-	```@lab.CloudCredential(17).Username```
+	```@lab.CloudCredential(82).Username```
 	
-	```@lab.CloudCredential(17).Password```
+	```@lab.CloudCredential(82).Password```
 1. [] Next, click the **T** to **type the commands below** in the PowerShell window and press **Enter**. 
 
-   ```
-   New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
-   $WebApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPOnBehalfOf'"
-   New-AzureADServicePrincipal -AppId $WebApp.AppId
-   $WebAppKey = New-Guid
-   $Date = Get-Date
-   New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
+	```
+	New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
+	$WebApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPOnBehalfOf'"
+	New-AzureADServicePrincipal -AppId $WebApp.AppId
+	$WebAppKey = New-Guid
+	$Date = Get-Date
+	New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
 
-   $AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
-   $AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
-   $Scope = New-Object -TypeName "Microsoft.Open.AzureAD.Model.ResourceAccess" -ArgumentList $AIPPermissions.Id,"Scope"
-   $Access = New-Object -TypeName "Microsoft.Open.AzureAD.Model.RequiredResourceAccess"
-   $Access.ResourceAppId = $WebApp.AppId
-   $Access.ResourceAccess = $Scope
+	$AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
+	$AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
+	$Scope = New-Object -TypeName "Microsoft.Open.AzureAD.Model.ResourceAccess" -ArgumentList $AIPPermissions.Id,"Scope"
+	$Access = New-Object -TypeName "Microsoft.Open.AzureAD.Model.RequiredResourceAccess"
+	$Access.ResourceAppId = $WebApp.AppId
+	$Access.ResourceAccess = $Scope
 
-   New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
-   $NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
-   New-AzureADServicePrincipal -AppId $NativeApp.AppId
-   ```
+	New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
+	$NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
+	New-AzureADServicePrincipal -AppId $NativeApp.AppId
+	```
 
     >[!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
 
@@ -361,6 +361,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
     "Set-AIPAuthentication -WebAppID " + $WebApp.AppId + " -WebAppKey " + $WebAppKey.Guid + " -NativeAppID " + $NativeApp.AppId | Out-File ~\Desktop\Set-AIPAuthentication.txt
 	Start ~\Desktop\Set-AIPAuthentication.txt
 	```
+
 1. [] Leave the notepad window open in the background.
 1. [] Click on the Start menu and type ```PowerShell```, right-click on the PowerShell program, and click **Run as a different user**.
 
@@ -375,7 +376,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 1. [] Restore the **Notepad** window and copy the **full Set-AIPAuthentication** command into this window from and run it.
 1. [] When prompted, enter the username and password below:
 
-	```AIPScanner@@lab.CloudCredential(17).TenantName```
+	```AIPScanner@@lab.CloudCredential(82).TenantName```
 
 	```Somepass1```
 
@@ -486,7 +487,7 @@ In this task, we will perform bulk classification using the built-in functionali
    !IMAGE[CandP.png](\Media\CandP.png)
 4. [] When prompted, click use another account and use the credentials below to authenticate:
 
-	```AIPScanner@@lab.CloudCredential(17).TenantName```
+	```AIPScanner@@lab.CloudCredential(82).TenantName```
 
 	```Somepass1```
 
@@ -920,7 +921,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 
 1. [] On @lab.VirtualMachine(Client03).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++.
 2. [] Launch Microsoft Outlook, and click **Accept and start Outlook**.
-3. [] In the username box, type ```EvanG@@lab.cloudcredential(17).TenantName``` and click **Connect**.
+3. [] In the username box, type ```EvanG@@lab.cloudcredential(82).TenantName``` and click **Connect**.
 4. [] When prompted, type ```pass@word1``` and Sign in.
 5. [] On the Use this account everywhere page, click **Yes** then click **Done**.
 6. [] Once configuration completes, **uncheck the box** to **Set up Outlook Mobile** and click **OK**.
@@ -947,7 +948,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 	> !IMAGE[6v6duzbd.jpg](\Media\6v6duzbd.jpg)
 
 10. [] Switch over to @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and open Outlook. 
-11. [] Run through setup, this time using the credentials ```AdamS@@lab.CloudCredential(17).TenantName``` and ```pass@word1```. 
+11. [] Run through setup, this time using the credentials ```AdamS@@lab.CloudCredential(82).TenantName``` and ```pass@word1```. 
 12. [] Review the email in Adam Smith’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
 
    !IMAGE[0xby56qt.jpg](\Media\0xby56qt.jpg)
@@ -1025,7 +1026,7 @@ In this task, we will create a document and send an email from one of the users 
 
 	^IMAGE[Open Screenshot](\Media\ny1lwv0h.jpg)
 1. [] Switch to @lab.VirtualMachine(Client02).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-11. [] Run through setup, this time using the credentials ```AliceA@@lab.CloudCredential(17).TenantName``` and ```pass@word1```. 
+11. [] Run through setup, this time using the credentials ```AliceA@@lab.CloudCredential(82).TenantName``` and ```pass@word1```. 
 12. [] Review the email in Alice Anderson’s Outlook. You should be able to open the message natively in the client as Alice.
 
 	!IMAGE[qeqtd2yr.jpg](\Media\qeqtd2yr.jpg)
@@ -1189,7 +1190,7 @@ Now that we have Classified and Protected documents using the scanner, we can re
     >!IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
 4. [] Next, in the same documents folder, open one of the pdf files.
-5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(17).TenantName``` and press OK.
+5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(82).TenantName``` and press OK.
 6. [] Check the box to save credentials and press OK.
 
 	> [!NOTE] The PDF will now open and display the sensitivity across the top of the document.
@@ -1256,9 +1257,9 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	$UserCredential = Get-Credential
 	```
 
-	```@lab.CloudCredential(17).Username```
+	```@lab.CloudCredential(82).Username```
 
-	```@lab.CloudCredential(17).Password```
+	```@lab.CloudCredential(82).Password```
 
 	```
 	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
@@ -1409,9 +1410,9 @@ In order to collect log data from Azure Information Protection clients and servi
 
 	> [!KNOWLEDGE] If necessary, log in using the username and password below:
 	>
-	>```@lab.CloudCredential(17).Username``` 
+	>```@lab.CloudCredential(82).Username``` 
 	>
-	>```@lab.CloudCredential(17).Password```
+	>```@lab.CloudCredential(82).Password```
 
 1. [] In the Azure Information Protection blade, under **Manage**, click **Configure analytics (preview)**.
 
@@ -1471,30 +1472,30 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 1. [] In PowerShell, run ```Connect-AzureAD``` and use the username and password below. 
 	
-	```@lab.CloudCredential(17).Username```
+	```@lab.CloudCredential(82).Username```
 	
-	```@lab.CloudCredential(17).Password```
+	```@lab.CloudCredential(82).Password```
 1. [] Next, click the **T** to **type the commands below** in the PowerShell window and press **Enter**. 
 
-   ```
-   New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
-   $WebApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPOnBehalfOf'"
-   New-AzureADServicePrincipal -AppId $WebApp.AppId
-   $WebAppKey = New-Guid
-   $Date = Get-Date
-   New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
+	```
+	New-AzureADApplication -DisplayName AIPOnBehalfOf -ReplyUrls http://localhost
+	$WebApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPOnBehalfOf'"
+	New-AzureADServicePrincipal -AppId $WebApp.AppId
+	$WebAppKey = New-Guid
+	$Date = Get-Date
+	New-AzureADApplicationPasswordCredential -ObjectId $WebApp.ObjectID -startDate $Date -endDate $Date.AddYears(1) -Value $WebAppKey.Guid -CustomKeyIdentifier "AIPClient"
 
-   $AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
-   $AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
-   $Scope = New-Object -TypeName "Microsoft.Open.AzureAD.Model.ResourceAccess" -ArgumentList $AIPPermissions.Id,"Scope"
-   $Access = New-Object -TypeName "Microsoft.Open.AzureAD.Model.RequiredResourceAccess"
-   $Access.ResourceAppId = $WebApp.AppId
-   $Access.ResourceAccess = $Scope
+	$AIPServicePrincipal = Get-AzureADServicePrincipal -All $true | ? {$_.DisplayName -eq 'AIPOnBehalfOf'}
+	$AIPPermissions = $AIPServicePrincipal | select -expand Oauth2Permissions
+	$Scope = New-Object -TypeName "Microsoft.Open.AzureAD.Model.ResourceAccess" -ArgumentList $AIPPermissions.Id,"Scope"
+	$Access = New-Object -TypeName "Microsoft.Open.AzureAD.Model.RequiredResourceAccess"
+	$Access.ResourceAppId = $WebApp.AppId
+	$Access.ResourceAccess = $Scope
 
-   New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
-   $NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
-   New-AzureADServicePrincipal -AppId $NativeApp.AppId
-   ```
+	New-AzureADApplication -DisplayName AIPClient -ReplyURLs http://localhost -RequiredResourceAccess $Access -PublicClient $true
+	$NativeApp = Get-AzureADApplication -Filter "DisplayName eq 'AIPClient'"
+	New-AzureADServicePrincipal -AppId $NativeApp.AppId
+	```
 
     >[!NOTE] This will create a new Web App Registration, Native App Registration, and associated Service Principals in Azure AD.
 
@@ -1519,7 +1520,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 1. [] Restore the **Notepad** window and copy the **full Set-AIPAuthentication** command into this window from and run it.
 1. [] When prompted, enter the username and password below:
 
-	```AIPScanner@@lab.CloudCredential(17).TenantName```
+	```AIPScanner@@lab.CloudCredential(82).TenantName```
 
 	```Somepass1```
 
@@ -1631,7 +1632,7 @@ In this task, we will perform bulk classification using the built-in functionali
    !IMAGE[CandP.png](\Media\CandP.png)
 4. [] When prompted, click use another account and use the credentials below to authenticate:
 
-	```AIPScanner@@lab.CloudCredential(17).TenantName```
+	```AIPScanner@@lab.CloudCredential(82).TenantName```
 
 	```Somepass1```
 
@@ -1920,9 +1921,9 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	$UserCredential = Get-Credential
 	```
 
-	```@lab.CloudCredential(17).Username```
+	```@lab.CloudCredential(82).Username```
 
-	```@lab.CloudCredential(17).Password```
+	```@lab.CloudCredential(82).Password```
 
 	```
 	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
@@ -2043,7 +2044,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 [:arrow_left: Home](#azure-information-protection)
 
 Congratulations! You have completed the Azure Information Protection Hands on Lab. 
->[ninja-cat]: !(\Media\ninjacat.png)
 
-!INSTRUCTIONS[https://blogs.msdn.microsoft.com/oldnewthing/20160804-00/?p=94025][ninja-cat]
+!IMAGE[](\Media\ninjacat.png)
+
 https://blogs.msdn.microsoft.com/oldnewthing/20160804-00/?p=94025
