@@ -195,7 +195,7 @@ For several of the exercises in this lab series, you will require an active subs
 
     > [!NOTE] It may take a few minutes to process the request.
 
-1. [] While this is processing, you may continue to the next task.
+1. [] While this is processing, you may continue to the main lab.
 
 
 ===
@@ -256,7 +256,7 @@ Even before configuring an AIP classification taxonomy, customers can scan and i
 
 Often, this can help drive an appropriate level of urgency and attention to the risk customers face if they delay rolling out AIP classification and protection.  
 
-In this exercise, we will install the AIP scanner and run it against repositories in discovery mode.  Later in this lab (after configuring labels and conditions) we will revisit the scanner to perform automated classification, labeling, and protection of sensitive documents. This Exercise will walk you through the items below.
+In this exercise, we will install the AIP scanner and run it against repositories in discovery mode.  Later in this lab (after configuring labels and conditions), we will revisit the scanner to perform automated classification, labeling, and protection of sensitive documents. This Exercise will walk you through the items below.
 
 - [Configuring Azure Log Analytics](#configuring-azure-log-analytics)
 - [AIP Scanner Setup](#aip-scanner-setup)
