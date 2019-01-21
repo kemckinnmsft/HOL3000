@@ -817,9 +817,9 @@ By default, many of the demo tenants provided block external communications via 
 	Import-PSSession $Session
 	```
 
-	> ```@lab.CloudCredential(134).Username```
+	> ```@lab.CloudCredential(82).Username```
 	>
-	> ```@lab.CloudCredential(134).Password```
+	> ```@lab.CloudCredential(82).Password```
 
 3. [] Get the active Mail Flow Rules by typing the command below:
 
