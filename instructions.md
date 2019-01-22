@@ -460,7 +460,7 @@ In this exercise, we installed the AIP scanner and performed a discovery scan ag
 ---
 
 ===
-# Configuring Azure Information Protection Policy
+# Base Configuration
 [:arrow_left: Home](#azure-information-protection)
 
 This exercise demonstrates using the Azure Information Protection blade in the Azure portal to configure policies and sub-labels.  We will create a new sub-label and configure protection and then modify an existing sub-label.  We will also create a label that will be scoped to a specific group.  
@@ -468,11 +468,11 @@ This exercise demonstrates using the Azure Information Protection blade in the A
 Next, we will configure AIP Global Policy to use the General sub-label as default, and finally, we will configure a scoped policy to use the new scoped label by default for Word, Excel, and PowerPoint while still using General as default for Outlook. This Exercise will walk you through the items below.
 
 
-	- [Creating, Configuring, and Modifying Sub-Labels](#creating-configuring-and-modifying-sub-labels)
-	- [Configuring Global Policy](#configuring-global-policy)
-	- [Creating a Scoped Label and Policy](#creating-a-scoped-label-and-policy)
-	- [Configuring Advanced Policy Settings](#configuring-advanced-policy-settings)
-	- [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions)
+- [Creating, Configuring, and Modifying Sub-Labels](#creating-configuring-and-modifying-sub-labels)
+- [Configuring Global Policy](#configuring-global-policy)
+- [Creating a Scoped Label and Policy](#creating-a-scoped-label-and-policy)
+- [Configuring Advanced Policy Settings](#configuring-advanced-policy-settings)
+- [Defining Recommended and Automatic Conditions](#defining-recommended-and-automatic-conditions)
 
 ---
 ## Creating, Configuring, and Modifying Sub-Labels
@@ -1258,7 +1258,7 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 
 The previous step enabled the AIP labels for use in the Security and Compliance Center.  However, this did not also recreate the policies from the AIP portal. In this step we will publish a Global policy like the one we used in the AIP portal for use with unified clients.
 
-1. [] In the Security and Compliance Center, under Classifications, click on **Label policies**.
+1. [] In the Security and Compliance Center, under **Classifications**, click on **Label policies**.
 
 2. [] In the Label policies pane, click **Publish labels**.
 
@@ -1305,7 +1305,7 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
 ---
 ## Reviewing Adobe PDF Integration
 
-2. [] To review a protected PDF, navigate to ```\\Scanner01.contoso.azure\documents```. 
+1. [] To review a protected PDF, navigate to ```\\Scanner01.contoso.azure\documents```. 
 
 	> If needed, use the credentials below:
 	>
@@ -1315,7 +1315,7 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
 
 4. [] In the documents folder, open one of the pdf files.
 5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(82).TenantName``` and press OK.
-6. [] Check the box to save credentials and press OK.
+6. [] Click **Yes** to save credentials.
 
 	> [!NOTE] The PDF will now open and display the sensitivity across the top of the document.
 
@@ -1397,8 +1397,8 @@ In this exercise, we enabled and published labels and policies in the Security a
 
 Exchange Online can work in conjunction with Azure Information Protection to provide advanced capabilities for protecting sensitive data being sent over email.  You can also manage the flow of classified content to ensure that it is not sent to unintended recipients. This Exercise will walk you through the items below.
 
-	- [Configuring Exchange Online Mail Flow Rules](#configuring-exchange-online-mail-flow-rules)
-	- [Demonstrating Exchange Online Mail Flow Rules](#demonstrating-exchange-online-mail-flow-rules)
+- [Configuring Exchange Online Mail Flow Rules](#configuring-exchange-online-mail-flow-rules)
+- [Demonstrating Exchange Online Mail Flow Rules](#demonstrating-exchange-online-mail-flow-rules)
 
 ## Configuring Exchange Online Mail Flow Rules
 
@@ -1498,9 +1498,14 @@ In this task, we will configure a mail flow rule to detect sensitive information
 In this task, we will send emails to demonstrate the results of the Exchange Online mail flow rules we configured in the previous task.  This will demonstrate some ways to protect your sensitive data and ensure a positive user experience with the product.
 
 1. [] Switch to @lab.VirtualMachine(Client03).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-2. [] In Microsoft Outlook, click on the **New email** button.
 
-  ^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
+2. [] Open an InPrivate browsing session and browse to ```https://outlook.office365.com/owa/```.
+
+1. [] Log in using the credentials below.
+
+	> ```EvanG@@lab.CloudCredential(82).TenantName```
+	>
+	> ```pass@word1```
 
 3. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject**, type ```Test Credit Card Email``` and for the **Body**, type ```My AMEX card number is 344047014854133. The expiration date is 09/28, and the CVV is 4368```, then click **Send**.
 
@@ -1520,7 +1525,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 6. [] Next, in Microsoft Outlook, click on the **New email** button.
 
   ^IMAGE[Open Screenshot](\Media\6wan9me1.jpg)
-7. [] Send an email to Adam Smith, Alice Anderson, and yourself (```Adam Smith;Alice Anderson;@lab.User.Email```).  For the **Subject** and **Body** type ```Another Test Contoso Internal Email```.
+7. [] Send an email to Evan Green, Alice Anderson, and yourself (```Evan Green;Alice Anderson;@lab.User.Email```).  For the **Subject** and **Body** type ```Another Test Contoso Internal Email```.
 
   ^IMAGE[Open Screenshot](\Media\d476fmpg.jpg)
 
