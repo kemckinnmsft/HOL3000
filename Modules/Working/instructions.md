@@ -232,7 +232,7 @@ The [AIP Scanner Classification, Labeling, and Protection](#aip-scanner-classifi
 
 The [Security and Compliance Center](#security-and-compliance-center) exercise, will help you understand how to **Enable and Publish labels in the Security and Compliance Center** so they can be used with Mac, Mobile, ISVs (like Adobe PDF), and other unified clients.  We will demonstrate this functionality using the Adobe PDF reader. :clock10: 5-10 min
 
-In the [AIP Analytics Dashboards](aip-analytics-dashboards) exercise, we will show how to **Monitor AIP Usage, User Activity, and Data Risk** using the new Azure Log Analytics dashboards built into the AIP Azure Portal.
+In the [AIP Analytics Dashboards](#aip-analytics-dashboards) exercise, we will show how to **Monitor AIP Usage, User Activity, and Data Risk** using the new Azure Log Analytics dashboards built into the AIP Azure Portal.
 
 In the [Exchange IRM](#exchange-online-irm-capabilities) exercise, we will use Exchange PowerShell to create a Mail Flow Rule to prevent sensitive information from leaving your network in the clear.  We will also create a mail flow rule that prevents internal protected messages from accidentally being sent to external recipients who will be unable to open the content. :clock10: 10-15 min
 
@@ -243,7 +243,7 @@ Click on one of the options below to begin. At the end of each section, there wi
 - [Bulk Classification](#bulk-classification)
 - [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
 - [Security and Compliance Center](#security-and-compliance-center)
-- [AIP Analytics Dashboards](aip-analytics-dashboards)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
 - [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
@@ -454,7 +454,7 @@ In this exercise, we installed the AIP scanner and performed a discovery scan ag
 - [Bulk Classification](#bulk-classification) :clock10: 5 min
 - [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
 - [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](aip-analytics-dashboards) :clock10: 5-10 min
+- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5-10 min
 - [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
 
 ---
@@ -1018,7 +1018,7 @@ In this exercise, we walked through the configuration of Global and Scoped polic
 - [Bulk Classification](#bulk-classification) :clock10: 5 min
 - [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
 - [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](aip-analytics-dashboards) :clock10: 5-10 min
+- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5-10 min
 - [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
 
 ---
@@ -1059,7 +1059,7 @@ In this exercise, we performed bulk classification using the built-in functional
 - [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
 - [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
 - [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](aip-analytics-dashboards) :clock10: 5-10 min
+- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5-10 min
 - [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
 
 ---
@@ -1070,7 +1070,7 @@ In this exercise, we performed bulk classification using the built-in functional
 
 The Azure Information Protection scanner allows you to  classify and protect sensitive information stored in on-premises CIFS file shares and SharePoint sites.  
 
-In this exercise, you will change the condition we created previously from a recommended to an automatic classification rule.  After that, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data. This Exercise will walk you through the items below.
+In this exercise, you will configure conditions for automatic classification.  After that, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data. This Exercise will walk you through the items below.
 
 - [Defining Automatic Conditions](#defining-automatic-conditions)
 - [Enforcing Configured Rules](#enforcing-configured-rules)
@@ -1221,7 +1221,7 @@ In this exercise, we configured the AIP scanner to use automatic conditions to c
 - [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
 - [Bulk Classification](#bulk-classification) :clock10: 5 min
 - [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](aip-analytics-dashboards) :clock10: 5 min
+- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5 min
 - [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
 
 ---
@@ -1344,7 +1344,7 @@ In this exercise, we enabled and published labels and policies in the Security a
 - [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
 - [Bulk Classification](#bulk-classification) :clock10: 5 min
 - [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- [AIP Analytics Dashboards](aip-analytics-dashboards) :clock10: 5 min
+- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5 min
 - [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
 
 ---
@@ -1353,7 +1353,7 @@ In this exercise, we enabled and published labels and policies in the Security a
 # AIP Analytics Dashboards
 [:arrow_left: Home](#azure-information-protection)
 
-In this exercise, we will go back and look at the dashboards and observe how they have changed.
+In this exercise, we will go to the AIP Analytics dashboards and observe them after completing all of the steps in the various exercises.  These dashboards give actionable data to AIP admins and their management related to how users are classifying and protecting data and where sensitive data is located throughout the environment.  Depending on which exercises you completed these may look different from the screenshots.
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, open the browser that is logged into the Azure Portal.
 
@@ -1561,7 +1561,7 @@ In this exercise, we created several Exchange Online Mail Flow Rules to protect 
 - [Bulk Classification](#bulk-classification) :clock10: 5 min
 - [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
 - [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](aip-analytics-dashboards) :clock10: 5 min
+- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5 min
 
 ---
 
