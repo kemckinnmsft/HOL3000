@@ -1076,6 +1076,8 @@ In this exercise, you will change the condition we created previously from a rec
 - [Enforcing Configured Rules](#enforcing-configured-rules)
 - [Reviewing Protected Documents](#reviewing-protected-documents)
 
+> [!Alert] This exercise requires completion of the previous [AIP Scanner Discovery](#aip-scanner-discovery) exercise.  If you did not already complete that exercise, please do so prior to continuing.
+
 ---
 
 ## Defining Automatic Conditions
