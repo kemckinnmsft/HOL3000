@@ -1056,7 +1056,7 @@ In this task, we will perform bulk classification using the built-in functionali
 In this exercise, we performed bulk classification using the built-in functionality of the AIP client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Choose one of the exercises below or click the Next button to continue sequentially.
 
 - [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- [Bulk Classification](#bulk-classification) :clock10: 5 min
+- [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
 - [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
 - [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
 - [AIP Analytics Dashboards](aip-analytics-dashboards) :clock10: 5-10 min
@@ -1072,18 +1072,16 @@ The Azure Information Protection scanner allows you to  classify and protect sen
 
 In this exercise, you will change the condition we created previously from a recommended to an automatic classification rule.  After that, we will run the AIP Scanner in enforce mode to classify and protect the identified sensitive data. This Exercise will walk you through the items below.
 
-	- [Defining Automatic Conditions](#defining-automatic-conditions)
-	- [Enforcing Configured Rules](#enforcing-configured-rules)
-	- [Reviewing Protected Documents](#reviewing-protected-documents)
+- [Defining Automatic Conditions](#defining-automatic-conditions)
+- [Enforcing Configured Rules](#enforcing-configured-rules)
+- [Reviewing Protected Documents](#reviewing-protected-documents)
 
 ---
 
 ## Defining Automatic Conditions
 [:arrow_up: Top](#aip-scanner-classification-labeling-and-protection)
 
-One of the most powerful features of Azure Information Protection is the ability to guide your users in making sound decisions around safeguarding sensitive data.  This can be achieved in many ways through user education or reactive events such as blocking emails containing sensitive data. 
-
-However, helping your users to properly classify and protect sensitive data at the time of creation is a more organic user experience that will achieve better results long term.  In this task, we will define some basic recommended and automatic conditions that will trigger based on certain types of sensitive data.
+The Azure Information Protection Scanner uses Automatic conditions to identify sensitive content to classify, label, and protect.  In this exercise, we will configure some of these conditions.  If you completed the Base Configuration exercise, you have already done some of these, but we will go through the process for those that may have skipped that exercise.
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 2. [] Open the browser window with the Azure Portal (AIP Blade).
@@ -1135,9 +1133,11 @@ However, helping your users to properly classify and protect sensitive data at t
    !IMAGE[245lpjvk.jpg](\Media\245lpjvk.jpg)
 
    > [!HINT] The policy tip is automatically updated when you switch the condition to Automatic.
+
 1. [] Click **Save** in the Label: All Employees blade and **OK** to the Save settings prompt.
 
 	^IMAGE[Open Screenshot](\Media\gek63ks8.jpg)
+
 1. [] Press the **X** in the upper right-hand corner to close the Label: All Employees blade.
 
 	^IMAGE[Open Screenshot](\Media\wzwfc1l4.jpg)
