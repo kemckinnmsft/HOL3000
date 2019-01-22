@@ -444,7 +444,9 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 	>[!NOTE] We will revisit this information later in the lab to review discovered data and create Sensitive Data Type to Classification mappings.
 
 	>[!ALERT] If you see any failures, it is likely due to SharePoint startup in the VM environment.  If you rerun Start-AIPScan on Scanner01 all files will successfully scan.  This should not happen in a production environment.
-	
+
+---
+
 ===
 # AIP Scanner Discovery Exercise Complete
 
@@ -1177,8 +1179,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 	>
 	>
 	>!IMAGE[6waou5x3.jpg](\Media\6waou5x3.jpg)
-	>
-	>^IMAGE[Open Fullscreen](6waou5x3.jpg)
+
 
 ---
 
