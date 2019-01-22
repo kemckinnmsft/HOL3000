@@ -1132,12 +1132,10 @@ The Azure Information Protection Scanner uses Automatic conditions to identify s
 
    !IMAGE[245lpjvk.jpg](\Media\245lpjvk.jpg)
 
-   > [!HINT] The policy tip is automatically updated when you switch the condition to Automatic.
-
 1. [] Click **Save** in the Label: All Employees blade and **OK** to the Save settings prompt.
 
 	^IMAGE[Open Screenshot](\Media\gek63ks8.jpg)
-	
+
 1. [] Press the **X** in the upper right-hand corner to close the Label: All Employees blade.
 
 	^IMAGE[Open Screenshot](\Media\wzwfc1l4.jpg)
@@ -1162,18 +1160,18 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 	> [!HINT] Note that this time we used the DiscoverInformationTypes -PolicyOnly switch before starting the scan. This will have the scanner only evaluate the conditions we have explicitly defined in conditions.  This increases the effeciency of the scanner and thus is much faster.  After reviewing the event log we will see the result of the enforced scan.
 	>
 	>!IMAGE[k3rox8ew.jpg](\Media\k3rox8ew.jpg)
-	>
-	>If we switch back to @lab.VirtualMachine(Client01).SelectLink and look in the reports directory we opened previously at ```\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports```, you will notice that the old scan reports are zipped in the directory and only the most recent results are showing.  
-	>
+	
+
+1. [] Switch back to @lab.VirtualMachine(Client01).SelectLink and log in using the password +++@lab.VirtualMachine(Client01).Password+++.
+1. [] Look in the reports directory we opened previously at ```\\Scanner01.contoso.azure\c$\users\aipscanner\AppData\Local\Microsoft\MSIP\Scanner\Reports```, you will notice that the old scan reports are zipped in the directory and only the most recent results are showing.  
+	
 	> If needed, use the credentials below:
 	>
 	>```Contoso\LabUser```
 	>
 	>```Pa$$w0rd```
-	>
-	>!IMAGE[s8mn092f.jpg](\Media\s8mn092f.jpg)
-	>
-	>Also, the DetailedReport.csv now shows the files that were protected.
+
+	>[!NOTE] The DetailedReport.csv now shows the files that were protected.
 	>
 	>
 	>!IMAGE[6waou5x3.jpg](\Media\6waou5x3.jpg)
