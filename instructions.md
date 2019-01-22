@@ -1198,6 +1198,12 @@ Now that we have Classified and Protected documents using the scanner, we can re
 	^IMAGE[Open Screenshot](\Media\hipavcx6.jpg)
 3. [] Open one of the Contoso Purchasing Permissions documents.
 
+	> [!NOTE] If asked to log in, use the credentials below.
+	>
+	> ```AdamS@@lab.CloudCredential(82).TenantName```
+	>
+	> ```pass@word1```
+
     > [!NOTE] Observe that the document is classified as Confidential \ All Employees. 
     >
     > !IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)

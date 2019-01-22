@@ -1177,7 +1177,7 @@ In this task, we will set the AIP scanner to enforce the conditions we set up in
 	>!IMAGE[6waou5x3.jpg](\Media\6waou5x3.jpg)
 	>
 	>^IMAGE[Open Fullscreen](6waou5x3.jpg)
-	
+
 ---
 
 ## Reviewing Protected Documents
@@ -1197,6 +1197,12 @@ Now that we have Classified and Protected documents using the scanner, we can re
 
 	^IMAGE[Open Screenshot](\Media\hipavcx6.jpg)
 3. [] Open one of the Contoso Purchasing Permissions documents.
+
+	> [!NOTE] If asked to log in, use the credentials below.
+	>
+	> ```AdamS@@lab.CloudCredential(82).TenantName```
+	>
+	> ```pass@word1```
 
     > [!NOTE] Observe that the document is classified as Confidential \ All Employees. 
     >
