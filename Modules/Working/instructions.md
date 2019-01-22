@@ -790,11 +790,11 @@ However, helping your users to properly classify and protect sensitive data at t
 
 Now that you have 3 test systems with users being affected by different policies configured, we can start testing these policies.  This exercise will run through various scenarios to demonstrate the use of AIP global and scoped policies and show the functionality of recommended and automatic labeling. This Exercise will walk you through the items below.
 
-	- [Exchange Mail Flow Rule Removal](#exchange-mail-flow-rule-removal)
-	- [Testing User Defined Permissions](#testing-user-defined-permissions)
-	- [Testing Global Policy](#testing-global-policy)
-	- [Testing Scoped Policy](#testing-scoped-policy)
-	- [Testing Recommended and Automatic Classification](#testing-recommended-and-automatic-classification)
+- [Exchange Mail Flow Rule Removal](#exchange-mail-flow-rule-removal)
+- [Testing User Defined Permissions](#testing-user-defined-permissions)
+- [Testing Global Policy](#testing-global-policy)
+- [Testing Scoped Policy](#testing-scoped-policy)
+- [Testing Recommended and Automatic Classification](#testing-recommended-and-automatic-classification)
 
 > [!ALERT] If you see a warning about a metered connection in Office, click **Connect anyway** to allow Office to connect.  If you do not do this you will get errors when connecting to the AIP service. The VMs are set to metered to increase network speed.
 
@@ -1268,37 +1268,37 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
 
    ^IMAGE[Open Screenshot](\Media\SCC02.png)
 
-4. [] In the Choose labels pane, click the + Add button.
+4. [] In the Choose labels pane, click the **+ Add** button.
 
    ^IMAGE[Open Screenshot](\Media\SCC03.png)
 
-5. [] Click the box next to Display name to select all labels, then click the Add button.
+5. [] Click the box next to **Display name** to select all labels, then click the **Add** button.
 
    ^IMAGE[Open Screenshot](\Media\SCC04.png)
 
-6. [] Click the Done button.
+6. [] Click the **Done** button.
 
    ^IMAGE[Open Screenshot](\Media\SCC05.png)
 
-7. [] Back on the Choose labels to publish page, click the Next button.
+7. [] Back on the Choose labels to publish page, click the **Next** button.
 
    ^IMAGE[Open Screenshot](\Media\SCC06.png)
 
-8. [] On the Publish to users and groups page, notice that All users are included by default. If you were creating a scoped policy, you would choose specific users or groups to publish to. Click Next.
+8. [] On the Publish to users and groups page, notice that **All users are included by default**. If you were creating a scoped policy, you would choose specific users or groups to publish to. Click **Next**.
 
    ^IMAGE[Open Screenshot](\Media\SCC07.png)
 
-9. [] On the Policy settings page, select the General label from the drop-down next to Apply this label by default to documents and email.
+9. [] On the Policy settings page, select the **General** label from the drop-down next to **Apply this label by default to documents and email**.
 
-10. [] Check the box next to Users must provide justification to remove a label or lower classification label and click the Next button.
+10. [] Check the box next to **Users must provide justification to remove a label or lower classification label** and click the **Next** button.
 
     !IMAGE[Open Screenshot](\Media\SCC08.png)
 
-11. [] In the Name textbox, type ```Global Policy``` and for the Description type ```This is the default global policy for all users.``` and click the Next button.
+11. [] In the Name textbox, type ```Global Policy``` and for the Description type ```This is the default global policy for all users.``` and click the **Next** button.
 
     ^IMAGE[Open Screenshot](\Media\SCC09.png)
 
-12. [] Finally, on the Review your settings page, click the Publish button.
+12. [] Finally, on the Review your settings page, click the **Publish** button.
 
     !IMAGE[Open Screenshot](\Media\SCC10.png)
 
@@ -1315,7 +1315,7 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
 
 4. [] In the documents folder, open one of the pdf files.
 5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(82).TenantName``` and press OK.
-6. [] Check the box to save credentials and press OK.
+6. [] Click **Yes** to save credentials.
 
 	> [!NOTE] The PDF will now open and display the sensitivity across the top of the document.
 
@@ -1380,7 +1380,7 @@ In this exercise, we will go back and look at the dashboards and observe how the
 ===
 # AIP Analytics Dashboard Exercise Complete
 
-In this exercise, we enabled and published labels and policies in the Security and Compliance Center for use with clients based on the MIP SDK.  We demonstrated this using Adobe PDF integration.  Choose one of the exercises below or click the Next button to continue sequentially.
+In this exercise, we reviewed the new AIP Azure Log Analytics dashboards.  Choose one of the exercises below or click the Next button to continue sequentially.
 
 - [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
 - [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
