@@ -232,7 +232,7 @@ The [AIP Scanner Classification, Labeling, and Protection](#aip-scanner-classifi
 
 The [Security and Compliance Center](#security-and-compliance-center) exercise, will help you understand how to **Enable and Publish labels in the Security and Compliance Center** so they can be used with Mac, Mobile, ISVs (like Adobe PDF), and other unified clients.  We will demonstrate this functionality using the Adobe PDF reader. :clock10: 5-10 min
 
-In the [AIP Analytics Dashboards](#aip-analytics-dashboards) exercise, we will show how to **Monitor AIP Usage, User Activity, and Data Risk** using the new Azure Log Analytics dashboards built into the AIP Azure Portal.
+In the [AIP Analytics Dashboards](#aip-analytics-dashboards) exercise, we will show how to **Monitor AIP Usage, User Activity, and Data Risk** using the new Azure Log Analytics dashboards built into the AIP Azure Portal. :clock10: 5 min
 
 In the [Exchange IRM](#exchange-online-irm-capabilities) exercise, we will use Exchange PowerShell to create a Mail Flow Rule to prevent sensitive information from leaving your network in the clear.  We will also create a mail flow rule that prevents internal protected messages from accidentally being sent to external recipients who will be unable to open the content. :clock10: 10-15 min
 
@@ -452,12 +452,12 @@ The next task is to configure repositories to scan.  These can be on-premises Sh
 
 In this exercise, we installed the AIP scanner and performed a discovery scan against an on premises CIFS repository and SharePoint document library.  Although this was a very limited demonstration of the capabilities of the AIP scanner for discovery, it helps to show how quickly you can configure this tool and get actionable information which can be used to make data driven decisions about your security posture.  Choose one of the exercises below or click the Next button to continue sequentially.
 
-- [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
-- [Bulk Classification](#bulk-classification) :clock10: 5 min
-- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5-10 min
-- [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
+- [Base Configuration](#configuring-azure-information-protection-policy)
+- [Bulk Classification](#bulk-classification)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [Security and Compliance Center](#security-and-compliance-center)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
 
@@ -1016,12 +1016,12 @@ In this task, we will test the configured recommended and automatic conditions w
 
 In this exercise, we walked through the configuration of Global and Scoped policies and labels.  We demonstrated the use of these and showed how recommended and automatic conditions function within the Office applications.  Choose one of the exercises below or click the Next button to continue sequentially.
 
-- [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- [Bulk Classification](#bulk-classification) :clock10: 5 min
-- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5-10 min
-- [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Bulk Classification](#bulk-classification)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [Security and Compliance Center](#security-and-compliance-center)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
 
@@ -1057,12 +1057,12 @@ In this task, we will perform bulk classification using the built-in functionali
 
 In this exercise, we performed bulk classification using the built-in functionality of the AIP client.  This can be useful for users that want to classify/protect many documents that exist in a central location or locations identified by scanner discovery.  Choose one of the exercises below or click the Next button to continue sequentially.
 
-- [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
-- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5-10 min
-- [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Base Configuration](#configuring-azure-information-protection-policy)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [Security and Compliance Center](#security-and-compliance-center)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
 
@@ -1218,12 +1218,12 @@ Now that we have Classified and Protected documents using the scanner, we can re
 
 In this exercise, we configured the AIP scanner to use automatic conditions to classify, label, and protect documents in our defined repositories.  Choose one of the exercises below or click the Next button to continue sequentially.
 
-- [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
-- [Bulk Classification](#bulk-classification) :clock10: 5 min
-- [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5 min
-- [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Base Configuration](#configuring-azure-information-protection-policy)
+- [Bulk Classification](#bulk-classification)
+- [Security and Compliance Center](#security-and-compliance-center)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
 
@@ -1341,12 +1341,12 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
 
 In this exercise, we enabled and published labels and policies in the Security and Compliance Center for use with clients based on the MIP SDK.  We demonstrated this using Adobe PDF integration.  Choose one of the exercises below or click the Next button to continue sequentially.
 
-- [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
-- [Bulk Classification](#bulk-classification) :clock10: 5 min
-- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5 min
-- [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Base Configuration](#configuring-azure-information-protection-policy)
+- [Bulk Classification](#bulk-classification)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
 
@@ -1391,12 +1391,12 @@ In this exercise, we will go to the AIP Analytics dashboards and observe them af
 
 In this exercise, we reviewed the new AIP Azure Log Analytics dashboards.  Choose one of the exercises below or click the Next button to continue sequentially.
 
-- [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
-- [Bulk Classification](#bulk-classification) :clock10: 5 min
-- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Base Configuration](#configuring-azure-information-protection-policy)
+- [Bulk Classification](#bulk-classification)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [Security and Compliance Center](#security-and-compliance-center)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
 
@@ -1557,12 +1557,12 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 
 In this exercise, we created several Exchange Online Mail Flow Rules to protect sensitive data or improve user experience.  Choose one of the exercises below or click the Next button to complete the Lab.
 
-- [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
-- [Bulk Classification](#bulk-classification) :clock10: 5 min
-- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- [AIP Analytics Dashboards](#aip-analytics-dashboards) :clock10: 5 min
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Base Configuration](#configuring-azure-information-protection-policy)
+- [Bulk Classification](#bulk-classification)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [Security and Compliance Center](#security-and-compliance-center)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
 
 ---
 
