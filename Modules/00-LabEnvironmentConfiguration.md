@@ -4,11 +4,9 @@
 
 There are a few prerequisites that need to be set up to complete all the sections in this lab.  This Exercise will walk you through the items below.
 
-- [Azure AD User Configuration](#azure-ad-user-configuration)
-  
-- [Exchange Mail Flow Rule Removal](#exchange-mail-flow-rule-removal)
-
-- [Redeem Azure Pass](#redeem-azure-pass)
+- Azure AD User Configuration
+- Azure Pass Redemption
+- AIP Log Analytics Configuration
 
 ---
 ## Azure AD User Configuration
@@ -66,12 +64,8 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
     New-AzureADUser -AccountEnabled $True -DisplayName $user.displayname -PasswordProfile $PasswordProfile -MailNickName $user.username -UserPrincipalName $upn
     }
 
-    ```
-
-1. [] In the PowerShell window, click the code below to assign Office and EMS licenses.
-	
-	```
 	Start-Sleep -s 10
+
 	foreach ($user in $users){
 
     # Store UPN created from csv and tenant
@@ -87,31 +81,6 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
     Set-MsolUser -UserPrincipalName $upn -UsageLocation US
     Set-MsolUserLicense -UserPrincipalName $upn -AddLicenses $office, $ems
 
-	```
-
----
-## Exchange Mail Flow Rule Removal
-[:arrow_up: Top](#lab-environment-configuration)
-
-By default, many of the demo tenants provided block external communications via mail flow rule.  As this will hinder many tests in this lab, we will verify if such a rule exists and remove it if necesary.
-
-1. [] In the Admin PowerShell window, type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
-
-	```
-	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $cred -Authentication Basic -AllowRedirection
-	Import-PSSession $Session
-	```
-
-3. [] Get the active Mail Flow Rules by typing the command below:
-
-	```
-	Get-TransportRule
-	```
-
-4. [] If a rule exists named something similar to **"Delete if sent outside the organization"**, run the code below to remove this rule.
-
-	```
-	Remove-TransportRule *Delete*
 	```
 
 ---
@@ -158,5 +127,46 @@ For several of the exercises in this lab series, you will require an active subs
 
     > [!NOTE] It may take a few minutes to process the request.
 
-1. [] While this is processing, you may continue to the main lab.
+1. [] While this is processing, you may continue to the next task.
 
+---
+## Configuring Azure Log Analytics
+
+In order to collect log data from Azure Information Protection clients and services, you must first configure the log analytics workspace.
+
+1. [] On @lab.VirtualMachine(Client01).SelectLink, open a new tab in the browser and navigate to ```https://portal.azure.com/```.
+
+	> [!KNOWLEDGE] If necessary, log in using the username and password below:
+	>
+	>```@lab.CloudCredential(82).Username``` 
+	>
+	>```@lab.CloudCredential(82).Password```
+
+3. [] In the Azure portal, type the word ```info``` into the **search bar** and press **Enter**, then click on **Azure Information Protection**. 
+
+	!IMAGE[2598c48n.jpg](\Media\2598c48n.jpg)
+	
+	> [!HINT] If you do not see the search bar at the top of the portal, click on the **Magnifying Glass** icon to expand it.
+	>
+	> !IMAGE[ny3fd3da.jpg](\Media\ny3fd3da.jpg)
+
+1. [] In the Azure Information Protection blade, under **Manage**, click **Configure analytics (preview)**.
+
+1. [] Next, click on **+ Create new workspace**.
+
+	!IMAGE[qu68gqfd.jpg](\Media\qu68gqfd.jpg)
+1. [] Configure the Log analytics workspace using the values in the table below and click **OK**.
+
+	|||
+	|-----|-----|
+	|OMS Workspace|**Type a unique Workspace Name**|
+	|Resource Group|```AIP-RG```|
+	|Location|**East US** (Or a location near the event)|
+
+	^IMAGE[Open Screenshot](\Media\5butui15.jpg)
+1. [] Next, back in the Configure analytics (preview) blade, **check the boxes** next to the **workspace** and next to **Enable Content Matches**, and click **OK**.
+
+	!IMAGE[gste52sy.jpg](\Media\gste52sy.jpg)
+1. [] Click **Yes**, in the confirmation dialog.
+
+	!IMAGE[zgvmm4el.jpg](\Media\zgvmm4el.jpg)

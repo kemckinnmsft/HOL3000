@@ -2,7 +2,7 @@
 # AIP Analytics Dashboards
 [:arrow_left: Home](#azure-information-protection)
 
-In this exercise, we will go back and look at the dashboards and observe how they have changed.
+In this exercise, we will go to the AIP Analytics dashboards and observe them after completing all of the steps in the various exercises.  These dashboards give actionable data to AIP admins and their management related to how users are classifying and protecting data and where sensitive data is located throughout the environment.  Depending on which exercises you completed these may look different from the screenshots.
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, open the browser that is logged into the Azure Portal.
 
@@ -37,14 +37,14 @@ In this exercise, we will go back and look at the dashboards and observe how the
 ===
 # AIP Analytics Dashboard Exercise Complete
 
-In this exercise, we enabled and published labels and policies in the Security and Compliance Center for use with clients based on the MIP SDK.  We demonstrated this using Adobe PDF integration.  Choose one of the exercises below or click the Next button to continue sequentially.
+In this exercise, we reviewed the new AIP Azure Log Analytics dashboards.  Choose one of the exercises below or click the Next button to continue sequentially.
 
-- ### [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- ### [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
-- ### [Bulk Classification](#bulk-classification) :clock10: 5 min
-- ### [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- ### [Security and Compliance Center](#security-and-compliance-center) :clock10: 5-10 min
-- ### [Exchange IRM](#exchange-irm) :clock10: 10-15 min
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Base Configuration](#configuring-azure-information-protection-policy)
+- [Bulk Classification](#bulk-classification)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [Security and Compliance Center](#security-and-compliance-center)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
 

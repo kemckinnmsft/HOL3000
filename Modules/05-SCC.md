@@ -32,7 +32,7 @@ In this task, we will activate the labels from the Azure Portal for use in the S
 
 The previous step enabled the AIP labels for use in the Security and Compliance Center.  However, this did not also recreate the policies from the AIP portal. In this step we will publish a Global policy like the one we used in the AIP portal for use with unified clients.
 
-1. [] In the Security and Compliance Center, under Classifications, click on **Label policies**.
+1. [] In the Security and Compliance Center, under **Classifications**, click on **Label policies**.
 
 2. [] In the Label policies pane, click **Publish labels**.
 
@@ -42,44 +42,44 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
 
    ^IMAGE[Open Screenshot](\Media\SCC02.png)
 
-4. [] In the Choose labels pane, click the + Add button.
+4. [] In the Choose labels pane, click the **+ Add** button.
 
    ^IMAGE[Open Screenshot](\Media\SCC03.png)
 
-5. [] Click the box next to Display name to select all labels, then click the Add button.
+5. [] Click the box next to **Display name** to select all labels, then click the **Add** button.
 
    ^IMAGE[Open Screenshot](\Media\SCC04.png)
 
-6. [] Click the Done button.
+6. [] Click the **Done** button.
 
    ^IMAGE[Open Screenshot](\Media\SCC05.png)
 
-7. [] Back on the Choose labels to publish page, click the Next button.
+7. [] Back on the Choose labels to publish page, click the **Next** button.
 
    ^IMAGE[Open Screenshot](\Media\SCC06.png)
 
-8. [] On the Publish to users and groups page, notice that All users are included by default. If you were creating a scoped policy, you would choose specific users or groups to publish to. Click Next.
+8. [] On the Publish to users and groups page, notice that **All users are included by default**. If you were creating a scoped policy, you would choose specific users or groups to publish to. Click **Next**.
 
    ^IMAGE[Open Screenshot](\Media\SCC07.png)
 
-9. [] On the Policy settings page, select the General label from the drop-down next to Apply this label by default to documents and email.
+9. [] On the Policy settings page, select the **General** label from the drop-down next to **Apply this label by default to documents and email**.
 
-10. [] Check the box next to Users must provide justification to remove a label or lower classification label and click the Next button.
+10. [] Check the box next to **Users must provide justification to remove a label or lower classification label** and click the **Next** button.
 
     !IMAGE[Open Screenshot](\Media\SCC08.png)
 
-11. [] In the Name textbox, type ```Global Policy``` and for the Description type ```This is the default global policy for all users.``` and click the Next button.
+11. [] In the Name textbox, type ```Global Policy``` and for the Description type ```This is the default global policy for all users.``` and click the **Next** button.
 
     ^IMAGE[Open Screenshot](\Media\SCC09.png)
 
-12. [] Finally, on the Review your settings page, click the Publish button.
+12. [] Finally, on the Review your settings page, click the **Publish** button.
 
     !IMAGE[Open Screenshot](\Media\SCC10.png)
 
 ---
 ## Reviewing Adobe PDF Integration
 
-2. [] To review a protected PDF, navigate to ```\\Scanner01.contoso.azure\documents```. 
+1. [] To review a protected PDF, navigate to ```\\Scanner01.contoso.azure\documents```. 
 
 	> If needed, use the credentials below:
 	>
@@ -88,10 +88,16 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
     >```Pa$$w0rd```
 
 4. [] In the documents folder, open one of the pdf files.
-5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(82).TenantName``` and press OK.
-6. [] Check the box to save credentials and press OK.
+5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(82).TenantName``` and press **OK** or **Next**.
+
+	> [!NOTE] If prompted, provide the password ```pass@word1```.
+
+6. [] Click **Yes** to save credentials.
+7. [] In the **Permissions requested** dialog, click **Accept**.
 
 	> [!NOTE] The PDF will now open and display the sensitivity across the top of the document.
+	>
+	> !IMAGE[PDF](\Media\PDF.png)
 
 	> [!Knowledge] The latest version of Acrobat Reader DC and the MIP Plugin have been installed on this system prior to the lab. Additionally, the sensitivity does not display by default in Adobe Acrobat Reader DC.  You must make the modifications below to the registry to make this bar display.
 	>
@@ -104,14 +110,14 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
 ===
 # Security and Compliance Center Exercise Complete
 
-In this track, we enabled and published labels and policies in the Security and Compliance Center for use with clients based on the MIP SDK.  We demonstrated this using Adobe PDF integration.  Choose one of the tracks below or click the Next button to continue sequentially.
+In this exercise, we enabled and published labels and policies in the Security and Compliance Center for use with clients based on the MIP SDK.  We demonstrated this using Adobe PDF integration.  Choose one of the exercises below or click the Next button to continue sequentially.
 
-- ### [AIP Scanner Discovery](#aip-scanner-discovery) :clock10: 10-15 min
-- ### [Base Configuration](#configuring-azure-information-protection-policy) :clock10: 30-45 min
-- ### [Bulk Classification](#bulk-classification) :clock10: 5 min
-- ### [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection) :clock10: 5-10 min
-- ### [AIP Analytics Dashboards](aip-analytics-dashboards) :clock10: 5 min
-- ### [Exchange IRM](#exchange-online-irm-capabilities) :clock10: 10-15 min
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Base Configuration](#configuring-azure-information-protection-policy)
+- [Bulk Classification](#bulk-classification)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
 ---
 

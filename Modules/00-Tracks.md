@@ -9,28 +9,31 @@ The phases of AIP are shown in the graphic below.
 
 !IMAGE[Phases.png](\Media\Phases.png)
 
-In this lab, we will guide you through addressing all of these phases using some of the newest features of AIP.  We first will perform Discovery using the AIP scanner. We recommend that all customers do this step as it can help to show the current state of your sensitive data so you may make informaed risk decisions. 
+In this lab, we will give you options for addressing each of these phases using various features of AIP.  
 
-We will also show how to use the AIP Scanner in Enforce mode to take advantage of features like Automatic Conditions to help you Classify, Label, and Protect the discovered information easily.
+The [AIP Scanner Discovery](#aip-scanner-discovery) exercise, will guide you through performing **Discovery using the AIP scanner**. We recommend that everyone complete this exercise first as this step is important to help show the current state of sensitive data in on-premises repositories. This enables you to make data based risk decisions that can help drive appropriate levels of urgency around the rest of your AIP deployment. :clock10: 10-15 min
 
-We will help you understand how to Enable and Publish labels in the Security and Compliance Center so they can be used with Mac, Mobile, ISVs (like Adobe PDF), and other unified clients.
+The [Base Configuration](#base-configuration) exercise, contains information on configuring and testing **Global and Scoped Policy and Labels**. This will also include demonstrating **Recommended and Automatic labeling via the AIP client in Office 365 on Windows 10**. This is the longest exercise in the lab as it requires configuration of policy and the use of multiple clients.  We recommend this exercise if you have minimal experience with AIP. :clock10: 30-45 min
 
-Finally, we will demonstrate how to use the new AIP Dashboards to leverage Azure Log Analytics to display actionable information on Usage, Activity, and Data Risk.
+The [Bulk Classification](#bulk-classification) exercise, shows how to manually classify, label, and protect content using the Windows integration features of the AIP client. :clock10: 5 min
 
-!IMAGE[Two overlaying screenshots of the Azure Information Protection scanner's blade in the Azure portal. This blade provides dashboards that consolidate information for all deployed Azure Information Protection scanners, including health status, scan results, classification and policy settings, and more.](\Media\8324-image001.png)
+The [AIP Scanner Classification, Labeling, and Protection](#aip-scanner-classification-labeling-and-protection) exercise, will show how to use the **AIP scanner in Enforce mode** to take advantage of features like Automatic Conditions to help you **Classify, Label, and Protect** the discovered information easily. This exercise has a dependancy on completion of the AIP Scanner Dicovery exercise. :clock10: 5-10 min
 
-### Objectives
+The [Security and Compliance Center](#security-and-compliance-center) exercise, will help you understand how to **Enable and Publish labels in the Security and Compliance Center** so they can be used with Mac, Mobile, ISVs (like Adobe PDF), and other unified clients.  We will demonstrate this functionality using the Adobe PDF reader. :clock10: 5-10 min
 
-> [!ALERT] Please ensure you have completed the steps in the [Lab Environment Configuration](#lab-environment-configuration) before continuing.
+In the [AIP Analytics Dashboards](#aip-analytics-dashboards) exercise, we will show how to **Monitor AIP Usage, User Activity, and Data Risk** using the new Azure Log Analytics dashboards built into the AIP Azure Portal. :clock10: 5 min
 
-There are 2 options for this Lab.  These options contain similar content except for the items called out below.
+In the [Exchange IRM](#exchange-online-irm-capabilities) exercise, we will use Exchange PowerShell to create a Mail Flow Rule to prevent sensitive information from leaving your network in the clear.  We will also create a mail flow rule that prevents internal protected messages from accidentally being sent to external recipients who will be unable to open the content. :clock10: 10-15 min
 
-- The **New to AIP** option will walk through the label and policy creation including scoped policies and demonstrating recommended and automatic labeling in Office applications. This option takes significantly longer and so there is a chance that all sections may not be completed.
+Click on one of the options below to begin. At the end of each section, there will be a summary and links to the other sections so you may continue from that point.
 
-- The **Familiar with AIP** option assumes that you are familiar with label and policy creation and that you have seen the operation of conditions in Office applications as these will not be demonstrated.  This option will use the predefined labels and global policy populated in the demo tenants.
+- [AIP Scanner Discovery](#aip-scanner-discovery)
+- [Base Configuration](#base-configuration)
+- [Bulk Classification](#bulk-classification)
+- [AIP Scanner CLP](#aip-scanner-classification-labeling-and-protection)
+- [Security and Compliance Center](#security-and-compliance-center)
+- [AIP Analytics Dashboards](#aip-analytics-dashboards)
+- [Exchange IRM](#exchange-online-irm-capabilities)
 
-Click on one of the options below to begin.
+---
 
-## [New to AIP](#exercise-1-configuring-aip-scanner-for-discovery)
-
-## [Familiar with AIP](#configuring-aip-scanner-for-discovery)
