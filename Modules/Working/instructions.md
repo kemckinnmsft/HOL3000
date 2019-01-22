@@ -1316,10 +1316,16 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
     >```Pa$$w0rd```
 
 4. [] In the documents folder, open one of the pdf files.
-5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(82).TenantName``` and press OK.
+5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(82).TenantName``` and press **OK** or **Next**.
+
+	> [!NOTE] If prompted, provide the password ```pass@word1```.
+
 6. [] Click **Yes** to save credentials.
+7. [] In the **Permissions requested** dialog, click **Accept**.
 
 	> [!NOTE] The PDF will now open and display the sensitivity across the top of the document.
+	>
+	> !IMAGE[PDF](\Media\PDF.png)
 
 	> [!Knowledge] The latest version of Acrobat Reader DC and the MIP Plugin have been installed on this system prior to the lab. Additionally, the sensitivity does not display by default in Adobe Acrobat Reader DC.  You must make the modifications below to the registry to make this bar display.
 	>
