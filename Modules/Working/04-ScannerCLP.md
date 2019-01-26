@@ -21,6 +21,13 @@ The Azure Information Protection Scanner uses Automatic conditions to identify s
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 2. [] Open the browser window with the Azure Portal (AIP Blade).
+
+	> [!HINT] If necessary, open an InPrivate browsing session and navigate to ```https://portal.azure.com/#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/globalBlade``` and login with the credentials below. 
+	>
+	> ```@lab.CloudCredential(17).Username```
+	>
+	> ```@lab.CloudCredential(17).Password```
+
 3. [] Under **Dashboards** on the left, click on **Data discovery (Preview)** to view the results of the discovery scan we performed previously.
 
 	!IMAGE[Dashboard.png](\Media\Dashboard.png)
@@ -84,15 +91,14 @@ The Azure Information Protection Scanner uses Automatic conditions to identify s
 In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
-1. [] In an **Administrative PowerShell** window, run the commands below to run an enforced scan using defined policy.
+1. [] In an **Administrative PowerShell** window, type ```C:\Users\LabUser\Desktop\StartEnforce.ps1``` and press **Enter**. 
 
-    ```
-	Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
-	```
-	```
-	Start-AIPScan
-    ```
-
+    > [!KNOWLEDGE] The script runs the code below. This script is available online at https://aka.ms/labscripts
+	>
+	> Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
+	>
+	>Start-AIPScan
+    
 	> [!HINT] Note that this time we used the DiscoverInformationTypes -PolicyOnly switch before starting the scan. This will have the scanner only evaluate the conditions we have explicitly defined in conditions.  This increases the effeciency of the scanner and thus is much faster.  After reviewing the event log we will see the result of the enforced scan.
 	>
 	>!IMAGE[k3rox8ew.jpg](\Media\k3rox8ew.jpg)
@@ -135,11 +141,11 @@ Now that we have Classified and Protected documents using the scanner, we can re
 
 	> [!NOTE] If asked to log in, use the credentials below.
 	>
-	> ```AdamS@@lab.CloudCredential(82).TenantName```
+	> ```AdamS@@lab.CloudCredential(17).TenantName```
 	>
 	> ```pass@word1```
 
-    > [!NOTE] Observe that the document is classified as Confidential \ All Employees. 
+    > [!NOTE] Observe that the document is classified as Highly Confidential \ All Employees. 
     >
     > !IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
