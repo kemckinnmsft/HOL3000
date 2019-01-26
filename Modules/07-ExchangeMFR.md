@@ -9,44 +9,18 @@ Exchange Online can work in conjunction with Azure Information Protection to pro
 
 ## Configuring Exchange Online Mail Flow Rules
 
-In this task, we will configure a mail flow rule to detect sensitive information traversing the network in the clear and encrypt it using the Encrypt Only RMS Template.  We will also create a mail flow rule to prevent messages classified as Confidential \ Contoso Internal from being sent to external recipients.
+In this task, we will configure a mail flow rule to detect sensitive information traversing the network in the clear and encrypt it using the Encrypt Only RMS Template.  We will also create a mail flow rule to prevent messages classified as Confidential \ All Employees from being sent to external recipients.
 
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and open an **Admin PowerShell Prompt**.
 
-2. [] Type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
-
-	```
-	$UserCredential = Get-Credential
-	```
+1. [] In an **Administrative PowerShell** window, type ```C:\Users\LabUser\Desktop\EncryptSensitiveMFR.ps1``` and press **Enter**. 
+1. [] When prompted, provide the credentials below:
 
 	```@lab.CloudCredential(82).Username```
 
 	```@lab.CloudCredential(82).Password```
 
-	```
-	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
-	Import-PSSession $Session
-	```
-
-	> [!ALERT] If you did not run through the **Base Configuration** track, run the commands below to remove any rules preventing external collaboration.
-	>
-	> Get the active Mail Flow Rules by typing the command below:
-	>
-	> ```
-	> Get-TransportRule
-	> ```
-	>
-	> If a rule exists named something similar to **"Delete if sent outside the organization"**, run the code below to remove this rule.
-	>
-	> ```
-	> Remove-TransportRule *Delete*
-	> ```
-
-1. [] Create a new Exchange Online Mail Flow Rule using the code below:
-
-	```
-	New-TransportRule -Name "Encrypt external mails with sensitive content" -SentToScope NotInOrganization -ApplyRightsProtectionTemplate "Encrypt" -MessageContainsDataClassifications @(@{Name="ABA Routing Number"; minCount="1"},@{Name="Credit Card Number"; minCount="1"},@{Name="Drug Enforcement Agency (DEA) Number"; minCount="1"},@{Name="International Classification of Diseases (ICD-10-CM)"; minCount="1"},@{Name="International Classification of Diseases (ICD-9-CM)"; minCount="1"},@{Name="U.S. / U.K. Passport Number"; minCount="1"},@{Name="U.S. Bank Account Number"; minCount="1"},@{Name="U.S. Individual Taxpayer Identification Number (ITIN)"; minCount="1"},@{Name="U.S. Social Security Number (SSN)"; minCount="1"})
-	```
+	> [!NOTE] If prompted to remove a transport rule, hit **Enter**.
 
 	>[!KNOWLEDGE] This mail flow rule can be used to encrypt sensitive data leaving via email.  This can be customized to add additional sensitive data types. A breakdown of the command is listed below.
 	>
@@ -59,6 +33,18 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>-ApplyRightsProtectionTemplate "Encrypt" 
 	>
 	>-MessageContainsDataClassifications @(@{Name="ABA Routing Number"; minCount="1"},@{Name="Credit Card Number"; minCount="1"},@{Name="Drug Enforcement Agency (DEA) Number"; minCount="1"},@{Name="International Classification of Diseases (ICD-10-CM)"; minCount="1"},@{Name="International Classification of Diseases (ICD-9-CM)"; minCount="1"},@{Name="U.S. / U.K. Passport Number"; minCount="1"},@{Name="U.S. Bank Account Number"; minCount="1"},@{Name="U.S. Individual Taxpayer Identification Number (ITIN)"; minCount="1"},@{Name="U.S. Social Security Number (SSN)"; minCount="1"})
+
+    > [!KNOWLEDGE] The script runs the code below. This script is available online at https://aka.ms/labscripts
+	>
+	> $UserCredential = Get-Credential
+	>
+	>$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
+	Import-PSSession $Session
+	>
+	> If(Get-TransportRule *Delete*){Remove-TransportRule *Delete*}
+	>
+	> New-TransportRule -Name "Encrypt external mails with sensitive content" -SentToScope NotInOrganization -ApplyRightsProtectionTemplate "Encrypt" -MessageContainsDataClassifications @(@{Name="ABA Routing Number"; minCount="1"},@{Name="Credit Card Number"; minCount="1"},@{Name="Drug Enforcement Agency (DEA) Number"; minCount="1"},@{Name="International Classification of Diseases (ICD-10-CM)"; minCount="1"},@{Name="International Classification of Diseases (ICD-9-CM)"; minCount="1"},@{Name="U.S. / U.K. Passport Number"; minCount="1"},@{Name="U.S. Bank Account Number"; minCount="1"},@{Name="U.S. Individual Taxpayer Identification Number (ITIN)"; minCount="1"},@{Name="U.S. Social Security Number (SSN)"; minCount="1"})
+
 	
 	> [!HINT] Next, we need to capture the **Label ID** for the **Confidential \ All Employees** label. 
 
@@ -74,15 +60,17 @@ In this task, we will configure a mail flow rule to detect sensitive information
 
 	> [!ALERT] Make sure that there are no spaces before or after the Label ID as this will cause the mail flow rule to be ineffective.
 
-1. [] Next, return to the PowerShell window and type +++$labelid = "+++ then paste the **LabelID** for the **All Employees** label, type +++"+++, and press **Enter**.
-1. [] Now, create another Exchange Online Mail Flow Rule using the code below:
+1. [] Next, paste the copied value into a new txt file to use in the next step.
+1. [] In an **Administrative PowerShell** window, type ```C:\Users\LabUser\Desktop\BlockInternal.ps1``` and press **Enter**. 
+1. [] When prompted, provide the credentials below:
 
-	```
-	$labeltext = "MSIP_Label_"+$labelid+"_enabled=true"
-	New-TransportRule -name "Block Confidential Contoso All Employees" -SentToScope notinorganization -HeaderContainsMessageHeader  "msip_labels" -HeaderContainsWord $labeltext -RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
-	```
+	```@lab.CloudCredential(82).Username```
 
-	>[!KNOWLEDGE] This mail flow rule can be used to prevent internal only communications from being sent to an external audience.
+	```@lab.CloudCredential(82).Password```
+
+	> [!NOTE] If prompted to remove a transport rule, hit **Enter**.
+
+	> [!KNOWLEDGE] This mail flow rule can be used to prevent internal only communications from being sent to an external audience.
 	>
 	>New-TransportRule 
 	>
@@ -96,7 +84,23 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>
 	>-RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
 
-	>[!NOTE] In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
+	> [!KNOWLEDGE] The script runs the code below. This script is available online at https://aka.ms/labscripts
+	>
+	> $UserCredential = Get-Credential
+	>
+	>$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
+	Import-PSSession $Session
+	>
+	> Add-Type -AssemblyName Microsoft.VisualBasic
+	>
+	> $labelid = [Microsoft.VisualBasic.Interaction]::InputBox('Enter the LabelId for your All Employees Label', 'LabelId')
+	> 
+	> If(Get-TransportRule *Delete*){Remove-TransportRule *Delete*}
+	> 
+	> $labeltext = "MSIP_Label_"+$labelid+"_enabled=true"
+	New-TransportRule -name "Block Confidential Contoso All Employees" -SentToScope notinorganization -HeaderContainsMessageHeader  "msip_labels" -HeaderContainsWord $labeltext -RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
+
+	> [!NOTE] In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
 
 ---
 ## Demonstrating Exchange Online Mail Flow Rules

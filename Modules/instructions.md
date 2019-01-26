@@ -66,15 +66,15 @@ In this task, we will create new Azure AD users and assign licenses via PowerShe
 
 3. [] When prompted, provide the credentials below:
 
-	```@lab.CloudCredential(82).Username```
+	```@lab.CloudCredential(17).Username```
 
-	```@lab.CloudCredential(82).Password``` 
+	```@lab.CloudCredential(17).Password``` 
    
 1. [] In the PowerShell window, click on the code below to create users.
 
     ```
     # Store Tenant FQDN and Short name
-    $tenantfqdn = "@lab.CloudCredential(82).TenantName"
+    $tenantfqdn = "@lab.CloudCredential(17).TenantName"
     $tenant = $tenantfqdn.Split('.')[0]
 
     # Build Licensing SKUs
@@ -145,12 +145,12 @@ For several of the exercises in this lab series, you will require an active subs
 	!IMAGE[wdir7lb3.jpg](\Media\wdir7lb3.jpg)
 1. [] Enter the credentials below and select **Sign In**.
 
-	```@lab.CloudCredential(82).Username```
+	```@lab.CloudCredential(17).Username```
 
-	```@lab.CloudCredential(82).Password``` 
+	```@lab.CloudCredential(17).Password``` 
 
 	!IMAGE[gtg8pvp1.jpg](\Media\gtg8pvp1.jpg)
-1. [] Click **Confirm** if the email address **@lab.CloudCredential(82).Username** is listed.
+1. [] Click **Confirm** if the email address **@lab.CloudCredential(17).Username** is listed.
 
 	!IMAGE[teyx280d.jpg](\Media\teyx280d.jpg)
 7. [] **Click in the Promo code box** and type ```@lab.CloudCredential(215).PromoCode``` and click the **Claim Promo Code** button.
@@ -299,9 +299,9 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 
 1. [] In the same PowerShell window, run ```Connect-AzureAD``` and use the username and password below. 
 	
-	```@lab.CloudCredential(82).Username```
+	```@lab.CloudCredential(17).Username```
 	
-	```@lab.CloudCredential(82).Password```
+	```@lab.CloudCredential(17).Password```
 1. [] Next, click the **T** to **type the commands below** in the PowerShell window and press **Enter**. 
 
 	```
@@ -348,7 +348,7 @@ Now that you have installed the scanner bits, you need to get an Azure AD token 
 1. [] Restore the **Notepad** window and copy the **full Set-AIPAuthentication** command into this window and run it.
 1. [] When prompted, enter the username and password below:
 
-	```AIPScanner@@lab.CloudCredential(82).TenantName```
+	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
 	```Somepass1```
 
@@ -813,9 +813,9 @@ By default, many of the demo tenants provided block external communications via 
 	Import-PSSession $Session
 	```
 
-	> ```@lab.CloudCredential(82).Username```
+	> ```@lab.CloudCredential(17).Username```
 	>
-	> ```@lab.CloudCredential(82).Password```
+	> ```@lab.CloudCredential(17).Password```
 
 3. [] Get the active Mail Flow Rules by typing the command below:
 
@@ -838,7 +838,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 
 1. [] On @lab.VirtualMachine(Client03).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++.
 2. [] Launch Microsoft Outlook, and click **Accept and start Outlook**.
-3. [] In the username box, type ```EvanG@@lab.cloudcredential(82).TenantName``` and click **Connect**.
+3. [] In the username box, type ```EvanG@@lab.cloudcredential(17).TenantName``` and click **Connect**.
 4. [] When prompted, type ```pass@word1``` and Sign in.
 5. [] On the Use this account everywhere page, click **Yes** then click **Done**.
 6. [] Once configuration completes, **uncheck the box** to **Set up Outlook Mobile** and click **OK**.
@@ -865,7 +865,7 @@ One of the most common use cases for AIP is the ability to send emails using Use
 	> !IMAGE[6v6duzbd.jpg](\Media\6v6duzbd.jpg)
 
 10. [] Switch over to @lab.VirtualMachine(Client01).SelectLink, log in using the password +++@lab.VirtualMachine(Client01).Password+++ and open Outlook. 
-11. [] Run through setup, this time using the credentials ```AdamS@@lab.CloudCredential(82).TenantName``` and ```pass@word1```. 
+11. [] Run through setup, this time using the credentials ```AdamS@@lab.CloudCredential(17).TenantName``` and ```pass@word1```. 
 12. [] Review the email in Adam Smith’s Outlook.  You will notice that the email is automatically shown in Outlook natively.
 
    !IMAGE[0xby56qt.jpg](\Media\0xby56qt.jpg)
@@ -943,7 +943,7 @@ In this task, we will create a document and send an email from one of the users 
 
 	^IMAGE[Open Screenshot](\Media\ny1lwv0h.jpg)
 1. [] Switch to @lab.VirtualMachine(Client02).SelectLink and log in with the password +++@lab.VirtualMachine(Client01).Password+++.
-11. [] Run through setup, this time using the credentials ```AliceA@@lab.CloudCredential(82).TenantName``` and ```pass@word1```. 
+11. [] Run through setup, this time using the credentials ```AliceA@@lab.CloudCredential(17).TenantName``` and ```pass@word1```. 
 12. [] Review the email in Alice Anderson’s Outlook. You should be able to open the message natively in the client as Alice.
 
 	!IMAGE[qeqtd2yr.jpg](\Media\qeqtd2yr.jpg)
@@ -1038,7 +1038,7 @@ In this task, we will perform bulk classification using the built-in functionali
    !IMAGE[CandP.png](\Media\CandP.png)
 4. [] When prompted, click use another account and use the credentials below to authenticate:
 
-	```AIPScanner@@lab.CloudCredential(82).TenantName```
+	```AIPScanner@@lab.CloudCredential(17).TenantName```
 
 	```Somepass1```
 
@@ -1089,6 +1089,13 @@ The Azure Information Protection Scanner uses Automatic conditions to identify s
 
 1. [] On @lab.VirtualMachine(Client01).SelectLink, log in with the password +++@lab.VirtualMachine(Client01).Password+++.
 2. [] Open the browser window with the Azure Portal (AIP Blade).
+
+	> [!HINT] If necessary, open an InPrivate browsing session and navigate to ```https://portal.azure.com/#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/globalBlade``` and login with the credentials below. 
+	>
+	> ```@lab.CloudCredential(17).Username```
+	>
+	> ```@lab.CloudCredential(17).Password```
+
 3. [] Under **Dashboards** on the left, click on **Data discovery (Preview)** to view the results of the discovery scan we performed previously.
 
 	!IMAGE[Dashboard.png](\Media\Dashboard.png)
@@ -1152,15 +1159,14 @@ The Azure Information Protection Scanner uses Automatic conditions to identify s
 In this task, we will set the AIP scanner to enforce the conditions we set up in the previous task and have it rerun on all files using the Start-AIPScan command.
 
 1. [] Switch to @lab.VirtualMachine(Scanner01).SelectLink and log in with the password +++@lab.VirtualMachine(Scanner01).Password+++.
-1. [] In an **Administrative PowerShell** window, run the commands below to run an enforced scan using defined policy.
+1. [] In an **Administrative PowerShell** window, type ```C:\Users\LabUser\Desktop\StartEnforce.ps1``` and press **Enter**. 
 
-    ```
-	Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
-	```
-	```
-	Start-AIPScan
-    ```
-
+    > [!KNOWLEDGE] The script runs the code below. This script is available online at https://aka.ms/labscripts
+	>
+	> Set-AIPScannerConfiguration -Enforce On -DiscoverInformationTypes PolicyOnly
+	>
+	>Start-AIPScan
+    
 	> [!HINT] Note that this time we used the DiscoverInformationTypes -PolicyOnly switch before starting the scan. This will have the scanner only evaluate the conditions we have explicitly defined in conditions.  This increases the effeciency of the scanner and thus is much faster.  After reviewing the event log we will see the result of the enforced scan.
 	>
 	>!IMAGE[k3rox8ew.jpg](\Media\k3rox8ew.jpg)
@@ -1203,11 +1209,11 @@ Now that we have Classified and Protected documents using the scanner, we can re
 
 	> [!NOTE] If asked to log in, use the credentials below.
 	>
-	> ```AdamS@@lab.CloudCredential(82).TenantName```
+	> ```AdamS@@lab.CloudCredential(17).TenantName```
 	>
 	> ```pass@word1```
 
-    > [!NOTE] Observe that the document is classified as Confidential \ All Employees. 
+    > [!NOTE] Observe that the document is classified as Highly Confidential \ All Employees. 
     >
     > !IMAGE[s1okfpwu.jpg](\Media\s1okfpwu.jpg)
 
@@ -1317,7 +1323,7 @@ The previous step enabled the AIP labels for use in the Security and Compliance 
     >```Pa$$w0rd```
 
 4. [] In the documents folder, open one of the pdf files.
-5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(82).TenantName``` and press **OK** or **Next**.
+5. [] When prompted by Adobe, enter ```AdamS@@lab.CloudCredential(17).TenantName``` and press **OK** or **Next**.
 
 	> [!NOTE] If prompted, provide the password ```pass@word1```.
 
@@ -1411,44 +1417,18 @@ Exchange Online can work in conjunction with Azure Information Protection to pro
 
 ## Configuring Exchange Online Mail Flow Rules
 
-In this task, we will configure a mail flow rule to detect sensitive information traversing the network in the clear and encrypt it using the Encrypt Only RMS Template.  We will also create a mail flow rule to prevent messages classified as Confidential \ Contoso Internal from being sent to external recipients.
+In this task, we will configure a mail flow rule to detect sensitive information traversing the network in the clear and encrypt it using the Encrypt Only RMS Template.  We will also create a mail flow rule to prevent messages classified as Confidential \ All Employees from being sent to external recipients.
 
 1. [] Switch to @lab.VirtualMachine(Client01).SelectLink and open an **Admin PowerShell Prompt**.
 
-2. [] Type the commands below to connect to an Exchange Online PowerShell session.  Use the credentials provided when prompted.
+1. [] In an **Administrative PowerShell** window, type ```C:\Users\LabUser\Desktop\EncryptSensitiveMFR.ps1``` and press **Enter**. 
+1. [] When prompted, provide the credentials below:
 
-	```
-	$UserCredential = Get-Credential
-	```
+	```@lab.CloudCredential(17).Username```
 
-	```@lab.CloudCredential(82).Username```
+	```@lab.CloudCredential(17).Password```
 
-	```@lab.CloudCredential(82).Password```
-
-	```
-	$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
-	Import-PSSession $Session
-	```
-
-	> [!ALERT] If you did not run through the **Base Configuration** track, run the commands below to remove any rules preventing external collaboration.
-	>
-	> Get the active Mail Flow Rules by typing the command below:
-	>
-	> ```
-	> Get-TransportRule
-	> ```
-	>
-	> If a rule exists named something similar to **"Delete if sent outside the organization"**, run the code below to remove this rule.
-	>
-	> ```
-	> Remove-TransportRule *Delete*
-	> ```
-
-1. [] Create a new Exchange Online Mail Flow Rule using the code below:
-
-	```
-	New-TransportRule -Name "Encrypt external mails with sensitive content" -SentToScope NotInOrganization -ApplyRightsProtectionTemplate "Encrypt" -MessageContainsDataClassifications @(@{Name="ABA Routing Number"; minCount="1"},@{Name="Credit Card Number"; minCount="1"},@{Name="Drug Enforcement Agency (DEA) Number"; minCount="1"},@{Name="International Classification of Diseases (ICD-10-CM)"; minCount="1"},@{Name="International Classification of Diseases (ICD-9-CM)"; minCount="1"},@{Name="U.S. / U.K. Passport Number"; minCount="1"},@{Name="U.S. Bank Account Number"; minCount="1"},@{Name="U.S. Individual Taxpayer Identification Number (ITIN)"; minCount="1"},@{Name="U.S. Social Security Number (SSN)"; minCount="1"})
-	```
+	> [!NOTE] If prompted to remove a transport rule, hit **Enter**.
 
 	>[!KNOWLEDGE] This mail flow rule can be used to encrypt sensitive data leaving via email.  This can be customized to add additional sensitive data types. A breakdown of the command is listed below.
 	>
@@ -1461,6 +1441,18 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>-ApplyRightsProtectionTemplate "Encrypt" 
 	>
 	>-MessageContainsDataClassifications @(@{Name="ABA Routing Number"; minCount="1"},@{Name="Credit Card Number"; minCount="1"},@{Name="Drug Enforcement Agency (DEA) Number"; minCount="1"},@{Name="International Classification of Diseases (ICD-10-CM)"; minCount="1"},@{Name="International Classification of Diseases (ICD-9-CM)"; minCount="1"},@{Name="U.S. / U.K. Passport Number"; minCount="1"},@{Name="U.S. Bank Account Number"; minCount="1"},@{Name="U.S. Individual Taxpayer Identification Number (ITIN)"; minCount="1"},@{Name="U.S. Social Security Number (SSN)"; minCount="1"})
+
+    > [!KNOWLEDGE] The script runs the code below. This script is available online at https://aka.ms/labscripts
+	>
+	> $UserCredential = Get-Credential
+	>
+	>$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
+	Import-PSSession $Session
+	>
+	> If(Get-TransportRule *Delete*){Remove-TransportRule *Delete*}
+	>
+	> New-TransportRule -Name "Encrypt external mails with sensitive content" -SentToScope NotInOrganization -ApplyRightsProtectionTemplate "Encrypt" -MessageContainsDataClassifications @(@{Name="ABA Routing Number"; minCount="1"},@{Name="Credit Card Number"; minCount="1"},@{Name="Drug Enforcement Agency (DEA) Number"; minCount="1"},@{Name="International Classification of Diseases (ICD-10-CM)"; minCount="1"},@{Name="International Classification of Diseases (ICD-9-CM)"; minCount="1"},@{Name="U.S. / U.K. Passport Number"; minCount="1"},@{Name="U.S. Bank Account Number"; minCount="1"},@{Name="U.S. Individual Taxpayer Identification Number (ITIN)"; minCount="1"},@{Name="U.S. Social Security Number (SSN)"; minCount="1"})
+
 	
 	> [!HINT] Next, we need to capture the **Label ID** for the **Confidential \ All Employees** label. 
 
@@ -1476,15 +1468,17 @@ In this task, we will configure a mail flow rule to detect sensitive information
 
 	> [!ALERT] Make sure that there are no spaces before or after the Label ID as this will cause the mail flow rule to be ineffective.
 
-1. [] Next, return to the PowerShell window and type +++$labelid = "+++ then paste the **LabelID** for the **All Employees** label, type +++"+++, and press **Enter**.
-1. [] Now, create another Exchange Online Mail Flow Rule using the code below:
+1. [] Next, paste the copied value into a new txt file to use in the next step.
+1. [] In an **Administrative PowerShell** window, type ```C:\Users\LabUser\Desktop\BlockInternal.ps1``` and press **Enter**. 
+1. [] When prompted, provide the credentials below:
 
-	```
-	$labeltext = "MSIP_Label_"+$labelid+"_enabled=true"
-	New-TransportRule -name "Block Confidential Contoso All Employees" -SentToScope notinorganization -HeaderContainsMessageHeader  "msip_labels" -HeaderContainsWord $labeltext -RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
-	```
+	```@lab.CloudCredential(17).Username```
 
-	>[!KNOWLEDGE] This mail flow rule can be used to prevent internal only communications from being sent to an external audience.
+	```@lab.CloudCredential(17).Password```
+
+	> [!NOTE] If prompted to remove a transport rule, hit **Enter**.
+
+	> [!KNOWLEDGE] This mail flow rule can be used to prevent internal only communications from being sent to an external audience.
 	>
 	>New-TransportRule 
 	>
@@ -1498,7 +1492,23 @@ In this task, we will configure a mail flow rule to detect sensitive information
 	>
 	>-RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
 
-	>[!NOTE] In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
+	> [!KNOWLEDGE] The script runs the code below. This script is available online at https://aka.ms/labscripts
+	>
+	> $UserCredential = Get-Credential
+	>
+	>$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
+	Import-PSSession $Session
+	>
+	> Add-Type -AssemblyName Microsoft.VisualBasic
+	>
+	> $labelid = [Microsoft.VisualBasic.Interaction]::InputBox('Enter the LabelId for your All Employees Label', 'LabelId')
+	> 
+	> If(Get-TransportRule *Delete*){Remove-TransportRule *Delete*}
+	> 
+	> $labeltext = "MSIP_Label_"+$labelid+"_enabled=true"
+	New-TransportRule -name "Block Confidential Contoso All Employees" -SentToScope notinorganization -HeaderContainsMessageHeader  "msip_labels" -HeaderContainsWord $labeltext -RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
+
+	> [!NOTE] In a production environment, customers would want to create a rule like this for each of their labels that they did not want going externally.
 
 ---
 ## Demonstrating Exchange Online Mail Flow Rules
@@ -1512,7 +1522,7 @@ In this task, we will send emails to demonstrate the results of the Exchange Onl
 
 1. [] Log in using the credentials below.
 
-	> ```EvanG@@lab.CloudCredential(82).TenantName```
+	> ```EvanG@@lab.CloudCredential(17).TenantName```
 	>
 	> ```pass@word1```
 
