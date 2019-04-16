@@ -1504,8 +1504,8 @@ In this task, we will configure a mail flow rule to detect sensitive information
 1. Now, create another Exchange Online Mail Flow Rule using the code below:
 
 	```
-	$labeltext = "MSIP_Label_"+$labelid+"_enabled=true"
-	New-TransportRule -name "Block Confidential Contoso All Employees" -SentToScope notinorganization -HeaderContainsMessageHeader  "msip_labels" -HeaderContainsWord $labeltext -RejectMessageReasonText “Contoso internal messages cannot be sent to external recipients.”
+	$labeltext = "MSIP_Label_"+$labelid+"_Enabled=true"
+	New-TransportRule -name "Block Confidential Contoso All Employees" -SentToScope notinorganization -HeaderContainsMessageHeader  "msip_labels" -HeaderContainsWord $labeltext -RejectMessageReasonText "Contoso internal messages cannot be sent to external recipients."
 	```
 
 	>Additional Information: This mail flow rule can be used to prevent internal only communications from being sent to an external audience.
